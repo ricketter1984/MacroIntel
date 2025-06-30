@@ -1,5 +1,6 @@
 import os
 import smtplib
+import requests
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
@@ -9,9 +10,50 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def generate_fear_greed_placeholder():
-    """Generate a placeholder for Fear & Greed index (hardcoded for now)"""
-    # Placeholder - in production, this would fetch from CNN API
-    return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism"
+    """Generate Fear & Greed index using real API or fallback to placeholder"""
+    fear_greed_api_key = os.getenv("FEAR_GREED_API_KEY")
+    fear_greed_api_host = "cnn-fear-and-greed-index.p.rapidapi.com"  # Fixed host
+    
+    if not fear_greed_api_key:
+        print("⚠️ FEAR_GREED_API_KEY not found in environment variables")
+        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Key Missing]"
+    
+    try:
+        url = "https://cnn-fear-and-greed-index.p.rapidapi.com/cnn/v1/fear_and_greed/index"
+        headers = {
+            "x-rapidapi-key": fear_greed_api_key,  # Fixed header key
+            "x-rapidapi-host": fear_greed_api_host  # Fixed header key
+        }
+        
+        response = requests.get(url, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            data = response.json()
+            score = data.get("fear_and_greed", {}).get("score", 50)
+            classification = data.get("fear_and_greed", {}).get("rating", "Neutral")
+            
+            # Map classification to emoji and description
+            classification_map = {
+                "extreme fear": "😱",
+                "fear": "😨", 
+                "neutral": "😐",
+                "greed": "😏",
+                "extreme greed": "🤑"
+            }
+            
+            emoji = classification_map.get(classification.lower(), "📊")
+            
+            return f"Fear & Greed Index: {score} ({classification.title()}) {emoji} - Market showing {classification} sentiment"
+        else:
+            print(f"⚠️ Fear & Greed API error: {response.status_code}")
+            return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Error]"
+            
+    except requests.exceptions.RequestException as e:
+        print(f"⚠️ Fear & Greed API request failed: {str(e)}")
+        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Unavailable]"
+    except Exception as e:
+        print(f"⚠️ Fear & Greed API error: {str(e)}")
+        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Error]"
 
 def generate_sector_heatmap_placeholder():
     """Generate a placeholder for sector heatmap"""
@@ -170,8 +212,8 @@ def send_daily_report(articles, limit=25):
         # Create message
         msg = MIMEMultipart('alternative')
         msg['Subject'] = f"📰 MacroIntel Daily Report - {datetime.now().strftime('%B %d, %Y')}"
-        msg['From'] = sender_email
-        msg['To'] = receiver_email
+        msg['From'] = str(sender_email)  # Ensure it's a string
+        msg['To'] = str(receiver_email)  # Ensure it's a string
         
         # Generate HTML content
         html_content = generate_email_content(articles, limit)
@@ -185,7 +227,7 @@ def send_daily_report(articles, limit=25):
         
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
-            server.login(sender_email, sender_password)
+            server.login(str(sender_email), str(sender_password))  # Ensure they're strings
             server.send_message(msg)
         
         print("✅ Daily report sent successfully!")
