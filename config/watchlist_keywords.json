@@ -1,0 +1,18 @@
+{
+  "tickers": [
+    "MYM", "MES", "MNQ", "M2K", "MGC", "MCL", "MBT", "MET", "E7", "J7",
+    "BTC", "ETH", "SOL", "AVAX", "COIN", "MARA", "RIOT", "GOLD", "PAXG"
+  ],
+  "macro_keywords": [
+    "Federal Reserve", "CPI", "Middle East", "Oil", "Gold", "recession",
+    "Nvidia", "earnings", "jobs report", "inflation", "interest rates",
+    "crypto regulations", "Trump", "Iran", "FOMC", "GDP", "unemployment",
+    "retail sales", "housing market", "trade war", "geopolitical",
+    "OPEC", "energy crisis", "supply chain", "manufacturing", "ISM",
+    "PMI", "consumer confidence", "retail sales", "durable goods"
+  ],
+  "sectors": [
+    "technology", "financial", "energy", "healthcare", "consumer",
+    "industrial", "materials", "utilities", "real estate", "communication"
+  ]
+} 
