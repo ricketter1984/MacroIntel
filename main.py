@@ -4,6 +4,14 @@ from news_scanner.news_insight_feed import scan_relevant_news
 from email_report import send_daily_report, generate_text_report
 from utils.api_clients import init_env
 
+# Import visual query engine
+try:
+    from visual_query_engine import generate_extreme_fear_chart
+    VISUAL_ENGINE_AVAILABLE = True
+except ImportError:
+    print("⚠️ Visual query engine not available - charts will be skipped")
+    VISUAL_ENGINE_AVAILABLE = False
+
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='MacroIntel News Scanner and Email Reporter')
@@ -15,6 +23,8 @@ def main():
                        help='Send daily email report')
     parser.add_argument('--text-only', action='store_true', 
                        help='Generate text report instead of HTML email')
+    parser.add_argument('--chart', action='store_true', 
+                       help='Generate extreme fear chart if conditions are met')
     
     args = parser.parse_args()
     
@@ -28,6 +38,16 @@ def main():
     init_env()
     
     print("🚀 MacroIntel News Scanner Starting...\n")
+    
+    # Check for extreme fear chart if requested
+    if args.chart and VISUAL_ENGINE_AVAILABLE:
+        print("📊 Checking for extreme fear conditions...")
+        chart_path = generate_extreme_fear_chart()
+        if chart_path:
+            print(f"✅ Extreme fear chart generated: {chart_path}")
+        else:
+            print("😌 No extreme fear detected - chart not generated")
+        print()
     
     # Check economic events
     print("📆 Checking today's economic events...\n")
@@ -64,7 +84,7 @@ def main():
             print("="*60)
             print(text_report)
         else:
-            # Send HTML email
+            # Send HTML email (will automatically include extreme fear chart if available)
             success = send_daily_report(relevant_articles, limit)
             if success:
                 print("✅ Email report sent successfully!")

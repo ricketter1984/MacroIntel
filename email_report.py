@@ -7,6 +7,14 @@ from email.mime.image import MIMEImage
 from datetime import datetime
 from dotenv import load_dotenv
 
+# Import visual query engine
+try:
+    from visual_query_engine import generate_extreme_fear_chart
+    VISUAL_ENGINE_AVAILABLE = True
+except ImportError:
+    print("⚠️ Visual query engine not available - charts will be skipped")
+    VISUAL_ENGINE_AVAILABLE = False
+
 load_dotenv()
 
 def generate_fear_greed_placeholder():
@@ -112,6 +120,23 @@ def generate_email_content(articles, limit=25):
     sector_heatmap = generate_sector_heatmap_placeholder()
     sentiment_gauge = generate_sentiment_gauge_placeholder()
     
+    # Check for extreme fear chart
+    extreme_fear_chart_html = ""
+    if VISUAL_ENGINE_AVAILABLE:
+        try:
+            chart_path = generate_extreme_fear_chart()
+            if chart_path and os.path.exists(chart_path):
+                extreme_fear_chart_html = f"""
+                <div style="margin: 20px 0; padding: 15px; background: #2c3e50; border-radius: 5px;">
+                    <h3>😱 Extreme Fear Alert - Asset Performance Analysis</h3>
+                    <p>Market fear detected! Here's how key assets are performing during this period:</p>
+                    <img src="cid:fear_chart" style="width: 100%; max-width: 600px; height: auto; border-radius: 5px;">
+                    <p><small>Chart shows 1-year performance comparison of BTC, Gold, and QQQ</small></p>
+                </div>
+                """
+        except Exception as e:
+            print(f"⚠️ Error generating extreme fear chart: {str(e)}")
+    
     # Start HTML content
     html_content = f"""
     <!DOCTYPE html>
@@ -146,6 +171,8 @@ def generate_email_content(articles, limit=25):
             {sector_heatmap}
             {sentiment_gauge}
         </div>
+        
+        {extreme_fear_chart_html}
         
         <h2>📰 Relevant Headlines</h2>
     """
@@ -221,6 +248,20 @@ def send_daily_report(articles, limit=25):
         # Attach HTML content
         html_part = MIMEText(html_content, 'html')
         msg.attach(html_part)
+        
+        # Check for extreme fear chart and attach if available
+        if VISUAL_ENGINE_AVAILABLE:
+            try:
+                chart_path = generate_extreme_fear_chart()
+                if chart_path and os.path.exists(chart_path):
+                    with open(chart_path, 'rb') as f:
+                        img_data = f.read()
+                        image = MIMEImage(img_data)
+                        image.add_header('Content-ID', '<fear_chart>')
+                        msg.attach(image)
+                        print(f"📊 Attached extreme fear chart: {chart_path}")
+            except Exception as e:
+                print(f"⚠️ Error attaching extreme fear chart: {str(e)}")
         
         # Send email
         print(f"📧 Sending daily report to {receiver_email}...")
