@@ -180,12 +180,12 @@ def fetch_all_news():
     all_news = []
     
     # Fetch from all sources
-    print("📰 Fetching news from all sources...")
+    print("\U0001F4F0 Fetching news from all sources...")
     
     # Benzinga news
     try:
         benzinga_news = fetch_benzinga_news()
-        print(f"✅ Benzinga: {len(benzinga_news)} articles")
+        print(f"\u2705 Benzinga: {len(benzinga_news)} articles")
         # Convert Benzinga format to standard format
         for item in benzinga_news:
             all_news.append({
@@ -196,37 +196,51 @@ def fetch_all_news():
                 "source": "benzinga"
             })
     except Exception as e:
-        print(f"❌ Benzinga fetch failed: {e}")
+        print(f"\u274c Benzinga fetch failed: {e}")
     
     # FMP news
     try:
         fmp_news = fetch_fmp_news()
-        print(f"✅ FMP: {len(fmp_news)} articles")
+        print(f"\u2705 FMP: {len(fmp_news)} articles")
         for item in fmp_news:
-            item["source"] = "fmp"
-            all_news.append(item)
+            all_news.append({
+                "title": item.get("title", ""),
+                "body": item.get("body", ""),
+                "url": item.get("url", ""),
+                "timestamp": item.get("timestamp", ""),
+                "source": "fmp"
+            })
     except Exception as e:
-        print(f"❌ FMP fetch failed: {e}")
+        print(f"\u274c FMP fetch failed: {e}")
     
     # Polygon news
     try:
         polygon_news = fetch_polygon_news()
-        print(f"✅ Polygon: {len(polygon_news)} articles")
+        print(f"\u2705 Polygon: {len(polygon_news)} articles")
         for item in polygon_news:
-            item["source"] = "polygon"
-            all_news.append(item)
+            all_news.append({
+                "title": item.get("title", ""),
+                "body": item.get("body", ""),
+                "url": item.get("url", ""),
+                "timestamp": item.get("timestamp", ""),
+                "source": "polygon"
+            })
     except Exception as e:
-        print(f"❌ Polygon fetch failed: {e}")
+        print(f"\u274c Polygon fetch failed: {e}")
     
     # Messari news
     try:
         messari_news = fetch_messari_news()
-        print(f"✅ Messari: {len(messari_news)} articles")
+        print(f"\u2705 Messari: {len(messari_news)} articles")
         for item in messari_news:
-            item["source"] = "messari"
-            all_news.append(item)
+            all_news.append({
+                "title": item.get("title", ""),
+                "body": item.get("body", ""),
+                "url": item.get("url", ""),
+                "timestamp": item.get("timestamp", ""),
+                "source": "messari"
+            })
     except Exception as e:
-        print(f"❌ Messari fetch failed: {e}")
+        print(f"\u274c Messari fetch failed: {e}")
     
-    print(f"📊 Total articles fetched: {len(all_news)}")
     return all_news

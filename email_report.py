@@ -6,6 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 from datetime import datetime
 from dotenv import load_dotenv
+from email.utils import formataddr
 
 # Import visual query engine
 try:
@@ -216,66 +217,40 @@ def generate_email_content(articles, limit=25):
     
     return html_content
 
-def send_daily_report(articles, limit=25):
+def send_daily_report(html_content):
     """
-    Send daily email report with relevant news
-    
+    Send the daily report email with the provided HTML content as the body.
     Args:
-        articles: List of summarized articles
-        limit: Maximum articles to include in report
+        html_content: The full HTML string to use as the email body.
+    Returns:
+        True if sent successfully, False otherwise.
     """
-    # Email configuration
     sender_email = os.getenv("EMAIL_SENDER")
-    sender_password = os.getenv("EMAIL_PASSWORD")
-    receiver_email = os.getenv("EMAIL_RECEIVER")
-    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
-    smtp_port = int(os.getenv("SMTP_PORT", "587"))
-    
-    if not all([sender_email, sender_password, receiver_email]):
-        print("⚠️ Email configuration incomplete. Check EMAIL_SENDER, EMAIL_PASSWORD, EMAIL_RECEIVER in .env")
-        return False
-    
+    sender_name = os.getenv("EMAIL_SENDER_NAME", "MacroIntel Bot")
+    recipient_email = os.getenv("EMAIL_RECIPIENT")
+    smtp_server = os.getenv("SMTP_SERVER")
+    smtp_port = int(os.getenv("SMTP_PORT", 587))
+    smtp_user = os.getenv("SMTP_USER")
+    smtp_password = os.getenv("SMTP_PASSWORD")
+    subject = os.getenv("EMAIL_SUBJECT", "MacroIntel Daily News Report")
+
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From'] = formataddr((sender_name, sender_email))
+    msg['To'] = recipient_email
+
+    # Attach the HTML content directly
+    msg.attach(MIMEText(html_content, 'html'))
+
     try:
-        # Create message
-        msg = MIMEMultipart('alternative')
-        msg['Subject'] = f"📰 MacroIntel Daily Report - {datetime.now().strftime('%B %d, %Y')}"
-        msg['From'] = str(sender_email)  # Ensure it's a string
-        msg['To'] = str(receiver_email)  # Ensure it's a string
-        
-        # Generate HTML content
-        html_content = generate_email_content(articles, limit)
-        
-        # Attach HTML content
-        html_part = MIMEText(html_content, 'html')
-        msg.attach(html_part)
-        
-        # Check for extreme fear chart and attach if available
-        if VISUAL_ENGINE_AVAILABLE:
-            try:
-                chart_path = generate_extreme_fear_chart()
-                if chart_path and os.path.exists(chart_path):
-                    with open(chart_path, 'rb') as f:
-                        img_data = f.read()
-                        image = MIMEImage(img_data)
-                        image.add_header('Content-ID', '<fear_chart>')
-                        msg.attach(image)
-                        print(f"📊 Attached extreme fear chart: {chart_path}")
-            except Exception as e:
-                print(f"⚠️ Error attaching extreme fear chart: {str(e)}")
-        
-        # Send email
-        print(f"📧 Sending daily report to {receiver_email}...")
-        
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
-            server.login(str(sender_email), str(sender_password))  # Ensure they're strings
-            server.send_message(msg)
-        
-        print("✅ Daily report sent successfully!")
+            server.login(smtp_user, smtp_password)
+            server.sendmail(sender_email, recipient_email, msg.as_string())
+        print(f"\U0001F4E7 Daily report sent successfully to {recipient_email}!")
         return True
-        
     except Exception as e:
-        print(f"❌ Error sending email: {str(e)}")
+        print(f"\u274c Failed to send daily report: {e}")
         return False
 
 def generate_text_report(articles, limit=25):

@@ -1,4 +1,10 @@
 import argparse
+import sys
+import os
+
+# Add agents directory to path for new swarm orchestrator
+sys.path.append(os.path.join(os.path.dirname(__file__), 'agents'))
+
 from event_tracker.econ_event_tracker import get_today_events
 from news_scanner.news_insight_feed import scan_relevant_news
 from email_report import send_daily_report, generate_text_report
@@ -15,6 +21,8 @@ except ImportError:
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='MacroIntel News Scanner and Email Reporter')
+    parser.add_argument('--swarm', action='store_true', 
+                       help='Use new agent swarm (recommended)')
     parser.add_argument('--engine', choices=['gpt', 'claude', 'gemini'], 
                        default='gpt', help='AI engine for summarization (default: gpt)')
     parser.add_argument('--limit', type=int, default=15, 
@@ -28,6 +36,39 @@ def main():
     
     args = parser.parse_args()
     
+    # Check if user wants to use the new agent swarm
+    if args.swarm:
+        print("🤖 Using new MacroIntel Agent Swarm...")
+        try:
+            from agents.swarm_orchestrator import MacroIntelSwarm
+            swarm = MacroIntelSwarm()
+            results = swarm.execute_swarm()
+            
+            if results.get("status") == "success":
+                summary = results.get("summary", {})
+                print("\n" + "="*60)
+                print("🤖 MACROINTEL SWARM EXECUTION SUMMARY")
+                print("="*60)
+                print(f"📊 Articles Processed: {summary.get('articles_processed', 0)}")
+                print(f"📈 Charts Generated: {summary.get('charts_generated', 0)}")
+                print(f"📘 Market Regime: {summary.get('market_regime', 'Unknown')}")
+                print(f"🎯 Strategies Selected: {summary.get('strategies_selected', 0)}")
+                print(f"📧 Email Sent: {'✅ Yes' if summary.get('email_sent', False) else '❌ No'}")
+                print(f"👥 Recipients: {summary.get('recipients_count', 0)}")
+                print(f"⏱️ Execution Time: {results.get('execution_time', 'Unknown')}")
+                print("="*60)
+                print("🎉 Agent swarm execution completed successfully!")
+            else:
+                print(f"❌ Swarm execution failed: {results.get('error', 'Unknown error')}")
+            
+            return
+        except ImportError:
+            print("❌ Agent swarm not available. Please ensure agents/ directory exists.")
+            return
+        except Exception as e:
+            print(f"❌ Error running agent swarm: {str(e)}")
+            print("Falling back to legacy mode...")
+    
     # Validate limit
     limit = args.limit
     if limit > 20:
@@ -37,7 +78,8 @@ def main():
     # Initialize environment
     init_env()
     
-    print("🚀 MacroIntel News Scanner Starting...\n")
+    print("🚀 MacroIntel News Scanner Starting (Legacy Mode)...\n")
+    print("💡 Tip: Use --swarm for the new agent swarm system")
     
     # Check for extreme fear chart if requested
     if args.chart and VISUAL_ENGINE_AVAILABLE:
@@ -85,7 +127,7 @@ def main():
             print(text_report)
         else:
             # Send HTML email (will automatically include extreme fear chart if available)
-            success = send_daily_report(relevant_articles, limit)
+            success = send_daily_report(relevant_articles)
             if success:
                 print("✅ Email report sent successfully!")
             else:

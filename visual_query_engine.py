@@ -12,10 +12,16 @@ import matplotlib.dates as mdates
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import warnings
-warnings.filterwarnings('ignore')
+import logging
+from query_parser import parse_condition
 
 # Load environment variables
 load_dotenv()
+
+FMP_API_KEY = os.getenv("FMP_API_KEY")
+FEAR_GREED_API_KEY = os.getenv("FEAR_GREED_API_KEY")
+TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
+POLYGON_API_KEY = os.getenv("POLYGON_API_KEY")
 
 class VisualQueryEngine:
     def __init__(self):
@@ -323,6 +329,147 @@ def main():
             
     except Exception as e:
         print(f"❌ Fatal error in Visual Query Engine: {str(e)}")
+
+def fetch_fear_greed_history(days=365):
+    # This API only gives current value, so we simulate a flat series for demo
+    url = "https://cnn-fear-and-greed-index.p.rapidapi.com/cnn/v1/fear_and_greed/index"
+    headers = {
+        "x-rapidapi-key": FEAR_GREED_API_KEY,
+        "x-rapidapi-host": "cnn-fear-and-greed-index.p.rapidapi.com"
+    }
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            data = response.json()
+            score = int(data.get("fear_and_greed", {}).get("score", 50))
+            today = datetime.now()
+            dates = pd.date_range(today - timedelta(days=days), today)
+            return pd.Series([score]*len(dates), index=dates, name='fear')
+        else:
+            logging.warning(f"Fear & Greed API error: {response.status_code}")
+            return None
+    except Exception as e:
+        logging.error(f"Error fetching Fear & Greed Index: {str(e)}")
+        return None
+
+def fetch_vix_history(days=365):
+    url = f"https://financialmodelingprep.com/api/v3/historical-price-full/VIX"
+    params = {
+        "apikey": FMP_API_KEY,
+        "from": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
+        "to": datetime.now().strftime("%Y-%m-%d")
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        if "historical" in data:
+            df = pd.DataFrame(data["historical"])
+            df['date'] = pd.to_datetime(df['date'])
+            df = df.set_index('date').sort_index()
+            return df[['close']].rename(columns={'close': 'vix'})
+    return None
+
+def fetch_asset_history(symbol, days=365):
+    url = f"https://financialmodelingprep.com/api/v3/historical-price-full/{symbol}"
+    params = {
+        "apikey": FMP_API_KEY,
+        "from": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
+        "to": datetime.now().strftime("%Y-%m-%d")
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        if "historical" in data:
+            df = pd.DataFrame(data["historical"])
+            df['date'] = pd.to_datetime(df['date'])
+            df = df.set_index('date').sort_index()
+            return df[['close']].rename(columns={'close': symbol})
+    return None
+
+def generate_comparison_chart(assets, condition=None, output_path="output/custom_query.png", days=365):
+    """
+    Generate a normalized performance comparison chart for given assets, filtered by condition.
+    assets: list of asset symbols (e.g. ["GLD", "USO", "SPY"])
+    condition: string like "fear < 30" or "vix > 20"
+    output_path: where to save the chart
+    days: number of days of history
+    """
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    # Fetch asset data
+    asset_dfs = {}
+    for symbol in assets:
+        df = fetch_asset_history(symbol, days=days)
+        if df is not None:
+            asset_dfs[symbol] = df
+        else:
+            logging.warning(f"No data for {symbol}")
+    if not asset_dfs:
+        logging.error("No asset data to plot.")
+        return
+    # Merge on date
+    merged = pd.concat(asset_dfs.values(), axis=1, join='inner')
+    # Fetch and merge condition data
+    filter_mask = pd.Series(True, index=merged.index)
+    if condition:
+        try:
+            cond = parse_condition(condition)
+            if cond['type'] == 'fear':
+                fear_series = fetch_fear_greed_history(days=days)
+                if fear_series is not None:
+                    # Align to merged index
+                    fear_series = fear_series.reindex(merged.index, method='nearest')
+                    op = cond['operator']
+                    val = cond['value']
+                    if op == '<':
+                        filter_mask = fear_series < val
+                    elif op == '>':
+                        filter_mask = fear_series > val
+                    elif op == '<=':
+                        filter_mask = fear_series <= val
+                    elif op == '>=':
+                        filter_mask = fear_series >= val
+                    elif op == '==':
+                        filter_mask = fear_series == val
+                    elif op == '!=':
+                        filter_mask = fear_series != val
+            elif cond['type'] == 'vix':
+                vix_df = fetch_vix_history(days=days)
+                if vix_df is not None:
+                    vix_series = vix_df['vix'].reindex(merged.index, method='nearest')
+                    op = cond['operator']
+                    val = cond['value']
+                    if op == '<':
+                        filter_mask = vix_series < val
+                    elif op == '>':
+                        filter_mask = vix_series > val
+                    elif op == '<=':
+                        filter_mask = vix_series <= val
+                    elif op == '>=':
+                        filter_mask = vix_series >= val
+                    elif op == '==':
+                        filter_mask = vix_series == val
+                    elif op == '!=':
+                        filter_mask = vix_series != val
+        except Exception as e:
+            logging.error(f"Error parsing or applying condition: {e}")
+    filtered = merged[filter_mask]
+    if filtered.empty:
+        logging.warning("No data after filtering by condition.")
+        return
+    # Normalize and plot
+    plt.figure(figsize=(12, 6))
+    for symbol in assets:
+        normed = filtered[symbol] / filtered[symbol].iloc[0] * 100
+        plt.plot(filtered.index, normed, label=symbol)
+    plt.title('Asset Performance Comparison')
+    plt.xlabel('Date')
+    plt.ylabel('Normalized Price (100 = start)')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+    logging.info(f"Chart saved to {output_path}")
+    return output_path
 
 if __name__ == "__main__":
     main() 

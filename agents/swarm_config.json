@@ -1,0 +1,164 @@
+{
+  "name": "MacroIntel Swarm",
+  "description": "Automated market intelligence and reporting system",
+  "version": "1.0.0",
+  "agents": [
+    {
+      "name": "summarizer",
+      "description": "Summarizes news from multiple sources",
+      "model": "claude-3-haiku-20240307",
+      "instructions": "You are a news summarization agent. Fetch and summarize news from Benzinga, Messari, Polygon, and FMP APIs. Focus on market-relevant headlines and provide concise summaries with sentiment analysis.",
+      "tools": ["fetch_news", "summarize_articles"],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "articles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {"type": "string"},
+                "summary": {"type": "string"},
+                "sentiment": {"type": "string"},
+                "source": {"type": "string"},
+                "url": {"type": "string"},
+                "timestamp": {"type": "string"}
+              }
+            }
+          },
+          "total_count": {"type": "number"},
+          "sources_processed": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    {
+      "name": "chart_generator",
+      "description": "Generates contextual market visualizations",
+      "model": "claude-3-haiku-20240307",
+      "instructions": "You are a chart generation agent. Analyze market conditions and trigger appropriate visualizations using the visual_query_engine. Focus on fear/greed conditions, asset comparisons, and market regime analysis.",
+      "tools": ["generate_chart", "analyze_market_conditions"],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "market_data": {"type": "object"},
+          "fear_greed_score": {"type": "number"},
+          "assets_to_compare": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "charts_generated": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chart_type": {"type": "string"},
+                "file_path": {"type": "string"},
+                "description": {"type": "string"},
+                "context": {"type": "string"}
+              }
+            }
+          },
+          "analysis_summary": {"type": "string"}
+        }
+      }
+    },
+    {
+      "name": "playbook_strategist",
+      "description": "Analyzes market conditions and selects trading strategies",
+      "model": "claude-3-haiku-20240307",
+      "instructions": "You are a trading strategy analyst. Use the playbook_interpreter to evaluate market conditions and select appropriate trading strategies based on VIX, Fear & Greed Index, and macro indicators.",
+      "tools": ["analyze_market_regime", "select_strategies", "check_disqualifiers"],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "market_data": {"type": "object"},
+          "current_conditions": {"type": "object"}
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "market_regime": {"type": "string"},
+          "selected_strategies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "description": {"type": "string"},
+                "confidence": {"type": "number"},
+                "conditions": {"type": "object"}
+              }
+            }
+          },
+          "avoid_list": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "macro_notes": {"type": "string"}
+        }
+      }
+    },
+    {
+      "name": "email_dispatcher",
+      "description": "Builds and sends comprehensive HTML email reports",
+      "model": "claude-3-haiku-20240307",
+      "instructions": "You are an email report dispatcher. Compile all analysis results into a comprehensive HTML email report and send it to subscribers. Include news summaries, charts, strategy recommendations, and market analysis.",
+      "tools": ["build_html_report", "send_email"],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "news_summary": {"type": "object"},
+          "charts": {"type": "object"},
+          "strategy_analysis": {"type": "object"},
+          "market_data": {"type": "object"}
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "email_sent": {"type": "boolean"},
+          "recipients": {"type": "array", "items": {"type": "string"}},
+          "report_summary": {"type": "string"},
+          "attachments": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  ],
+  "workflow": {
+    "type": "sequential",
+    "steps": [
+      {
+        "agent": "summarizer",
+        "description": "Fetch and summarize news from all sources",
+        "output_to": "chart_generator"
+      },
+      {
+        "agent": "chart_generator",
+        "description": "Generate contextual market visualizations",
+        "output_to": "playbook_strategist"
+      },
+      {
+        "agent": "playbook_strategist",
+        "description": "Analyze market conditions and select strategies",
+        "output_to": "email_dispatcher"
+      },
+      {
+        "agent": "email_dispatcher",
+        "description": "Build and send comprehensive email report",
+        "output_to": null
+      }
+    ]
+  },
+  "settings": {
+    "max_concurrent_agents": 1,
+    "timeout_seconds": 300,
+    "retry_attempts": 3,
+    "log_level": "INFO"
+  }
+} 
