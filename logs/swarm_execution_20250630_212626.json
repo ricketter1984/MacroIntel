@@ -1,0 +1,738 @@
+{
+  "status": "success",
+  "execution_time": "0:00:07.230154",
+  "start_time": "2025-06-30T21:26:19.034150",
+  "end_time": "2025-06-30T21:26:26.264304",
+  "agents": {
+    "summarizer": {
+      "articles": [
+        {
+          "title": "Mark Zuckerberg Once Predicted That This Technology Would Replace Your Phone — A Decade Later, How Far Is Meta From Delivering On A 'More Natural' Future",
+          "summary": "<p><strong>Meta Platforms, Inc. </strong>(NASDAQ:<a class=\"ticker\" href=\"https://www.benzinga.com/stock/META#NASDAQ\">META</a>) CEO <strong>Mark Zuckerberg</strong> once shared his bold vision, indicat...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/markets/tech/25/06/46186013/mark-zuckerberg-once-predicted-that-this-technology-would-replace-your-phone-a-decade-later-how-far-is-meta-from-delivering-on-a-more-natural-future",
+          "timestamp": "Mon, 30 Jun 2025 21:14:41 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Women Will Control Nearly Half of Wealth by 2030 — Here's How Their Investing Differs from Men",
+          "summary": "<p>Women are poised to hold a significantly larger share of global wealth in the coming years, with notable differences in how they manage and grow their financial assets compared to men.</p>\n\n\n\n<p>Ac...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/personal-finance/management/25/06/46185422/women-will-control-nearly-half-of-wealth-by-2030-heres-how-their-investing-differs-from-men",
+          "timestamp": "Mon, 30 Jun 2025 20:00:50 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "$100 Invested In HCA Healthcare 10 Years Ago Would Be Worth This Much Today",
+          "summary": "<p>HCA Healthcare (NYSE:<a class=\"ticker\" href=\"https://www.benzinga.com/stock/HCA#NYSE\">HCA</a>) has outperformed the market over the past 10 years by 3.78% on an annualized basis producing an averag...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/insights/news/25/06/46185234/100-invested-in-hca-healthcare-10-years-ago-would-be-worth-this-much-today",
+          "timestamp": "Mon, 30 Jun 2025 19:30:16 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Shooting Stars: Rocket Lab Breaks Records (And Stock Up 640% In Past Year), AST SpaceMobile Impresses Defense, Kuiper Grows",
+          "summary": "<p><strong>Rocket Lab USA Inc.</strong> (NASDAQ:<a class=\"ticker\" href=\"https://www.benzinga.com/stock/RKLB#NASDAQ\">RKLB</a>) completed a record launch turnaround, <strong>Amazon.com, Inc.</strong> (N...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/news/space/25/06/46185205/rocket-lab-breaks-records-and-stock-up-640-in-past-year-ast-spacemobile-impresses-defense-kuiper-grows",
+          "timestamp": "Mon, 30 Jun 2025 19:25:56 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "'Seems Like It'd Be Easier To Take Up An Abandoned House' — Some People Are Living In $100 A Month Storage Units To Save Money",
+          "summary": "<p>You've probably <a href=\"https://www.tiktok.com/t/ZTjTj7uMu/\">seen the viral TikTok</a>: a Pennsylvania couple cozied up inside a 12-by-12 climate-controlled storage unit, complete with a loveseat,...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/personal-finance/management/25/06/46184780/seems-like-itd-be-easier-to-take-up-an-abandoned-house-some-people-are-living-in-100-a-month-storage-units-to-save-money",
+          "timestamp": "Mon, 30 Jun 2025 18:31:33 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Addentax Group Q4 EPS $(0.32) Down From $0.29 YoY, Sales $929.041K Down From $1.297M YoY",
+          "summary": "Addentax Group (NASDAQ:<a class=\"ticker\" href=\"https://www.benzinga.com/stock/ATXG#NASDAQ\">ATXG</a>) reported quarterly losses of $(0.32) per share. This is a 210.34 percent decrease over earnings of ...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/news/earnings/25/06/46184742/addentax-group-q4-eps-0-32-down-from-0-29-yoy-sales-929-041k-down-from-1-297m-yoy",
+          "timestamp": "Mon, 30 Jun 2025 18:22:31 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "P/E Ratio Insights for Parker Hannifin",
+          "summary": "<p>In the current market session, <strong>Parker Hannifin Inc. (NYSE:<a class=\"ticker\" href=\"https://www.benzinga.com/stock/PH#NYSE\">PH</a>)</strong> stock price is at $698.47, after a <strong>0.30%</...",
+          "sentiment": "Neutral",
+          "source": "benzinga",
+          "url": "https://www.benzinga.com/insights/news/25/06/46184589/pe-ratio-insights-for-parker-hannifin",
+          "timestamp": "Mon, 30 Jun 2025 18:08:01 -0400",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Acceleware Announces Non-Brokered Private Placement of Units and Shares for Debt Transactions",
+          "summary": "CALGARY, Alberta, June 30, 2025 (GLOBE NEWSWIRE) -- Acceleware® Ltd. (“Acceleware” or the “Company”) (TSX-V: AXE), a leading innovator of cutting-edge radio frequency (“RF”) power-to-heat technologies...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107977/0/en/Acceleware-Announces-Non-Brokered-Private-Placement-of-Units-and-Shares-for-Debt-Transactions.html",
+          "timestamp": "2025-06-30 21:17:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Oracle (ORCL) Stock Hits an All-Time High Amid Increased Cloud Demand",
+          "summary": "Optimism surrounding Oracle's (ORCL) cloud and AI infrastructure endeavors pushed its stock to an all-time high of $228 a share on Monday....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.zacks.com/commentary/2558525/oracle-orcl-stock-hits-an-all-time-high-amid-increased-cloud-demand?cid=CS-STOCKNEWSAPI-FT-investment_ideas-2558525",
+          "timestamp": "2025-06-30 21:01:04",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Nvidia's leading AI chips now — but what happens if China catches up?",
+          "summary": "As AI accelerates, the race for dominance in chips, AI, and code could reshape global power dynamics, George Chen, Managing Director and Co-Chair of the Digital Practice at The Asia Group, told CNBC a...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.youtube.com/shorts/z7RtSSMxCvc",
+          "timestamp": "2025-06-30 21:00:33",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Is Investigating Apple and Sable and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, June 30, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against Apple Inc. (NASDAQ:AAPL) and Sab...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107975/0/en/Bragar-Eagel-Squire-P-C-Is-Investigating-Apple-and-Sable-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-06-30 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Jim Cramer Said Palantir Is a ” Must-Own” Stock. 3 Reasons He Is Absolutely Right",
+          "summary": "Jim Cramer is a popular television personality and a former hedge fund manager. He has made some interesting stock predictions in the past, and as an anchor on Squawk on the Street and host of Mad Mon...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://247wallst.com/investing/2025/06/30/jim-cramer-said-palantir-is-a-must-own-stock-3-reasons-he-is-absolutely-right/",
+          "timestamp": "2025-06-30 20:49:13",
+          "affected_tickers": ""
+        },
+        {
+          "title": "RCAT Stock News: Robbins LLP Reminds Red Cat Holdings, Inc. Investors of the Pending Lead Plaintiff Deadline in the RCAT Class Action – Contact Robbins LLP Before July 22 for Information",
+          "summary": "SAN DIEGO, June 30, 2025 (GLOBE NEWSWIRE) -- Robbins LLP reminds stockholders that a class action was filed on behalf of investors who purchased or otherwise acquired Red Cat Holdings, Inc. (NASDAQ: R...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107962/32719/en/RCAT-Stock-News-Robbins-LLP-Reminds-Red-Cat-Holdings-Inc-Investors-of-the-Pending-Lead-Plaintiff-Deadline-in-the-RCAT-Class-Action-Contact-Robbins-LLP-Before-July-22-for-Informatio.html",
+          "timestamp": "2025-06-30 20:42:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Oil edges down on expectations of more OPEC+ supply, tariff fears",
+          "summary": "Oil prices edged down on Tuesday, weighed by expectations of an OPEC+ output hike in August and concerns of an economic slowdown driven by prospects of higher U.S. tariffs....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/business/energy/oil-edges-down-expectations-more-opec-supply-tariff-fears-2025-07-01/",
+          "timestamp": "2025-06-30 20:41:04",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Mesoblast and FDA Align on Key Items for Revascor® Biologic License Application in Ischemic Heart Failure",
+          "summary": "NEW YORK, June 30, 2025 (GLOBE NEWSWIRE) -- Mesoblast (Nasdaq:MESO; ASX:MSB), global leader in allogeneic cellular medicines for inflammatory diseases, today announced alignment with the United States...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107960/0/en/Mesoblast-and-FDA-Align-on-Key-Items-for-Revascor-Biologic-License-Application-in-Ischemic-Heart-Failure.html",
+          "timestamp": "2025-06-30 20:36:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "PetVivo Holdings, Inc. (PETV) Q4 2025 Earnings Call Transcript",
+          "summary": "PetVivo Holdings, Inc. (OTCPK:PETV) Q4 2025 Earnings Conference Call June 30, 2025 5:00 PM ET Company Participants Garry N. Lowenthal - Chief Financial Officer John Lai - CEO, President & Director Joh...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4798458-petvivo-holdings-inc-petv-q4-2025-earnings-call-transcript",
+          "timestamp": "2025-06-30 20:30:01",
+          "affected_tickers": ""
+        },
+        {
+          "title": "STLLR Files the NI 43-101 Technical Report for the Tower Gold Project Updated Mineral Resource Estimate and Preliminary Economic Assessment",
+          "summary": "Toronto, Ontario--(Newsfile Corp. - June 30, 2025) - STLLR Gold Inc. (TSX: STLR) (OTCQX: STLRF) (FSE: O9D) (\"STLLR\" or the \"Company\") announced the filing of a Technical Report for the updated Mineral...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/257121/STLLR-Files-the-NI-43101-Technical-Report-for-the-Tower-Gold-Project-Updated-Mineral-Resource-Estimate-and-Preliminary-Economic-Assessment",
+          "timestamp": "2025-06-30 20:27:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Mosaic Thrives On Strong Fertilizer Prices, But Trade War Fears Persist",
+          "summary": "Mosaic's Q1 beat and margin improvements were driven by higher fertilizer prices and Brazil's agricultural recovery, boosting near-term optimism. Phosphates production issues in Louisiana and ongoing ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4798452-mosaic-stock-thrives-on-strong-fertilizer-prices-but-trade-war-fears-persist",
+          "timestamp": "2025-06-30 20:17:46",
+          "affected_tickers": ""
+        },
+        {
+          "title": "These Artificial Intelligence (AI) Stocks Are Quietly Outperforming the Market",
+          "summary": "Artificial intelligence (AI) has dominated the stock market since the launch of ChatGPT in late 2022. At that time, the S&P 500 was in a bear market following the post-pandemic hangover and a spike in...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/these-artificial-intelligence-ai-stocks-are-quietl/",
+          "timestamp": "2025-06-30 20:17:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Ray Dalio Should Have Investors Rethinking their Strategy Around These 3 Holdings",
+          "summary": "Say what you want about bond king Ray Dalio, but the CEO of Bridgewater Associates is very opinionated and is what I would call a high-conviction investor....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://247wallst.com/investing/2025/06/30/ray-dalio-should-have-investors-rethinking-their-strategy-around-these-3-holdings/",
+          "timestamp": "2025-06-30 20:16:55",
+          "affected_tickers": ""
+        },
+        {
+          "title": "OGN Stock News: Robbins LLP Reminds Organon & Co. Investors of the Pending Lead Plaintiff Deadline in the OGN Class Action – Contact Robbins LLP Before July 22 for Information",
+          "summary": "SAN DIEGO, June 30, 2025 (GLOBE NEWSWIRE) -- Robbins LLP reminds stockholders that a class action was filed on behalf of investors who purchased or otherwise acquired Organon & Co. (NYSE: OGN) securit...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107954/32719/en/OGN-Stock-News-Robbins-LLP-Reminds-Organon-Co-Investors-of-the-Pending-Lead-Plaintiff-Deadline-in-the-OGN-Class-Action-Contact-Robbins-LLP-Before-July-22-for-Information.html",
+          "timestamp": "2025-06-30 20:16:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Could Lululemon Be a Millionaire-Maker Stock?",
+          "summary": "The world of apparel is ever changing. Lululemon Athletica (LULU 1.10%) is feeling the brunt of a recent consumer change, as shoppers flock to competing retail brands and spend less on athleisure than...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/could-lululemon-be-a-millionaire-maker-stock/",
+          "timestamp": "2025-06-30 20:15:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Stock Split Watch: Is CrowdStrike Next?",
+          "summary": "Last year was a big one for stock splits, with some of the market's most exciting companies, from Nvidia to Broadcom and Chipotle Mexican Grill, taking part. Investors always are on the lookout for th...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/stock-split-watch-is-crowdstrike-next/",
+          "timestamp": "2025-06-30 20:10:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "What Are the 5 Best Pipeline Stocks to Buy Right Now?",
+          "summary": "The pipeline sector offers investors a nice mix of high yields, predictable cash flows, and solid growth. And with natural gas demand set to climb thanks to liquefied natural gas (LNG) exports and ene...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/what-are-the-5-best-pipeline-stocks-to-buy-right-n/",
+          "timestamp": "2025-06-30 20:05:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Amazon CEO Jassy says AI will lead to 'fewer people doing some of the jobs' that get automated",
+          "summary": "Amazon CEO Andy Jassy said the rapid rollout of generative AI means the company will one day require fewer employees to do some of the jobs that get automated by the technology. Jassy told CNBC's Jim ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.cnbc.com/2025/06/30/amazon-ceo-says-ai-will-mean-fewer-people-do-jobs-that-get-automated.html",
+          "timestamp": "2025-06-30 20:01:07",
+          "affected_tickers": ""
+        },
+        {
+          "title": "What's the Best Driverless Vehicle Stock? (Hint: It's Not Tesla or Alphabet)",
+          "summary": "Alphabet's (GOOG -0.43%) (GOOGL -1.19%) Waymo unit is widely considered the front-runner in the driverless vehicle space, while Tesla (TSLA -1.71%) generates the most publicity in this realm, with its...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/nvda-stock-best-driverless-vehicle-stock/",
+          "timestamp": "2025-06-30 20:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Best Stock to Buy Right Now: Apple vs. Amazon",
+          "summary": "The \"Magnificent Seven\" are giants of the stock market, and among them, Apple (AAPL 2.22%) and Amazon (AMZN -1.59%) stand out as preeminent consumer companies. Both have delivered high-tech advances o...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/06/30/best-stock-to-buy-right-now-apple-vs-amazon/",
+          "timestamp": "2025-06-30 20:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Healthpeak: An Attractive Deal Here",
+          "summary": "Healthpeak Properties is trading at historically low valuations, offering a compelling 7% dividend yield with strong coverage and solid operating results. The REIT's diversified portfolio, consistent ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4798449-healthpeak-reit-diversified-portfolio-attractive-deal",
+          "timestamp": "2025-06-30 19:56:56",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Micron: The More It Rises, The More I'll Buy",
+          "summary": "Micron Technology crushed Q3 profit estimates, driven by surging AI-fueled demand for high bandwidth memory (HBM) in the data center market. HBM demand is soaring in tandem with GPU demand, leading to...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4798448-micron-stock-q3-memory-market-cyclicality-risk-trading-at-discount-maintain-buy",
+          "timestamp": "2025-06-30 19:51:14",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Nvidia Stock Isn't Pricing In Sovereign AI",
+          "summary": "Nvidia Corporation's fundamentals remain robust with respectable growth in revenue and EPS while operating cash flows saw a major increase. The Data Center segment leads performance, and Sovereign AI ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4798447-nvidia-stock-isnt-pricing-in-sovereign-ai",
+          "timestamp": "2025-06-30 19:49:13",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Shareholder Alert: Robbins LLP Informs Investors of the Petco Health and Wellness Company, Inc. Class Action",
+          "summary": "SAN DIEGO, June 30, 2025 (GLOBE NEWSWIRE) -- Robbins LLP informs stockholders that a class action was filed on behalf of investors who purchased or otherwise acquired Petco Health and Wellness Company...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107950/32719/en/Shareholder-Alert-Robbins-LLP-Informs-Investors-of-the-Petco-Health-and-Wellness-Company-Inc-Class-Action.html",
+          "timestamp": "2025-06-30 19:48:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Is Investigating GoHealth, Abacus, GoHealth, and Fulgent and Encourages Investors to Contact the Firm",
+          "summary": "Law firm investigating potential securities law violations for four companies, including DOJ investigations and stock price declines related to alleged false claims and kickback schemes....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107974/0/en/Bragar-Eagel-Squire-P-C-Is-Investigating-GoHealth-Abacus-GoHealth-and-Fulgent-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Compass Diversified, Digimarc, Elevance, and West Pharmaceutical and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against four companies, alleging financial misrepresentations and misleading statements that potentially harmed investors....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107970/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Compass-Diversified-Digimarc-Elevance-and-West-Pharmaceutical-and-Encourages-Investors-.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Vestis, PepGen, and Tempus and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against three companies for allegedly misleading investors through false statements about business performance, financial prospects, and ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107965/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Vestis-PepGen-and-Tempus-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Red Cat, Reckitt, UroGen and Fortrea and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire, P.C. reminds investors of class action lawsuits filed against Reckitt, UroGen, Red Cat, and Fortrea, alleging misleading statements and financial misrepresentations....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107968/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Red-Cat-Reckitt-UroGen-and-Fortrea-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Open Lending Corporation and Civitas Resources and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against Open Lending and Civitas Resources, alleging misleading statements about business operations and financial prospects....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107966/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Open-Lending-Corporation-and-Civitas-Resources-and-Encourages-Investors-to-Contact-the-.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Krispy Kreme, Strategy Incorporated, Organon, and Iovance and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against Krispy Kreme, Strategy Incorporated, Organon, and Iovance Biotherapeutics, alleging misleading statements and financial misrepres...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/01/3107971/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Krispy-Kreme-Strategy-Incorporated-Organon-and-Iovance-and-Encourages-Investors-to-Cont.html",
+          "timestamp": "2025-07-01T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Is Palantir Stock a Buy Now?",
+          "summary": "Palantir Technologies is experiencing rapid growth in AI technology, with impressive revenue increases across commercial and government sectors. The company's AI Platform (AIP) offers unique data orch...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/06/30/is-palantir-stock-a-buy-now/?source=iedfolrf0000001",
+          "timestamp": "2025-07-01T00:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "SHAREHOLDER ALERT: Levi & Korsinsky, LLP Notifies Investors It Has Filed a Complaint to Recover Losses Suffered by Purchasers of Krispy Kreme, Inc. Securities and Sets a Lead Plaintiff Deadline of July 15, 2025",
+          "summary": "Levi & Korsinsky filed a class action lawsuit against Krispy Kreme alleging misleading statements about McDonald's partnership, with stock price declining after revealing poor financial performance an...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107942/3080/en/SHAREHOLDER-ALERT-Levi-Korsinsky-LLP-Notifies-Investors-It-Has-Filed-a-Complaint-to-Recover-Losses-Suffered-by-Purchasers-of-Krispy-Kreme-Inc-Securities-and-Sets-a-Lead-Plaintiff-D.html",
+          "timestamp": "2025-06-30T22:35:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "XRP Drops 5% on Dramatic Judge Ruling",
+          "summary": "Ripple Labs has dropped its appeal in the SEC lawsuit, with the court maintaining its original ruling. The case's resolution could impact XRP's future growth, dependent on factors like partnerships, s...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/06/30/xrp-drops-5-on-dramatic-judge-ruling/?source=iedfolrf0000001",
+          "timestamp": "2025-06-30T22:18:04Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "B2Gold Pours First Gold at the Goose Mine",
+          "summary": "B2Gold Corp. achieved its first gold pour at the Goose Mine in Nunavut, marking its first Canadian operating asset. The company expects to ramp up to commercial production in Q3 2025 and anticipates p...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107935/0/en/B2Gold-Pours-First-Gold-at-the-Goose-Mine.html",
+          "timestamp": "2025-06-30T22:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Broadmark Realty Capital Inc. Investors: Please contact the Portnoy Law Firm to recover your losses; July 28, 2025 Deadline to file Lead Plaintiff Motion",
+          "summary": "A class action lawsuit alleges that Broadmark Realty Capital and Ready Capital's merger proxy statement contained false and misleading statements about financial risks, loan portfolio quality, and pro...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107927/0/en/Broadmark-Realty-Capital-Inc-Investors-Please-contact-the-Portnoy-Law-Firm-to-recover-your-losses-July-28-2025-Deadline-to-file-Lead-Plaintiff-Motion.html",
+          "timestamp": "2025-06-30T21:40:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Why AES Corporation Stock Flopped Today",
+          "summary": "Republican senators proposed new taxes on solar and wind energy projects in a bill, causing renewable energy stocks to decline. AES Corporation experienced a nearly 2% stock drop due to potential tax ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/06/30/why-aes-corporation-stock-flopped-today/?source=iedfolrf0000001",
+          "timestamp": "2025-06-30T21:24:50Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Ascent Solar Technologies, Inc. Announces Closing of $2.0 Million Public Offering",
+          "summary": "Ascent Solar Technologies completed a public offering of 1,000,000 shares and warrants, raising $2.0 million to fund working capital, product development, and corporate expenses....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107906/0/en/Ascent-Solar-Technologies-Inc-Announces-Closing-of-2-0-Million-Public-Offering.html",
+          "timestamp": "2025-06-30T21:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Finning completes the sale of 4Refuel and ComTech",
+          "summary": "Finning International has successfully sold its mobile on-site refueling business 4Refuel to H.I.G. Capital and completed the sale of Compression Technology Corporation (ComTech) to a third party, as ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107904/0/en/Finning-completes-the-sale-of-4Refuel-and-ComTech.html",
+          "timestamp": "2025-06-30T20:58:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CVG Announces Successful Completion of Debt Refinancing Transactions",
+          "summary": "Commercial Vehicle Group refinanced its debt facilities with $210 million in new senior secured credit facilities, including a $95 million term loan and $115 million asset-based revolving credit facil...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107902/0/en/CVG-Announces-Successful-Completion-of-Debt-Refinancing-Transactions.html",
+          "timestamp": "2025-06-30T20:50:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CNB Financial Corporation and ESSA Bancorp, Inc. Receive Bank Regulatory Approvals for Merger",
+          "summary": "CNB Financial Corporation and ESSA Bancorp have received necessary bank regulatory approvals to complete their proposed merger, expected to close on July 23, 2025. The all-stock transaction will combi...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.benzinga.com/pressreleases/25/06/g46181301/cnb-financial-corporation-and-essa-bancorp-inc-receive-bank-regulatory-approvals-for-merger",
+          "timestamp": "2025-06-30T20:05:51Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "PBK Miner Allocates $1 Million Reward Pool for New AI-Powered 1-Day Mining Contract",
+          "summary": "PBK Miner introduces a flexible 1-day cryptocurrency mining contract priced at $10, offering daily earnings of $0.60 and targeting retail investors with an AI-driven asset management platform....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107857/0/en/PBK-Miner-Allocates-1-Million-Reward-Pool-for-New-AI-Powered-1-Day-Mining-Contract.html",
+          "timestamp": "2025-06-30T20:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Kirby Corporation Announces Date for 2025 Second Quarter Earnings Release and Earnings Webcast",
+          "summary": "Kirby Corporation reported first quarter 2025 earnings per share of $1.33, with improved inland marine market conditions and sequential increases in spot market prices and operating margins....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107858/0/en/Kirby-Corporation-Announces-Date-for-2025-Second-Quarter-Earnings-Release-and-Earnings-Webcast.html",
+          "timestamp": "2025-06-30T20:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Gray Media Names Jessica Laszewski as General Manager  of WSAW in Wausau, Wisconsin",
+          "summary": "Jessica Laszewski has been promoted to General Manager of WSAW, a CBS affiliate in Wausau, Wisconsin, effective July 21, 2025. She previously served as News Director at WMTV in Madison, where she led ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107854/0/en/Gray-Media-Names-Jessica-Laszewski-as-General-Manager-of-WSAW-in-Wausau-Wisconsin.html",
+          "timestamp": "2025-06-30T19:50:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "TIAN RUIXIANG Holdings Ltd Completes Acquisition of Ucare Inc., Marking Strategic Expansion into AI-Powered Health Insurance Solutions",
+          "summary": "Tian Ruixiang Holdings Ltd has acquired Ucare Inc., a cloud-based AI-driven hospital and health insurance risk management platform, for US$150 million in an all-stock transaction to expand its healthc...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.benzinga.com/pressreleases/25/06/g46179062/tian-ruixiang-holdings-ltd-completes-acquisition-of-ucare-inc-marking-strategic-expansion-into-ai-",
+          "timestamp": "2025-06-30T19:05:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "theranos Calls on President Trump to Pardon Suresh “Sunny” Balwani",
+          "summary": "Ryan ElHosseiny, CEO of revived theranos, urges President Trump to pardon Elizabeth Holmes and Sunny Balwani, claiming their work was misunderstood and that they made significant contributions to impr...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/06/30/3107820/0/en/theranos-Calls-on-President-Trump-to-Pardon-Suresh-Sunny-Balwani.html",
+          "timestamp": "2025-06-30T18:49:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Akash Q1 2025 ",
+          "summary": "Key Insights\n\nLease revenue surpassed $1 million (38% QoQ), driven by longer and higher-value GPU deployments.\nAverage GPU capacity rose 55% QoQ to 897 units, while usage increased 54% to 553 units.\nT...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-akash-q1-2025",
+          "timestamp": "2025-06-30T20:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Stellar Ecosystem Overview",
+          "summary": "Key Insights\n\nBy the end of 2025, the Stellar Development Foundation aims for Stellar to have $3 billion in yield-bearing RWA’s onchain and be a top-ten chain in DeFi TVL. This could create a flywheel...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/stellar-ecosystem-overview",
+          "timestamp": "2025-06-30T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Algorand Q1 2025 Brief",
+          "summary": "Key Insights\n\nAlgorand activated its staking rewards in January, replacing the governance payout structure and giving validators a direct income stream to secure the network. \nStablecoin market cap on...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/algorand-q1-2025-brief",
+          "timestamp": "2025-06-30T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Seraph Q1 2025",
+          "summary": "Key Insights\n\nSeraph's circulating market cap declined 29.4% from $49.3 million at token launch to $34.8 million by quarter-end, driven partly by price dilution caused by a 23% increase in circulating...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-seraph-q1-2025",
+          "timestamp": "2025-06-27T18:30:31Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Polkadot Q1 2025",
+          "summary": "Key Insights\n\nPolkadot Core developer activity stabilized in Q1 2025 after several quarters of decline. The average weekly number of active core developers rose 1.5% QoQ to 122.\nFrequency, Phala, and ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-polkadot-q1-2025",
+          "timestamp": "2025-06-27T17:39:08Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Caldera: A Comprehensive Overview",
+          "summary": "Key Insights\n\nCaldera has become a leading rollup platform within the Ethereum ecosystem, powering over 52 rollups with a combined $412 million in total value locked. Caldera supports a range of rollu...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-caldera-a-comprehensive-overview",
+          "timestamp": "2025-06-27T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Somnia: A Comprehensive Overview",
+          "summary": "Key Insights\n\nSomnia’s testnet, Shannon, settled over 1 billion transactions while maintaining a 0.10-second average block time. Since going live in February, 4.2 million accounts have deployed 18.3 m...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-somnia-a-comprehensive-overview",
+          "timestamp": "2025-06-26T15:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Marinade: Marinade Select",
+          "summary": "Key Insights\n\nMarinade Native surpassed 5.3 million SOL in TVL, up 21.1% from Q1. Institutional adoption rose, supported by SOC 2 compliance, custodian integrations (BitGo, Zodia, Copper), tax reporti...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/marinade-marinade-select",
+          "timestamp": "2025-06-25T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Rumpel: Converting Point Farming into Liquid Yield",
+          "summary": "Key Insights\n\nThe airdrop model is broken. Keyrock’s 2024 analysis shows 88% of tokens fall in value within months of their TGE. \nRumpel transforms the risk-reward equation by providing instant liquid...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/rumpel-converting-point-farming-into-liquid-yield",
+          "timestamp": "2025-06-25T15:07:16Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Rango Exchange Q1 2025",
+          "summary": "Key Insights\n\nRango outperformed the broader DEX aggregator market with $538 million in quarterly swap volume. This marks its strongest quarter in absolute volume growth since launch, and demonstrates...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-rango-exchange-q1-2025",
+          "timestamp": "2025-06-25T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Subnet 33: ReadyAI",
+          "summary": "Key Insights\n\nReadyAI outperforms Mechanical Turk and GPT-4o benchmarks by 91% and 50%, respectively. Built on Bittensor’s Subnet 33, ReadyAI uses a miner-validator architecture to annotate unstructur...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/subnet-33-readyai",
+          "timestamp": "2025-06-25T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "LayerZero: Scaling Stablecoin Issuers with the OFT Standard",
+          "summary": "Key Insights\n\nLayerZero is an interoperability protocol that enables cross-chain messaging and token transfers, including stablecoins issued using the Omnichain Fungible Token (OFT) Standard. OFT enab...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/layerzero-scaling-stablecoin-issuers-with-the-oft-standard",
+          "timestamp": "2025-06-25T13:01:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Odyssey Finance: A Multichain DeFi Hub Built On ERC-4337",
+          "summary": "Key Insights\n\nOdyssey is building a DeFi hub built on ERC-4337 smart contract accounts. Odyssey offers gasless, cross-chain execution and smart contract wallets for programmable account behavior.\nLoop...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/odyssey-finance-a-multichain-defi-hub-built-on-erc-4337",
+          "timestamp": "2025-06-25T12:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "U2U: Capturing Vietnam's Crypto Rise",
+          "summary": "Key Insights\n\nVietnam is becoming a global crypto leader, with over 21% of its population holding digital assets, and new government initiatives, including a state-backed exchange and regulatory frame...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/u2u-capturing-vietnam-s-crypto-rise",
+          "timestamp": "2025-06-19T11:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "NodeOps Network: Where Capital Meets Compute in a Verifiable Environment",
+          "summary": "Key Insights\n\nNodeOps is assembling a cohesive, multi-layered ecosystem for decentralized compute, addressing staking, compute access, tooling, and security as interconnected challenges rather than is...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/nodeops-network-where-capital-meets-compute-in-a-verifiable-environment",
+          "timestamp": "2025-06-18T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "The Sandbox Q1 2025 Brief",
+          "summary": "Key Insights\n\nThe Sandbox secured strategic partnerships in Q1 2025, announcing collaborations with ATEEZ and Jurassic World to expand branded content and immersive experiences on the platform.\nSAND’s...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/the-sandbox-q1-2025-brief",
+          "timestamp": "2025-06-17T19:00:20Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Flare: Expanding XRP’s Role in DeFi",
+          "summary": "Key Insights\n\nFlare’s baked-in data stack (FTSO + FDC) makes it a “blockchain for data,” enabling verifiable cross-chain activity and oracle feeds without relying on external middleware. This native i...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/flare-expanding-xrp-s-role-in-defi",
+          "timestamp": "2025-06-17T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of ApeCoin Q1 2025",
+          "summary": "Key Insights\n\nAPE’s circulating market cap declined 56.7% QoQ, falling from $868.1 million to $375.7 million, with the token price declining 60.9% from $1.20 to $0.47. Market cap peaked at $991.3 mill...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-apecoin-q1-2025",
+          "timestamp": "2025-06-16T19:00:48Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "BounceBit: Bringing Utility to RWAs With Prime",
+          "summary": "Key Insights\n\nBounceBit enables Bitcoin and stablecoin holders to access institutional-grade, market-neutral yield strategies through a CeDeFi framework. Yield is generated via arbitrage and basis tra...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/bouncebit-bringing-utility-to-rwas-with-prime",
+          "timestamp": "2025-06-16T13:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "UXLINK: Building the Social Growth Layer for Web3",
+          "summary": "Key Insights\n\nUXLINK is a SocialFi infrastructure project that aims to lower barriers to Web3 adoption. It introduces protocols and incentive systems that address interoperability challenges, identity...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/uxlink-building-the-social-growth-layer-for-web3",
+          "timestamp": "2025-06-13T21:35:00Z",
+          "affected_tickers": ""
+        }
+      ],
+      "total_count": 72,
+      "sources_processed": [
+        "messari",
+        "benzinga",
+        "fmp",
+        "polygon"
+      ],
+      "timestamp": "2025-06-30T21:26:20.031184"
+    },
+    "chart_generator": {
+      "charts_generated": [
+        {
+          "chart_type": "custom_comparison",
+          "file_path": "output\\custom_comparison_BTCUSD_XAUUSD_QQQ_20250630_2126.png",
+          "description": "Custom asset comparison: BTCUSD, XAUUSD, QQQ",
+          "context": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+          "generated_at": "2025-06-30T21:26:21.942175",
+          "success": true
+        }
+      ],
+      "analysis_summary": "Generated 1 charts based on market conditions. Fear & Greed Index: 50 (Neutral)",
+      "market_conditions": {
+        "fear_greed_score": 50,
+        "fear_greed_rating": "Neutral",
+        "charts_needed": [
+          {
+            "type": "custom_comparison",
+            "description": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+            "priority": "high",
+            "assets": [
+              "BTCUSD",
+              "XAUUSD",
+              "QQQ"
+            ],
+            "condition": null
+          }
+        ],
+        "custom_condition": null,
+        "condition_met": true,
+        "timestamp": "2025-06-30T21:26:20.959271"
+      },
+      "timestamp": "2025-06-30T21:26:21.943226"
+    },
+    "playbook_strategist": {
+      "market_regime": "Neutral",
+      "selected_strategies": [
+        {
+          "name": "Tier 2 Momentum Reload",
+          "description": "Strategy: Tier 2 Momentum Reload",
+          "confidence": 0.7,
+          "conditions": {}
+        }
+      ],
+      "avoid_list": [
+        "Tier 1 Reversal Ignition (Insufficient volatility)",
+        "Tier 3 Breakout Acceleration (VIX too high (20.0 > 18))",
+        "Tier 4 Mean Reversion (Insufficient volatility)",
+        "Tier 5 Defensive Hedge (VIX too low (20.0 < 25), Greed too high (50 > 30), Insufficient volatility)"
+      ],
+      "macro_notes": [
+        "Neutral environment - mixed signals suggest selective positioning"
+      ],
+      "analysis_timestamp": "2025-06-30T21:26:23.343104"
+    },
+    "email_dispatcher": {
+      "email_sent": true,
+      "recipients": [],
+      "report_summary": "Daily MacroIntel report sent to 0 recipients",
+      "attachments": [],
+      "timestamp": "2025-06-30T21:26:26.264304"
+    }
+  },
+  "summary": {
+    "articles_processed": 72,
+    "charts_generated": 1,
+    "market_regime": "Neutral",
+    "strategies_selected": 1,
+    "email_sent": true,
+    "recipients_count": 0
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "status": "success",
+  "execution_time": "0:00:10.407557",
+  "start_time": "2025-06-30T21:18:49.986178",
+  "end_time": "2025-06-30T21:19:00.393735",
+  "agents": {
+    "summarizer": {
+      "articles": [],
+      "total_count": 0,
+      "sources_processed": [],
+      "timestamp": "2025-06-30T21:18:52.677352"
+    },
+    "chart_generator": {
+      "charts_generated": [
+        {
+          "chart_type": "custom_comparison",
+          "file_path": "output\\custom_comparison_BTCUSD_XAUUSD_QQQ_20250630_2118.png",
+          "description": "Custom asset comparison: BTCUSD, XAUUSD, QQQ",
+          "context": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+          "generated_at": "2025-06-30T21:18:55.638966",
+          "success": true
+        }
+      ],
+      "analysis_summary": "Generated 1 charts based on market conditions. Fear & Greed Index: 50 (Neutral)",
+      "market_conditions": {
+        "fear_greed_score": 50,
+        "fear_greed_rating": "Neutral",
+        "charts_needed": [
+          {
+            "type": "custom_comparison",
+            "description": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+            "priority": "high",
+            "assets": [
+              "BTCUSD",
+              "XAUUSD",
+              "QQQ"
+            ],
+            "condition": null
+          }
+        ],
+        "custom_condition": null,
+        "condition_met": true,
+        "timestamp": "2025-06-30T21:18:54.796549"
+      },
+      "timestamp": "2025-06-30T21:18:55.638966"
+    },
+    "playbook_strategist": {
+      "market_regime": "Neutral",
+      "selected_strategies": [
+        {
+          "name": "Tier 2 Momentum Reload",
+          "description": "Strategy: Tier 2 Momentum Reload",
+          "confidence": 0.7,
+          "conditions": {}
+        }
+      ],
+      "avoid_list": [
+        "Tier 1 Reversal Ignition (Insufficient volatility)",
+        "Tier 3 Breakout Acceleration (VIX too high (20.0 > 18))",
+        "Tier 4 Mean Reversion (Insufficient volatility)",
+        "Tier 5 Defensive Hedge (VIX too low (20.0 < 25), Greed too high (50 > 30), Insufficient volatility)"
+      ],
+      "macro_notes": [
+        "Neutral environment - mixed signals suggest selective positioning"
+      ],
+      "analysis_timestamp": "2025-06-30T21:18:57.179764"
+    },
+    "email_dispatcher": {
+      "email_sent": true,
+      "recipients": [],
+      "report_summary": "Daily MacroIntel report sent to 0 recipients",
+      "attachments": [],
+      "timestamp": "2025-06-30T21:19:00.392990"
+    }
+  },
+  "summary": {
+    "articles_processed": 0,
+    "charts_generated": 1,
+    "market_regime": "Neutral",
+    "strategies_selected": 1,
+    "email_sent": true,
+    "recipients_count": 0
+  }
+}

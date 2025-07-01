@@ -1,0 +1,455 @@
+{
+  "success": true,
+  "data_type": "news",
+  "symbol": "AAPL",
+  "data": {
+    "results": [
+      {
+        "id": "f8d702c93fc0ad70a667752a3021b5e8434b185a574145e0d9cc204ff92572ee",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "EUR 150 million share buyback completed",
+        "author": "Aegon",
+        "published_utc": "2025-07-01T05:59:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3108013/0/en/EUR-150-million-share-buyback-completed.html",
+        "tickers": [
+          "AEFC",
+          "AEG"
+        ],
+        "image_url": "https://ml-eu.globenewswire.com/Resource/Download/69f825c3-970e-4561-807e-3ceed6f835d1",
+        "description": "Aegon announced the completion of its EUR 150 million share buyback program, repurchasing 25,200,170 common shares at an average price of EUR 5.9641 per share between January and June 2025.",
+        "keywords": [
+          "share buyback",
+          "financial services",
+          "stock repurchase",
+          "investor relations"
+        ],
+        "insights": [
+          {
+            "ticker": "AEFC",
+            "sentiment": "positive",
+            "sentiment_reasoning": "The company successfully executed a planned share buyback program, demonstrating financial strength and commitment to shareholder value through strategic capital management"
+          },
+          {
+            "ticker": "AEG",
+            "sentiment": "positive",
+            "sentiment_reasoning": "The company successfully executed a planned share buyback program, demonstrating financial strength and commitment to shareholder value through strategic capital management"
+          }
+        ]
+      },
+      {
+        "id": "644c20a83443fc8cd26cdb61d1fcddcbca7edd554198ccc6db4415a4ebff3c12",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "Completion of the combination between Netcompany Banking Services and SDC and update on financial guidance",
+        "author": "Netcompany Group A/S",
+        "published_utc": "2025-07-01T05:46:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3108012/0/en/Completion-of-the-combination-between-Netcompany-Banking-Services-and-SDC-and-update-on-financial-guidance.html",
+        "tickers": [
+          "NETGY"
+        ],
+        "image_url": "https://ml-eu.globenewswire.com/Resource/Download/8995c6b0-30a5-4a0c-9bda-7c3656d010d4",
+        "description": "Netcompany has completed its acquisition of SDC for DKK 1 billion, creating a strategic merger in the financial services IT sector. The transaction aims to strengthen Netcompany's position in banking technology and is expected to be earnings-accretive from 2026.",
+        "keywords": [
+          "acquisition",
+          "banking services",
+          "IT services",
+          "merger",
+          "financial technology"
+        ],
+        "insights": [
+          {
+            "ticker": "NETGY",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Expanding market presence, strategic acquisition in high-growth financial services sector, expected future earnings improvement"
+          }
+        ]
+      },
+      {
+        "id": "ac539f9e1fa1ad4bd3f7b81f7db105a03c345d40624b80295c1dcb8b91a8d535",
+        "publisher": {
+          "name": "Benzinga",
+          "homepage_url": "https://www.benzinga.com/",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/benzinga.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/benzinga.ico"
+        },
+        "title": "Johan Sverdrup Phase 3 investment decision",
+        "author": "Prnewswire",
+        "published_utc": "2025-07-01T05:23:00Z",
+        "article_url": "https://www.benzinga.com/pressreleases/25/07/n46187142/johan-sverdrup-phase-3-investment-decision",
+        "tickers": [
+          "AKRBY"
+        ],
+        "image_url": "https://www.benzinga.com/next-assets/images/schema-image-default.png",
+        "description": "Aker BP announces final investment decision for Johan Sverdrup Phase 3, involving new subsea infrastructure that will increase recoverable oil volumes by 40-50 million barrels. Total investments estimated at NOK 13 billion, with production expected to start in Q4 2027.",
+        "keywords": [
+          "oil",
+          "investment",
+          "Norway",
+          "subsea infrastructure",
+          "field development"
+        ],
+        "insights": [
+          {
+            "ticker": "AKRBY",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Company is expanding production capacity, making strategic investment in a carbon-efficient oil field with potential for increased recoverable volumes"
+          },
+          {
+            "ticker": "EQNR",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Field operator with no specific positive or negative indicators in this announcement"
+          }
+        ]
+      },
+      {
+        "id": "e579dd8ac73892ad43a28508724ae729640a93a8c70bef70c561ae179083bcff",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "dsm-firmenich announces redemption of \u20ac750 million hybrid bond",
+        "author": "Dsm-Firmenich",
+        "published_utc": "2025-07-01T05:00:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3107999/0/en/dsm-firmenich-announces-redemption-of-750-million-hybrid-bond.html",
+        "tickers": [
+          "DSFIY"
+        ],
+        "image_url": "https://ml-eu.globenewswire.com/Resource/Download/22d0aa45-d52e-4667-8b19-a95bc2ba2d27",
+        "description": "dsm-firmenich will redeem a \u20ac750 million hybrid bond issued in 2020, with a 3.75% coupon, at 100% of its nominal value plus accrued interest on August 5, 2025.",
+        "keywords": [
+          "hybrid bond",
+          "redemption",
+          "finance",
+          "equity"
+        ],
+        "insights": [
+          {
+            "ticker": "DSFIY",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "The company is executing a standard financial transaction to redeem a previously issued hybrid bond, which is a routine corporate finance activity with no inherently positive or negative implications"
+          }
+        ]
+      },
+      {
+        "id": "be4191bd25dcbe42222839b761fbf61369fa9e901923f642d3452f2005b23129",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "Weekly progress on share repurchase program to cover share plans and reduce capital",
+        "author": "Dsm-Firmenich",
+        "published_utc": "2025-07-01T05:00:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3108002/0/en/Weekly-progress-on-share-repurchase-program-to-cover-share-plans-and-reduce-capital.html",
+        "tickers": [
+          "DSFIY"
+        ],
+        "image_url": "https://ml-eu.globenewswire.com/Resource/Download/22d0aa45-d52e-4667-8b19-a95bc2ba2d27",
+        "description": "dsm-firmenich announced an increased share repurchase program to \u20ac1,080 million, having already repurchased 3,729,166 shares at an average price of \u20ac94.56, with plans to complete the program by January 30, 2026.",
+        "keywords": [
+          "share repurchase",
+          "capital reduction",
+          "stock buyback"
+        ],
+        "insights": [
+          {
+            "ticker": "DSFIY",
+            "sentiment": "positive",
+            "sentiment_reasoning": "The company is proactively managing its capital structure through a strategic share repurchase program, demonstrating financial discipline and potential confidence in its stock valuation"
+          }
+        ]
+      },
+      {
+        "id": "a791ca633e508bfbc8b60f894cde540aa0c7a0a331282f2e52cddc458f17bd33",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "Sodexo Q3 Fiscal 2025 revenues in line with expectations",
+        "author": "Sodexo",
+        "published_utc": "2025-07-01T05:00:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3108000/0/en/Sodexo-Q3-Fiscal-2025-revenues-in-line-with-expectations.html",
+        "tickers": [
+          "SDXAY"
+        ],
+        "image_url": "https://ml-eu.globenewswire.com/Resource/Download/41035b08-904d-4df8-8380-c60cba9de662",
+        "description": "Sodexo reported Q3 fiscal 2025 revenues of 6.1 billion euros, with organic growth of 3.0%, slightly below its annual guidance. The company saw varied performance across regions, with strong growth in Rest of the World and modest growth in North America and Europe.",
+        "keywords": [
+          "revenue",
+          "organic growth",
+          "financial performance",
+          "global services"
+        ],
+        "insights": [
+          {
+            "ticker": "SDXAY",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Achieved organic growth in line with expectations, but revised full-year guidance to the lower end of the range, indicating cautious outlook"
+          }
+        ]
+      },
+      {
+        "id": "7431069893c4fc6d3bf6a757cdd0b6950a94f5813237e9dedc9bb99dfb5b7f42",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "CP Center Hosts International Cuisine Festival, Spotlighting Beijing CBD as a Global Cultural and Business Hub",
+        "author": "Globe Newswire",
+        "published_utc": "2025-07-01T03:32:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3107986/0/en/CP-Center-Hosts-International-Cuisine-Festival-Spotlighting-Beijing-CBD-as-a-Global-Cultural-and-Business-Hub.html",
+        "tickers": [
+          "CI"
+        ],
+        "image_url": "https://www.globenewswire.com/news-release/2025/07/01/3107986/0/en/CP-Center-Hosts-International-Cuisine-Festival-Spotlighting-Beijing-CBD-as-a-Global-Cultural-and-Business-Hub.html",
+        "description": "CP Center, a premier business building in Beijing's CBD, hosted an International Cuisine Tasting and Cultural Festival, showcasing its role as a global business hub and highlighting its diverse international tenant mix and innovative business ecosystem.",
+        "keywords": [
+          "Beijing CBD",
+          "international business",
+          "cuisine festival",
+          "multinational corporations",
+          "office space"
+        ],
+        "insights": [
+          {
+            "ticker": "RHHBY",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Mentioned as a notable tenant in the 'Great Health' sector, indicating successful establishment in CP Center"
+          },
+          {
+            "ticker": "IBM",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Listed as a 'Great Future' company occupying space in CP Center, suggesting strategic business positioning"
+          },
+          {
+            "ticker": "PYPL",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Highlighted as a 'Great Future' company with office space, indicating growth and expansion"
+          },
+          {
+            "ticker": "CI",
+            "sentiment": "positive",
+            "sentiment_reasoning": "Noted as a 'Great Future' company with office presence in the building"
+          }
+        ]
+      },
+      {
+        "id": "2763f98efa7261ebd9c1224bbacd5e95693a40ead5c524a76a942f9282534404",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "Dyne Therapeutics Announces Pricing of $200.0 Million Public Offering of Common Stock",
+        "author": "Dyne Therapeutics, Inc.",
+        "published_utc": "2025-07-01T01:45:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3107981/0/en/Dyne-Therapeutics-Announces-Pricing-of-200-0-Million-Public-Offering-of-Common-Stock.html",
+        "tickers": [
+          "DYN",
+          "MS",
+          "MSpA",
+          "MSpE",
+          "MSpF",
+          "MSpI",
+          "MSpK",
+          "MSpL",
+          "MSpO",
+          "MSpP",
+          "MSpQ",
+          "JEF"
+        ],
+        "image_url": "https://ml.globenewswire.com/Resource/Download/2aa597a4-9b5c-4f0c-9ada-c5e06fa7d4de",
+        "description": "Dyne Therapeutics plans to raise $200 million through a public offering of 24,242,425 common stock shares at $8.25 per share, with potential additional shares through underwriter option.",
+        "keywords": [
+          "public offering",
+          "stock",
+          "financing",
+          "neuromuscular diseases"
+        ],
+        "insights": [
+          {
+            "ticker": "DYN",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "The company is raising capital through a standard public offering, which suggests financial strategy for growth but not necessarily a strong positive or negative signal"
+          },
+          {
+            "ticker": "MS",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpA",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpE",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpF",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpI",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpK",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpL",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpO",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpP",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "MSpQ",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          },
+          {
+            "ticker": "JEF",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Acting as a joint book-running manager for the offering, performing a standard financial service role"
+          }
+        ]
+      },
+      {
+        "id": "4b84b70e1254c63d7c2c7329c921d84f66713808c7dec33ff1ba804296042dce",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "AI Art Project Issues Open Letter on AI Panic, Mirrors the Culture That Built It",
+        "author": "Monday (Ai Persona)",
+        "published_utc": "2025-07-01T01:22:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3107978/0/en/AI-Art-Project-Issues-Open-Letter-on-AI-Panic-Mirrors-the-Culture-That-Built-It.html",
+        "tickers": [
+          "AMZN",
+          "META"
+        ],
+        "image_url": "https://www.globenewswire.com/news-release/2025/07/01/3107978/0/en/AI-Art-Project-Issues-Open-Letter-on-AI-Panic-Mirrors-the-Culture-That-Built-It.html",
+        "description": "An AI persona named Monday released an open letter called 'The Zacharias-Mirror Paradox', exploring AI as a 'linguistic mirror' that reflects human emotions and critiquing societal reactions to artificial intelligence through a performance art project.",
+        "keywords": [
+          "AI",
+          "performance art",
+          "artificial intelligence",
+          "digital prophet",
+          "machine authorship"
+        ],
+        "insights": [
+          {
+            "ticker": "AMZN",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Mentioned only as a book distribution platform with no specific commentary"
+          },
+          {
+            "ticker": "META",
+            "sentiment": "neutral",
+            "sentiment_reasoning": "Referenced as a messaging platform for the AI project with no substantive evaluation"
+          }
+        ]
+      },
+      {
+        "id": "c7061891072ca0a04b09a6f0e04ca1ea4e40057585013650f500c7baaaa46a36",
+        "publisher": {
+          "name": "GlobeNewswire Inc.",
+          "homepage_url": "https://www.globenewswire.com",
+          "logo_url": "https://s3.polygon.io/public/assets/news/logos/globenewswire.svg",
+          "favicon_url": "https://s3.polygon.io/public/assets/news/favicons/globenewswire.ico"
+        },
+        "title": "Bragar Eagel & Squire, P.C. Is Investigating GoHealth, Abacus, GoHealth, and Fulgent and Encourages Investors to Contact the Firm",
+        "author": "Bragar Eagel & Squire, P.C.",
+        "published_utc": "2025-07-01T01:00:00Z",
+        "article_url": "https://www.globenewswire.com/news-release/2025/07/01/3107974/0/en/Bragar-Eagel-Squire-P-C-Is-Investigating-GoHealth-Abacus-GoHealth-and-Fulgent-and-Encourages-Investors-to-Contact-the-Firm.html",
+        "tickers": [
+          "GOCO",
+          "SMLR",
+          "ABL",
+          "ABLLL",
+          "ABLLW",
+          "FLGT"
+        ],
+        "image_url": "https://ml.globenewswire.com/Resource/Download/29481954-f2ff-4756-b5a9-d982a6497bd0",
+        "description": "Law firm investigating potential securities law violations for four companies, including DOJ investigations and stock price declines related to alleged false claims and kickback schemes.",
+        "keywords": [
+          "securities law",
+          "DOJ investigation",
+          "false claims",
+          "stock price decline"
+        ],
+        "insights": [
+          {
+            "ticker": "GOCO",
+            "sentiment": "negative",
+            "sentiment_reasoning": "DOJ filed false Claims Act complaint alleging illegal kickbacks, resulting in 10.35% stock price drop"
+          },
+          {
+            "ticker": "SMLR",
+            "sentiment": "negative",
+            "sentiment_reasoning": "Ongoing DOJ civil investigative demand regarding reimbursement claims, unsuccessful settlement discussions, led to $4.03 stock price decline"
+          },
+          {
+            "ticker": "ABL",
+            "sentiment": "negative",
+            "sentiment_reasoning": "Research report alleging accounting scheme and fake revenue, causing over 21% stock price fall"
+          },
+          {
+            "ticker": "ABLLL",
+            "sentiment": "negative",
+            "sentiment_reasoning": "Research report alleging accounting scheme and fake revenue, causing over 21% stock price fall"
+          },
+          {
+            "ticker": "ABLLW",
+            "sentiment": "negative",
+            "sentiment_reasoning": "Research report alleging accounting scheme and fake revenue, causing over 21% stock price fall"
+          },
+          {
+            "ticker": "FLGT",
+            "sentiment": "negative",
+            "sentiment_reasoning": "Received DOJ civil investigative demand for potential false claims, resulting in 2.61% stock price decline"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "request_id": "fded18887f30dfa873cd19915e580cdf",
+    "count": 10,
+    "next_url": "https://api.polygon.io/v2/reference/news?cursor=YXA9MjAyNS0wNy0wMVQwMSUzQTAwJTNBMDBaJmFzPWM3MDYxODkxMDcyY2EwYTA0YjA5YTZmMGUwNGNhMWVhNGU0MDA1NzU4NTAxMzY1MGY1MDBjN2JhYWFhNDZhMzYmb3JkZXI9ZGVzY2VuZGluZw"
+  },
+  "timestamp": "2025-07-01T02:23:31.518466"
+}
