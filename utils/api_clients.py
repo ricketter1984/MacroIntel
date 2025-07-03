@@ -4,8 +4,12 @@ from dotenv import load_dotenv
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
+# Load environment variables
+load_dotenv(dotenv_path="config/.env")
+
 def init_env():
-    load_dotenv()
+    # Environment already loaded above
+    pass
 
 # -- FMP Client (updated to use v4)
 def fetch_fmp_events():
@@ -244,3 +248,194 @@ def fetch_all_news():
         print(f"\u274c Messari fetch failed: {e}")
     
     return all_news
+
+# -- Polygon Indices Client
+def fetch_polygon_indices():
+    """Fetch index snapshot data from Polygon API for major indices (SPX, NDX, RUT)."""
+    api_key = os.getenv("POLYGON_API_KEY")
+    if not api_key:
+        print("[ERROR] POLYGON_API_KEY not set.")
+        return None
+
+    base_url = "https://api.polygon.io/v2/snapshot/indices/STOCKS"
+    params = {"apiKey": api_key}
+
+    try:
+        response = requests.get(base_url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+
+        if "tickers" in data:
+            index_data = {d["ticker"]: d for d in data["tickers"] if d["ticker"] in ["I:SPX", "I:NDX", "I:RUT"]}
+            print(f"[SUCCESS] Retrieved {len(index_data)} index snapshots.")
+            return index_data
+        else:
+            print("[FAIL] No 'tickers' field in response.")
+            return None
+
+    except requests.exceptions.RequestException as e:
+        print(f"[REQUEST ERROR] {e}")
+        return None
+
+# -- FMP Calendar Client
+def fetch_fmp_calendar(from_date=None, to_date=None):
+    """
+    Fetch economic calendar data from FMP API /v3/economic_calendar endpoint
+    Returns today's economic events and impact levels
+    """
+    api_key = os.getenv("FMP_API_KEY")
+    if not api_key:
+        print("[FMP ERROR] FMP_API_KEY not found in environment variables")
+        return []
+    
+    # Default to today if no dates provided
+    if not from_date:
+        from_date = datetime.now().strftime("%Y-%m-%d")
+    if not to_date:
+        to_date = datetime.now().strftime("%Y-%m-%d")
+    
+    url = "https://financialmodelingprep.com/api/v3/economic_calendar"
+    params = {
+        "from": from_date,
+        "to": to_date,
+        "apikey": api_key
+    }
+    
+    try:
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            calendar_data = response.json()
+            formatted_events = []
+            
+            for event in calendar_data:
+                formatted_events.append({
+                    "event": event.get("event", ""),
+                    "date": event.get("date", ""),
+                    "time": event.get("time", ""),
+                    "country": event.get("country", ""),
+                    "currency": event.get("currency", ""),
+                    "impact": event.get("impact", "Low"),
+                    "actual": event.get("actual", ""),
+                    "forecast": event.get("forecast", ""),
+                    "previous": event.get("previous", "")
+                })
+            
+            return formatted_events
+        else:
+            print(f"[FMP CALENDAR ERROR] {response.status_code}: {response.text}")
+            return []
+    except Exception as e:
+        print(f"[FMP CALENDAR ERROR] Exception: {e}")
+        return []
+
+# -- Messari Metrics Client
+def fetch_messari_metrics(symbol="bitcoin"):
+    """
+    Fetch crypto metrics from Messari API
+    Returns structured metrics data for crypto assets
+    """
+    api_key = os.getenv("MESSARI_API_KEY")
+    if not api_key:
+        print("[MESSARI ERROR] MESSARI_API_KEY not found in environment variables")
+        return None
+    
+    # Try different endpoints for Messari
+    endpoints = [
+        f"https://data.messari.io/api/v1/assets/{symbol}/metrics",
+        f"https://data.messari.io/api/v1/assets/{symbol}",
+        f"https://data.messari.io/api/v1/assets/{symbol}/profile"
+    ]
+    
+    for url in endpoints:
+        headers = {
+            "x-messari-api-key": api_key
+        }
+        
+        try:
+            response = requests.get(url, headers=headers)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("status") == "success" and data.get("data"):
+                    metrics = data["data"]
+                    # Handle different response formats
+                    if "market_data" in metrics:
+                        return {
+                            "symbol": symbol,
+                            "price_usd": metrics.get("market_data", {}).get("price_usd", 0),
+                            "percent_change_usd_last_24_hours": metrics.get("market_data", {}).get("percent_change_usd_last_24_hours", 0),
+                            "market_cap": metrics.get("market_data", {}).get("market_cap", 0),
+                            "volume_last_24_hours": metrics.get("market_data", {}).get("volume_last_24_hours", 0),
+                            "roi_data": metrics.get("roi_data", {}),
+                            "timestamp": datetime.now().isoformat()
+                        }
+                    elif "profile" in metrics:
+                        # Profile endpoint response
+                        return {
+                            "symbol": symbol,
+                            "name": metrics.get("profile", {}).get("name", symbol),
+                            "category": metrics.get("profile", {}).get("category", ""),
+                            "description": metrics.get("profile", {}).get("description", ""),
+                            "timestamp": datetime.now().isoformat()
+                        }
+        except Exception as e:
+            continue
+    
+    print(f"[MESSARI METRICS ERROR] No data returned for {symbol} from any endpoint")
+    return None
+
+# -- Twelve Data Chart Client
+def fetch_twelve_data_chart(symbol, interval="1day", outputsize=30):
+    """
+    Fetch chart data from Twelve Data API /time_series endpoint
+    Returns OHLC chart data for symbols like BTC/USD or AAPL
+    """
+    api_key = os.getenv("TWELVE_DATA_API_KEY")
+    if not api_key:
+        print("[TWELVE DATA ERROR] TWELVE_DATA_API_KEY not found in environment variables")
+        return None
+    
+    url = "https://api.twelvedata.com/time_series"
+    params = {
+        "symbol": symbol,
+        "interval": interval,
+        "outputsize": outputsize,
+        "apikey": api_key
+    }
+    
+    try:
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("status") == "ok" and data.get("values"):
+                # Convert to pandas DataFrame format
+                import pandas as pd
+                df = pd.DataFrame(data["values"])
+                
+                # Handle missing columns gracefully
+                required_columns = ["datetime", "open", "high", "low", "close"]
+                for col in required_columns:
+                    if col not in df.columns:
+                        print(f"[TWELVE DATA ERROR] Missing required column: {col}")
+                        return None
+                
+                df["datetime"] = pd.to_datetime(df["datetime"])
+                df["open"] = pd.to_numeric(df["open"], errors='coerce')
+                df["high"] = pd.to_numeric(df["high"], errors='coerce')
+                df["low"] = pd.to_numeric(df["low"], errors='coerce')
+                df["close"] = pd.to_numeric(df["close"], errors='coerce')
+                
+                # Handle volume column if it exists
+                if "volume" in df.columns:
+                    df["volume"] = pd.to_numeric(df["volume"], errors='coerce')
+                
+                df.set_index("datetime", inplace=True)
+                return df
+            else:
+                print(f"[TWELVE DATA ERROR] No data returned for {symbol}")
+                return None
+        else:
+            print(f"[TWELVE DATA ERROR] {response.status_code}: {response.text}")
+            return None
+    except Exception as e:
+        print(f"[TWELVE DATA ERROR] Exception: {e}")
+        return None

@@ -1,3 +1,9 @@
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from config/.env
+load_dotenv(dotenv_path="config/.env")
+
 from utils.api_clients import init_env, fetch_all_news
 from news_scanner.alert_manager import classify_alerts
 from news_scanner.macro_insight_builder import summarize_all

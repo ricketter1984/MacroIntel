@@ -48,7 +48,7 @@ from news_scanner.news_insight_feed import scan_relevant_news
 from playbook_interpreter import PlaybookInterpreter
 
 # Load environment variables
-load_dotenv()
+load_dotenv(dotenv_path="config/.env")
 
 class MarketRegimeAnalyzer:
     """Analyzes market regime using Trading Playbook v7.0 criteria."""

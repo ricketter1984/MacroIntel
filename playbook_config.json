@@ -1,0 +1,330 @@
+{
+  "version": "7.1",
+  "last_updated": "2025-01-01",
+  "description": "MacroIntel Playbook v7.1 Strategy Configuration",
+  "strategies": {
+    "Tier 1": {
+      "description": "Aggressive Long - High conviction bullish setups",
+      "regime_score_threshold": 70,
+      "risk_allocation": "25%",
+      "instruments": ["MYM", "MES", "ES"],
+      "conditions": {
+        "volatility_environment": {
+          "vix_score": {
+            "min": 15,
+            "max": 25,
+            "weight": 0.20
+          },
+          "vix_term_structure": {
+            "condition": "backwardation",
+            "weight": 0.15
+          },
+          "atr_score": {
+            "min": 60,
+            "max": 90,
+            "weight": 0.15
+          }
+        },
+        "market_structure": {
+          "adx_score": {
+            "min": 65,
+            "max": 95,
+            "weight": 0.15
+          },
+          "bollinger_squeeze": {
+            "condition": "squeeze_breakout",
+            "weight": 0.10
+          },
+          "breakout_failures": {
+            "max": 2,
+            "weight": 0.10
+          }
+        },
+        "volume_breadth": {
+          "volume_spikes": {
+            "min": 70,
+            "max": 95,
+            "weight": 0.15
+          },
+          "ad_divergence": {
+            "condition": "positive",
+            "weight": 0.10
+          },
+          "mcclellan_oscillator": {
+            "min": 60,
+            "max": 90,
+            "weight": 0.10
+          },
+          "put_call_ratio": {
+            "min": 0.7,
+            "max": 1.2,
+            "weight": 0.10
+          }
+        },
+        "momentum_indicators": {
+          "rsi_divergence": {
+            "condition": "bullish",
+            "weight": 0.15
+          },
+          "macd_histogram": {
+            "condition": "positive_expanding",
+            "weight": 0.15
+          },
+          "oscillator_confluence": {
+            "min_indicators": 3,
+            "weight": 0.15
+          }
+        },
+        "institutional_positioning": {
+          "smart_money_flow": {
+            "min": 65,
+            "max": 95,
+            "weight": 0.15
+          },
+          "options_flow": {
+            "condition": "call_dominance",
+            "weight": 0.15
+          }
+        }
+      },
+      "entry_rules": {
+        "time_filters": {
+          "market_hours": true,
+          "avoid_fomc": true,
+          "avoid_nfp": true
+        },
+        "price_filters": {
+          "above_200ma": true,
+          "above_50ma": true,
+          "volume_confirmation": true
+        },
+        "risk_management": {
+          "max_position_size": "25%",
+          "stop_loss": "2%",
+          "take_profit": "6%",
+          "trailing_stop": true
+        }
+      }
+    },
+    "Tier 2": {
+      "description": "Moderate Long - Balanced bullish setups",
+      "regime_score_threshold": 55,
+      "risk_allocation": "15%",
+      "instruments": ["MES", "ES", "QQQ"],
+      "conditions": {
+        "volatility_environment": {
+          "vix_score": {
+            "min": 18,
+            "max": 30,
+            "weight": 0.20
+          },
+          "vix_term_structure": {
+            "condition": "neutral_or_backwardation",
+            "weight": 0.15
+          },
+          "atr_score": {
+            "min": 50,
+            "max": 85,
+            "weight": 0.15
+          }
+        },
+        "market_structure": {
+          "adx_score": {
+            "min": 55,
+            "max": 85,
+            "weight": 0.15
+          },
+          "bollinger_squeeze": {
+            "condition": "squeeze_or_breakout",
+            "weight": 0.10
+          },
+          "breakout_failures": {
+            "max": 3,
+            "weight": 0.10
+          }
+        },
+        "volume_breadth": {
+          "volume_spikes": {
+            "min": 60,
+            "max": 85,
+            "weight": 0.15
+          },
+          "ad_divergence": {
+            "condition": "neutral_or_positive",
+            "weight": 0.10
+          },
+          "mcclellan_oscillator": {
+            "min": 50,
+            "max": 80,
+            "weight": 0.10
+          },
+          "put_call_ratio": {
+            "min": 0.8,
+            "max": 1.4,
+            "weight": 0.10
+          }
+        },
+        "momentum_indicators": {
+          "rsi_divergence": {
+            "condition": "neutral_or_bullish",
+            "weight": 0.15
+          },
+          "macd_histogram": {
+            "condition": "positive",
+            "weight": 0.15
+          },
+          "oscillator_confluence": {
+            "min_indicators": 2,
+            "weight": 0.15
+          }
+        },
+        "institutional_positioning": {
+          "smart_money_flow": {
+            "min": 55,
+            "max": 85,
+            "weight": 0.15
+          },
+          "options_flow": {
+            "condition": "balanced_or_call",
+            "weight": 0.15
+          }
+        }
+      },
+      "entry_rules": {
+        "time_filters": {
+          "market_hours": true,
+          "avoid_fomc": true,
+          "avoid_nfp": false
+        },
+        "price_filters": {
+          "above_200ma": true,
+          "above_50ma": false,
+          "volume_confirmation": true
+        },
+        "risk_management": {
+          "max_position_size": "15%",
+          "stop_loss": "2.5%",
+          "take_profit": "5%",
+          "trailing_stop": false
+        }
+      }
+    },
+    "Tier 3": {
+      "description": "Conservative Long - Defensive bullish setups",
+      "regime_score_threshold": 40,
+      "risk_allocation": "10%",
+      "instruments": ["ES", "QQQ", "SPY"],
+      "conditions": {
+        "volatility_environment": {
+          "vix_score": {
+            "min": 20,
+            "max": 35,
+            "weight": 0.20
+          },
+          "vix_term_structure": {
+            "condition": "any",
+            "weight": 0.15
+          },
+          "atr_score": {
+            "min": 40,
+            "max": 80,
+            "weight": 0.15
+          }
+        },
+        "market_structure": {
+          "adx_score": {
+            "min": 45,
+            "max": 75,
+            "weight": 0.15
+          },
+          "bollinger_squeeze": {
+            "condition": "any",
+            "weight": 0.10
+          },
+          "breakout_failures": {
+            "max": 4,
+            "weight": 0.10
+          }
+        },
+        "volume_breadth": {
+          "volume_spikes": {
+            "min": 50,
+            "max": 75,
+            "weight": 0.15
+          },
+          "ad_divergence": {
+            "condition": "any",
+            "weight": 0.10
+          },
+          "mcclellan_oscillator": {
+            "min": 40,
+            "max": 70,
+            "weight": 0.10
+          },
+          "put_call_ratio": {
+            "min": 0.9,
+            "max": 1.6,
+            "weight": 0.10
+          }
+        },
+        "momentum_indicators": {
+          "rsi_divergence": {
+            "condition": "any",
+            "weight": 0.15
+          },
+          "macd_histogram": {
+            "condition": "any",
+            "weight": 0.15
+          },
+          "oscillator_confluence": {
+            "min_indicators": 1,
+            "weight": 0.15
+          }
+        },
+        "institutional_positioning": {
+          "smart_money_flow": {
+            "min": 45,
+            "max": 75,
+            "weight": 0.15
+          },
+          "options_flow": {
+            "condition": "any",
+            "weight": 0.15
+          }
+        }
+      },
+      "entry_rules": {
+        "time_filters": {
+          "market_hours": true,
+          "avoid_fomc": false,
+          "avoid_nfp": false
+        },
+        "price_filters": {
+          "above_200ma": false,
+          "above_50ma": false,
+          "volume_confirmation": false
+        },
+        "risk_management": {
+          "max_position_size": "10%",
+          "stop_loss": "3%",
+          "take_profit": "4%",
+          "trailing_stop": false
+        }
+      }
+    }
+  },
+  "defaults": {
+    "regime_score_threshold": 50,
+    "risk_allocation": "5%",
+    "instruments": ["SPY"],
+    "max_position_size": "5%",
+    "stop_loss": "3%",
+    "take_profit": "4%"
+  },
+  "metadata": {
+    "author": "MacroIntel Team",
+    "playbook_version": "7.1",
+    "last_review": "2025-01-01",
+    "next_review": "2025-04-01"
+  }
+} 

@@ -5,7 +5,8 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from datetime import datetime
 
-load_dotenv()
+# Load environment variables
+load_dotenv(dotenv_path="config/.env")
 
 # Initialize API clients
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))

@@ -10,11 +10,16 @@ import json
 import logging
 from datetime import datetime
 from typing import List, Dict, Any
+from dotenv import load_dotenv
+
+# Load environment variables from config/.env
+load_dotenv(dotenv_path="config/.env")
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from playbook_interpreter import PlaybookInterpreter
+from playbook_loader import get_playbook_loader, PlaybookConfigError
 from utils.api_clients import init_env
 
 # Configure logging
@@ -28,6 +33,15 @@ class PlaybookStrategistAgent:
         """Initialize the playbook strategist agent."""
         init_env()
         self.playbook = PlaybookInterpreter()
+        
+        # Initialize playbook loader
+        try:
+            self.playbook_loader = get_playbook_loader()
+            logger.info("📘 Playbook Strategist Agent initialized with configuration loader")
+        except PlaybookConfigError as e:
+            logger.warning(f"⚠️ Could not load playbook configuration: {e}")
+            self.playbook_loader = None
+        
         logger.info("📘 Playbook Strategist Agent initialized")
     
     def analyze_market_regime(self) -> Dict[str, Any]:
@@ -112,20 +126,46 @@ class PlaybookStrategistAgent:
             # Use the strategies already selected by the playbook interpreter
             strategies = market_data.get("selected_strategies", [])
             
-            # Add confidence scores if not present
-            for strategy in strategies:
-                if "confidence" not in strategy:
-                    # Calculate confidence based on market conditions
-                    confidence = 0.7  # Default confidence
+            # Enhance strategies with playbook configuration if available
+            if self.playbook_loader:
+                enhanced_strategies = []
+                for strategy in strategies:
+                    strategy_name = strategy.get("name", "")
                     
-                    # Adjust based on market regime
-                    regime = market_data.get("market_regime", "NEUTRAL")
-                    if regime == "BULLISH":
-                        confidence += 0.1
-                    elif regime == "BEARISH":
-                        confidence -= 0.1
-                    
-                    strategy["confidence"] = min(1.0, max(0.0, confidence))
+                    # Get configuration from playbook loader
+                    try:
+                        strategy_config = self.playbook_loader.get_strategy_config(strategy_name)
+                        enhanced_strategy = {
+                            "name": strategy_name,
+                            "description": strategy_config.get("description", strategy.get("description", "")),
+                            "confidence": strategy.get("confidence", 0.7),
+                            "conditions": strategy_config.get("conditions", {}),
+                            "regime_score_threshold": strategy_config.get("regime_score_threshold", 50),
+                            "risk_allocation": strategy_config.get("risk_allocation", "5%"),
+                            "instruments": strategy_config.get("instruments", []),
+                            "entry_rules": strategy_config.get("entry_rules", {})
+                        }
+                        enhanced_strategies.append(enhanced_strategy)
+                    except PlaybookConfigError:
+                        # Fallback to original strategy if not found in config
+                        enhanced_strategies.append(strategy)
+                
+                strategies = enhanced_strategies
+            else:
+                # Fallback to original logic if playbook loader not available
+                for strategy in strategies:
+                    if "confidence" not in strategy:
+                        # Calculate confidence based on market conditions
+                        confidence = 0.7  # Default confidence
+                        
+                        # Adjust based on market regime
+                        regime = market_data.get("market_regime", "NEUTRAL")
+                        if regime == "BULLISH":
+                            confidence += 0.1
+                        elif regime == "BEARISH":
+                            confidence -= 0.1
+                        
+                        strategy["confidence"] = min(1.0, max(0.0, confidence))
             
             logger.info(f"✅ Selected {len(strategies)} strategies")
             return strategies

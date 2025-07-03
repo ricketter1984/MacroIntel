@@ -1,0 +1,152 @@
+repos:
+  # Detect secrets in code
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+              \.secrets\.baseline|
+              \.git/|
+              tests/|
+              test/|
+              docs/|
+              README\.md|
+              CHANGELOG\.md|
+              LICENSE
+          )$
+
+  # General pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      # Prevent large files from being committed
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      
+      # Check for merge conflicts
+      - id: check-merge-conflict
+      
+      # Check YAML syntax
+      - id: check-yaml
+      
+      # Check JSON syntax
+      - id: check-json
+      
+      # Fix end of files
+      - id: end-of-file-fixer
+      
+      # Remove trailing whitespace
+      - id: trailing-whitespace
+      
+      # Check for debugger imports
+      - id: debug-statements
+      
+      # Check for private keys
+      - id: check-private-key
+      
+      # Check for case conflicts
+      - id: check-case-conflict
+      
+      # Check for symlinks
+      - id: check-symlinks
+      
+      # Check for files with executable bit
+      - id: check-executables-have-shebangs
+      
+      # Check for files with CRLF line endings
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # Python-specific hooks
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        language_version: python3
+        args: ['--line-length=88']
+
+  # Import sorting
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ['--profile=black']
+
+  # Flake8 for linting
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        args: ['--max-line-length=88', '--extend-ignore=E203,W503']
+
+  # Bandit for security linting
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ['-r', '.', '-f', 'json', '-o', 'bandit-report.json']
+        exclude: |
+          (?x)^(
+              tests/|
+              test/|
+              venv/|
+              env/|
+              .venv/|
+              .env/
+          )$
+
+  # Check for hardcoded secrets
+  - repo: https://github.com/awslabs/git-secrets
+    rev: v1.3.0
+    hooks:
+      - id: git-secrets
+        args: ['--scan']
+
+  # Check for AWS credentials
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.3.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-requests, types-PyYAML]
+        exclude: |
+          (?x)^(
+              tests/|
+              test/|
+              venv/|
+              env/|
+              .venv/|
+              .env/
+          )$
+
+  # Check for common security issues
+  - repo: local
+    hooks:
+      - id: check-env-files
+        name: Check for .env files
+        entry: bash -c 'if git diff --cached --name-only | grep -E "\.env$|\.env\."; then echo "ERROR: .env files should not be committed"; exit 1; fi'
+        language: system
+        stages: [commit]
+
+      - id: check-api-keys
+        name: Check for hardcoded API keys
+        entry: bash -c 'if git diff --cached | grep -i "api_key\|api_key\|secret\|password\|token" | grep -v "API_KEY\|api_key.*=.*os\.getenv"; then echo "WARNING: Potential hardcoded credentials found"; exit 1; fi'
+        language: system
+        stages: [commit]
+
+      - id: check-credentials-in-code
+        name: Check for credentials in code
+        entry: bash -c 'if git diff --cached | grep -E "(sk-|pk_|AKIA|ghp_|gho_|ghu_|ghs_|ghr_)"; then echo "ERROR: Potential API keys or tokens found"; exit 1; fi'
+        language: system
+        stages: [commit]
+
+  # Custom security checks
+  - repo: local
+    hooks:
+      - id: security-scan
+        name: Security scan
+        entry: python scripts/security_scan.py
+        language: python
+        stages: [commit]
+        files: \.(py|js|ts|json|yaml|yml)$ 

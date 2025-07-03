@@ -6,7 +6,7 @@ from news_scanner.alert_manager import classify_alerts
 from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path="config/.env")
 init_env()
 
 # Initialize OpenAI client with correct v1 syntax

@@ -16,7 +16,7 @@ import logging
 from query_parser import parse_condition
 
 # Load environment variables
-load_dotenv()
+load_dotenv(dotenv_path="config/.env")
 
 FMP_API_KEY = os.getenv("FMP_API_KEY")
 FEAR_GREED_API_KEY = os.getenv("FEAR_GREED_API_KEY")

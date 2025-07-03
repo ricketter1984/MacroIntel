@@ -10,6 +10,10 @@ import json
 import logging
 from datetime import datetime
 from typing import List, Dict, Any
+from dotenv import load_dotenv
+
+# Load environment variables from config/.env
+load_dotenv(dotenv_path="config/.env")
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

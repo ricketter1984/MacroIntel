@@ -26,7 +26,7 @@ from visual_query_engine import VisualQueryEngine, generate_comparison_chart
 from utils.api_clients import init_env
 
 # Load .env if present
-load_dotenv()
+load_dotenv(dotenv_path="config/.env")
 init_env()
 
 # Configure logging
