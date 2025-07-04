@@ -9,6 +9,7 @@ Designed to be called by the API dispatcher in an isolated environment.
 import os
 import sys
 import json
+import logging
 from pathlib import Path
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
@@ -19,6 +20,62 @@ sys.path.insert(0, str(project_root))
 
 # Load environment variables
 load_dotenv(dotenv_path=project_root / "config" / ".env")
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+# Import data store for database operations
+try:
+    from data_store import insert_economic_event
+    DATA_STORE_AVAILABLE = True
+    logger.info("✅ Data store module imported successfully")
+except ImportError as e:
+    DATA_STORE_AVAILABLE = False
+    logger.warning(f"⚠️ Data store module not available: {e}")
+
+def categorize_event(event_name: str) -> str:
+    """
+    Categorize economic events based on event name.
+    
+    Args:
+        event_name: Name of the economic event
+        
+    Returns:
+        Category string
+    """
+    event_name_lower = event_name.lower()
+    
+    # Fed-related events
+    if any(keyword in event_name_lower for keyword in ['fed', 'federal reserve', 'interest rate', 'fomc']):
+        return "Fed"
+    
+    # Inflation-related events
+    if any(keyword in event_name_lower for keyword in ['cpi', 'inflation', 'pce', 'ppi']):
+        return "Inflation"
+    
+    # Jobs-related events
+    if any(keyword in event_name_lower for keyword in ['non-farm payrolls', 'nfp', 'employment', 'jobs', 'unemployment']):
+        return "Jobs"
+    
+    # GDP-related events
+    if any(keyword in event_name_lower for keyword in ['gdp', 'gross domestic product']):
+        return "GDP"
+    
+    # Housing-related events
+    if any(keyword in event_name_lower for keyword in ['housing', 'home sales', 'building permits']):
+        return "Housing"
+    
+    # Manufacturing-related events
+    if any(keyword in event_name_lower for keyword in ['ism', 'manufacturing', 'industrial production']):
+        return "Manufacturing"
+    
+    # Consumer-related events
+    if any(keyword in event_name_lower for keyword in ['retail sales', 'consumer confidence', 'consumer sentiment']):
+        return "Consumer"
+    
+    # Default category
+    return "Other"
 
 def fetch_fmp_calendar():
     """Fetch economic calendar data from FMP API."""
@@ -39,6 +96,8 @@ def fetch_fmp_calendar():
             processed_events = []
             high_impact_events = []
             medium_impact_events = []
+            db_insertions = 0
+            duplicate_events = 0
             
             for event in calendar_data:
                 processed_event = {
@@ -58,11 +117,45 @@ def fetch_fmp_calendar():
                     high_impact_events.append(processed_event)
                 elif processed_event["impact"] == "Medium":
                     medium_impact_events.append(processed_event)
+                
+                # Store economic event in database
+                if DATA_STORE_AVAILABLE:
+                    try:
+                        # Build event dictionary for database insertion
+                        event_dict = {
+                            'date': processed_event['date'],
+                            'time': processed_event['time'],
+                            'event_name': processed_event['event'],
+                            'impact_level': processed_event['impact'],
+                            'forecast': processed_event['forecast'] if processed_event['forecast'] else None,
+                            'actual': processed_event['actual'] if processed_event['actual'] else None,
+                            'category': categorize_event(processed_event['event'])
+                        }
+                        
+                        # Insert into database
+                        event_id = insert_economic_event(event_dict)
+                        db_insertions += 1
+                        logger.debug(f"✅ Inserted economic event into database with ID: {event_id}")
+                        
+                    except Exception as db_exc:
+                        # Check if it's a duplicate error (SQLite UNIQUE constraint)
+                        if "UNIQUE constraint failed" in str(db_exc):
+                            duplicate_events += 1
+                            logger.debug(f"⚠️ Duplicate event skipped: {processed_event['event']} on {processed_event['date']}")
+                        else:
+                            logger.error(f"❌ Error inserting economic event into database: {db_exc}")
             
             print(f"Successfully fetched {len(processed_events)} economic events")
             print(f"  High impact: {len(high_impact_events)}")
             print(f"  Medium impact: {len(medium_impact_events)}")
             print(f"  Low impact: {len(processed_events) - len(high_impact_events) - len(medium_impact_events)}")
+            
+            if DATA_STORE_AVAILABLE:
+                print(f"  Database insertions: {db_insertions}")
+                if duplicate_events > 0:
+                    print(f"  Duplicate events skipped: {duplicate_events}")
+            else:
+                print("  Database storage: Not available")
             
             # Save to output directory
             output_dir = project_root / "output"
@@ -78,7 +171,9 @@ def fetch_fmp_calendar():
                 "medium_impact_events": medium_impact_events,
                 "all_events": processed_events,
                 "timestamp": datetime.now().isoformat(),
-                "source": "fmp_calendar"
+                "source": "fmp_calendar",
+                "database_insertions": db_insertions,
+                "duplicate_events_skipped": duplicate_events
             }
             
             with open(output_file, 'w', encoding='utf-8') as f:

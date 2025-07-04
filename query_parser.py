@@ -1,4 +1,5 @@
 import re
+import logging
 
 
 def parse_condition(query_str):
@@ -7,20 +8,24 @@ def parse_condition(query_str):
     Returns: dict with keys: type, operator, value
     Raises ValueError for invalid conditions.
     """
-    pattern = r"\s*(fear|vix)\s*([<>]=?|==|!=)\s*(\d+(?:\.\d+)?)\s*"
-    match = re.fullmatch(pattern, query_str.strip(), re.IGNORECASE)
-    if not match:
-        raise ValueError(f"Invalid condition format: '{query_str}'")
-    cond_type, operator, value = match.groups()
     try:
-        value = float(value) if '.' in value else int(value)
-    except Exception:
-        raise ValueError(f"Invalid numeric value in condition: '{query_str}'")
-    return {
-        "type": cond_type.lower(),
-        "operator": operator,
-        "value": value
-    }
+        pattern = r"\s*(fear|vix)\s*([<>]=?|==|!=)\s*(\d+(?:\.\d+)?)\s*"
+        match = re.fullmatch(pattern, query_str.strip(), re.IGNORECASE)
+        if not match:
+            raise ValueError(f"Invalid condition format: '{query_str}'")
+        cond_type, operator, value = match.groups()
+        try:
+            value = float(value) if '.' in value else int(value)
+        except Exception:
+            raise ValueError(f"Invalid numeric value in condition: '{query_str}'")
+        return {
+            "type": cond_type.lower(),
+            "operator": operator,
+            "value": value
+        }
+    except Exception as e:
+        logging.warning(f"⚠️ Overlay condition failed to apply: {e}")
+        raise
 
 # Example usage
 if __name__ == "__main__":

@@ -133,7 +133,7 @@ class ChartGeneratorAgent:
             return result
             
         except Exception as e:
-            logger.error(f"❌ Error evaluating condition: {str(e)}")
+            logger.warning(f"⚠️ Overlay condition failed to apply: {e}")
             return True  # Default to generating chart
     
     def analyze_market_conditions(self) -> Dict[str, Any]:

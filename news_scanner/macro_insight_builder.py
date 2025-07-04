@@ -4,6 +4,14 @@ import json
 from openai import OpenAI
 from dotenv import load_dotenv
 from datetime import datetime
+import logging
+# Import insert_news_headline for DB insertion
+try:
+    from data_store import insert_news_headline
+    DATA_STORE_AVAILABLE = True
+except ImportError as e:
+    DATA_STORE_AVAILABLE = False
+    logging.warning(f"⚠️ Data store module not available: {e}")
 
 # Load environment variables
 load_dotenv(dotenv_path="config/.env")
@@ -270,6 +278,22 @@ def summarize_all(articles, model="claude", limit=15):
                 "affected_tickers": summary_result.get("affected_tickers", ""),
                 "tone": summary_result.get("tone", "Neutral")
             }
+            
+            # Insert summarized headline into database
+            if DATA_STORE_AVAILABLE:
+                try:
+                    headline_dict = {
+                        'timestamp': datetime.utcnow().isoformat(),
+                        'source': article.get('source', 'Unknown'),
+                        'symbol': article.get('symbol', ''),
+                        'headline': article.get('title', ''),
+                        'summary': summary_result.get('summary', ''),
+                        'sentiment': 'neutral'
+                    }
+                    headline_id = insert_news_headline(headline_dict)
+                    logging.info(f"✅ Inserted summarized headline into DB with ID: {headline_id}")
+                except Exception as db_exc:
+                    logging.error(f"❌ Error inserting headline into DB: {db_exc}")
             
             summaries.append(summary_result)
             

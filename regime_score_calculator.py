@@ -38,6 +38,15 @@ load_dotenv(dotenv_path=project_root / "config" / ".env")
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Import data store for database operations
+try:
+    from data_store import insert_regime_score
+    DATA_STORE_AVAILABLE = True
+    logger.info("✅ Data store module imported successfully")
+except ImportError as e:
+    DATA_STORE_AVAILABLE = False
+    logger.warning(f"⚠️ Data store module not available: {e}")
+
 try:
     import pandas_ta as ta
 except ImportError:
@@ -898,6 +907,33 @@ def get_daily_regime_score() -> Dict[str, Any]:
         filepath = calculator.save_results(total_results)
         if filepath:
             total_results['output_file'] = filepath
+        
+        # Insert regime score into database
+        if DATA_STORE_AVAILABLE:
+            try:
+                # Build score dictionary for database insertion
+                score_dict = {
+                    'timestamp': total_results['timestamp'],
+                    'total_score': total_results['total_score'],
+                    'volatility': total_results['component_scores']['volatility']['score'],
+                    'structure': total_results['component_scores']['structure']['score'],
+                    'momentum': total_results['component_scores']['momentum']['score'],
+                    'breadth': total_results['component_scores']['volume_breadth']['score'],
+                    'institutional': total_results['component_scores']['institutional']['score'],
+                    'strategy': total_results['strategy_recommendation'],
+                    'instrument': total_results['instrument']
+                }
+                
+                # Insert into database
+                score_id = insert_regime_score(score_dict)
+                total_results['database_id'] = score_id
+                logger.info(f"✅ Regime score inserted into database with ID: {score_id}")
+                
+            except Exception as e:
+                logger.error(f"❌ Error inserting regime score into database: {e}")
+                total_results['database_error'] = str(e)
+        else:
+            logger.warning("⚠️ Data store not available, skipping database insertion")
         
         # Generate and print report
         report = calculator.generate_report(total_results)

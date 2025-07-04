@@ -439,3 +439,72 @@ def fetch_twelve_data_chart(symbol, interval="1day", outputsize=30):
     except Exception as e:
         print(f"[TWELVE DATA ERROR] Exception: {e}")
         return None
+
+# -- VIX Data Client (FMP API)
+def fetch_vix_data(days=365):
+    """
+    Fetch VIX data from FMP API using the correct symbol format ^VIX.
+    
+    Args:
+        days (int): Number of days of historical data to fetch (default: 365)
+        
+    Returns:
+        pandas.DataFrame: DataFrame with datetime index and VIX close prices
+        None: If fetch fails
+    """
+    api_key = os.getenv("FMP_API_KEY")
+    if not api_key:
+        print("[FMP VIX ERROR] FMP_API_KEY not found in environment variables")
+        return None
+    
+    from datetime import datetime, timedelta
+    import pandas as pd
+    
+    url = "https://financialmodelingprep.com/api/v3/historical-price-full/^VIX"
+    params = {
+        "serietype": "line",
+        "apikey": api_key,
+        "from": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
+        "to": datetime.now().strftime("%Y-%m-%d")
+    }
+    
+    try:
+        print(f"[FMP VIX] Fetching VIX data for last {days} days...")
+        response = requests.get(url, params=params, timeout=15)
+        
+        if response.status_code == 200:
+            data = response.json()
+            
+            # Check if we have historical data
+            if "historical" in data and data["historical"]:
+                # Convert to DataFrame
+                df = pd.DataFrame(data["historical"])
+                
+                # Parse date and convert to datetime index
+                df['date'] = pd.to_datetime(df['date'])
+                df = df.set_index('date').sort_index()
+                
+                # Extract only the close price and rename to VIX
+                result_df = df[['close']].rename(columns={'close': 'VIX'})
+                
+                print(f"[FMP VIX SUCCESS] Retrieved {len(result_df)} VIX data points")
+                print(f"[FMP VIX] Date range: {result_df.index.min()} to {result_df.index.max()}")
+                print(f"[FMP VIX] VIX range: {result_df['VIX'].min():.2f} - {result_df['VIX'].max():.2f}")
+                
+                return result_df
+            else:
+                print("[FMP VIX ERROR] No historical data found in response")
+                return None
+        else:
+            print(f"[FMP VIX ERROR] HTTP {response.status_code}: {response.text}")
+            return None
+            
+    except requests.exceptions.Timeout:
+        print("[FMP VIX ERROR] Request timed out")
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"[FMP VIX ERROR] Request failed: {e}")
+        return None
+    except Exception as e:
+        print(f"[FMP VIX ERROR] Unexpected error: {e}")
+        return None

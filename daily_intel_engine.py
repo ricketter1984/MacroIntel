@@ -84,23 +84,17 @@ class MarketRegimeAnalyzer:
     def get_vix_data(self):
         """Fetch VIX data for volatility analysis."""
         try:
-            url = f"https://financialmodelingprep.com/api/v3/historical-price-full/VIX"
-            params = {
-                "apikey": self.fmp_api_key,
-                "from": (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"),
-                "to": datetime.now().strftime("%Y-%m-%d")
-            }
+            from utils.api_clients import fetch_vix_data
             
-            response = requests.get(url, params=params, timeout=15)
+            vix_df = fetch_vix_data(days=30)
             
-            if response.status_code == 200:
-                data = response.json()
-                if "historical" in data and data["historical"]:
-                    latest_vix = float(data["historical"][0]["close"])
-                    avg_vix = np.mean([float(d["close"]) for d in data["historical"][:20]])
-                    return latest_vix, avg_vix
-            return 20, 20  # Default values
-            
+            if vix_df is not None and not vix_df.empty:
+                latest_vix = float(vix_df['VIX'].iloc[-1])
+                avg_vix = float(vix_df['VIX'].mean())
+                return latest_vix, avg_vix
+            else:
+                return 20, 20  # Default values
+                
         except Exception as e:
             logging.error(f"Error fetching VIX data: {str(e)}")
             return 20, 20

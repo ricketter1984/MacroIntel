@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 import warnings
 import logging
 from query_parser import parse_condition
+from utils.api_clients import fetch_twelve_data_chart
 
 # Load environment variables
 load_dotenv(dotenv_path="config/.env")
@@ -353,23 +354,22 @@ def fetch_fear_greed_history(days=365):
         return None
 
 def fetch_vix_history(days=365):
-    url = f"https://financialmodelingprep.com/api/v3/historical-price-full/VIX"
-    params = {
-        "apikey": FMP_API_KEY,
-        "from": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
-        "to": datetime.now().strftime("%Y-%m-%d")
-    }
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        if "historical" in data:
-            df = pd.DataFrame(data["historical"])
-            df['date'] = pd.to_datetime(df['date'])
-            df = df.set_index('date').sort_index()
-            return df[['close']].rename(columns={'close': 'vix'})
-    return None
+    """Fetch VIX data using the dedicated FMP API function."""
+    try:
+        from utils.api_clients import fetch_vix_data
+        return fetch_vix_data(days=days)
+    except Exception as e:
+        logging.error(f"Error fetching VIX history: {e}")
+        return None
 
 def fetch_asset_history(symbol, days=365):
+    """Fetch asset history data, with special handling for VIX using multiple fallback sources."""
+    
+    # Special handling for VIX using multiple fallback sources
+    if symbol.upper() == "VIX":
+        return fetch_vix_with_fallbacks(days)
+    
+    # Default FMP handling for other assets
     url = f"https://financialmodelingprep.com/api/v3/historical-price-full/{symbol}"
     params = {
         "apikey": FMP_API_KEY,
@@ -386,6 +386,19 @@ def fetch_asset_history(symbol, days=365):
             return df[['close']].rename(columns={'close': symbol})
     return None
 
+def fetch_vix_with_fallbacks(days=365):
+    """
+    Fetch VIX data using the dedicated FMP API function.
+    """
+    logging.info("📊 Fetching VIX data from FMP API...")
+    
+    try:
+        from utils.api_clients import fetch_vix_data
+        return fetch_vix_data(days=days)
+    except Exception as e:
+        logging.error(f"Error fetching VIX data: {e}")
+        return None
+
 def generate_comparison_chart(assets, condition=None, output_path="output/custom_query.png", days=365):
     """
     Generate a normalized performance comparison chart for given assets, filtered by condition.
@@ -395,17 +408,36 @@ def generate_comparison_chart(assets, condition=None, output_path="output/custom
     days: number of days of history
     """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    # Fetch asset data
+    
+    # Fetch asset data with graceful error handling
     asset_dfs = {}
+    missing_assets = []
+    
     for symbol in assets:
-        df = fetch_asset_history(symbol, days=days)
-        if df is not None:
-            asset_dfs[symbol] = df
-        else:
-            logging.warning(f"No data for {symbol}")
+        try:
+            df = fetch_asset_history(symbol, days=days)
+            if df is not None and not df.empty:
+                asset_dfs[symbol] = df
+                logging.info(f"✅ Successfully fetched data for {symbol}: {len(df)} records")
+            else:
+                missing_assets.append(symbol)
+                logging.warning(f"⚠️ No data available for {symbol} - skipping this asset")
+        except Exception as e:
+            missing_assets.append(symbol)
+            logging.warning(f"⚠️ Error fetching data for {symbol}: {e} - skipping this asset")
+    
+    # Check if we have any data to plot
     if not asset_dfs:
-        logging.error("No asset data to plot.")
-        return
+        logging.error(f"❌ No data available for any of the requested assets: {', '.join(assets)}")
+        logging.error("Chart generation failed - all assets are missing data")
+        return None
+    
+    # Log summary of what we have
+    available_assets = list(asset_dfs.keys())
+    logging.info(f"📊 Chart will include {len(available_assets)} assets: {', '.join(available_assets)}")
+    
+    if missing_assets:
+        logging.info(f"⚠️ Skipped {len(missing_assets)} assets with missing data: {', '.join(missing_assets)}")
     # Merge on date
     merged = pd.concat(asset_dfs.values(), axis=1, join='inner')
     # Fetch and merge condition data
@@ -451,16 +483,17 @@ def generate_comparison_chart(assets, condition=None, output_path="output/custom
                     elif op == '!=':
                         filter_mask = vix_series != val
         except Exception as e:
-            logging.error(f"Error parsing or applying condition: {e}")
+            logging.warning(f"⚠️ Overlay condition failed to apply: {e}")
     filtered = merged[filter_mask]
     if filtered.empty:
         logging.warning("No data after filtering by condition.")
         return
     # Normalize and plot
     plt.figure(figsize=(12, 6))
-    for symbol in assets:
-        normed = filtered[symbol] / filtered[symbol].iloc[0] * 100
-        plt.plot(filtered.index, normed, label=symbol)
+    for symbol in available_assets:  # Use available_assets instead of original assets list
+        if symbol in filtered.columns:  # Double-check the symbol exists in filtered data
+            normed = filtered[symbol] / filtered[symbol].iloc[0] * 100
+            plt.plot(filtered.index, normed, label=symbol)
     plt.title('Asset Performance Comparison')
     plt.xlabel('Date')
     plt.ylabel('Normalized Price (100 = start)')

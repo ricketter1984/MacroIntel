@@ -504,6 +504,284 @@ class EnhancedVisualizations:
             print(f"❌ Error creating Fear & Greed analysis chart: {str(e)}")
             return None
     
+    def create_vix_strategic_chart(self, vix_data=None, fear_greed_data=None, regime_data=None, output_filename=None):
+        """
+        Create a high-quality two-panel strategic VIX chart.
+        
+        Args:
+            vix_data: DataFrame with VIX data (Date, close columns)
+            fear_greed_data: DataFrame with Fear & Greed data (Date, score columns)
+            regime_data: DataFrame with Regime Score data (Date, total_score columns)
+            output_filename: Optional custom filename
+            
+        Returns:
+            str: Path to saved chart file
+        """
+        self.logger.info("📊 Creating VIX Strategic Chart...")
+        
+        # Generate timestamp for filename if not provided
+        if output_filename is None:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_filename = f"vix_regime_analysis_{timestamp}.png"
+        
+        try:
+            # Fetch VIX data if not provided
+            if vix_data is None:
+                vix_data = self._fetch_vix_data()
+            
+            # Fetch Fear & Greed data if not provided
+            if fear_greed_data is None:
+                fear_greed_data = self._fetch_fear_greed_data()
+            
+            # Fetch Regime Score data if not provided
+            if regime_data is None:
+                regime_data = self._fetch_regime_data()
+            
+            # Validate data
+            if vix_data is None or vix_data.empty:
+                self.logger.error("❌ No VIX data available")
+                return None
+            
+            # Create figure with two panels
+            fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(16, 12))
+            fig.suptitle('VIX Strategic Analysis', fontsize=20, fontweight='bold', y=0.95)
+            
+            # Panel 1: VIX Over Time with Zones
+            self._create_vix_panel(ax1, vix_data)
+            
+            # Panel 2: VIX vs Fear & Greed vs Regime Score
+            self._create_comparison_panel(ax2, vix_data, fear_greed_data, regime_data)
+            
+            # Adjust layout
+            plt.tight_layout()
+            plt.subplots_adjust(top=0.92, hspace=0.3)
+            
+            # Save chart
+            output_path = os.path.join(self.output_dir, output_filename)
+            plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+            plt.close()
+            
+            self.logger.info(f"✅ VIX Strategic Chart saved to {output_path}")
+            return output_path
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error creating VIX Strategic Chart: {str(e)}")
+            return None
+    
+    def _fetch_vix_data(self):
+        """Fetch VIX data using the dedicated FMP API function."""
+        try:
+            from utils.api_clients import fetch_vix_data
+            
+            # Use the dedicated VIX fetching function
+            vix_df = fetch_vix_data(days=365)
+            
+            if vix_df is not None and not vix_df.empty:
+                self.logger.info(f"✅ Fetched VIX data from FMP: {len(vix_df)} records")
+                return vix_df
+            else:
+                self.logger.warning("⚠️ No VIX data returned from FMP API - using simulated data")
+                return self._simulate_vix_data()
+                
+        except Exception as e:
+            self.logger.error(f"❌ Error in VIX data fetch: {e}")
+            return self._simulate_vix_data()
+    
+    def _fetch_fear_greed_data(self):
+        """Fetch Fear & Greed data."""
+        try:
+            import requests
+            
+            api_key = os.getenv("FEAR_GREED_API_KEY")
+            if not api_key:
+                self.logger.warning("⚠️ FEAR_GREED_API_KEY not found - using simulated data")
+                return self._simulate_fear_greed_data()
+            
+            url = "https://cnn-fear-and-greed-index.p.rapidapi.com/cnn/v1/fear_and_greed/index"
+            headers = {
+                "x-rapidapi-key": api_key,
+                "x-rapidapi-host": "cnn-fear-and-greed-index.p.rapidapi.com"
+            }
+            
+            response = requests.get(url, headers=headers, timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                score = data.get("fear_and_greed", {}).get("score", 50)
+                
+                # Create a simple DataFrame with current score
+                df = pd.DataFrame({
+                    'Fear_Greed': [score]
+                }, index=[datetime.now()])
+                
+                self.logger.info(f"✅ Fetched Fear & Greed data: {score}")
+                return df
+            else:
+                self.logger.warning(f"⚠️ Fear & Greed API error: {response.status_code} - using simulated data")
+                return self._simulate_fear_greed_data()
+                
+        except Exception as e:
+            self.logger.warning(f"⚠️ Error fetching Fear & Greed data: {str(e)} - using simulated data")
+            return self._simulate_fear_greed_data()
+    
+    def _fetch_regime_data(self):
+        """Fetch Regime Score data."""
+        try:
+            # Try to get latest regime score from database or files
+            from pathlib import Path
+            import json
+            
+            output_dir = Path("output")
+            regime_files = list(output_dir.glob("regime_score_*.json"))
+            
+            if regime_files:
+                # Get the most recent file
+                latest_file = max(regime_files, key=lambda x: x.stat().st_mtime)
+                
+                with open(latest_file, 'r') as f:
+                    data = json.load(f)
+                
+                # Create DataFrame with regime score
+                df = pd.DataFrame({
+                    'Regime_Score': [data.get('total_score', 50)]
+                }, index=[datetime.now()])
+                
+                self.logger.info(f"✅ Fetched Regime Score data: {data.get('total_score', 50)}")
+                return df
+            else:
+                self.logger.warning("⚠️ No regime score files found - using simulated data")
+                return self._simulate_regime_data()
+                
+        except Exception as e:
+            self.logger.warning(f"⚠️ Error fetching Regime Score data: {str(e)} - using simulated data")
+            return self._simulate_regime_data()
+    
+    def _simulate_fear_greed_data(self):
+        """Simulate Fear & Greed data for testing."""
+        dates = pd.date_range(start=datetime.now() - timedelta(days=365), end=datetime.now(), freq='D')
+        scores = np.random.normal(50, 15, len(dates))
+        scores = np.clip(scores, 0, 100)
+        
+        df = pd.DataFrame({
+            'Fear_Greed': scores
+        }, index=pd.DatetimeIndex(dates))
+        
+        return df
+    
+    def _simulate_regime_data(self):
+        """Simulate Regime Score data for testing."""
+        dates = pd.date_range(start=datetime.now() - timedelta(days=365), end=datetime.now(), freq='D')
+        scores = np.random.normal(50, 20, len(dates))
+        scores = np.clip(scores, 0, 100)
+        
+        df = pd.DataFrame({
+            'Regime_Score': scores
+        }, index=pd.DatetimeIndex(dates))
+        
+        return df
+    
+    def _simulate_vix_data(self):
+        """Simulate VIX data for testing."""
+        dates = pd.date_range(start=datetime.now() - timedelta(days=365), end=datetime.now(), freq='D')
+        vix_values = np.random.normal(20, 8, len(dates))
+        vix_values = np.clip(vix_values, 10, 50)  # Keep VIX in reasonable range
+        
+        df = pd.DataFrame({
+            'VIX': vix_values
+        }, index=pd.DatetimeIndex(dates))
+        
+        return df
+    
+    def _create_vix_panel(self, ax, vix_data):
+        """Create Panel 1: VIX Over Time with Zones."""
+        # Plot VIX line
+        ax.plot(vix_data.index, vix_data['VIX'], color=self.colors['primary'], linewidth=2, label='VIX')
+        
+        # Define zones
+        zones = [
+            {'min': 0.0, 'max': 15.0, 'color': '#f0f0f0', 'label': 'Low Vol (< 15)'},
+            {'min': 15.0, 'max': 20.0, 'color': '#90EE90', 'label': 'Watch Zone (15-20)'},
+            {'min': 20.0, 'max': 30.0, 'color': '#FFA500', 'label': 'Reversal-Friendly (20-30)'},
+            {'min': 30.0, 'max': 100.0, 'color': '#FF6B6B', 'label': 'Chaos (> 30)'}
+        ]
+        
+        # Add shaded zones
+        for zone in zones:
+            ax.axhspan(zone['min'], zone['max'], alpha=0.3, color=zone['color'], label=zone['label'])
+        
+        # Add zone labels
+        for zone in zones:
+            mid_point = float(zone['min'] + zone['max']) / 2.0
+            ax.text(vix_data.index[-1], mid_point, zone['label'], 
+                   ha='right', va='center', fontsize=10, fontweight='bold',
+                   bbox={'boxstyle': "round,pad=0.3", 'facecolor': 'white', 'alpha': 0.8})
+        
+        # Customize panel
+        ax.set_title('VIX Over Time', fontsize=16, fontweight='bold', pad=20)
+        ax.set_ylabel('VIX Level', fontsize=12, fontweight='bold')
+        ax.grid(True, alpha=0.3)
+        ax.legend(loc='upper left', fontsize=10)
+        
+        # Format x-axis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+        ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+        plt.setp(ax.xaxis.get_majorticklabels(), rotation=45)
+    
+    def _create_comparison_panel(self, ax, vix_data, fear_greed_data, regime_data):
+        """Create Panel 2: VIX vs Fear & Greed vs Regime Score."""
+        # Plot VIX (blue line)
+        ax.plot(vix_data.index, vix_data['VIX'], color=self.colors['primary'], linewidth=2, label='VIX')
+        
+        # Plot Fear & Greed (green line) - scale to VIX range
+        if fear_greed_data is not None and not fear_greed_data.empty:
+            # Scale Fear & Greed (0-100) to VIX range (0-50)
+            scaled_fg = fear_greed_data['Fear_Greed'] * 0.5
+            ax.plot(fear_greed_data.index, scaled_fg, color=self.colors['success'], linewidth=2, label='Fear & Greed (scaled)')
+        
+        # Plot Regime Score (red dashed line) - scale to VIX range
+        if regime_data is not None and not regime_data.empty:
+            # Scale Regime Score (0-100) to VIX range (0-50)
+            scaled_regime = regime_data['Regime_Score'] * 0.5
+            ax.plot(regime_data.index, scaled_regime, color=self.colors['danger'], 
+                   linewidth=2, linestyle='--', label='Regime Score (scaled)')
+        
+        # Add strategy markers
+        if regime_data is not None and not regime_data.empty and vix_data is not None and not vix_data.empty:
+            self._add_strategy_markers(ax, vix_data, regime_data)
+        
+        # Customize panel
+        ax.set_title('VIX vs Fear & Greed vs Regime Score', fontsize=16, fontweight='bold', pad=20)
+        ax.set_ylabel('Scaled Values', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Date', fontsize=12, fontweight='bold')
+        ax.grid(True, alpha=0.3)
+        ax.legend(loc='upper left', fontsize=10)
+        
+        # Format x-axis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+        ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+        plt.setp(ax.xaxis.get_majorticklabels(), rotation=45)
+    
+    def _add_strategy_markers(self, ax, vix_data, regime_data):
+        """Add vertical markers for strategy setups."""
+        try:
+            # Find days where regime score > 70 and VIX > 25
+            if len(regime_data) > 1:  # Need more than one data point for comparison
+                # For simplicity, we'll mark recent high regime scores
+                recent_regime = regime_data.iloc[-1]['Regime_Score'] if len(regime_data) > 0 else 50
+                recent_vix = vix_data.iloc[-1]['VIX'] if len(vix_data) > 0 else 20
+                
+                if recent_regime > 70 and recent_vix > 25:
+                    # Add vertical line and annotation
+                    ax.axvline(x=vix_data.index[-1], color='red', linestyle=':', linewidth=2, alpha=0.7)
+                    ax.annotate('Tier 1 Setup', 
+                               xy=(vix_data.index[-1], recent_vix),
+                               xytext=(10, 10), textcoords='offset points',
+                               fontsize=12, fontweight='bold', color='red',
+                               bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.8),
+                               arrowprops=dict(arrowstyle='->', color='red', alpha=0.7))
+        except Exception as e:
+            self.logger.warning(f"⚠️ Overlay condition failed to apply: {e}")
+
     def generate_all_visualizations(self, data_sources):
         """Generate all enhanced visualizations."""
         self.logger.info("🎨 Generating enhanced visualizations...")

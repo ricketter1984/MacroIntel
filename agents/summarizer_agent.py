@@ -21,6 +21,15 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.api_clients import fetch_all_news, init_env
 from news_scanner.news_insight_feed import scan_relevant_news
 
+# Import data store for database operations
+try:
+    from data_store import insert_news_headline
+    DATA_STORE_AVAILABLE = True
+    logger.info("✅ Data store module imported successfully")
+except ImportError as e:
+    DATA_STORE_AVAILABLE = False
+    logger.warning(f"⚠️ Data store module not available: {e}")
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -68,6 +77,7 @@ class SummarizerAgent:
         try:
             summarized_articles = []
             sources_processed = set()
+            db_insertions = 0
             
             for article in articles:
                 # Extract key information
@@ -83,15 +93,47 @@ class SummarizerAgent:
                 
                 summarized_articles.append(summary)
                 sources_processed.add(summary["source"])
+                
+                # Store summarized headline in database
+                if DATA_STORE_AVAILABLE:
+                    try:
+                        # Build headline dictionary for database insertion
+                        affected_tickers = summary.get('affected_tickers', '')
+                        symbol = None
+                        if affected_tickers:
+                            symbol = affected_tickers.split(',')[0].strip()
+                        
+                        headline_dict = {
+                            'timestamp': summary['timestamp'],
+                            'source': summary['source'],
+                            'symbol': symbol,
+                            'headline': summary['title'],
+                            'summary': summary['summary'],
+                            'sentiment': summary['sentiment']
+                        }
+                        
+                        # Insert into database
+                        headline_id = insert_news_headline(headline_dict)
+                        db_insertions += 1
+                        logger.debug(f"✅ Inserted headline into database with ID: {headline_id}")
+                        
+                    except Exception as db_exc:
+                        logger.error(f"❌ Error inserting headline into database: {db_exc}")
             
             result = {
                 "articles": summarized_articles,
                 "total_count": len(summarized_articles),
                 "sources_processed": list(sources_processed),
-                "timestamp": datetime.now().isoformat()
+                "timestamp": datetime.now().isoformat(),
+                "database_insertions": db_insertions
             }
             
             logger.info(f"📝 Summarized {len(summarized_articles)} articles from {len(sources_processed)} sources")
+            if DATA_STORE_AVAILABLE:
+                logger.info(f"💾 Stored {db_insertions} headlines in database")
+            else:
+                logger.warning("⚠️ Data store not available, skipping database insertion")
+            
             return result
             
         except Exception as e:

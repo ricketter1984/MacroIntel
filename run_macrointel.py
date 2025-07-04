@@ -181,47 +181,42 @@ class EnhancedMacroIntel:
             return {'success': False, 'error': str(e)}
     
     def fetch_vix_data(self):
-        """Fetch VIX data from FMP API."""
-        logger.info("📊 Fetching VIX data...")
+        """Fetch VIX data using the dedicated FMP API function."""
+        logger.info("📊 Fetching VIX data from FMP API...")
+        
         try:
-            import requests
-            import pandas as pd
+            from utils.api_clients import fetch_vix_data
             
-            api_key = os.getenv("FMP_API_KEY")
-            if not api_key:
-                raise ValueError("FMP_API_KEY not found")
+            # Use the dedicated VIX fetching function
+            vix_df = fetch_vix_data(days=365)
             
-            url = "https://financialmodelingprep.com/api/v3/historical-price-full/VIX"
-            params = {
-                "apikey": api_key,
-                "from": (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d"),
-                "to": datetime.now().strftime("%Y-%m-%d")
-            }
-            
-            response = requests.get(url, params=params, timeout=15)
-            
-            if response.status_code == 200:
-                data = response.json()
-                if "historical" in data and data["historical"]:
-                    df = pd.DataFrame(data["historical"])
-                    df['date'] = pd.to_datetime(df['date'])
-                    df = df.set_index('date').sort_index()
-                    
-                    result = {
-                        'success': True,
-                        'data': df[['close']].rename(columns={'close': 'VIX'})
+            if vix_df is not None and not vix_df.empty:
+                result = {
+                    'success': True,
+                    'data': vix_df,
+                    'current_vix': float(vix_df['VIX'].iloc[-1]),
+                    'avg_vix': float(vix_df['VIX'].mean()),
+                    'vix_range': {
+                        'min': float(vix_df['VIX'].min()),
+                        'max': float(vix_df['VIX'].max())
                     }
-                    
-                    logger.info(f"✅ VIX: {len(df)} data points")
-                    return result
-                else:
-                    raise Exception("No VIX data available")
+                }
+                
+                logger.info(f"✅ VIX: {len(vix_df)} data points (current: {result['current_vix']:.2f})")
+                return result
             else:
-                raise Exception(f"API error: {response.status_code}")
+                logger.warning("⚠️ No VIX data returned from FMP API")
+                return {
+                    'success': False,
+                    'error': 'No VIX data available from FMP API'
+                }
                 
         except Exception as e:
-            logger.error(f"❌ VIX fetch error: {str(e)}")
-            return {'success': False, 'error': str(e)}
+            logger.error(f"❌ Error fetching VIX data: {e}")
+            return {
+                'success': False,
+                'error': f'VIX fetch failed: {str(e)}'
+            }
     
     def aggregate_data_sources(self):
         """Aggregate data from all sources."""
