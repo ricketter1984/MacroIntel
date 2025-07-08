@@ -1,0 +1,2509 @@
+Free Stock Market API and Financial Statements API
+FMP is your source for the most reliable and accurate Stock Market API and Financial Data API available. Whether you're looking for real-time stock prices, financial statements, or historical data, we offer a comprehensive solution to meet all your financial data needs.
+
+Our platform provides free stock market data, including audited, standardized, and real-time updates of income statements, balance sheets, and cash flow statements on a quarterly and annual basis.
+
+We also offer a wide range of historical stock prices, from 1 minute, 15 minutes, 30 minutes, 1 hour and daily intervals, ensuring you have the data you need.
+
+Please contact us with any questions about APIs or pricing.
+
+To authorize your requests, add ?apikey=zvWydfhrVNaCoGPjw5QfnNGsqyypMecS at the end of every request.
+
+Note: When adding the API key to your requests, ensure to use &apikey= if other query parameters already exist in the endpoint.
+
+Company Search
+General Search API
+Search over 70,000 symbols by symbol name or company name, including cryptocurrencies, forex, stocks, etf and other financial instruments.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/search?query=AA
+
+Parameters
+
+Ticker Search API
+Find ticker symbols and exchanges for both equity securities and exchange-traded funds (ETFs) by searching with the company name or ticker symbol.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/search-ticker?query=AA&limit=10&exchange=NASDAQ
+
+Parameters
+
+Name Search API
+Find ticker symbols and exchange information for equity securities and exchange-traded funds (ETFs) by searching with the company name.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/search-name?query=META&limit=10&exchange=NASDAQ
+
+Parameters
+
+CIK Name Search API
+Discover CIK numbers for SEC-registered entities with our CIK Name Search.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cik-search/Berkshire
+
+Parameters
+
+CIK Search API
+Quickly find registered company names linked to SEC-registered entities using their CIK Number with our CIK Search..
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cik/0001067983
+
+Parameters
+
+Cusip Search API
+Access information about financial instruments and securities by simply entering their unique CUSIP (Committee on Uniform Securities Identification Procedures) numbers with our CUSIP Search..
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cusip/000360206
+
+Parameters
+
+ISIN Search API
+Find information about financial instruments and securities by entering their unique ISIN (International Securities Identification Number) with our ISIN Search.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/search/isin?isin=US0378331005
+
+Parameters
+
+Stock List
+Symbol List API
+Find symbols for traded and non-traded stocks with our Symbol List. This comprehensive list includes over 80,000 stocks, making it the perfect resource for investors and traders of all levels.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock/list
+
+Exchange Traded Fund Search API
+Our Exchange Traded Fund Search makes it easy to find the symbol for any ETF you're looking for. Simply query the endpoint to get a full list of ETFs we cover, including Name, Symbol, Exchange, and Price.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/etf/list
+
+Statement Symbols List API
+Discover all companies with financial statements available on our API. Our comprehensive list covers major exchanges such as the NYSE and NASDAQ, as well as international exchanges. This list is regularly updated, so you can always find the information you need.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/financial-statement-symbol-lists
+
+Tradable Search API
+Discover all actively traded stocks with our Tradable Search feature. This comprehensive list includes over 70,000 stocks, with symbol, name, price, and exchange information for each company.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/available-traded/list
+
+Commitment of traders report API
+The Commitment of Traders Report is a weekly report from the Commodity Futures Trading Commission (CFTC) that provides insights into the positions of market participants in various markets. Our Commitment of Traders Report tool makes it easy to access and analyze this valuable data, helping you to make more informed trading decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report/list
+
+13F CIK List API
+Our CIK List provides a comprehensive database of 13F CIK numbers for SEC-registered entities. A CIK number is a unique identifier assigned to each SEC-registered entity, and it is required for many financial transactions. Our CIK List is a valuable resource for businesses and individuals who need to quickly and easily find CIK numbers.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cik_list
+
+Euronext Symbols API
+Find all symbols for stocks traded on Euronext exchanges with our comprehensive list. Euronext is one of the largest exchanges in Europe, and our list includes stocks from a wide range of industries.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/available-euronext
+
+Symbol Changes API
+Stay up-to-date on the latest symbol changes with our easy-to-use tool. Track symbol changes due to mergers, acquisitions, stock splits, and name changes.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/symbol_change
+
+Exchange Symbols API
+Our Exchange Symbols list includes all symbols for a given exchange. This list includes all the symbols that FMP covers from the selected exchange, making it a valuable resource for investors and traders who want to view the full list of equities on different exchanges.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/NASDAQ
+
+Parameters
+
+Available Indexes API
+The FMP Available Indexes endpoint provides a list of all available indexes. The list includes the index's symbol, name, and exchange.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/available-indexes
+
+Company information
+Company Profile API
+Get a comprehensive overview of a company with our Company Profile endpoint. This endpoint provides key information such as price, beta, market capitalization, description, headquarters, and more.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/profile/AAPL
+
+Parameters
+
+Executive Compensation API
+Understand how a company compensates its executives with our Executive Compensation endpoint. This endpoint provides information such as salary, bonus, and stock options for each executive.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/governance/executive_compensation?symbol=AAPL
+
+Parameters
+
+Compensation Benchmark API
+Compare a company's executive compensation to other companies in the same industry with our Compensation Benchmark endpoint. This endpoint can help you understand how competitive a company's executive compensation is.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/executive-compensation-benchmark?year=2022
+
+Parameters
+
+Company Notes API
+Stay up-to-date on a company's financial condition, operations, and risks with our Company Notes endpoint. This endpoint provides information about notes reported by a company in their financial statements.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/company-notes?symbol=AAPL
+
+Parameters
+
+Historical Employee API
+Track how a company's workforce has grown or shrunk over time with our Historical Employees endpoint. This endpoint provides historical data about the number of employees in a company.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/historical/employee_count?symbol=AAPL
+
+Parameters
+
+Employee Count API
+Get the current number of employees in a company with our Employee Count endpoint. This endpoint can help you understand the size of a company's workforce and compare it to other companies.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/employee_count?symbol=AAPL
+
+Parameters
+
+Screener (Stock) API
+Find stocks that meet your investment criteria with our Screener (Stock) endpoint. This endpoint allows you to search for stocks based on various criteria, such as market cap, price, volume, beta, sector, and country.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock-screener
+
+Parameters
+
+Stock Grade API
+Get a sense of how professional investors view a company with our Stock Grade endpoint. This endpoint provides a rating of a company given by hedge funds, investment firms, and analysts.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/grade/AAPL
+
+Parameters
+
+Executives API
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/key-executives/AAPL
+
+Parameters
+
+Company Core Information Summary API
+Verify a company's identity or find additional information about a company with our Company Core Information summary endpoint. This endpoint provides core information such as CIK, exchange, and address.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/company-core-information?symbol=AAPL
+
+Parameters
+
+Market Cap API
+The FMP Market Cap endpoint provides the current market capitalization of a company. Market cap is a measure of the size and relative importance of a company in the stock market. It is calculated by multiplying the current share price by the number of outstanding shares.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/market-capitalization/AAPL
+
+Parameters
+
+Historical Market Cap API
+The FMP Historical Market Cap endpoint offers comprehensive historical market capitalization data for companies, enabling users to analyze the company's growth trajectory and identify performance trends over time. Please note that each query is limited to a maximum of five years of data.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-market-capitalization/AAPL?limit=100&from=2023-10-10&to=2023-12-10
+
+Parameters
+
+All Countries API
+The FMP All Countries endpoint provides a list of all countries where stocks are traded. Investors can use this information to identify new investment opportunities and to diversify their portfolios.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/get-all-countries
+
+Analyst Estimates API
+The FMP Analyst Estimates endpoint provides analyst estimates for a company's future earnings and revenue. Investors can use this information to get a sense of what analysts expect from a company and to identify potential investment opportunities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/analyst-estimates/AAPL
+
+Parameters
+
+Analyst Recommendation API
+The FMP Analyst Recommendation endpoint provides analyst recommendations for buying, selling, or holding a company's stock. Investors can use this information to get a sense of what analysts think of a company's stock and to make informed investment decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/analyst-stock-recommendations/AAPL
+
+Parameters
+
+Company Logo API
+The FMP Company Logo endpoint provides an image of a company's logo. Investors can use this information to identify a company and to get a sense of its brand.
+
+Endpoint:
+
+https://financialmodelingprep.com/image-stock/EURUSD.png
+
+Company Outlook API
+The FMP Company Outlook endpoint provides an overview of a company, including its profile information, most recent insider trading transactions, and financial statements. Investors can use this information to get a comprehensive understanding of a company and to make informed investment decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/company-outlook?symbol=AAPL
+
+Parameters
+
+Stock Peers API
+The FMP Stock Peers endpoint provides a group of companies that trade on the same exchange, are in the same sector, and have a similar market capitalization. Investors can use this information to compare a company to its competitors and to identify companies that are performing well.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/stock_peers?symbol=AAPL
+
+Parameters
+
+Holidays and Trading Hours API
+The FMP Market Open endpoint provides information on whether the US market and EURONEXT, etc are open or closed. Investors can use this information to make informed investment decisions and to avoid trading during market closures.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/is-the-market-open?exchange=EURONEXT
+
+Parameters
+
+All Exchanges Trading Hours API
+The FMP Market Open endpoint provides information on whether the US market and all other exchanges are open or closed. Investors can use this information to make informed investment decisions and to avoid trading during market closures.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/is-the-market-open-all
+
+Delisted Companies API
+The FMP Delisted Companies endpoint provides a list of companies that have been delisted from US exchanges. Investors can use this information to avoid trading in delisted stocks and to identify companies that may be in financial trouble.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/delisted-companies
+
+Parameters
+
+Company Share Float API
+The FMP Company Share Float endpoint provides the total number of shares that are publicly traded for a given company. This is also known as the company's float. The float is calculated by subtracting the number of restricted shares from the total number of outstanding shares.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/shares_float?symbol=AAPL
+
+Parameters
+
+Historical Share Float API
+The FMP Historical Share Float endpoint provides historical data on the number of shares that are publicly traded for a given company. This is also known as the company's float. The float is calculated by subtracting the number of restricted shares from the total number of outstanding shares.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/historical/shares_float?symbol=AAPL
+
+Parameters
+
+All Shares Float API
+The number of shares available for trading, this includes Restricted Stock Units (RSUs)
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/shares_float/all
+
+All Available Sectors API
+The FMP All Available Sectors endpoint provides a list of all sectors available in the FMP database. Investors can use this information to identify sectors of interest and to explore investment opportunities within those sectors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/sectors-list
+
+All Available Industries API
+The FMP All Available Industries endpoint provides a list of all industries available in the FMP database. Investors can use this information to identify industries of interest and to explore investment opportunities within those industries.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/industries-list
+
+All Available Exchanges API
+The FMP All Available Exchanges endpoint provides a list of all exchanges available in the FMP database. Investors can use this information to identify exchanges of interest and to explore investment opportunities within those exchanges.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/exchanges-list
+
+Quote
+Full Quote API
+This endpoint gives you the latest bid and ask prices for a stock, as well as the volume and last trade price in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote/AAPL
+
+Parameters
+
+Quote Order API
+This endpoint gives you a simplified view of a stock's quote, including the current price, volume, and last trade price.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote-order/AAPL
+
+Parameters
+
+Simple Quote API
+Get a simple quote for a stock, including the price, change, and volume. This endpoint can be used to get a quick snapshot of a stock's performance or to calculate its valuation.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote-short/AAPL
+
+Parameters
+
+OTC Quote API
+This endpoint gives you the latest bid and ask prices for an over-the-counter (OTC) stock, as well as the volume and last trade price in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/otc/real-time-price/BATRB
+
+Parameters
+
+Exchange Prices API
+This endpoint provides real-time prices for all stocks listed on a specific exchange.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quotes/NYSE
+
+Parameters
+
+Stock Price Change API
+This endpoint gives you the change in a stock's price over a given period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock-price-change/AAPL
+
+Parameters
+
+Aftermarket Trade API
+This endpoint gives you information on trades that have occurred in the aftermarket.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/pre-post-market-trade/AAPL
+
+Parameters
+
+Aftermarket Quote API
+This endpoint gives you the latest bid and ask prices for a stock in the aftermarket.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/pre-post-market/AAPL
+
+Parameters
+
+Batch Quote API
+This endpoint gives you quotes for multiple stocks at once.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/batch-pre-post-market/AAPL
+
+Parameters
+
+Batch Trade API
+This endpoint gives you trades for multiple stocks at once.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/batch-pre-post-market-trade/AAPL
+
+Parameters
+
+Last Forex API
+This endpoint gives you the latest price for a currency pair.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/forex/last/EURUSD
+
+Parameters
+
+Last Crypto API
+This endpoint gives you the latest price for a cryptocurrency.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/crypto/last/BTCUSD
+
+Parameters
+
+Live Full Price w/ Orders API
+This endpoint gives you the latest bid and ask prices for a stock, as well as the volume and last trade price, in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock/full/real-time-price/AAPL
+
+Parameters
+
+All Live Full Price w/ Orders API
+This endpoint gives you a list of all real-time full stock prices.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock/full/real-time-price
+
+Forex Prices API
+This endpoint gives you the latest bid and ask prices for a currency pair.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/fx/EURUSD
+
+Parameters
+
+All Forex Prices API
+This endpoint gives you a list of all foreign exchange (FX) prices.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/fx
+
+Financial Statements
+The financial statements, including balance sheet, income statement, and cash flow statement available in annual and quarterly format sourced from SEC filings
+
+Income Statements API
+FMP's Income Statement API provides access to real-time income statement data for a wide range of companies, including public companies, private companies, and ETFs. This data can be used to track a company's profitability over time, to compare a company to its competitors, and to identify trends in a company's business.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/income-statement/0000320193?period=annual
+
+Parameters
+
+Balance Sheet Statements API
+The balance sheet is a financial statement that displays a company’s total assets, liabilities, and shareholder equity over a specific timeframe (quarterly or yearly). Investors can use this statement to determine if the company can fund its operations, meet its debt obligations, and pay a dividend.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/balance-sheet-statement/AAPL?period=annual
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/balance-sheet-statement/0000320193?period=annual
+
+Parameters
+
+Cashflow Statements API
+The cash flow statement is a financial statement that highlights how cash moves through the company, including both cash inflows and outflows. This statement shows the cash flows in 3 main categories “Operating Cash Flows”, “Investing Cash Flows”, and “Financing Cash Flows”, which help investors to understand if the company is making money or losing money by conducting business.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cash-flow-statement/AAPL?period=annual
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cash-flow-statement/0000320193?period=annual
+
+Parameters
+
+Income Statements As Reported API
+Get the income statement for a company as reported by the company, without any adjustments. This endpoint provides a complete and accurate picture of a company's financial performance over a period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/income-statement-as-reported/AAPL?period=annual&limit=50
+
+Parameters
+
+Balance Sheet Statements As Reported API
+Get the balance sheet for a company as reported by the company, without any adjustments. This endpoint can be used to assess a company's financial health and to identify potential risks.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/balance-sheet-statement-as-reported/AAPL?period=annual&limit=50
+
+Parameters
+
+Cashflow Statements As Reported API
+Get the cash flow statement for a company as reported by the company, without any adjustments. This endpoint can be used to assess a company's cash flow generating ability and to identify potential risks.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cash-flow-statement-as-reported/AAPL?period=annual&limit=50
+
+Parameters
+
+Full Financial Statements As Reported API
+FMP's Full Financial Statement As Reported API provides access to all three of the financial statements (income statement, balance sheet, and cash flow statement) for a company as reported by the company. This data can be used to get a complete overview of a company's financial performance and health.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/financial-statement-full-as-reported/AAPL?period=annual&limit=50
+
+Parameters
+
+List of dates and Links API
+FMP's List Of Dates API provides a list of all the dates for which financial statements are available for a company. This information can be used to identify the dates for which financial statements are available and to track a company's financial performance over time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/financial-reports-dates?symbol=AAPL
+
+Parameters
+
+Annual Reports on Form 10-K API
+FMP's Annual Reports On Form 10-K API provides access to the annual reports on Form 10-K for a company. Form 10-K is an annual report that public companies in the United States are required to file with the Securities and Exchange Commission (SEC). This information can be used to access a wealth of information about a company, including its financial performance, its business operations, and its risk factors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/financial-reports-json?symbol=AAPL&year=2020&period=FY
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/financial-reports-xlsx?symbol=AAPL&year=2020&period=FY
+
+Parameters
+
+Statement Analysis
+Key Metrics API
+Get key financial metrics for a company, including revenue, net income, and price-to-earnings ratio (P/E ratio). Assess a company's financial performance and compare it to its competitors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/key-metrics/AAPL?period=annual
+
+Parameters
+
+Key Metrics TTM API
+Get key financial metrics for a company, including revenue, net income, and P/E ratio, for the trailing twelve months (TTM). Get a more up-to-date view of a company's financial performance.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/key-metrics-ttm/AAPL
+
+Parameters
+
+Ratios API
+Get financial ratios for a company, such as the P/B ratio and the ROE. Assess a company's financial health and compare it to its competitors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/ratios/AAPL?period=quarter
+
+Parameters
+
+Ratios TTM API
+Get financial ratios for a company, such as the P/B ratio and the ROE, for the trailing twelve months (TTM). Get a more up-to-date view of a company's financial health.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/ratios-ttm/AAPL
+
+Parameters
+
+Cashflow Growth API
+Get the cash flow growth rate for a company. Measure how quickly a company's cash flow is growing.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/cash-flow-statement-growth/AAPL?period=annual
+
+Parameters
+
+Income Growth API
+Get the income growth rate for a company. Measure how quickly a company's income is growing.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/income-statement-growth/AAPL?period=annual
+
+Parameters
+
+Balance Sheet Growth API
+Get the balance sheet growth rate for a company. Measure how quickly a company's assets and liabilities are growing.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/balance-sheet-statement-growth/AAPL?period=annual
+
+Parameters
+
+Financial Growth API
+Financial Growth Get the financial growth rate for a company. Measure how quickly a company's overall financial performance is improving.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/financial-growth/AAPL?period=annual
+
+Parameters
+
+Financial Score API
+Get a financial score for a company, which is a measure of its overall financial health.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/score?symbol=AAPL
+
+Parameters
+
+Owner Earnings API
+Get the owner earnings for a company, which is a measure of its profitability after accounting for all expenses, including taxes and debt payments. Assess a company's true profitability and compare it to its competitors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/owner_earnings?symbol=AAPL
+
+Parameters
+
+Enterprise Values API
+Get the enterprise value of a company, which is the total value of a company, including its equity and debt. Assess a company's overall value and compare it to its peers.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/enterprise-values/AAPL/?period=quarter
+
+Parameters
+
+Valuation
+Discounted Cashflow API
+Get the discounted cash flow (DCF) valuation for a company, a method to estimate the value of an investment based on its expected future cash flows.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/discounted-cash-flow/AAPL
+
+Parameters
+
+Advanced DCF API
+Calculate the DCF valuation for a company with advanced features like modeling multiple scenarios and using different valuation methods.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/advanced_discounted_cash_flow?symbol=AAPL
+
+Parameters
+
+Levered DCF API
+Get the DCF valuation for a company, taking into account its debt levels.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/advanced_levered_discounted_cash_flow?symbol=AAPL
+
+Parameters
+
+Company Rating API
+The FMP Company Rating endpoint provides a rating of a company based on its financial statements, discounted cash flow analysis, financial ratios, and intrinsic value. Investors can use this rating to get a quick overview of a company's financial health and to compare different companies.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/rating/AAPL
+
+Parameters
+
+Historical Rating API
+The FMP Historical Rating endpoint provides the historical rating of a company. Investors can use this information to track the changes in a company's rating over time and to identify trends in its performance.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-rating/AAPL
+
+Parameters
+
+Price Target
+Price Targets API
+Get the price target for a company, which is the price at which an analyst believes the company's stock is fairly valued. Price targets can be used to make investment decisions, such as whether to buy, sell, or hold a stock.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target?symbol=AAPL
+
+Parameters
+
+Price Target Summary API
+Get a summary of the price targets for a company from different analysts. This summary includes the average price target, the high price target, and the low price target.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target-summary?symbol=AAPL
+
+Parameters
+
+Price Target By Name API
+Get the price targets for a company from a specific analyst. This can be useful if you want to track the price targets of a particular analyst that you trust.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target-analyst-name?name=Tim Anderson
+
+Parameters
+
+Price Target By Company API
+Get the price targets for all companies in a specific industry or sector. This can be useful if you want to compare the price targets of different companies in the same industry.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target-analyst-company?company=Barclays
+
+Parameters
+
+Price Target Consensus API
+Get the consensus price target for a company, which is the average of all price targets from different analysts. This can be useful if you want to get a general idea of what analysts think about a company's stock.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target-consensus?symbol=AAPL
+
+Parameters
+
+Price Target RSS Feed API
+Get an RSS feed of price target updates for a company. This way, you can stay up-to-date on the latest price targets from analysts.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/price-target-rss-feed?page=0
+
+Parameters
+
+Upgrades & Downgrades
+Upgrades & Downgrades API
+Get a comprehensive list of all stock upgrades and downgrades from different analysts, including the rating change, the analyst firm, and the date of the rating change. This information can be used to identify potential investment opportunities and assess the risk of current investments.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/upgrades-downgrades?symbol=AAPL
+
+Parameters
+
+Upgrades & Downgrades RSS Feed API
+Subscribe to an RSS feed of all stock upgrades and downgrades from different analysts. This RSS feed is updated on a daily basis, so you can always stay up-to-date on the latest analyst ratings without having to manually check for updates.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/upgrades-downgrades-rss-feed?page=0
+
+Parameters
+
+Upgrades & Downgrades Consensus API
+Get the consensus rating for a company, which is the average rating from different analysts. This information can be used to get a general idea of what analysts think about a company's stock and to make more informed investment decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/upgrades-downgrades-consensus?symbol=AAPL
+
+Parameters
+
+Upgrades & Downgrades By Company API
+Get a comprehensive list of all stock upgrades and downgrades for a specific company, including the rating change, the analyst firm, and the date of the rating change. This information can be used to track analyst sentiment for a company and to identify potential investment opportunities or risks.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/upgrades-downgrades-grading-company?company=Barclay
+
+Parameters
+
+News
+FMP Articles API
+Get a list of the latest articles from Financial Modeling Prep, including the headline, snippet, and publication URL.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/fmp/articles?page=0&size=5
+
+Parameters
+
+General News API
+Get a list of the latest general news articles from a variety of sources, including the headline, snippet, and publication URL.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/general_news?page=0
+
+Parameters
+
+Stock News API
+Get a list of the latest stock news articles from a variety of sources, including the headline, snippet, publication URL, and ticker symbol.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_news?tickers=AAPL,FB&page=3&from=2024-01-01&to=2024-03-01
+
+Parameters
+
+Stock News Sentiments RSS Feed API
+Get an RSS feed of the latest stock news articles with their sentiment analysis, including the headline, snippet, publication URL, ticker symbol, and sentiment score.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/stock-news-sentiments-rss-feed?page=0
+
+Parameters
+
+Forex News API
+Get a list of the latest forex news articles from a variety of sources, including the headline, snippet, and publication URL.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/forex_news?page=0
+
+Parameters
+
+Crypto News API
+Get a list of the latest crypto news articles from a variety of sources, including the headline, snippet, and publication URL. (Note: This endpoint requires the symbol in the format of BTCUSD to be passed in as a query parameter.)
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/crypto_news?page=0
+
+Parameters
+
+Press Releases API
+Access a diverse range of press releases from various companies, each entry providing essential details such as the company symbol, release date, title, and content of the release. This endpoint offers a comprehensive overview of industry news and updates, enabling users to stay informed about recent developments across multiple organizations.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/press-releases?page=0
+
+Parameters
+
+Press Releases By Symbol API
+Retrieve detailed information about the latest press releases from a specific company, including the company symbol, release date, title, and content of each release. This endpoint allows you to stay updated on important developments and announcements from a particular organization.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/press-releases/AAPL
+
+Parameters
+
+Historical Social Sentiment API
+Provides historical social sentiment data for a given ticker or company name.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/historical/social-sentiment?symbol=AAPL&page=0
+
+Parameters
+
+Trending Social Sentiment API
+Provides trending social sentiment data for a given ticker or company name.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/social-sentiments/trending?type=bullish&source=stocktwits
+
+Parameters
+
+Social Sentiment Changes API
+Provides changes in social sentiment data for a given ticker or company name over a period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/social-sentiments/change?type=bullish&source=stocktwits
+
+Parameters
+
+Earnings Transcripts
+Earnings Transcript API
+Get the full transcript of an earnings call for a specific company in text format. This endpoint can be used to learn more about a company's financial performance, future plans, and overall strategy.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/earning_call_transcript/AAPL?year=2020&quarter=3
+
+Parameters
+
+Transcript Dates API
+Get a list of all upcoming earnings call dates for a specific company. This endpoint can be used to plan your trading activity around earnings call dates.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/earning_call_transcript?symbol=AAPL
+
+Parameters
+
+Batch Earning Call Transcript API
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/batch_earning_call_transcript/AAPL?year=2020
+
+Parameters
+
+Securities and Exchange Commission (S.E.C)
+RSS Feed API
+A real-time feed of SEC filings from publicly traded companies, including the filing type, link to SEC page, and direct link to the filing. This endpoint can be used to stay up-to-date on the latest SEC filings for all companies or for a specific set of companies.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/rss_feed?limit=100&type=10&from=2021-03-10&to=2021-05-04&isDone=true
+
+Parameters
+
+RSS Feed V3 API
+A real-time feed of SEC filings from publicly traded companies in the latest RSS feed format (V3). RSS Feed V3 includes a number of new features and improvements, such as support for multiple namespaces, digital signatures, enclosures, and categories and tags.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/rss_feed?page=0&datatype=csv
+
+Parameters
+
+RSS Feed All API
+A real-time feed of all SEC filings from publicly traded companies in the latest RSS feed format. This endpoint provides a comprehensive overview of all SEC filings, including the filing type, link to SEC page, and direct link to the filing.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/rss_feed_all?page=0
+
+Parameters
+
+RSS Feed 8-K API
+A real-time feed of 8-K SEC filings from publicly traded companies. 8-K filings are required to be filed with the SEC when a company experiences a significant event, such as a merger or acquisition, a bankruptcy filing, or a change in control.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/rss_feed_8k
+
+Parameters
+
+SEC Filings API
+Access direct links to SEC filings, including the filing type, link to the SEC page, and direct link to the specific filing.
+To obtain all companies' SEC filings, you can utilize the RSS Feed API.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/sec_filings/AAPL?type=10-k&page=0
+
+Parameters
+
+Individual Industry Classification API
+Identify the industry in which a particular company operates, based on the Standard Industrial Classification (SIC) system.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/standard_industrial_classification?symbol=AAPL
+
+Parameters
+
+All Industry Classification API
+Get a comprehensive overview of all industries, classified according to the SIC system.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/standard_industrial_classification/all
+
+Industry Classification Codes API
+Learn more about the SIC system and identify the SIC code for a particular industry.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/standard_industrial_classification_list
+
+Parameters
+
+Earnings
+Earnings Calendar API
+A list of upcoming & past earnings announcements for publicly traded companies, including the date, estimated earnings per share (EPS), and actual EPS (if available).
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/earning_calendar?from=2023-10-10&to=2023-08-10
+
+Parameters
+
+Earnings Historical & Upcoming API
+A list of historical & upcoming earnings announcements for a specific company, including the date, estimated EPS, and actual EPS.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical/earning_calendar/AAPL
+
+Parameters
+
+Earnings Confirmed API
+A list of earnings announcements for publicly traded companies that have already been confirmed.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/earning-calendar-confirmed?from=2023-04-10&to=2023-08-19
+
+Parameters
+
+Earnings Surprises API
+A list of earnings announcements for publicly traded companies that were either positive or negative surprises. This endpoint includes the date of the earnings announcement, the estimated EPS, the actual EPS, and the earnings surprise.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/earnings-surprises/AAPL
+
+Parameters
+
+Dividends
+Dividends Calendar API
+A list of upcoming dividend payments for publicly traded companies, including the date of the dividend payment, the ex-dividend date, and the dividend per share.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_dividend_calendar?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+Dividends Historical API
+A list of historical dividend payments for publicly traded companies, including the date of the dividend payment, the ex-dividend date, and the dividend per share.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/AAPL
+
+Parameters
+
+Splits
+Splits Calendar API
+A list of upcoming stock splits for publicly traded companies, including the date of the stock split, the split ratio, and the type of stock split.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_split_calendar?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+Splits Historical API
+A list of historical stock splits for publicly traded companies, including the date of the stock split, the split ratio, and the type of stock split.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/stock_split/AAPL
+
+Parameters
+
+IPO Calendar
+IPO Confirmed API
+The FMP IPO Confirmed endpoint provides a list of IPOs that have been confirmed and are scheduled to take place in the near future.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/ipo-calendar-confirmed?from=2021-11-10&to=2022-02-01
+
+Parameters
+
+IPO Prospectus API
+The FMP IPO Prospectus endpoint provides a link to the IPO prospectus for a given company. The IPO prospectus is a legal document that provides detailed information about the company, its IPO, and its securities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/ipo-calendar-prospectus
+
+Parameters
+
+IPO Calender
+The FMP IPO Calendar endpoint provides a list of upcoming IPOs that are scheduled to take place in the near future. The endpoint returns information about the company, and the expected price range of the IPO.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/ipo_calendar
+
+Parameters
+
+Mergers & Acquisitions
+M&A RSS Feed API
+The FMP M&A RSS Feed provides investors, analysts, and other market participants with a real-time stream of M&A news and announcements.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mergers-acquisitions-rss-feed?page=0
+
+Parameters
+
+Search M&A API
+The FMP Search M&A endpoint allows users to search for M&A deals based on a variety of criteria, Users can also specify a date range to search for M&A deals that were announced during that period.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mergers-acquisitions/search?name=syros
+
+Parameters
+
+Stock Historical Price
+Provides a visual representation of a stock's price over a given timeframe. Currently, we have 6 timeframes available, which are as follows:
+
+Intraday Chart API
+The FMP Chart Intraday endpoint provides an intraday chart for a given company. The chart displays the stock price of the company at different time intervals throughout the day. The user can specify the time interval that they want to view, such as 1 minute, 5 minutes, 15 minutes, or 60 minutes.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-chart/5min/AAPL?from=2023-08-10&to=2023-09-10
+
+Parameters
+
+Daily Chart EOD API
+The FMP Daily Chart endpoint provides daily stock data for a specified company, including opening, high, low, and closing prices, with a default limit of 5 years of historical data. To access data beyond this limit, use the from and to parameters for custom date ranges, each with a 5-year limit.
+
+For example, to get data starting from October 10, 1990, use /v3/historical-price-full/AAPL?from=1990-10-10, which will include records starting from December 12, 1990. This allows access to over 30 years of historical data.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/AAPL
+
+Parameters
+
+Technical Indicators
+Technical indicators are mathematical calculations applied to historical market data, like price and volume, to assist traders and analysts in predicting future price movements. They provide visual representations and signals, helping traders make informed decisions about buying or selling assets. However, they are based on past data, have limitations, and should be used alongside other forms of analysis for more accurate trading strategies.
+
+Simple Moving Average API
+The FMP SMA endpoint provides the simple moving average of a security's closing price over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=sma&period=10
+
+Exponential Moving Average API
+The FMP EMA endpoint provides the exponential moving average of a security's closing price over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=ema&period=10
+
+Weighted Moving Average API
+The FMP WMA endpoint provides the weighted moving average of a security's closing price over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=wma&period=10
+
+Double EMA API
+The FMP DEMA endpoint provides the double exponential moving average of a security's closing price over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=dema&period=10
+
+Triple EMA API
+The FMP TEMA endpoint provides the triple exponential moving average of a security's closing price over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=tema&period=10
+
+Williams API
+The FMP Williams endpoint provides the Williams %R indicator for a security over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=williams&period=10
+
+Relative Strength Index API
+The FMP RSI endpoint provides the Relative Strength Index (RSI) for a security over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=rsi&period=10
+
+Average Directional Index API
+The FMP ADX endpoint provides the Average Directional Index (ADX) for a security over a specified period of time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=adx&period=10
+
+Standard Deviation API
+The FMP Standard Deviation endpoint provides the standard deviation of a security's closing price over a specified period of time
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/technical_indicator/5min/AAPL?type=standardDeviation&period=10
+
+Parameters
+
+ETF Holdings
+ETF Holding dates API
+The FMP ETF Holding Dates endpoint provides a list of the dates on which ETF holdings are updated. For example, an investor may want to know when an ETF's holdings are updated in order to make sure that they are still aligned with their investment goals.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/etf-holdings/portfolio-date?symbol=SPY
+
+Parameters
+
+ETF Holdings API
+The FMP ETF Holdings endpoint provides a list of all the institutional investors that own shares of an ETF. For example, an investor may want to know which ETF has the highest exposure to a particular industry or sector.
+
+To find a list of all available dates for a particular holding, you can access them through ETF Holding dates. Please note that when utilizing this endpoint, ensure that the date you use is from the list of dates provided for the specific holding.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/etf-holdings?date=2023-09-30&symbol=SPY
+
+Parameters
+
+ETF Holder API
+This endpoint returns all stocks held by a specific ETF. Assets, share number, and weight are among the fields returned. For example you can get components of SPY, VOO and more.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/etf-holder/SPY
+
+Parameters
+
+ETF Information API
+The FMP ETF Information endpoint provides basic information about an ETF, such as its ticker symbol, name, expense ratio, and asset under management. For example, an investor may want to compare the expense ratios of different ETFs to find the one that is most cost-effective.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/etf-info?symbol=SPY
+
+Parameters
+
+ETF Sector Weighting API
+The FMP ETF Sector Weighting endpoint provides a breakdown of the percentage of an ETF's assets that are invested in each sector. For example, an investor may want to invest in an ETF that has a high exposure to the technology sector if they believe that the technology sector is poised for growth.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/etf-sector-weightings/QDVE.DE
+
+Parameters
+
+ETF Country Weighting API
+The FMP ETF Country Weighting endpoint provides a breakdown of the percentage of an ETF's assets that are invested in each country. For example, an investor may want to invest in an ETF that has a high exposure to China if they believe that the Chinese economy is poised for growth.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/etf-country-weightings/QDVE.DE
+
+Parameters
+
+ETF Stock Exposure API
+This endpoint returns asset exposure from all ETFs that have it in their holdings. It has properties like market value, share number or weight percentage. It can be useful for looking up stock you like to check what ETF has it on their portfolio.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/etf-stock-exposure/AAPL
+
+Parameters
+
+Mutual Funds Holdings
+Mutual Fund dates API
+The FMP Mutual Fund Dates endpoint provides a list of the dates on which mutual fund holdings are updated. This information can be used by investors to stay up-to-date on the latest changes to mutual fund portfolios. For example, an investor may want to know when a mutual fund's holdings are updated in order to make sure that they are still aligned with their investment goals.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mutual-fund-holdings/portfolio-date?symbol=VWO&cik=0000036405
+
+Parameters
+
+Mutual Funds API
+The FMP Mutual Funds endpoint provides a list of all the mutual funds that are registered with the Securities and Exchange Commission (SEC). This information can be used by investors to identify potential investment opportunities. For example, an investor who is interested in investing in the technology sector may want to browse the list of mutual funds that track the S&P 500 index.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mutual-fund-holdings?symbol=VWO&date=2023-08-31
+
+Parameters
+
+Mutual Fund by name API
+The FMP Mutual Fund By Name endpoint provides detailed information about a specific mutual fund. This information includes the fund's ticker symbol, name, investment objective, expense ratio, and asset under management. Investors can use this information to learn more about a particular mutual fund before deciding whether to invest in it.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mutual-fund-holdings/name?name=Vanguard
+
+Parameters
+
+Mutual Fund Holder API
+The FMP Mutual Fund Holder endpoint provides a list of all the institutional investors that own shares of a particular mutual fund. This information can be used by investors to track the ownership of a mutual fund and to identify potential trends. For example, an investor may want to know which institutions are buying or selling shares of a particular mutual fund.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/mutual-fund-holder/AAPL
+
+Parameters
+
+ESG
+ESG Search API
+Find companies and funds that align with your ESG values with FMP's ESG Search tool. Search by ESG rating, performance, controversies, and business involvement screens.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/esg-environmental-social-governance-data?symbol=AAPL
+
+Parameters
+
+ESG Ratings API
+Get ESG ratings for companies and funds to make informed investment decisions. FMP's ESG Ratings are based on a variety of data sources, including corporate sustainability reports, ESG research firms, and government agencies.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/esg-environmental-social-governance-data-ratings?symbol=AAPL
+
+Parameters
+
+ESG Benchmark API
+Compare the ESG performance of companies and funds to their peers with FMP's ESG Benchmark tool. Identify ESG leaders and laggards to make informed investment decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/esg-environmental-social-governance-sector-benchmark?year=2022
+
+Parameters
+
+Senate
+Senate trading API
+Track the trading activity of US Senators and identify potential conflicts of interest with the FMP Senate Trading endpoint. This endpoint provides a list of all the trades that have been made by US Senators, including the date of the trade, the asset traded, the amount traded, and the price per share.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/senate-trading?symbol=AAPL
+
+Parameters
+
+Senate trading RSS Feed API
+Stay up-to-date on the trading activity of US Senators and identify potential conflicts of interest with the FMP Senate Trading RSS Feed. This feed provides real-time updates on all the trades that are made by US Senators, including the same information as the Senate Trading endpoint.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/senate-trading-rss-feed?page=0
+
+Parameters
+
+House Disclosure API
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/senate-disclosure?symbol=AAPL
+
+Parameters
+
+House Disclosure RSS Feed API
+Stay up-to-date on the financial interests of House Representative and identify potential conflicts of interest with the FMP House Disclosure RSS Feed. This feed provides real-time updates on all the financial disclosures that are made by House Representative, including the same information as the House Disclosure endpoint.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/senate-disclosure-rss-feed?page=0
+
+Parameters
+
+Market Performance
+Market Index API
+The FMP Market Index endpoint provides a list of all the major stock market indices, such as the S&P 500, the Dow Jones Industrial Average, and the Nasdaq Composite Index. This information can be used by investors to track the performance of the overall stock market and to identify sectors and industries that are outperforming or underperforming the market.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quotes/index
+
+Sector PE Ratio API
+The FMP Sector PE Ratio endpoint provides the price-to-earnings (PE) ratio for each sector of the stock market. The PE ratio is a measure of how expensive a stock is relative to its earnings. Investors can use the sector PE ratio to identify sectors that are overvalued or undervalued.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/sector_price_earning_ratio?date=2023-10-10&exchange=NYSE
+
+Parameters
+
+Industry PE Ratio API
+The FMP Industry PE Ratio endpoint provides the price-to-earnings (PE) ratio for each industry of the stock market. The PE ratio is a measure of how expensive a stock is relative to its earnings. Investors can use the industry PE ratio to identify industries that are overvalued or undervalued.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/industry_price_earning_ratio?date=2023-10-10&exchange=NYSE
+
+Parameters
+
+Sector Performance API
+The FMP Sector Performance endpoint provides the performance of each sector of the stock market over a specified period of time. This information can be used by investors to identify sectors that are outperforming or underperforming the market.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/sectors-performance
+
+Sector Historical API
+The FMP Sector Historical endpoint provides historical data on the performance of each sector of the stock market. This information can be used by investors to identify trends in sector performance and to make informed investment decisions.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-sectors-performance?from=2024-01-01&to=2024-03-01
+
+Parameters
+
+Market Biggest Gainers API
+The FMP Market Biggest Gainers endpoint provides a list of the stocks that have gained the most value on a given day. This information can be used by investors to identify stocks that are momentum and to potential investment opportunities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_market/gainers
+
+Market Biggest Losers API
+The FMP Market Biggest Losers endpoint provides a list of the stocks that have lost the most value on a given day. This information can be used by investors to identify stocks that are underperforming and to potential trading opportunities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_market/losers
+
+Market Most Active API
+The FMP Market Most Active endpoint provides a list of the stocks that have the highest trading volume on a given day. This information can be used by investors to identify stocks that are liquid and to potential trading opportunities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/stock_market/actives
+
+Analysis By Symbol API
+Provides an analysis of the Commitment of Traders (COT) report for a given symbol.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report_analysis/M6
+
+Parameters
+
+Analysis By Dates API
+Provides an analysis of the Commitment of Traders (COT) report for a given date range.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report_analysis?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+Report By Symbol API
+Provides a full Commitment of Traders (COT) report for a given symbol.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report/M6
+
+Parameters
+
+Report By Dates API
+Provides a full Commitment of Traders (COT) report for a given date range.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+13F - Institutional Stock Ownership
+Form 13F API
+Provides quarterly reports on the equity holdings of institutional investment managers with over $100 million in assets under management.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/form-thirteen/0001388838?date=2021-09-30
+
+Parameters
+
+Form 13F dates API
+Provides the dates on which Form 13F reports are filed.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/form-thirteen-date/0001067983
+
+Parameters
+
+13F Asset Allocation API
+Provides the asset allocation of institutional investment managers, including their holdings of stocks, bonds, and other assets.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/13f-asset-allocation?date=2021-09-30
+
+Parameters
+
+13F Asset Allocation dates API
+Provides the dates on which 3F asset allocation data is updated.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/13f-asset-allocation-date
+
+Institutional Holders List API
+Provides a list of all institutional investment managers that are required to file Form 13F reports.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/list
+
+Institutional Holders Search API
+Allows users to search for institutional investment managers by name, ticker symbol, or CUSIP number.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/name?name=Berkshire Hathaway
+
+Parameters
+
+Portfolio Holdings dates API
+Provides the dates on which portfolio holdings data is updated.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/portfolio-date?cik=0001067983
+
+Parameters
+
+Institutional Holder RSS API
+Provides an RSS feed of institutional holder data.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/rss_feed?page=0
+
+Parameters
+
+Institutional Stock Ownership API
+Provides the institutional ownership of individual stocks.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/symbol-ownership?symbol=AAPL&includeCurrentQuarter=false
+
+Parameters
+
+Stock Ownership By Holders API
+Provides the stock ownership of individual holders, including institutional and individual investors.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/institutional-holders/symbol-ownership-percent?date=2021-09-30&symbol=AAPL
+
+Parameters
+
+Portfolio Holdings Summary API
+Provides a summary of portfolio holdings, including the top holdings, sector allocation, and industry allocation.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/portfolio-holdings-summary?cik=0001067983&page=0
+
+Parameters
+
+Industry Ownership Summary API
+Provides a summary of industry ownership, including the top industries and the institutional ownership of each industry.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/industry/portfolio-holdings-summary?cik=0001067983&date=2023-06-30
+
+Parameters
+
+Ownership By Shares Held API
+Provides the ownership of stocks by number of shares held.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/institutional-holders/symbol-ownership?page=0&date=2021-09-30&symbol=AAPL
+
+Parameters
+
+Portfolio Composition API
+Provides the composition of portfolios, including the asset allocation, sector allocation, and industry allocation.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/institutional-ownership/portfolio-holdings?date=2023-06-30&cik=0001067983&page=0
+
+Parameters
+
+Institutional Holder API
+Provides detailed information on individual institutional investment managers, including their holdings, contact information, and investment style.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/institutional-holder/AAPL
+
+Parameters
+
+Insider Trading
+Insider Trades RSS API
+Provides an RSS feed of insider trades, updated in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-trading-rss-feed?page=0
+
+Parameters
+
+Insider Trades Search API
+Allows users to search for insider trades by company name, ticker symbol, or insider name.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-trading?symbol=AAPL&page=0
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-trading?page=0
+
+Parameters
+
+Transaction Types API
+Provides a list of all insider transaction types, such as purchases, sales, and gifts.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-trading-transaction-type
+
+Insiders By symbol API
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-roaster?symbol=AAPL
+
+Parameters
+
+Insider Trade Statistics API
+Provides statistics on insider trading activity, such as the total number of insider trades, the average value of insider trades, and the most popular insider stocks.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider-roaster-statistic?symbol=AAPL
+
+Parameters
+
+CIK Mapper API
+Converts a CIK number to a company name.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mapper-cik-name?page=0
+
+Parameters
+
+CIK Mapper By name API
+Converts a company name to a CIK number.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mapper-cik-name?name=zuckerberg&page=0
+
+Parameters
+
+CIK Mapper By Symbol API
+Provides a list of all CIK numbers and corresponding company names.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/mapper-cik-company/MSFT
+
+Parameters
+
+Beneficial ownership API
+Provides a list of all acquisitions of beneficial ownership.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/insider/ownership/acquisition_of_beneficial_ownership?symbol=AAPL
+
+Parameters
+
+Fail to deliver API
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/fail_to_deliver?symbol=GE&page=0
+
+Parameters
+
+Fundraising
+Crowdfunding RSS API
+Provides an RSS feed of crowdfunding campaigns, updated in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/crowdfunding-offerings-rss-feed?page=0
+
+Parameters
+
+Crowdfunding Search API
+Allows users to search for crowdfunding campaigns by company name, campaign name, or platform.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/crowdfunding-offerings/search?name=enotap
+
+Parameters
+
+Crowdfunding By CIK API
+Provides a list of all crowdfunding campaigns that have been launched by a particular company.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/crowdfunding-offerings?cik=0001916078
+
+Parameters
+
+Equity Offering RSS API
+Provides an RSS feed of equity offering announcements, updated in real time.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/fundraising-rss-feed?page=0
+
+Parameters
+
+Equity Offering Search API
+Allows users to search for equity offerings by company name, offering name, or exchange.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/fundraising/search?name=NJOY
+
+Parameters
+
+Equity Offering By CIK API
+Provides a list of all equity offerings that have been announced by a particular company.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/fundraising?cik=0001547416
+
+Parameters
+
+Economics Data
+Treasury Rates API
+Provides real-time and historical Treasury rates for all maturities.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/treasury?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+Economic Indicators API
+Provides real-time and historical economic data for a variety of economic indicators, such as GDP, unemployment, and inflation.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/economic?name=GDP
+
+Parameters
+
+Economics Calendar API
+Provides a calendar of upcoming economic data releases.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/economic_calendar?from=2023-08-10&to=2023-10-10
+
+Parameters
+
+Market Risk Premium API
+Provides the market risk premium for a given date.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/market_risk_premium
+
+Commodities
+Commodities List API
+Provides a list of all commodities that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/available-commodities
+
+Full Commodities Quote List API
+Provides a list of all quotes for all commodities that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quotes/commodity
+
+Full Commodities Quote API
+Provides real-time quotes for all commodities that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote/ZOUSX
+
+Parameters
+
+Intraday Commodities API
+Provides intraday price data for all commodities that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-chart/5min/ZOUSX?from=2024-02-10&to=2024-03-10
+
+Parameters
+
+Commodities Daily API
+Provides daily price data for all commodities that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/ZOUSX
+
+Parameters
+
+Forex
+Forex List API
+Provides a list of all currency pairs that are traded on the forex market.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/available-forex-currency-pairs
+
+Full Forex Quote List API
+Provides a list of all quotes for all currency pairs that are traded on the forex market.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quotes/forex
+
+Full Forex Quote API
+Provides a full quote for a specific currency pair.A complete quote comprises the current exchange rate for the currency pair, along with daily high, low, and open rates, the spread, and trading volume for the day.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote/EURUSD
+
+Parameters
+
+Intraday Forex API
+Provides a full quote for a specific currency pair.A complete quote comprises the current exchange rate for the currency pair, along with daily high, low, and open rates, the spread, and trading volume for the day.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-chart/5min/EURUSD?from=2023-08-10&to=2023-09-10
+
+Parameters
+
+Forex Daily API
+Provides daily price data for all currency pairs that are traded on the forex market.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/EURUSD
+
+Parameters
+
+Crypto
+Cryptocurrencies List API
+Provides a list of all cryptocurrencies that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/symbol/available-cryptocurrencies
+
+Full Crypto Quote List API
+Provides a list of all quotes for all cryptocurrencies that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quotes/crypto
+
+Full Crypto Quote API
+Provides a quote for a specific cryptocurrency.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote/BTCUSD
+
+Parameters
+
+Intraday Cryptocurrency API
+Provides intraday price data for all cryptocurrencies that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-chart/5min/BTCUSD?from=2023-08-10&to=2023-09-10
+
+Parameters
+
+Cryptocurrency Daily API
+Provides daily price data for all cryptocurrencies that are traded on exchanges around the world.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical-price-full/BTCUSD
+
+Parameters
+
+Constituents
+S&P 500 Constituents API
+Provides a list of all companies that are included in the S&P 500 index.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/sp500_constituent
+
+Parameters
+
+Historical S&P 500 Constituents API
+Provides historical data for all companies that are included in the S&P 500 index.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical/sp500_constituent
+
+Nasdaq Constituents API
+Provides a list of all companies that are listed on the NASDAQ stock exchange.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/nasdaq_constituent
+
+Parameters
+
+Historical Nasdaq Constituents API
+Provides historical data for all companies that are listed on the NASDAQ stock exchange.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical/nasdaq_constituent
+
+Dow Jones Constituents API
+Provides a list of all companies that are included in the Dow Jones Industrial Average.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/dowjones_constituent
+
+Parameters
+
+Historical Dow Jones Constituents API
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/historical/dowjones_constituent
+
+Sales Revenue By Segments
+Revenue Product Segmentation API
+Provides a breakdown of a company's revenue by product category.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/revenue-product-segmentation?symbol=AAPL&structure=flat&period=annual
+
+Parameters
+
+Revenue Geo Segmentation API
+Provides a breakdown of a company's revenue by geographic region.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/revenue-geographic-segmentation?symbol=AAPL&structure=flat
+
+Parameters
+
+Websocket
+Login: { "event": "login", "data": { "apiKey": "your_api_key" } }
+Subscribe: { "event": "subscribe", "data": { "ticker": ["aapl", "msft"] } }
+Unsubscribe: { "event": "unsubscribe", "data": { "ticker": ["aapl", "msft"] } }
+
+Parameter:
+ticker: Subscribe to single ticker by providing as a string, or Subscribe to multiple tickers by providing list of tickers as following example.
+data: { "ticker": "aapl" } or { "ticker": ["aapl", "msft"] }.
+
+Response:
+s: Ticker related to the asset.
+t: Timestamp
+type: Trade type (Communicates what type of price update this is. Will always be 'T' for last trade message, 'Q' for top-of-book update message, and 'B' for trade break messages.)
+ap: The current lowest ask price. Only available for Quote updates, null otherwise.
+as: The number of shares at the ask price. Only available for Quote updates, null otherwise.
+bs: The number shares at the bid price. Only available for Quote updates, null otherwise.
+bp: The current highest bid price. Only available for Quote updates, null otherwise.
+lp: The last price the last trade was executed at. Only available for Trade and Break updates, null otherwise.
+ls: The amount of shares (volume) traded at the last price. Only available for Trade and Break updates, null otherwise.
+
+
+Company Web Socket API
+Provides a Real-time feed of stock price and quote data.
+
+Endpoint:
+
+wss://websockets.financialmodelingprep.com
+
+Crypto Web Socket API
+Provides a Real-time feed of crypto price and quote data.
+
+Login: { "event": "login", "data": { "apiKey": "your_api_key" } }
+Subscribe: { "event": "subscribe", "data": { "ticker": ["btcusd", "ethusd"] } }
+Unsubscribe: { "event": "unsubscribe", "data": { "ticker": ["btcusd", "ethusd"] } }
+
+Endpoint:
+
+wss://crypto.financialmodelingprep.com
+
+Forex Web Socket API
+Provides a Real-time feed of forex price and quote data.
+
+Login: { "event": "login", "data": { "apiKey": "your_api_key" } }
+Subscribe: { "event": "subscribe", "data": { "ticker": ["eurusd", "cadusd"] } }
+Unsubscribe: { "event": "unsubscribe", "data": { "ticker": ["eurusd", "cadusd"] } }
+
+Endpoint:
+
+wss://forex.financialmodelingprep.com
+
+Bulk Requests
+Multiple Company Prices API
+Get multiple company prices at once
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v3/quote/AAPL,MSFT
+
+Parameters
+
+Parameter
+
+Type
+
+Example
+
+symbols*
+
+string
+
+AAPL,MSFT
+
+(*) Required
+Response
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+[
+	{
+		"symbol": "AAPL",
+		"name": "Apple Inc.",
+		"price": 174.91,
+		"changesPercentage": 0.7198,
+		"change": 1.25,
+		"dayLow": 172.68,
+		"dayHigh": 175.4411,
+		"yearHigh": 198.23,
+		"yearLow": 124.17,
+		"marketCap": 2734577843640,
+		"priceAvg50": 180.0958,
+		"priceAvg200": 166.6952,
+		"exchange": "NASDAQ",
+		"volume": 47369743,
+		"avgVolume": 58319317,
+		"open": 173.79,
+		"previousClose": 173.66,
+		"eps": 5.96,
+		"pe": 29.35,
+		"earningsAnnouncement": "2023-10-25T10:59:00.000+0000",
+		"sharesOutstanding": 15634199552,
+		"timestamp": 1696536001
+	}
+]
+
+Bulk Endpoints API
+Efficiently access comprehensive data for numerous companies at once, including financial statements, ratios, key metrics, stock splits, stock dividends, and various other relevant information.
+
+Batch EOD Prices API
+Batch request that contains all end of day prices for specific date
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/batch-historical-eod?date=2021-05-18
+
+Bulk Income Statements API
+All quarter or annual Income Statements for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/income-statement-bulk?year=2020&period=annual
+
+Bulk Balance Sheet Statements API
+All quarter or annual Balance Sheet Statements for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/balance-sheet-statement-bulk?year=2020&period=annual
+
+Bulk Cash flow Statements API
+All quarter or annual Cash Flow Statements for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/cash-flow-statement-bulk?year=2020&period=annual
+
+Bulk Ratios API
+All quarter or annual Ratios for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/ratios-bulk?year=2020&period=annual
+
+Bulk Key Metrics API
+All quarter or annual Key Metrics for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/key-metrics-bulk?year=2020&period=annual
+
+Bulk Earning Surprises API
+All Earning Surprises for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/earnings-surprises-bulk
+
+Bulk Profiles API
+It contains all profiles from our API in one CSV file
+
+Endpoint:
+
+https://financialmodelingprep.com/stable/profile-bulk?part=0
+
+Parameters
+
+Query Parameter
+
+Type
+
+Example
+
+part*
+
+string
+
+0, 1, 2, 3
+
+(*) Required
+Response
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+[
+	{
+		"symbol": "AGO.WA",
+		"price": "9.6",
+		"marketCap": "447175680",
+		"beta": "0.891",
+		"lastDividend": "0",
+		"range": "7.56-12.75",
+		"change": "-0.56",
+		"changePercentage": "-5.5118",
+		"companyName": "Agora S.A.",
+		"currency": "PLN",
+		"cik": "",
+		"isin": "PLAGORA00067",
+		"cusip": "",
+		"exchangeFullName": "Warsaw Stock Exchange",
+		"exchange": "WSE",
+		"industry": "Publishing",
+		"website": "https://www.agora.pl",
+		"description": "Agora S.A., together with its subsidiaries, primarily publishes magazines, periodicals, and books in Poland. The company operates through five segments: Movies and Books, Press, Outdoor, Internet, and Radio. Its Movies and Books segment engages in cinema management, including film distribution, production, and gastronomic activities. The Press segment is involved in publishing of the daily and special editions of Gazeta Wyborcza magazines, as well as publishing of the periodicals and printing activities. The company's Outdoor provides advertising services on various forms of outdoor advertising panels. Its Internet segment offers Internet and multi-media products and services primarily in the Internet department and other companies. The Radio segment operates local radio stations and super-regional TOK FM news radio. This segment operates 24 Golden Hits local radio stations, 4 local radio stations under the brand Rock Radio, 8 local stations broadcasting under the brand Radio Pogoda in 23 metropolitan areas. In addition, the company operates restaurants. The company was founded in 1989 and is headquartered in Warsaw, Poland. Agora S.A. operates as a subsidiary of Agora S.A. Group.",
+		"ceo": "Mr. Bartosz  Hojka",
+		"sector": "Communication Services",
+		"country": "PL",
+		"fullTimeEmployees": "2414",
+		"phone": "48 22 555 6000",
+		"address": "8/10 Czerska Street",
+		"city": "Warsaw",
+		"state": "",
+		"zip": "00-732",
+		"image": "https://financialmodelingprep.com/image-stock/AGO.WA.png",
+		"ipoDate": "2000-01-03",
+		"defaultImage": "false",
+		"isEtf": "false",
+		"isActivelyTrading": "true",
+		"isAdr": "false",
+		"isFund": "false"
+	}
+]
+
+Bulk Stock Peers API
+Stock peers for all symbols with profile
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/stock_peers_bulk
+
+Bulk Ratings API
+All latest company ratings.
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/rating-bulk
+
+All latest DCF API
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/dcf-bulk
+
+Bulk Key Metrics TTM API
+Key Metrics TTM for every stock
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/key-metrics-ttm-bulk
+
+Bulk Ratio TTM API
+Ratios TTM for every stock
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/ratios-ttm-bulk
+
+Bulk Scores API
+All stock financial scores
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/scores-bulk
+
+Bulk Financial Growth API
+All quarter or annual growth entries for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/financial-growth-bulk?year=2020&period=annual
+
+Bulk Income Statements Growth API
+All quarter or annual Income Statements Growth for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/income-statement-growth-bulk?year=2020&period=annual
+
+Bulk Balance Sheet Growth API
+All quarter or annual Balance Sheet Statements Growth for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/balance-sheet-statement-growth-bulk?year=2020&period=annual
+
+Bulk Cash Flow Statements Growth API
+All quarter or annual Cash Flow Statements Growth for specific year
+
+Endpoint:
+
+https://financialmodelingprep.com/api/v4/cash-flow-statement-growth-bulk?year=2020&period=annual
+
+Bulk Price Target Summary API
+Price target summary for every stocks
+
+Endpoint:
+
+https://financialmodelingprep.com/stable/price-target-summary-bulk
+
+Response
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+[
+	{
+		"symbol": "",
+		"lastMonth": "1.0",
+		"lastMonthAvgPT": "130.0",
+		"lastMonthAvgPTPercentDif": "0.0",
+		"lastQuarter": "1.0",
+		"lastQuarterAvgPT": "130.0",
+		"lastQuarterAvgPTPercentDif": "0.0",
+		"lastYear": "1.0",
+		"lastYearAvgPT": "130.0",
+		"lastYearAvgPTPercentDif": "0.0",
+		"allTime": "1.0",
+		"allTimeAvgPT": "130.0",
+		"allTimeAvgPTPercentDif": "0.0",
+		"publishers": "['Investing']"
+	}
+]
+
+Bulk Upgrades Downgrades Consensus API
+Upgrades downgrades consensus for every stock
+
+Endpoint:
+
+https://financialmodelingprep.com/stable/upgrades-downgrades-consensus-bulk
+
+Response
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+[
+	{
+		"symbol": "AADI",
+		"strongBuy": "0",
+		"buy": "0",
+		"hold": "4",
+		"sell": "0",
+		"strongSell": "0",
+		"consensus": "Hold"
+	}
+]
+
+Bulk ETF Holders API
+Latest ETF Holders Information Bulk
+
+Endpoint:
+
+https://financialmodelingprep.com/stable/etf-holder-bulk?part=1
+
+Parameters
+
+Query Parameter
+
+Type
+
+Example
+
+part*
+
+string
+
+0, 1, 2, 3
+
+(*) Required
+Response
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+[
+	{
+		"symbol": "36B7.DE",
+		"sharesNumber": "0",
+		"asset": "MIZUHO",
+		"weightPercentage": "0.00722",
+		"cusip": "",
+		"isin": "XS2329143510",
+		"name": "MIZUHO FINANCIAL GROUP INC MTN RegS",
+		"marketValue": "279767.83",
+		"updatedAt": "2024-05-23T22:17:15.667Z"
+	}
+]
+

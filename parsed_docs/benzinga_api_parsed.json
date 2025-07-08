@@ -1,0 +1,12 @@
+{
+  "api_name": "Benzinga",
+  "title": "Home - Benzinga",
+  "endpoints": [],
+  "authentication": {},
+  "examples": [],
+  "rate_limits": {},
+  "metadata": {
+    "file_size": 1349714,
+    "parsed_at": "1751671502.5764456"
+  }
+}

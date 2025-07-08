@@ -26,6 +26,7 @@ from summarizer_agent import SummarizerAgent
 from chart_generator_agent import ChartGeneratorAgent
 from playbook_strategist_agent import PlaybookStrategistAgent
 from email_dispatcher_agent import EmailDispatcherAgent
+from perplexity_macro_agent import PerplexityMacroAgent
 
 # Create logs directory first
 os.makedirs("logs", exist_ok=True)
@@ -50,7 +51,8 @@ class MacroIntelSwarm:
             "summarizer": SummarizerAgent(),
             "chart_generator": ChartGeneratorAgent(),
             "playbook_strategist": PlaybookStrategistAgent(),
-            "email_dispatcher": EmailDispatcherAgent()
+            "email_dispatcher": EmailDispatcherAgent(),
+            "perplexity_macro": PerplexityMacroAgent()
         }
         os.makedirs("logs", exist_ok=True)
         os.makedirs("output", exist_ok=True)
@@ -63,7 +65,7 @@ class MacroIntelSwarm:
         execution_start = datetime.now()
         
         try:
-            # Step 1: Summarizer Agent - News Collection & Summarization
+            # Step 1: Summarizer Agent - News Collection & Summarization (includes Perplexity)
             logger.info("📰 Executing Summarizer Agent...")
             summarizer_result = self.agents["summarizer"].run()
             logger.info(f"✅ Summarizer completed: {summarizer_result.get('total_count', 0)} articles from {summarizer_result.get('sources_processed', [])}")

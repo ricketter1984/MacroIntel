@@ -85,7 +85,7 @@ class EnhancedReportBuilder:
             }
         }
         
-        print("📊 Enhanced Report Builder initialized")
+        print("Enhanced Report Builder initialized")
     
     def load_regime_score_data(self) -> Optional[Dict[str, Any]]:
         """
@@ -112,7 +112,7 @@ class EnhancedReportBuilder:
             with open(latest_file, 'r', encoding='utf-8') as f:
                 regime_data = json.load(f)
             
-            print(f"✅ Loaded regime score data from: {latest_file}")
+            print(f"Loaded regime score data from: {latest_file}")
             return regime_data
             
         except Exception as e:
@@ -132,9 +132,15 @@ class EnhancedReportBuilder:
         # VIX Analysis
         if 'vix_data' in data_sources and data_sources['vix_data'] is not None:
             vix_data = data_sources['vix_data']
-            if len(vix_data) > 0:
+            if vix_data is not None and not vix_data.empty:
                 current_vix = vix_data['close'].iloc[-1] if 'close' in vix_data.columns else vix_data.iloc[-1]
                 avg_vix = vix_data['close'].mean() if 'close' in vix_data.columns else vix_data.mean()
+                
+                # Ensure values are scalar
+                if hasattr(current_vix, 'item'):
+                    current_vix = current_vix.item()
+                if hasattr(avg_vix, 'item'):
+                    avg_vix = avg_vix.item()
                 
                 regime_analysis['indicators']['vix'] = {
                     'current': current_vix,
@@ -151,8 +157,12 @@ class EnhancedReportBuilder:
         # Fear & Greed Analysis
         if 'fear_greed_data' in data_sources and data_sources['fear_greed_data'] is not None:
             fg_data = data_sources['fear_greed_data']
-            if len(fg_data) > 0:
+            if fg_data is not None and not fg_data.empty:
                 current_fg = fg_data.iloc[-1]
+                
+                # Ensure value is scalar
+                if hasattr(current_fg, 'item'):
+                    current_fg = current_fg.item()
                 
                 regime_analysis['indicators']['fear_greed'] = {
                     'current': current_fg,
@@ -167,7 +177,7 @@ class EnhancedReportBuilder:
                     regime_analysis['signals'].append('Extreme greed - risk reduction advised')
         
         # Market Trend Analysis
-        if 'asset_data' in data_sources and data_sources['asset_data']:
+        if 'asset_data' in data_sources and data_sources['asset_data'] is not None and len(data_sources['asset_data']) > 0:
             asset_data = data_sources['asset_data']
             trend_signals = []
             
@@ -177,6 +187,14 @@ class EnhancedReportBuilder:
                     current_price = data['close'].iloc[-1]
                     sma_20 = data['close'].rolling(20).mean().iloc[-1]
                     sma_50 = data['close'].rolling(50).mean().iloc[-1] if len(data) > 50 else sma_20
+                    
+                    # Ensure values are scalar
+                    if hasattr(current_price, 'item'):
+                        current_price = current_price.item()
+                    if hasattr(sma_20, 'item'):
+                        sma_20 = sma_20.item()
+                    if hasattr(sma_50, 'item'):
+                        sma_50 = sma_50.item()
                     
                     # Determine trend
                     if current_price > sma_20 > sma_50:
@@ -347,8 +365,12 @@ class EnhancedReportBuilder:
         # VIX-based risk
         if 'vix_data' in data_sources and data_sources['vix_data'] is not None:
             vix_data = data_sources['vix_data']
-            if len(vix_data) > 0:
+            if vix_data is not None and not vix_data.empty:
                 current_vix = vix_data['close'].iloc[-1] if 'close' in vix_data.columns else vix_data.iloc[-1]
+                
+                # Ensure value is scalar
+                if hasattr(current_vix, 'item'):
+                    current_vix = current_vix.item()
                 
                 if current_vix > 30:
                     risk_score += 20
@@ -363,8 +385,12 @@ class EnhancedReportBuilder:
         # Fear & Greed risk
         if 'fear_greed_data' in data_sources and data_sources['fear_greed_data'] is not None:
             fg_data = data_sources['fear_greed_data']
-            if len(fg_data) > 0:
+            if fg_data is not None and not fg_data.empty:
                 current_fg = fg_data.iloc[-1]
+                
+                # Ensure value is scalar
+                if hasattr(current_fg, 'item'):
+                    current_fg = current_fg.item()
                 
                 if current_fg < 25:
                     risk_score += 15
@@ -387,7 +413,7 @@ class EnhancedReportBuilder:
                     risk_assessment['risk_factors'].append(f'Moderate economic event density ({high_impact_count} events)')
         
         # Market trend risk
-        if 'asset_data' in data_sources and data_sources['asset_data']:
+        if 'asset_data' in data_sources and data_sources['asset_data'] is not None and len(data_sources['asset_data']) > 0:
             asset_data = data_sources['asset_data']
             bearish_count = 0
             
@@ -395,6 +421,12 @@ class EnhancedReportBuilder:
                 if data is not None and len(data) > 20:
                     current_price = data['close'].iloc[-1]
                     sma_20 = data['close'].rolling(20).mean().iloc[-1]
+                    
+                    # Ensure values are scalar
+                    if hasattr(current_price, 'item'):
+                        current_price = current_price.item()
+                    if hasattr(sma_20, 'item'):
+                        sma_20 = sma_20.item()
                     
                     if current_price < sma_20:
                         bearish_count += 1
@@ -441,7 +473,7 @@ class EnhancedReportBuilder:
     
     def build_comprehensive_report(self, data_sources: Dict[str, Any]) -> Dict[str, Any]:
         """Build comprehensive market intelligence report."""
-        print("📊 Building comprehensive market intelligence report...")
+        print("Building comprehensive market intelligence report...")
         
         # Load regime score data
         regime_score_data = self.load_regime_score_data()
@@ -452,7 +484,7 @@ class EnhancedReportBuilder:
         risk_assessment = self.generate_risk_assessment(data_sources)
         
         # Generate visualizations
-        print(f"🔍 Data sources being passed to visualization engine:")
+        print(f"Data sources being passed to visualization engine:")
         print(f"   Available keys: {list(data_sources.keys()) if data_sources else 'None'}")
         
         # Debug data structure
@@ -506,8 +538,8 @@ class EnhancedReportBuilder:
         with open(report_path, 'w') as f:
             json.dump(report, f, indent=2, default=str)
         
-        print(f"✅ Comprehensive report saved to {report_path}")
-        print(f"📊 Report Summary:")
+        print(f"Comprehensive report saved to {report_path}")
+        print(f"Report Summary:")
         print(f"   Market Regime: {report['executive_summary']['market_regime']}")
         print(f"   Confidence: {report['executive_summary']['confidence']:.1%}")
         print(f"   Primary Strategy: {report['executive_summary']['primary_strategy']}")

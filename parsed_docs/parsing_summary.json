@@ -1,0 +1,16 @@
+{
+  "total_apis_parsed": 4,
+  "apis": [
+    "polygon",
+    "fmp",
+    "twelve_data",
+    "benzinga"
+  ],
+  "parsed_files": [
+    "polygon_api_parsed.json",
+    "fmp_api_parsed.json",
+    "twelve_data_api_parsed.json",
+    "benzinga_api_parsed.json"
+  ],
+  "output_directory": "C:\\Users\\ricke\\Desktop\\MacroIntel\\parsed_docs"
+}

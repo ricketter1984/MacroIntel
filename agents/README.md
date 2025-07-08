@@ -13,17 +13,22 @@ The MacroIntel Swarm consists of four specialized agents that work together to p
    - Summarizes articles with sentiment analysis
    - Outputs structured news data
 
-2. **📈 Chart Generator Agent** (`chart_generator_agent.py`)
+2. **🔍 Perplexity Macro Agent** (`perplexity_macro_agent.py`)
+   - Fetches macroeconomic news using Perplexity API or HTTP fallback
+   - Targets CPI, inflation, rate hikes, crude oil, Middle East conflict, gold, metals, VIX
+   - Provides additional macro intelligence beyond traditional news sources
+
+3. **📈 Chart Generator Agent** (`chart_generator_agent.py`)
    - Analyzes market conditions (Fear & Greed Index)
    - Triggers `visual_query_engine.py` for contextual charts
    - Generates asset comparison and extreme fear charts
 
-3. **📘 Playbook Strategist Agent** (`playbook_strategist_agent.py`)
+4. **📘 Playbook Strategist Agent** (`playbook_strategist_agent.py`)
    - Runs `playbook_interpreter.py` for market regime analysis
    - Selects viable trading strategies based on conditions
    - Identifies strategy disqualifiers
 
-4. **📧 Email Dispatcher Agent** (`email_dispatcher_agent.py`)
+5. **📧 Email Dispatcher Agent** (`email_dispatcher_agent.py`)
    - Calls `email_report.py` to build comprehensive HTML reports
    - Sends daily intelligence reports to subscribers
    - Includes all agent outputs in final report
@@ -31,7 +36,7 @@ The MacroIntel Swarm consists of four specialized agents that work together to p
 ## Workflow
 
 ```
-Summarizer → Chart Generator → Playbook Strategist → Email Dispatcher
+Summarizer → Perplexity Macro → Chart Generator → Playbook Strategist → Email Dispatcher
 ```
 
 Each agent passes its results downstream, creating a comprehensive market intelligence pipeline.
@@ -45,6 +50,9 @@ Test each agent independently:
 ```bash
 # Test summarizer agent
 python agents/summarizer_agent.py
+
+# Test perplexity macro agent
+python agents/perplexity_macro_agent.py
 
 # Test chart generator agent
 python agents/chart_generator_agent.py
@@ -85,6 +93,7 @@ FEAR_GREED_API_KEY=your_fear_greed_key
 BENZINGA_API_KEY=your_benzinga_key
 MESSARI_API_KEY=your_messari_key
 POLYGON_API_KEY=your_polygon_key
+PERPLEXITY_API_KEY=your_perplexity_key
 
 # Email Configuration
 SMTP_USER=your_email
@@ -117,6 +126,31 @@ EMAIL_RECIPIENTS=recipient1@example.com,recipient2@example.com
   ],
   "total_count": 25,
   "sources_processed": ["benzinga", "messari"]
+}
+```
+
+### Perplexity Macro Agent
+```json
+{
+  "status": "success",
+  "articles": [
+    {
+      "timestamp": "ISO timestamp",
+      "source": "Perplexity",
+      "summary": "Article summary",
+      "title": "Article title",
+      "url": "Article URL",
+      "tags": ["inflation", "rates", "oil"]
+    }
+  ],
+  "total_count": 10,
+  "output_file": "output/perplexity_news_20250107.json",
+  "topic_searched": "default_macro_keywords",
+  "tags_summary": {
+    "inflation": 3,
+    "rates": 2,
+    "oil": 1
+  }
 }
 ```
 

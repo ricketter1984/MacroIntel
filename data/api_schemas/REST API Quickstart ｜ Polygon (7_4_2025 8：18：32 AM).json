@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "source_file": "REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).html",
+    "title": "REST API Quickstart | Polygon",
+    "description": "The Polygon.io REST API provides comprehensive access to historical and real-time market data from major U.S. exchanges. With it, you can query endpoints for dividends, trades, quotes, fundamental data, and more. To get started, you will need to sign up for an account and authenticate your requests using an API key.",
+    "extracted_at": "1751631514.1339238",
+    "file_size_bytes": 288503
+  },
+  "api_info": {
+    "name": "Polygon",
+    "version": "3",
+    "base_url": "",
+    "documentation_url": "https://polygon.io/docs/rest/quickstart"
+  },
+  "authentication": {
+    "methods": [
+      {
+        "type": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+        "description": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip..."
+      },
+      {
+        "type": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+        "description": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip..."
+      }
+    ],
+    "api_key_info": {},
+    "headers": [
+      "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip"
+    ],
+    "examples": []
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/v3/reference/dividends",
+      "description": "apiKey=YOUR_API_KEY):Query String Authenticationhttps://api",
+      "parameters": [],
+      "responses": []
+    }
+  ],
+  "data_models": [],
+  "examples": [
+    {
+      "type": "request",
+      "language": "text",
+      "content": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "description": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip..."
+    },
+    {
+      "type": "request",
+      "language": "plaintext",
+      "content": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "description": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip..."
+    },
+    {
+      "type": "request",
+      "language": "text",
+      "content": "GET /v3/reference/dividends HTTP/1.1\nHost: api.polygon.io\nAuthorization: Bearer 3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "description": ""
+    },
+    {
+      "type": "request",
+      "language": "http",
+      "content": "GET /v3/reference/dividends HTTP/1.1\nHost: api.polygon.io\nAuthorization: Bearer 3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "description": ""
+    },
+    {
+      "type": "request",
+      "language": "text",
+      "content": "curl \"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"",
+      "description": ""
+    },
+    {
+      "type": "request",
+      "language": "bash",
+      "content": "curl \"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"",
+      "description": ""
+    },
+    {
+      "type": "response",
+      "language": "text",
+      "content": "{\n  \"results\": [\n      {\n          \"cash_amount\": 0.25,\n          \"currency\": \"USD\",\n          \"declaration_date\": \"2024-10-31\",\n          \"dividend_type\": \"CD\",\n          \"ex_dividend_date\": \"2024-11-08\",\n          \"frequency\": 4,\n          \"id\": \"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\n          \"pay_date\": \"2024-11-14\",\n          \"record_date\": \"2024-11-11\",\n          \"ticker\": \"AAPL\"\n      }\n  ],\n  \"status\": \"OK\",\n  \"request_id\": \"5a8e1e551dc3a1c2c203744543b40399\",\n}",
+      "description": ""
+    },
+    {
+      "type": "response",
+      "language": "json",
+      "content": "{\n  \"results\": [\n      {\n          \"cash_amount\": 0.25,\n          \"currency\": \"USD\",\n          \"declaration_date\": \"2024-10-31\",\n          \"dividend_type\": \"CD\",\n          \"ex_dividend_date\": \"2024-11-08\",\n          \"frequency\": 4,\n          \"id\": \"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\n          \"pay_date\": \"2024-11-14\",\n          \"record_date\": \"2024-11-11\",\n          \"ticker\": \"AAPL\"\n      }\n  ],\n  \"status\": \"OK\",\n  \"request_id\": \"5a8e1e551dc3a1c2c203744543b40399\",\n}",
+      "description": ""
+    }
+  ],
+  "rate_limits": {
+    "requests_per_minute": null,
+    "requests_per_hour": null,
+    "requests_per_day": null,
+    "description": ""
+  },
+  "errors": [
+    {
+      "code": 24,
+      "message": "10-31\",",
+      "description": ""
+    },
+    {
+      "code": 24,
+      "message": "11-08\",",
+      "description": ""
+    },
+    {
+      "code": 24,
+      "message": "11-14\",",
+      "description": ""
+    },
+    {
+      "code": 24,
+      "message": "11-11\",",
+      "description": ""
+    }
+  ],
+  "docetl_analysis": {
+    "content_length": 288487,
+    "structure_detected": {
+      "has_authentication": true,
+      "has_endpoints": true,
+      "has_examples": true,
+      "has_errors": true,
+      "has_rate_limits": false
+    },
+    "api_patterns_found": [
+      "response",
+      "v6/HIeYgX7D7VMGsovfFqQWW5LodJm",
+      "Parameter",
+      "V4/PXr8wAdW6s07HwwQ2dHKB3RFYK7LTKhFvwgtg07I",
+      "v1/Pkk7CPyUfW1iUaYiUr1lyI5bGRG1EdHWSXCCFttdAwu64Ox0yKRRBncdzTZwqZqHlbFFA1rhyjo",
+      "v3/reference",
+      "endpoint",
+      "responses",
+      "Response",
+      "v8/Pz7",
+      "v4/Bcie4eHhkVKAu",
+      "v08/v09Pv19fv29vv39",
+      "endpoints",
+      "parameters",
+      "V5/D9myPl8lompOvUS22UNHpR82pDd",
+      "v7/ldXimxZ",
+      "v7/vw8Pvx8fvy8vvz8",
+      "v7/B5ervZz6oBnYHvmJRa7rWYft52AJsOM5ELx3tneMosEt4XeSVP4dt1CZeYSzGBq8twv627VzTVRNLS91LS2ty2"
+    ]
+  }
+}

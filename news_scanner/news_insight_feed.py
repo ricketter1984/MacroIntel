@@ -7,10 +7,21 @@ import time
 import json
 import os
 import logging
+import re
 from typing import List, Dict, Any
 from datetime import datetime
 from utils.api_clients import fetch_all_news
 from news_scanner.macro_insight_builder import summarize_article
+
+def strip_emojis(text: str) -> str:
+    """Remove emojis and non-ASCII characters from text."""
+    try:
+        if not text:
+            return ""
+        return re.sub(r'[^\x00-\x7F]+', '', str(text))
+    except Exception:
+        # Fallback: return empty string if emoji stripping fails
+        return ""
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -83,7 +94,7 @@ def scan_relevant_news(all_news: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         List of relevant news articles
     """
     try:
-        logger.info("🔍 Scanning for relevant news based on watchlist...")
+        logger.info("Scanning for relevant news based on watchlist...")
         
         # Load watchlist keywords
         watchlist = load_watchlist_keywords()
@@ -93,7 +104,7 @@ def scan_relevant_news(all_news: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         macro_count = len(watchlist.get("macro_keywords", []))
         sector_count = len(watchlist.get("sectors", []))
         
-        logger.info(f"📋 Loaded {ticker_count + macro_count + sector_count} watchlist keywords")
+        logger.info(f"Loaded {ticker_count + macro_count + sector_count} watchlist keywords")
         logger.info(f"   Tickers: {ticker_count}")
         logger.info(f"   Macro keywords: {macro_count}")
         logger.info(f"   Sectors: {sector_count}")
@@ -125,7 +136,7 @@ def scan_relevant_news(all_news: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                     title = article.get("title", "No title")[:50]
                     if len(title) == 50:
                         title += "..."
-                    logger.info(f"⏭️  Skipped: {title} (not in watchlist)")
+                    logger.info(f"Skipped: {title} (not in watchlist)")
                     skipped_count += 1
                     
             except Exception as e:
@@ -133,13 +144,13 @@ def scan_relevant_news(all_news: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 skipped_count += 1
                 continue
         
-        logger.info(f"✅ Found {len(relevant_articles)} relevant articles")
-        logger.info(f"⏭️  Skipped {skipped_count} articles (not in watchlist)")
+        logger.info(f"Found {len(relevant_articles)} relevant articles")
+        logger.info(f"Skipped {skipped_count} articles (not in watchlist)")
         
         return relevant_articles
         
     except Exception as e:
-        logger.error(f"❌ Error in scan_relevant_news: {e}")
+        logger.error(f"Error in scan_relevant_news: {e}")
         return []
 
 def analyze_sentiment(articles: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -275,17 +286,23 @@ def process_news_insights(all_news: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 def scan_benzinga_news(keyword_filter=None):
     """Legacy function for backward compatibility"""
-    print("🔍 Scanning Benzinga headlines...\n")
+    
+    print("Scanning Benzinga headlines...")
     headlines = fetch_all_news()  # Use new unified news fetcher
     
     if not headlines:
-        print("⚠️ No headlines retrieved.")
+        print("No headlines retrieved.")
         return []
 
     filtered = []
     for item in headlines:
         title = item.get("title", "")
         summary = item.get("body", "")
+        
+        # Strip emojis from title and summary
+        title = strip_emojis(title)
+        summary = strip_emojis(summary)
+        
         if keyword_filter:
             if any(word.lower() in title.lower() or word.lower() in summary.lower() for word in keyword_filter):
                 filtered.append(item)
@@ -293,6 +310,10 @@ def scan_benzinga_news(keyword_filter=None):
             filtered.append(item)
 
     for story in filtered[:10]:  # preview top 10
-        print(f"📰 {story.get('title')}\n   {story.get('body')[:140]}...\n")
+        title = strip_emojis(story.get('title', ''))
+        body = strip_emojis(story.get('body', ''))
+        print(f"News: {title}")
+        print(f"   {body[:140]}...")
+        print()
 
     return filtered

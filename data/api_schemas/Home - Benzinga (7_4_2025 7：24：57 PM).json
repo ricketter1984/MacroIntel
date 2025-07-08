@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "source_file": "Home - Benzinga (7_4_2025 7：24：57 PM).html",
+    "title": "Home - Benzinga",
+    "description": "Welcome to Benzinga APIs Developer Documentation!",
+    "extracted_at": "1751671502.5764456",
+    "file_size_bytes": 1349714
+  },
+  "api_info": {
+    "name": "Benzinga",
+    "version": "2",
+    "base_url": "",
+    "documentation_url": "https://docs.benzinga.com/home"
+  },
+  "authentication": {
+    "methods": [
+      {
+        "type": "Once logged into the user dashboard, copy your API key.",
+        "description": "Once logged into the user dashboard, copy your API key...."
+      },
+      {
+        "type": "Authentication is via API Key set as a URL query parameter “token”.",
+        "description": "Authentication is via API Key set as a URL query parameter “token”...."
+      }
+    ],
+    "api_key_info": {},
+    "headers": [],
+    "examples": []
+  },
+  "endpoints": [],
+  "data_models": [],
+  "examples": [
+    {
+      "type": "unknown",
+      "language": "text",
+      "content": "parameters[updated]",
+      "description": "parameters[updated]..."
+    },
+    {
+      "type": "unknown",
+      "language": "text",
+      "content": "updatedSince",
+      "description": "updatedSince..."
+    }
+  ],
+  "rate_limits": {
+    "requests_per_minute": null,
+    "requests_per_hour": null,
+    "requests_per_day": null,
+    "description": ""
+  },
+  "errors": [
+    {
+      "code": 877,
+      "message": "440-ZING (9464)",
+      "description": "Call: +1-877-440-ZING (9464)..."
+    }
+  ],
+  "docetl_analysis": {
+    "content_length": 1349682,
+    "structure_detected": {
+      "has_authentication": true,
+      "has_endpoints": true,
+      "has_examples": true,
+      "has_errors": true,
+      "has_rate_limits": false
+    },
+    "api_patterns_found": [
+      "V3/yTrcl4GbxzqU8Q1waRxg",
+      "v0/RMyLeenq6T",
+      "V76/Havdii9T",
+      "V77/9vv2W1BxI",
+      "v5/j",
+      "parameters",
+      "v5/5NaU7JJmw",
+      "parameter",
+      "v0/FDh",
+      "V05/nbTY30L3wxlGYv",
+      "V2/nioel0nW4qPW0o",
+      "v2/ilOLgar74AzB0I2psTr20Cd2NICAejxuwlDJAyNBe5ZnIhEEEgZYCRw8VoFtToDuN",
+      "V4/cPfdB15XfOW3wK0pHBhJiNu",
+      "V7/JDEUL7ueVo6081j45SIxZK3",
+      "v4/SUtLrtwIw5PklVrc5laK1UFJZOdz1nJlJ",
+      "V2/Yk3xMNyMWcYrzGLBSS",
+      "V9/n",
+      "V9/phnBEFrnhuAuDgS3WW1p4x8iN7WtGPbIPEM1J85evcw3ilgeSMFX5OGvPG0VV8MhtfHOLScXPaJyAd542MTUxhL",
+      "v6/1QnbwR74kbz6Gla",
+      "V8/l0qdfhMGXDxbeD",
+      "V7/hnBWZNFSoIRklZdFibQN8n4J4",
+      "V6/eajD5Gj9irvisPwIKoAQAP9q8I431zBJjeGq",
+      "v7/4VXmsed0vf06XI4PlvqBUzXSRcQ8jNWAq758Hj37anolJnkLSYkq",
+      "V4/YK5ik0cnySEDosZOKV",
+      "V98/6hedMwoRHfKiKSVuBnlOjDP",
+      "v1/TFd",
+      "V4/RbnRYkjOV2eGzJ5UAMh7PQTicG4koWLMmpj6rPM2b70jhTxjcbXw2T0ftdNr9Pj4kVHvDvpoKqg0zcOG0oJ9l7E21n3P4",
+      "v8/LtHEU4kyWK7a488293SHHnxsfNyez5t",
+      "v98/K22BfnO4gLaBNB1Yfxcp59MfcsCLRlIeian",
+      "v6/7FI50EBBn8SVoLilCndiR0PtTqjezUqEpjDxHXj4Piq5qHXBCZUIEYrYzGR27gLKp6MAjpK",
+      "v0/VDo0OvKr6z",
+      "v9/AAL",
+      "v1/u4",
+      "v93/LWUlz",
+      "V0/6ur3GntCxuCVN5xedWlAvKsg1DU6aTWSqr70rdHHsgb08AizhIfyVagDlhw221PmmoYMGSq2JyntGbJcr74lolTJnpLnn",
+      "v30/o",
+      "v9/16h9t8TbvOzPMKsjsyPTtOjWDpBEWppV6lcWEZnwO7hpBiWGSI5qNzlTbeoQzhONmqS0wtWA2E82JCAgwpYJI1HIoAIUjAuYyHd",
+      "V0/O0sAe8vfzctznm5e3669s4GQXdML60D5VWxiAyheYYxt75iPGD4NaB44b6y1",
+      "Responses",
+      "V4/GGR8jr5qyz62QhB2vDN78K2ynacnU0fy79q54NCKJ",
+      "V9/LIoGGwyPc8c9yOgTxqXzVx3MZ",
+      "V1/zYbdz1k1",
+      "v5/fvBy4mDIgqN",
+      "v2/jvGPfpr1zg",
+      "V3/pSkzvJojx",
+      "v2/5PLptKAboQO",
+      "v89/7tsYJYcfd4",
+      "V3/uGYdtargr7zznmjol8cjaH",
+      "v6/fd7Ai8bat3vPLEh997bcXPV3z2Y",
+      "v8/f7FE718wfPBFxOfxNTmnAu3ds7yMPV2w4J",
+      "v1/JqAWZUKJECiWM3lISQjdtWxxv7jUplaKd4yzb2vmSQ1gDja0Fvb3Ab2DqnJajxNBUOOxuQEgWKBDXze8Wk36Rhkt7j",
+      "V0/5RRbwvDqPZ0WwqQl0O",
+      "V9/AvvZBLGfrSixn40G",
+      "v5/7RSUQFDAdAI",
+      "V0/fiAlyPbhDPnArf1mFLUJvWl5aFVbM0FBBVWKVBBsctZa5HZk0N5ITRl257B6",
+      "V60/dUrT3",
+      "V2/ev3WiOiAoDuCz",
+      "v5/8t73UyCneIUDfLtWOLP3CvkWtKtmVYm90QFycELfLZ1zwWwXHAtQ8G8P87ObGFwsnL23mh9y6I60gdT89AFBQ8g8hRSatayeJsC3oD",
+      "v7/frae5o",
+      "V2/fV1SsWwpBmhz2pqd1bcYKVLeh6HBO0hTLBoTlPLhqk2OxpqU1qoSX0Wx",
+      "V9/j",
+      "V90/UZF",
+      "V8/YvpwCLZ8a",
+      "v1/qL5OZzJt8oCc0aujZanChdPuqdnVIDSrRjsqyN25k0LLNsG4HLb",
+      "v8/vn3row",
+      "V5/bmxPjHTCRVbPnLMHP7G",
+      "V3/P8P",
+      "v18/5euZhfsc",
+      "endpoints",
+      "V73/XfPNMoNUwL9yZPy"
+    ]
+  }
+}

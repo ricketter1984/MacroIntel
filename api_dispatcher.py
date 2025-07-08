@@ -184,30 +184,34 @@ print(f"Python executable: {{sys.executable}}")
         try:
             logger.info(f"Executing {source} script: {script_path}")
             
-            # Run the script
+            # Run the script with UTF-8 encoding
             result = subprocess.run([
                 str(python_path),
                 str(script_path)
             ], 
             env=env,
             capture_output=True,
-            text=True,
+            text=False,  # get bytes
             timeout=config["timeout"],
             cwd=self.project_root
             )
-            
+
+            # Decode stdout and stderr with fallback
+            stdout = result.stdout.decode('utf-8', errors='replace') if isinstance(result.stdout, bytes) else result.stdout
+            stderr = result.stderr.decode('utf-8', errors='replace') if isinstance(result.stderr, bytes) else result.stderr
+
             # Dump stdout and stderr for debugging
             with open("logs/dispatcher_stdout.log", "a", encoding="utf-8") as out:
-                out.write(f"\n[{source.upper()} STDOUT @ {datetime.now()}]\n{result.stdout}\n")
+                out.write(f"\n[{source.upper()} STDOUT @ {datetime.now()}]\n{stdout}\n")
             with open("logs/dispatcher_stderr.log", "a", encoding="utf-8") as err:
-                err.write(f"\n[{source.upper()} STDERR @ {datetime.now()}]\n{result.stderr}\n")
+                err.write(f"\n[{source.upper()} STDERR @ {datetime.now()}]\n{stderr}\n")
             
             # Prepare response
             response = {
                 "success": result.returncode == 0,
                 "return_code": result.returncode,
-                "stdout": result.stdout,
-                "stderr": result.stderr,
+                "stdout": stdout,
+                "stderr": stderr,
                 "source": source,
                 "script": str(script_path),
                 "timestamp": datetime.now().isoformat()
@@ -217,8 +221,8 @@ print(f"Python executable: {{sys.executable}}")
                 logger.info(f"[SUCCESS] {source} script executed successfully")
             else:
                 logger.error(f"[FAIL] {source} script failed with return code {result.returncode}")
-                logger.error(f"[STDOUT] {result.stdout.strip()}")
-                logger.error(f"[STDERR] {result.stderr.strip()}")
+                logger.error(f"[STDOUT] {stdout.strip()}")
+                logger.error(f"[STDERR] {stderr.strip()}")
             
             return response
             
@@ -241,7 +245,7 @@ print(f"Python executable: {{sys.executable}}")
                 "timestamp": datetime.now().isoformat()
             }
     
-    def _cleanup_temp_files(self, temp_script: Path):
+    def _cleanup_temp_files(self, temp_script: Path) -> None:
         """Clean up temporary files."""
         try:
             if temp_script.exists():
@@ -276,6 +280,7 @@ print(f"Python executable: {{sys.executable}}")
             }
         
         temp_script = None
+        result = None
         try:
             # Prepare script execution
             temp_script, env = self._prepare_script_execution(script, source)
@@ -308,7 +313,7 @@ print(f"Python executable: {{sys.executable}}")
         
         return status
     
-    def cleanup(self):
+    def cleanup(self) -> None:
         """Clean up temporary files and directories."""
         try:
             if self.temp_dir.exists():

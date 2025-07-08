@@ -7,12 +7,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'agents'))
 
 from event_tracker.econ_event_tracker import get_today_events
 from news_scanner.news_insight_feed import scan_relevant_news
-from email_report import send_daily_report, generate_text_report
+from core.email_report import send_daily_report, generate_text_report
 from utils.api_clients import init_env
 
 # Import visual query engine
 try:
-    from visual_query_engine import generate_extreme_fear_chart
+    from core.visual_query_engine import generate_extreme_fear_chart
     VISUAL_ENGINE_AVAILABLE = True
 except ImportError:
     print("⚠️ Visual query engine not available - charts will be skipped")

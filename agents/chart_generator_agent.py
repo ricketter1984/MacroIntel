@@ -3,6 +3,7 @@
 Chart Generator Agent for MacroIntel Swarm
 Triggers visual_query_engine.py to create contextual market visualizations.
 Supports command-line arguments for custom visual generation with conditional logic.
+Now includes intelligent regime-aware chart generation with AI explanations.
 """
 
 import os
@@ -21,7 +22,8 @@ load_dotenv(dotenv_path="config/.env")
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from visual_query_engine import VisualQueryEngine, generate_comparison_chart, generate_extreme_fear_chart
+from core.visual_query_engine import VisualQueryEngine, generate_comparison_chart, generate_extreme_fear_chart
+from core.enhanced_visualizations import EnhancedVisualizations
 from utils.api_clients import init_env
 
 # Configure logging
@@ -41,6 +43,7 @@ class ChartGeneratorAgent:
         """
         init_env()
         self.visual_engine = VisualQueryEngine()
+        self.enhanced_viz = EnhancedVisualizations()
         self.output_dir = "output"
         self.custom_assets = custom_assets or ["BTCUSD", "XAUUSD", "QQQ"]
         self.custom_condition = custom_condition
@@ -136,6 +139,58 @@ class ChartGeneratorAgent:
             logger.warning(f"⚠️ Overlay condition failed to apply: {e}")
             return True  # Default to generating chart
     
+    def get_regime_data(self) -> Dict[str, Any]:
+        """
+        Get current market regime data.
+        
+        Returns:
+            Dictionary with regime analysis data
+        """
+        try:
+            logger.info("🔍 Fetching market regime data...")
+            
+            # Try to load latest regime score file
+            regime_files = []
+            for file in os.listdir("output"):
+                if file.startswith("regime_score_") and file.endswith(".json"):
+                    regime_files.append(file)
+            
+            if regime_files:
+                # Get the most recent file
+                latest_file = sorted(regime_files)[-1]
+                regime_path = os.path.join("output", latest_file)
+                
+                with open(regime_path, 'r') as f:
+                    regime_data = json.load(f)
+                
+                logger.info(f"✅ Loaded regime data from {latest_file}")
+                return regime_data
+            else:
+                logger.warning("⚠️ No regime data files found, using default")
+                return {
+                    "total_score": 50.0,
+                    "regime_classification": "Neutral",
+                    "strategy_recommendation": "Tier 3 Range Trading",
+                    "instrument": "MES",
+                    "component_breakdown": {
+                        "volatility": {"weighted_score": 12.5},
+                        "structure": {"weighted_score": 10.0},
+                        "volume_breadth": {"weighted_score": 10.0},
+                        "momentum": {"weighted_score": 10.0},
+                        "institutional": {"weighted_score": 7.5}
+                    }
+                }
+                
+        except Exception as e:
+            logger.error(f"❌ Error fetching regime data: {str(e)}")
+            return {
+                "total_score": 50.0,
+                "regime_classification": "Neutral",
+                "strategy_recommendation": "Tier 3 Range Trading",
+                "instrument": "MES",
+                "component_breakdown": {}
+            }
+    
     def analyze_market_conditions(self) -> Dict[str, Any]:
         """
         Analyze current market conditions to determine chart needs.
@@ -148,6 +203,9 @@ class ChartGeneratorAgent:
             
             # Get Fear & Greed Index
             fear_score, fear_rating = self.visual_engine.get_fear_greed_index()
+            
+            # Get regime data
+            regime_data = self.get_regime_data()
             
             # Parse custom condition if provided
             parsed_condition = None
@@ -168,12 +226,21 @@ class ChartGeneratorAgent:
                     condition_met = True  # No condition means always generate
                 
                 if condition_met:
+                    # Always generate intelligent regime chart
+                    charts_needed.append({
+                        "type": "intelligent_regime",
+                        "description": "Intelligent regime-aware chart with AI explanation",
+                        "priority": "high",
+                        "regime_data": regime_data,
+                        "fear_greed_score": fear_score
+                    })
+                    
                     if self.custom_assets:
                         # Use custom assets for comparison
                         charts_needed.append({
                             "type": "custom_comparison",
                             "description": f"Custom asset comparison ({', '.join(self.custom_assets)})",
-                            "priority": "high",
+                            "priority": "medium",
                             "assets": self.custom_assets,
                             "condition": self.custom_condition
                         })
@@ -204,6 +271,7 @@ class ChartGeneratorAgent:
             market_data = {
                 "fear_greed_score": fear_score,
                 "fear_greed_rating": fear_rating,
+                "regime_data": regime_data,
                 "charts_needed": charts_needed,
                 "custom_condition": self.custom_condition,
                 "condition_met": condition_met if fear_score is not None else None,
@@ -218,9 +286,58 @@ class ChartGeneratorAgent:
             return {
                 "fear_greed_score": 50,
                 "fear_greed_rating": "Neutral",
+                "regime_data": self.get_regime_data(),
                 "charts_needed": [],
                 "custom_condition": self.custom_condition,
                 "condition_met": None,
+                "error": str(e)
+            }
+    
+    def generate_intelligent_chart(self, regime_data: Dict[str, Any], fear_greed_score: int) -> Dict[str, Any]:
+        """
+        Generate intelligent regime-aware chart with AI explanation.
+        
+        Args:
+            regime_data: Market regime analysis data
+            fear_greed_score: Current Fear & Greed Index score
+            
+        Returns:
+            Dictionary with chart information and AI explanation
+        """
+        try:
+            logger.info("🧠 Generating intelligent regime-aware chart...")
+            
+            # Generate the intelligent chart
+            chart_result = self.enhanced_viz.generate_intelligent_chart(
+                regime_data=regime_data,
+                fear_greed_score=fear_greed_score
+            )
+            
+            if chart_result and chart_result.get("chart_path"):
+                logger.info(f"✅ Intelligent chart generated: {chart_result.get('chart_type', 'unknown')}")
+                return {
+                    "success": True,
+                    "chart_type": "intelligent_regime",
+                    "file_path": chart_result.get("chart_path", ""),
+                    "description": chart_result.get("ai_explanation", ""),
+                    "context": f"Regime: {chart_result.get('regime', 'Unknown')}, Strategy: {chart_result.get('strategy', 'Unknown')}",
+                    "regime": chart_result.get("regime", "Unknown"),
+                    "strategy": chart_result.get("strategy", "Unknown"),
+                    "primary_instrument": chart_result.get("primary_instrument", ""),
+                    "secondary_instrument": chart_result.get("secondary_instrument", ""),
+                    "ai_explanation": chart_result.get("ai_explanation", "")
+                }
+            else:
+                logger.warning("⚠️ Intelligent chart generation failed")
+                return {
+                    "success": False,
+                    "error": "Chart generation failed"
+                }
+                
+        except Exception as e:
+            logger.error(f"❌ Error generating intelligent chart: {str(e)}")
+            return {
+                "success": False,
                 "error": str(e)
             }
     
@@ -230,175 +347,162 @@ class ChartGeneratorAgent:
         
         Args:
             chart_type: Type of chart to generate
-            context: Additional context for the chart
-            chart_config: Additional configuration for the chart
+            context: Context information for the chart
+            chart_config: Configuration for the chart
             
         Returns:
             Dictionary with chart generation results
         """
         try:
-            logger.info(f"📊 Generating {chart_type} chart...")
+            logger.info(f"📈 Generating {chart_type} chart...")
             
-            if chart_type == "extreme_fear":
+            if chart_type == "intelligent_regime":
+                # Generate intelligent regime chart
+                regime_data = chart_config.get("regime_data", {})
+                fear_greed_score = chart_config.get("fear_greed_score", 50)
+                return self.generate_intelligent_chart(regime_data, fear_greed_score)
+            
+            elif chart_type == "extreme_fear":
                 # Generate extreme fear chart
                 chart_path = generate_extreme_fear_chart()
-                chart_description = "Asset performance analysis during extreme fear conditions"
-                
-            elif chart_type == "custom_comparison":
-                # Generate custom asset comparison chart
-                assets = chart_config.get("assets", self.custom_assets) if chart_config else self.custom_assets
-                condition = chart_config.get("condition", self.custom_condition) if chart_config else self.custom_condition
-                
-                timestamp = datetime.now().strftime('%Y%m%d_%H%M')
-                filename = f"custom_comparison_{'_'.join(assets)}_{timestamp}.png"
-                chart_path = generate_comparison_chart(
-                    assets=assets,
-                    output_path=os.path.join(self.output_dir, filename)
-                )
-                chart_description = f"Custom asset comparison: {', '.join(assets)}"
-                if condition:
-                    chart_description += f" (Condition: {condition})"
-                
-            elif chart_type == "asset_comparison":
+                if chart_path:
+                    return {
+                        "success": True,
+                        "chart_type": "extreme_fear",
+                        "file_path": chart_path,
+                        "description": "Asset performance during extreme fear conditions",
+                        "context": context
+                    }
+                else:
+                    return {"success": False, "error": "Extreme fear chart generation failed"}
+            
+            elif chart_type in ["asset_comparison", "custom_comparison"]:
                 # Generate asset comparison chart
-                assets = ["BTCUSD", "XAUUSD", "QQQ"]
-                chart_path = generate_comparison_chart(
-                    assets=assets,
-                    output_path=os.path.join(self.output_dir, f"asset_comparison_{datetime.now().strftime('%Y%m%d_%H%M')}.png")
-                )
-                chart_description = "Multi-asset performance comparison"
+                assets = chart_config.get("assets", ["BTCUSD", "XAUUSD", "QQQ"])
+                condition = chart_config.get("condition", "")
                 
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                output_path = os.path.join(self.output_dir, f"asset_comparison_{timestamp}.png")
+                
+                generate_comparison_chart(assets, condition=condition, output_path=output_path)
+                
+                return {
+                    "success": True,
+                    "chart_type": "asset_comparison",
+                    "file_path": output_path,
+                    "description": f"Asset comparison: {', '.join(assets)}",
+                    "context": context
+                }
+            
             else:
-                # Default to asset comparison
-                assets = ["BTCUSD", "XAUUSD", "QQQ"]
-                chart_path = generate_comparison_chart(
-                    assets=assets,
-                    output_path=os.path.join(self.output_dir, f"default_chart_{datetime.now().strftime('%Y%m%d_%H%M')}.png")
-                )
-                chart_description = "Default asset comparison chart"
-            
-            result = {
-                "chart_type": chart_type,
-                "file_path": chart_path,
-                "description": chart_description,
-                "context": context,
-                "generated_at": datetime.now().isoformat(),
-                "success": True
-            }
-            
-            logger.info(f"✅ Chart generated: {chart_path}")
-            return result
-            
+                logger.warning(f"⚠️ Unknown chart type: {chart_type}")
+                return {"success": False, "error": f"Unknown chart type: {chart_type}"}
+                
         except Exception as e:
             logger.error(f"❌ Error generating {chart_type} chart: {str(e)}")
-            return {
-                "chart_type": chart_type,
-                "file_path": None,
-                "description": f"Failed to generate {chart_type} chart",
-                "context": context,
-                "error": str(e),
-                "success": False
-            }
+            return {"success": False, "error": str(e)}
     
     def run(self, input_data: Dict[str, Any] | None = None) -> Dict[str, Any]:
         """
-        Main execution method for the chart generator agent.
+        Run the chart generator agent.
         
         Args:
-            input_data: Optional input data from previous agent
+            input_data: Optional input data from other agents
             
         Returns:
-            Dictionary with generated charts and analysis
+            Dictionary with chart generation results
         """
-        logger.info("🚀 Starting Chart Generator Agent execution...")
-        
-        # Analyze market conditions
-        market_analysis = self.analyze_market_conditions()
-        
-        # Generate charts based on conditions
-        charts_generated = []
-        
-        for chart_config in market_analysis.get("charts_needed", []):
-            chart_result = self.generate_chart(
-                chart_type=chart_config["type"],
-                context=chart_config["description"],
-                chart_config=chart_config
-            )
-            charts_generated.append(chart_result)
-        
-        # Create analysis summary
-        successful_charts = [c for c in charts_generated if c.get("success", False)]
-        analysis_summary = f"Generated {len(successful_charts)} charts based on market conditions. Fear & Greed Index: {market_analysis.get('fear_greed_score', 'N/A')} ({market_analysis.get('fear_greed_rating', 'N/A')})"
-        
-        result = {
-            "charts_generated": charts_generated,
-            "analysis_summary": analysis_summary,
-            "market_conditions": market_analysis,
-            "timestamp": datetime.now().isoformat()
-        }
-        
-        logger.info("✅ Chart Generator Agent execution completed")
-        return result
+        try:
+            logger.info("🚀 Starting Chart Generator Agent...")
+            
+            # Analyze market conditions
+            market_conditions = self.analyze_market_conditions()
+            
+            # Generate charts
+            charts_generated = []
+            charts_failed = []
+            
+            for chart_config in market_conditions.get("charts_needed", []):
+                try:
+                    chart_result = self.generate_chart(
+                        chart_type=chart_config["type"],
+                        context=chart_config.get("description", ""),
+                        chart_config=chart_config
+                    )
+                    
+                    if chart_result.get("success", False):
+                        charts_generated.append(chart_result)
+                        logger.info(f"✅ Generated {chart_config['type']} chart")
+                    else:
+                        charts_failed.append({
+                            "type": chart_config["type"],
+                            "error": chart_result.get("error", "Unknown error")
+                        })
+                        logger.warning(f"⚠️ Failed to generate {chart_config['type']} chart")
+                        
+                except Exception as e:
+                    charts_failed.append({
+                        "type": chart_config["type"],
+                        "error": str(e)
+                    })
+                    logger.error(f"❌ Error generating {chart_config['type']} chart: {str(e)}")
+            
+            # Compile results
+            results = {
+                "status": "success",
+                "charts_generated": charts_generated,
+                "charts_failed": charts_failed,
+                "total_charts": len(charts_generated),
+                "failed_charts": len(charts_failed),
+                "market_conditions": market_conditions,
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            logger.info(f"✅ Chart Generator completed: {len(charts_generated)} charts generated, {len(charts_failed)} failed")
+            return results
+            
+        except Exception as e:
+            logger.error(f"❌ Chart Generator failed: {str(e)}")
+            return {
+                "status": "failed",
+                "error": str(e),
+                "charts_generated": [],
+                "charts_failed": [],
+                "timestamp": datetime.now().isoformat()
+            }
 
 def main():
-    """Main function for standalone execution."""
-    parser = argparse.ArgumentParser(
-        description="Chart Generator Agent - Generate market visualizations with conditional logic",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python chart_generator_agent.py --assets BTCUSD,QQQ,XAUUSD --condition "fear < 30"
-  python chart_generator_agent.py --assets SPY,GLD --condition "fear > 70"
-  python chart_generator_agent.py --assets BTCUSD,ETHUSD
-        """
-    )
-    
-    parser.add_argument(
-        "--assets",
-        type=str,
-        help="Comma-separated list of assets to analyze (e.g., BTCUSD,QQQ,XAUUSD)"
-    )
-    
-    parser.add_argument(
-        "--condition",
-        type=str,
-        help="Condition for chart generation (e.g., 'fear < 30', 'fear > 70')"
-    )
-    
-    parser.add_argument(
-        "--verbose", "-v",
-        action="store_true",
-        help="Enable verbose logging"
-    )
+    """Main function for running the chart generator agent."""
+    parser = argparse.ArgumentParser(description="Chart Generator Agent")
+    parser.add_argument('--assets', nargs='+', help='Assets to compare')
+    parser.add_argument('--condition', help='Condition for chart generation (e.g., "fear < 30")')
+    parser.add_argument('--test', action='store_true', help='Run in test mode')
     
     args = parser.parse_args()
     
-    # Parse assets
-    custom_assets = None
-    if args.assets:
-        custom_assets = [asset.strip() for asset in args.assets.split(",")]
-        logger.info(f"📊 Custom assets specified: {custom_assets}")
-    
-    # Create agent with custom parameters
+    # Initialize agent
     agent = ChartGeneratorAgent(
-        custom_assets=custom_assets,
+        custom_assets=args.assets,
         custom_condition=args.condition
     )
     
-    # Run the agent
-    result = agent.run()
+    # Run agent
+    results = agent.run()
     
     # Print results
-    print(json.dumps(result, indent=2))
-    
-    # Log chart paths for easy access
-    successful_charts = [c for c in result.get("charts_generated", []) if c.get("success", False)]
-    if successful_charts:
-        print("\n📊 Generated Charts:")
-        for chart in successful_charts:
-            print(f"  • {chart.get('file_path', 'Unknown path')}")
+    if results.get("status") == "success":
+        print(f"\n✅ Chart Generator completed successfully!")
+        print(f"📊 Charts generated: {results['total_charts']}")
+        print(f"❌ Charts failed: {results['failed_charts']}")
+        
+        for chart in results["charts_generated"]:
+            print(f"   📈 {chart['chart_type']}: {chart['file_path']}")
+            if chart.get('ai_explanation'):
+                print(f"      💡 {chart['ai_explanation'][:100]}...")
     else:
-        print("\n⚠️ No charts were generated (condition may not have been met)")
+        print(f"❌ Chart Generator failed: {results.get('error', 'Unknown error')}")
+    
+    return results
 
 if __name__ == "__main__":
     main() 

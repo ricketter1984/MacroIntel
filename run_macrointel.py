@@ -20,6 +20,13 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 
+# Fix Unicode encoding issues on Windows
+if sys.platform == "win32":
+    import io
+    import sys
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 # Add project root to Python path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
@@ -303,7 +310,7 @@ class EnhancedMacroIntel:
                         import pandas as pd
                         price_series = pd.Series([data['current_price']], index=[pd.Timestamp.now()])
                         asset_data[symbol] = pd.DataFrame({'close': price_series})
-                if asset_data:
+                if asset_data and len(asset_data) > 0:
                     data_sources['asset_data'] = asset_data
         
         # Economic calendar data
@@ -316,7 +323,7 @@ class EnhancedMacroIntel:
         if sources.get('polygon', {}).get('success'):
             polygon_data = sources['polygon'].get('data', {})
             market_data = polygon_data.get('market_data', {})
-            if market_data:
+            if market_data and len(market_data) > 0:
                 data_sources['market_data'] = market_data
         
         logger.info(f"📊 Prepared {len(data_sources)} data sources for reporting")
@@ -341,7 +348,7 @@ class EnhancedMacroIntel:
             return report
             
         except Exception as e:
-            logger.error(f"❌ Report generation error: {str(e)}")
+            logger.error(f"Report generation error: {str(e)}")
             return None
     
     def run_daily_report(self):
@@ -402,7 +409,10 @@ class EnhancedMacroIntel:
             
             if vix_result['success']:
                 vix_data = vix_result['data']
-                current_vix = vix_data['VIX'].iloc[-1] if len(vix_data) > 0 else 20
+                if hasattr(vix_data, 'empty') and not vix_data.empty:
+                    current_vix = vix_data['VIX'].iloc[-1] if 'VIX' in vix_data else 20
+                else:
+                    current_vix = 20
                 analysis['key_indicators']['vix_level'] = current_vix
                 
                 if current_vix > 30:

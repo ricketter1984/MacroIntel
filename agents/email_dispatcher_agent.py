@@ -18,7 +18,7 @@ load_dotenv(dotenv_path="config/.env")
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from email_report import generate_email_content, send_daily_report
+from core.email_report import generate_email_content, send_daily_report
 from utils.api_clients import init_env
 
 # Configure logging
@@ -188,7 +188,8 @@ class EmailDispatcherAgent:
             success = send_daily_report(html_content)
             
             # Get recipients from environment
-            recipients = os.getenv("EMAIL_RECIPIENTS", "").split(",") if os.getenv("EMAIL_RECIPIENTS") else []
+            recipient = os.getenv("EMAIL_RECIPIENT", "")
+            recipients = [recipient] if recipient else []
             
             result = {
                 "email_sent": success,

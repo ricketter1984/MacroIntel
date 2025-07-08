@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 # Load environment variables from config/.env
 load_dotenv(dotenv_path="config/.env")
-from email_report import send_daily_report
+from core.email_report import send_daily_report
 
 def main():
     html_content = """

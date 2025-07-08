@@ -35,7 +35,7 @@ def fetch_twelve_data():
         for symbol in symbols:
             try:
                 data = fetch_twelve_data_chart(symbol, interval="1day", outputsize=30)
-                if data and len(data) > 0:
+                if data is not None and not data.empty:
                     current_price = float(data["close"].iloc[-1])
                     previous_price = float(data["close"].iloc[-2]) if len(data) > 1 else current_price
                     daily_return = ((current_price / previous_price) - 1) * 100
@@ -61,7 +61,7 @@ def fetch_twelve_data():
             except Exception as e:
                 print(f"Error fetching {symbol}: {str(e)}")
         
-        if chart_data:
+        if chart_data is not None and len(chart_data) > 0:
             # Calculate market summary
             bullish_count = len([s for s in chart_data.values() if "Bullish" in s["trend"]])
             bearish_count = len([s for s in chart_data.values() if "Bearish" in s["trend"]])

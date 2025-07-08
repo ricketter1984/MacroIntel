@@ -21,6 +21,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.api_clients import fetch_all_news, init_env
 from news_scanner.news_insight_feed import scan_relevant_news
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 # Import data store for database operations
 try:
     from data_store import insert_news_headline
@@ -29,10 +33,6 @@ try:
 except ImportError as e:
     DATA_STORE_AVAILABLE = False
     logger.warning(f"⚠️ Data store module not available: {e}")
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 class SummarizerAgent:
     """Agent responsible for fetching and summarizing news from multiple sources."""

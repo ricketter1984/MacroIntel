@@ -1,0 +1,84 @@
+{
+  "api_name": "Polygon",
+  "title": "REST API Quickstart | Polygon",
+  "endpoints": [
+    {
+      "level": "h1",
+      "text": "REST Quickstart",
+      "content": "Get started with the Polygon.io REST API"
+    },
+    {
+      "level": "h2",
+      "text": "Authenticate Your Request",
+      "content": "Before you can access Polygon.io data, you need your unique API key.Obtaining Your API KeySign uporlog into your account.Visit yourDashboardto find your API key.Keep your API key secure and do not share it publicly.You can include your API key in two ways:Query String Parameter(e.g.,?apiKey=YOUR_API_KEY):Query String Authenticationhttps://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOipAuthorization Header:Header AuthenticationGET/v3/reference/dividendsHTTP/1.1Host:api.polygon.ioAuthorization:Bearer 3UMuYJQfLPtDzHREuwo6zTxvnuIsQOipNote:ReplaceYOUR_API_KEYwith your actual API key from your dashboard.Making Your First API RequestAt your terminal, let’s make a simple request using thecurlcommand, to theDividendsendpoint to list recent dividends.cURLcurl\"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"This command retrieves dividend records. For more parameters and advanced filtering options, see the Dividends endpointdocumentation.Pro Tip:If you omit your API key or use an invalid one, you will receive an authorization error. Ensure you have replacedYOUR_API_KEYwith your actual key before running the command.Understanding the API ResponseAll REST API endpoints from Polygon.io return data in a structured JSON format. You will commonly see fields likestatus,count,results, andrequest_idat the root level. Theresultsfield typically contains an array of objects, each representing an individual data record (such as a dividend, trade, or ticker detail).JSON Response{\"results\": [{\"cash_amount\":0.25,\"currency\":\"USD\",\"declaration_date\":\"2024-10-31\",\"dividend_type\":\"CD\",\"ex_dividend_date\":\"2024-11-08\",\"frequency\":4,\"id\":\"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\"pay_date\":\"2024-11-14\",\"record_date\":\"2024-11-11\",\"ticker\":\"AAPL\"}\n  ],\"status\":\"OK\",\"request_id\":\"5a8e1e551dc3a1c2c203744543b40399\",}This pattern is consistent across our REST endpoints. Once you understand how to authenticate, make requests, and parse JSON responses for one endpoint -- like Dividends -- you can apply the same approach to all other endpoints. As you explore different datasets (e.g., trades, quotes, fundamentals), you will find that the process remains the same: use your API key, structure your request URL or headers appropriately, and parse the returned JSON to integrate the data into your applications.Now that you know how to authenticate and issue requests, you have the basic skills to use any of the Polygon.io REST endpoints.Explore Client LibrariesWhile understanding the manual workflow is valuable, integrating directly with our client libraries is the recommended approach for production use. These libraries handle:Authentication and secure key managementRequest formatting and retry logicParsing JSON responses into easy-to-use structuresAvailable libraries:Python:GitHub - Python ClientGo:GitHub - Go ClientKotlin:GitHub - JVM ClientJavaScript:GitHub - JavaScript ClientNext StepsWith your first successful API request and an understanding of the common patterns in our JSON responses, you are prepared to explore any of Polygon.io’s endpoints. Check out our detailed documentation for additional parameters, data sources, and capabilities. As you progress, consider using our client libraries to greatly simplify the integration process and focus on building data-driven applications."
+    },
+    {
+      "level": "h2",
+      "text": "Making Your First API Request",
+      "content": "At your terminal, let’s make a simple request using thecurlcommand, to theDividendsendpoint to list recent dividends.cURLcurl\"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"This command retrieves dividend records. For more parameters and advanced filtering options, see the Dividends endpointdocumentation.Pro Tip:If you omit your API key or use an invalid one, you will receive an authorization error. Ensure you have replacedYOUR_API_KEYwith your actual key before running the command.Understanding the API ResponseAll REST API endpoints from Polygon.io return data in a structured JSON format. You will commonly see fields likestatus,count,results, andrequest_idat the root level. Theresultsfield typically contains an array of objects, each representing an individual data record (such as a dividend, trade, or ticker detail).JSON Response{\"results\": [{\"cash_amount\":0.25,\"currency\":\"USD\",\"declaration_date\":\"2024-10-31\",\"dividend_type\":\"CD\",\"ex_dividend_date\":\"2024-11-08\",\"frequency\":4,\"id\":\"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\"pay_date\":\"2024-11-14\",\"record_date\":\"2024-11-11\",\"ticker\":\"AAPL\"}\n  ],\"status\":\"OK\",\"request_id\":\"5a8e1e551dc3a1c2c203744543b40399\",}This pattern is consistent across our REST endpoints. Once you understand how to authenticate, make requests, and parse JSON responses for one endpoint -- like Dividends -- you can apply the same approach to all other endpoints. As you explore different datasets (e.g., trades, quotes, fundamentals), you will find that the process remains the same: use your API key, structure your request URL or headers appropriately, and parse the returned JSON to integrate the data into your applications.Now that you know how to authenticate and issue requests, you have the basic skills to use any of the Polygon.io REST endpoints.Explore Client LibrariesWhile understanding the manual workflow is valuable, integrating directly with our client libraries is the recommended approach for production use. These libraries handle:Authentication and secure key managementRequest formatting and retry logicParsing JSON responses into easy-to-use structuresAvailable libraries:Python:GitHub - Python ClientGo:GitHub - Go ClientKotlin:GitHub - JVM ClientJavaScript:GitHub - JavaScript ClientNext StepsWith your first successful API request and an understanding of the common patterns in our JSON responses, you are prepared to explore any of Polygon.io’s endpoints. Check out our detailed documentation for additional parameters, data sources, and capabilities. As you progress, consider using our client libraries to greatly simplify the integration process and focus on building data-driven applications."
+    },
+    {
+      "level": "h2",
+      "text": "Understanding the API Response",
+      "content": "All REST API endpoints from Polygon.io return data in a structured JSON format. You will commonly see fields likestatus,count,results, andrequest_idat the root level. Theresultsfield typically contains an array of objects, each representing an individual data record (such as a dividend, trade, or ticker detail).JSON Response{\"results\": [{\"cash_amount\":0.25,\"currency\":\"USD\",\"declaration_date\":\"2024-10-31\",\"dividend_type\":\"CD\",\"ex_dividend_date\":\"2024-11-08\",\"frequency\":4,\"id\":\"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\"pay_date\":\"2024-11-14\",\"record_date\":\"2024-11-11\",\"ticker\":\"AAPL\"}\n  ],\"status\":\"OK\",\"request_id\":\"5a8e1e551dc3a1c2c203744543b40399\",}This pattern is consistent across our REST endpoints. Once you understand how to authenticate, make requests, and parse JSON responses for one endpoint -- like Dividends -- you can apply the same approach to all other endpoints. As you explore different datasets (e.g., trades, quotes, fundamentals), you will find that the process remains the same: use your API key, structure your request URL or headers appropriately, and parse the returned JSON to integrate the data into your applications.Now that you know how to authenticate and issue requests, you have the basic skills to use any of the Polygon.io REST endpoints.Explore Client LibrariesWhile understanding the manual workflow is valuable, integrating directly with our client libraries is the recommended approach for production use. These libraries handle:Authentication and secure key managementRequest formatting and retry logicParsing JSON responses into easy-to-use structuresAvailable libraries:Python:GitHub - Python ClientGo:GitHub - Go ClientKotlin:GitHub - JVM ClientJavaScript:GitHub - JavaScript ClientNext StepsWith your first successful API request and an understanding of the common patterns in our JSON responses, you are prepared to explore any of Polygon.io’s endpoints. Check out our detailed documentation for additional parameters, data sources, and capabilities. As you progress, consider using our client libraries to greatly simplify the integration process and focus on building data-driven applications."
+    },
+    {
+      "level": "h2",
+      "text": "Explore Client Libraries",
+      "content": "While understanding the manual workflow is valuable, integrating directly with our client libraries is the recommended approach for production use. These libraries handle:Authentication and secure key managementRequest formatting and retry logicParsing JSON responses into easy-to-use structuresAvailable libraries:Python:GitHub - Python ClientGo:GitHub - Go ClientKotlin:GitHub - JVM ClientJavaScript:GitHub - JavaScript ClientNext StepsWith your first successful API request and an understanding of the common patterns in our JSON responses, you are prepared to explore any of Polygon.io’s endpoints. Check out our detailed documentation for additional parameters, data sources, and capabilities. As you progress, consider using our client libraries to greatly simplify the integration process and focus on building data-driven applications."
+    },
+    {
+      "level": "h2",
+      "text": "Next Steps",
+      "content": "With your first successful API request and an understanding of the common patterns in our JSON responses, you are prepared to explore any of Polygon.io’s endpoints. Check out our detailed documentation for additional parameters, data sources, and capabilities. As you progress, consider using our client libraries to greatly simplify the integration process and focus on building data-driven applications."
+    }
+  ],
+  "authentication": {},
+  "examples": [
+    {
+      "type": "pre",
+      "content": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "language": "scrollbar-thin"
+    },
+    {
+      "type": "code",
+      "content": "https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip",
+      "language": "language-plaintext"
+    },
+    {
+      "type": "pre",
+      "content": "GET /v3/reference/dividends HTTP/1.1\nHost: api.polygon.io\nAuthorization: Bearer 3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\n",
+      "language": "scrollbar-thin"
+    },
+    {
+      "type": "code",
+      "content": "GET /v3/reference/dividends HTTP/1.1\nHost: api.polygon.io\nAuthorization: Bearer 3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\n",
+      "language": "language-http"
+    },
+    {
+      "type": "pre",
+      "content": "curl \"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"",
+      "language": "scrollbar-thin"
+    },
+    {
+      "type": "code",
+      "content": "curl \"https://api.polygon.io/v3/reference/dividends?apiKey=3UMuYJQfLPtDzHREuwo6zTxvnuIsQOip\"",
+      "language": "language-bash"
+    },
+    {
+      "type": "pre",
+      "content": "{\n  \"results\": [\n      {\n          \"cash_amount\": 0.25,\n          \"currency\": \"USD\",\n          \"declaration_date\": \"2024-10-31\",\n          \"dividend_type\": \"CD\",\n          \"ex_dividend_date\": \"2024-11-08\",\n          \"frequency\": 4,\n          \"id\": \"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\n          \"pay_date\": \"2024-11-14\",\n          \"record_date\": \"2024-11-11\",\n          \"ticker\": \"AAPL\"\n      }\n  ],\n  \"status\": \"OK\",\n  \"request_id\": \"5a8e1e551dc3a1c2c203744543b40399\",\n}\n",
+      "language": "scrollbar-thin"
+    },
+    {
+      "type": "code",
+      "content": "{\n  \"results\": [\n      {\n          \"cash_amount\": 0.25,\n          \"currency\": \"USD\",\n          \"declaration_date\": \"2024-10-31\",\n          \"dividend_type\": \"CD\",\n          \"ex_dividend_date\": \"2024-11-08\",\n          \"frequency\": 4,\n          \"id\": \"E416a068758f85277196150c3eb73a3331d04698856c141e883ad95710dd0b189\",\n          \"pay_date\": \"2024-11-14\",\n          \"record_date\": \"2024-11-11\",\n          \"ticker\": \"AAPL\"\n      }\n  ],\n  \"status\": \"OK\",\n  \"request_id\": \"5a8e1e551dc3a1c2c203744543b40399\",\n}\n",
+      "language": "language-json"
+    }
+  ],
+  "rate_limits": {},
+  "metadata": {
+    "file_size": 288503,
+    "parsed_at": "1751631514.1339238"
+  }
+}

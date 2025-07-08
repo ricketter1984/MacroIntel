@@ -1,0 +1,40 @@
+2025-07-05 03:03:26,235 - INFO - Initialized API Schema Extractor
+2025-07-05 03:03:26,235 - INFO - Documentation directory: C:\Users\ricke\Desktop\MacroIntel\HTML_Documentation
+2025-07-05 03:03:26,235 - INFO - Output directory: C:\Users\ricke\Desktop\MacroIntel\data\api_schemas
+2025-07-05 03:03:26,236 - INFO - Starting API schema extraction process...
+2025-07-05 03:03:26,237 - INFO - Found 16 HTML files to process
+2025-07-05 03:03:26,237 - INFO - Processing: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:03:26,237 - INFO - Extracting schema from: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:11:26,632 - INFO - Initialized API Schema Extractor
+2025-07-05 03:11:26,632 - INFO - Documentation directory: C:\Users\ricke\Desktop\MacroIntel\HTML_Documentation
+2025-07-05 03:11:26,632 - INFO - Output directory: C:\Users\ricke\Desktop\MacroIntel\data\api_schemas
+2025-07-05 03:11:26,632 - INFO - Starting API schema extraction process...
+2025-07-05 03:11:26,632 - INFO - Found 4 HTML files to process
+2025-07-05 03:11:26,633 - INFO - Processing: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:11:26,633 - INFO - Extracting schema from: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:18:25,328 - INFO - Initialized API Schema Extractor
+2025-07-05 03:18:25,328 - INFO - Documentation directory: C:\Users\ricke\Desktop\MacroIntel\HTML_Documentation
+2025-07-05 03:18:25,329 - INFO - Output directory: C:\Users\ricke\Desktop\MacroIntel\data\api_schemas
+2025-07-05 03:18:25,329 - INFO - Starting API schema extraction process...
+2025-07-05 03:18:25,329 - INFO - Found 4 HTML files to process
+2025-07-05 03:18:25,329 - INFO - Processing: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:18:25,329 - INFO - Extracting schema from: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:35:18,439 - INFO - Successfully extracted schema from API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html
+2025-07-05 03:35:21,332 - INFO - Successfully extracted and saved: API Documentation - Twelve Data (7_4_2025 8：23：18 AM).json
+2025-07-05 03:35:21,333 - INFO - Processing: Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).html
+2025-07-05 03:35:21,333 - INFO - Extracting schema from: Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).html
+2025-07-05 03:36:18,922 - INFO - Successfully extracted schema from Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).html
+2025-07-05 03:36:18,985 - INFO - Successfully extracted and saved: Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).json
+2025-07-05 03:36:18,985 - INFO - Processing: Home - Benzinga (7_4_2025 7：24：57 PM).html
+2025-07-05 03:36:18,985 - INFO - Extracting schema from: Home - Benzinga (7_4_2025 7：24：57 PM).html
+2025-07-05 03:36:19,099 - INFO - Successfully extracted schema from Home - Benzinga (7_4_2025 7：24：57 PM).html
+2025-07-05 03:36:19,101 - INFO - Successfully extracted and saved: Home - Benzinga (7_4_2025 7：24：57 PM).json
+2025-07-05 03:36:19,101 - INFO - Processing: REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).html
+2025-07-05 03:36:19,101 - INFO - Extracting schema from: REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).html
+2025-07-05 03:36:19,427 - INFO - Successfully extracted schema from REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).html
+2025-07-05 03:36:19,429 - INFO - Successfully extracted and saved: REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).json
+2025-07-05 03:36:19,430 - INFO - API schema extraction completed!
+2025-07-05 03:36:19,430 - INFO - Processed: 4 files
+2025-07-05 03:36:19,430 - INFO - Successful: 4 extractions
+2025-07-05 03:36:19,430 - INFO - Failed: 0 extractions
+2025-07-05 03:36:19,431 - INFO - Results saved to: C:\Users\ricke\Desktop\MacroIntel\data\api_schemas

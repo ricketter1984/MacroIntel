@@ -1,11 +1,20 @@
 import os
 import requests
+import datetime as dt
+import re
 from dotenv import load_dotenv
-from datetime import datetime
+from typing import List, Dict, Optional
 import xml.etree.ElementTree as ET
 
 # Load environment variables
 load_dotenv(dotenv_path="config/.env")
+
+def strip_emojis(text: str) -> str:
+    import re
+    if not text:
+        return ""
+    # Only remove actual emoji characters, preserve dashes, apostrophes, etc.
+    return re.sub(r'[\U0001F600-\U0001F64F\U0001F300-\U0001F5FF\U0001F680-\U0001F6FF\U0001F1E0-\U0001F1FF\U00002600-\U000027BF\U0001F900-\U0001F9FF]', '', text)
 
 def init_env():
     # Environment already loaded above
@@ -16,8 +25,8 @@ def fetch_fmp_events():
     api_key = os.getenv("FMP_API_KEY")
     url = "https://financialmodelingprep.com/api/v4/economic_calendar"
     params = {
-        "from": datetime.utcnow().strftime("%Y-%m-%d"),
-        "to": datetime.utcnow().strftime("%Y-%m-%d"),
+        "from": dt.datetime.utcnow().strftime("%Y-%m-%d"),
+        "to": dt.datetime.utcnow().strftime("%Y-%m-%d"),
         "apikey": api_key
     }
     response = requests.get(url, params=params)
@@ -104,7 +113,7 @@ def fetch_polygon_news():
         print(f"[POLYGON NEWS ERROR] Exception: {e}")
         return []
 
-def fetch_messari_news():
+def fetch_messari_news(**kwargs):
     """
     Fetch recent articles from Messari API
     Returns parsed news items
@@ -141,40 +150,7 @@ def fetch_messari_news():
         print(f"[MESSARI NEWS ERROR] Exception: {e}")
         return []
 
-def fetch_benzinga_news():
-    api_key = os.getenv("BENZINGA_API_KEY")
-    print(f"🔑 Benzinga API KEY: {api_key}")
 
-    url = "https://api.benzinga.com/api/v2/news"
-    params = {
-        "token": api_key,
-        "pagesize": 50,
-        "displayOutput": "full",
-        "format": "xml"  # explicitly request XML
-    }
-
-    response = requests.get(url, params=params)
-    if response.status_code != 200:
-        print(f"[Benzinga Error] {response.status_code}: {response.text}")
-        return []
-
-    # Parse XML manually
-    headlines = []
-    try:
-        root = ET.fromstring(response.content)
-        for item in root.findall("item"):
-            headlines.append({
-                "id": item.findtext("id"),
-                "title": item.findtext("title"),
-                "body": item.findtext("body") or "",
-                "author": item.findtext("author"),
-                "created": item.findtext("created"),
-                "url": item.findtext("url"),
-            })
-        return headlines
-    except Exception as e:
-        print(f"[Parse Error] {e}")
-        return []
 
 def fetch_all_news():
     """
@@ -184,97 +160,164 @@ def fetch_all_news():
     all_news = []
     
     # Fetch from all sources
-    print("\U0001F4F0 Fetching news from all sources...")
+    print("Fetching news from all sources...")
     
-    # Benzinga news
+    # Perplexity macro news
     try:
-        benzinga_news = fetch_benzinga_news()
-        print(f"\u2705 Benzinga: {len(benzinga_news)} articles")
-        # Convert Benzinga format to standard format
-        for item in benzinga_news:
+        from agents.perplexity_macro_agent import PerplexityMacroAgent
+        perplexity_agent = PerplexityMacroAgent()
+        perplexity_result = perplexity_agent.run()
+        perplexity_articles = perplexity_result.get('articles', [])
+        print(f"Perplexity: {len(perplexity_articles)} articles")
+        
+        # Convert Perplexity format to standard format
+        for item in perplexity_articles:
+            # Ensure all text fields are properly encoded
+            title = strip_emojis(item.get("title", ""))
+            summary = strip_emojis(item.get("summary", ""))
+            url = item.get("url", "")
+            timestamp = item.get("timestamp", "")
+            
             all_news.append({
-                "title": item.get("title", ""),
-                "body": item.get("body", ""),
-                "url": item.get("url", ""),
-                "timestamp": item.get("created", ""),
-                "source": "benzinga"
+                "title": title,
+                "body": summary,  # Use summary as body
+                "url": url,
+                "timestamp": timestamp,
+                "source": "perplexity"
             })
     except Exception as e:
-        print(f"\u274c Benzinga fetch failed: {e}")
+        print(f"Perplexity fetch failed: {e}")
     
     # FMP news
     try:
         fmp_news = fetch_fmp_news()
-        print(f"\u2705 FMP: {len(fmp_news)} articles")
+        print(f"FMP: {len(fmp_news)} articles")
         for item in fmp_news:
+            # Ensure all text fields are properly encoded
+            title = strip_emojis(item.get("title", ""))
+            body = strip_emojis(item.get("body", ""))
+            url = item.get("url", "")
+            timestamp = item.get("timestamp", "")
+            
             all_news.append({
-                "title": item.get("title", ""),
-                "body": item.get("body", ""),
-                "url": item.get("url", ""),
-                "timestamp": item.get("timestamp", ""),
+                "title": title,
+                "body": body,
+                "url": url,
+                "timestamp": timestamp,
                 "source": "fmp"
             })
     except Exception as e:
-        print(f"\u274c FMP fetch failed: {e}")
+        print(f"FMP fetch failed: {e}")
     
     # Polygon news
     try:
         polygon_news = fetch_polygon_news()
-        print(f"\u2705 Polygon: {len(polygon_news)} articles")
+        print(f"Polygon: {len(polygon_news)} articles")
         for item in polygon_news:
+            # Ensure all text fields are properly encoded
+            title = strip_emojis(item.get("title", ""))
+            body = strip_emojis(item.get("body", ""))
+            url = item.get("url", "")
+            timestamp = item.get("timestamp", "")
+            
             all_news.append({
-                "title": item.get("title", ""),
-                "body": item.get("body", ""),
-                "url": item.get("url", ""),
-                "timestamp": item.get("timestamp", ""),
+                "title": title,
+                "body": body,
+                "url": url,
+                "timestamp": timestamp,
                 "source": "polygon"
             })
     except Exception as e:
-        print(f"\u274c Polygon fetch failed: {e}")
+        print(f"Polygon fetch failed: {e}")
     
     # Messari news
     try:
         messari_news = fetch_messari_news()
-        print(f"\u2705 Messari: {len(messari_news)} articles")
+        print(f"Messari: {len(messari_news)} articles")
         for item in messari_news:
+            # Ensure all text fields are properly encoded
+            title = strip_emojis(item.get("title", ""))
+            body = strip_emojis(item.get("body", ""))
+            url = item.get("url", "")
+            timestamp = item.get("timestamp", "")
+            
             all_news.append({
-                "title": item.get("title", ""),
-                "body": item.get("body", ""),
-                "url": item.get("url", ""),
-                "timestamp": item.get("timestamp", ""),
+                "title": title,
+                "body": body,
+                "url": url,
+                "timestamp": timestamp,
                 "source": "messari"
             })
     except Exception as e:
-        print(f"\u274c Messari fetch failed: {e}")
+        print(f"Messari fetch failed: {e}")
     
     return all_news
 
 # -- Polygon Indices Client
-def fetch_polygon_indices():
-    """Fetch index snapshot data from Polygon API for major indices (SPX, NDX, RUT)."""
+def fetch_polygon_indices(config=None):
+    """Fetch index data from Polygon API v3 reference endpoint for major indices."""
     api_key = os.getenv("POLYGON_API_KEY")
     if not api_key:
         print("[ERROR] POLYGON_API_KEY not set.")
         return None
 
-    base_url = "https://api.polygon.io/v2/snapshot/indices/STOCKS"
-    params = {"apiKey": api_key}
+    # Use v3 reference endpoint for indices
+    url = f"https://api.polygon.io/v3/reference/tickers?ticker.type=index&active=true&apiKey={api_key}"
+    
+    print(f"[INFO] Fetching Polygon indices from: {url}")
 
     try:
-        response = requests.get(base_url, params=params, timeout=10)
+        response = requests.get(url, timeout=10)
         response.raise_for_status()
         data = response.json()
+        
+        # Log response metadata
+        print(f"[INFO] Polygon API Response Status: {response.status_code}")
+        print(f"[INFO] Response contains {data.get('count', 0)} total results")
+        print(f"[INFO] Next URL: {data.get('next_url', 'None')}")
+        
+        # Log any warnings or additional info
+        if 'status' in data:
+            print(f"[INFO] API Status: {data['status']}")
+        if 'request_id' in data:
+            print(f"[INFO] Request ID: {data['request_id']}")
 
-        if "tickers" in data:
-            index_data = {d["ticker"]: d for d in data["tickers"] if d["ticker"] in ["I:SPX", "I:NDX", "I:RUT"]}
-            print(f"[SUCCESS] Retrieved {len(index_data)} index snapshots.")
+        if "results" in data:
+            # Filter for major indices we're interested in
+            target_indices = ["SPX", "NDX", "RUT", "VIX", "DJI"]
+            index_data = {}
+            
+            for ticker_info in data["results"]:
+                ticker = ticker_info.get("ticker", "")
+                # Check if it's one of our target indices
+                if any(target in ticker for target in target_indices):
+                    index_data[ticker] = {
+                        "ticker": ticker,
+                        "name": ticker_info.get("name", ""),
+                        "market": ticker_info.get("market", ""),
+                        "locale": ticker_info.get("locale", ""),
+                        "primary_exchange": ticker_info.get("primary_exchange", ""),
+                        "type": ticker_info.get("type", ""),
+                        "active": ticker_info.get("active", False),
+                        "currency_name": ticker_info.get("currency_name", ""),
+                        "cik": ticker_info.get("cik", ""),
+                        "composite_figi": ticker_info.get("composite_figi", ""),
+                        "share_class_figi": ticker_info.get("share_class_figi", ""),
+                        "last_updated_utc": ticker_info.get("last_updated_utc", "")
+                    }
+            
+            print(f"[SUCCESS] Retrieved {len(index_data)} index references: {list(index_data.keys())}")
             return index_data
         else:
-            print("[FAIL] No 'tickers' field in response.")
+            print(f"[FAIL] No 'results' field in response. Response keys: {list(data.keys())}")
+            print(f"[DEBUG] Full response: {data}")
             return None
 
     except requests.exceptions.RequestException as e:
         print(f"[REQUEST ERROR] {e}")
+        return None
+    except Exception as e:
+        print(f"[UNEXPECTED ERROR] {e}")
         return None
 
 # -- FMP Calendar Client
@@ -290,9 +333,9 @@ def fetch_fmp_calendar(from_date=None, to_date=None):
     
     # Default to today if no dates provided
     if not from_date:
-        from_date = datetime.now().strftime("%Y-%m-%d")
+        from_date = dt.datetime.now().strftime("%Y-%m-%d")
     if not to_date:
-        to_date = datetime.now().strftime("%Y-%m-%d")
+        to_date = dt.datetime.now().strftime("%Y-%m-%d")
     
     url = "https://financialmodelingprep.com/api/v3/economic_calendar"
     params = {
@@ -366,7 +409,7 @@ def fetch_messari_metrics(symbol="bitcoin"):
                             "market_cap": metrics.get("market_data", {}).get("market_cap", 0),
                             "volume_last_24_hours": metrics.get("market_data", {}).get("volume_last_24_hours", 0),
                             "roi_data": metrics.get("roi_data", {}),
-                            "timestamp": datetime.now().isoformat()
+                            "timestamp": dt.datetime.now().isoformat()
                         }
                     elif "profile" in metrics:
                         # Profile endpoint response
@@ -375,7 +418,7 @@ def fetch_messari_metrics(symbol="bitcoin"):
                             "name": metrics.get("profile", {}).get("name", symbol),
                             "category": metrics.get("profile", {}).get("category", ""),
                             "description": metrics.get("profile", {}).get("description", ""),
-                            "timestamp": datetime.now().isoformat()
+                            "timestamp": dt.datetime.now().isoformat()
                         }
         except Exception as e:
             continue
@@ -457,15 +500,14 @@ def fetch_vix_data(days=365):
         print("[FMP VIX ERROR] FMP_API_KEY not found in environment variables")
         return None
     
-    from datetime import datetime, timedelta
     import pandas as pd
     
-    url = "https://financialmodelingprep.com/api/v3/historical-price-full/^VIX"
+    url = "https://financialmodelingprep.com/api/v3/historical-chart/1day/VIXY"
     params = {
         "serietype": "line",
         "apikey": api_key,
-        "from": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
-        "to": datetime.now().strftime("%Y-%m-%d")
+        "from": (dt.datetime.now() - dt.timedelta(days=days)).strftime("%Y-%m-%d"),
+        "to": dt.datetime.now().strftime("%Y-%m-%d")
     }
     
     try:

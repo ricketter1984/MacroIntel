@@ -1,0 +1,840 @@
+{
+  "status": "success",
+  "execution_time": "0:00:19.885358",
+  "start_time": "2025-07-08T01:14:39.342327",
+  "end_time": "2025-07-08T01:14:59.227685",
+  "agents": {
+    "summarizer": {
+      "articles": [
+        {
+          "title": "Perplexity Macro News: Recent macroeconomic data on U.S. Consumer Price I...",
+          "summary": "Recent macroeconomic data on U.S. Consumer Price Index (CPI) inflation shows:\n\n- In May 2025, the CPI rose by **0.1% monthly**, below expectations, with the annual inflation rate holding steady at **2...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-08T01:14:45.536312",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Perplexity Macro News: Recent macroeconomic news about the Federal Reserv...",
+          "summary": "Recent macroeconomic news about the Federal Reserve rate decision shows that the Fed has **kept the federal funds rate steady at 4.25% to 4.50% through mid-2025**. This marks the fourth consecutive me...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-08T01:14:48.218908",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Perplexity Macro News: Recent macroeconomic news highlights a notable **d...",
+          "summary": "Recent macroeconomic news highlights a notable **downward pressure on crude oil prices** due to OPEC+ significantly increasing production. OPEC+ announced a fourth consecutive monthly output hike of 5...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-08T01:14:51.932318",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Argo Launches Gulf Coast Distribution and Mixing Center with Landry Construction in Kenner, Louisiana, to Support North American Expansion",
+          "summary": "Vancouver, British Columbia--(Newsfile Corp. - July 8, 2025) - Argo Graphene Solutions Corp. (CSE: ARGO) (OTCQB: ARLSF) (FSE: 94Y0) (\"Argo\" or the \"Company\") is pleased to announce the opening of its ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/258015/Argo-Launches-Gulf-Coast-Distribution-and-Mixing-Center-with-Landry-Construction-in-Kenner-Louisiana-to-Support-North-American-Expansion",
+          "timestamp": "2025-07-08 01:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Argo Launches Gulf Coast Distribution and Mixing Center with Landry Construction in Kenner, Louisiana, to Support North American Expansion",
+          "summary": "VANCOUVER, British Columbia, July 08, 2025 (GLOBE NEWSWIRE) -- Argo Graphene Solutions Corp. (CSE: ARGO | OTCQB: ARLSF | Frankfurt: 94Y0) (“Argo” or the “Company”) is pleased to announce the opening o...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111430/0/en/Argo-Launches-Gulf-Coast-Distribution-and-Mixing-Center-with-Landry-Construction-in-Kenner-Louisiana-to-Support-North-American-Expansion.html",
+          "timestamp": "2025-07-08 01:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "HIVE Digital Technologies Surges 18% in Monthly Bitcoin Production as Phase 2 Paraguay Expansion Launches; On Track for 25 EH/s and 12 BTC Per Day Run Rate by Year-End",
+          "summary": "This news release constitutes a \"designated news release for the purposes of the Company's amended and restated prospectus supplement dated May 14, 2025, to its short form base shelf prospectus dated ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/258071/HIVE-Digital-Technologies-Surges-18-in-Monthly-Bitcoin-Production-as-Phase-2-Paraguay-Expansion-Launches-On-Track-for-25-EHs-and-12-BTC-Per-Day-Run-Rate-by-YearEnd",
+          "timestamp": "2025-07-08 01:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Broadridge Enabling Rapid Compliance with EU Instant Payments Regulations",
+          "summary": "Broadridge's faster, cost-efficient access to the ECB's TIPS service is accelerating financial institutions' compliance with new EU Instant Payment regulations NEW YORK and LONDON and FRANKFURT, Germa...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.prnewswire.com/news-releases/broadridge-enabling-rapid-compliance-with-eu-instant-payments-regulations-302498024.html",
+          "timestamp": "2025-07-08 01:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Constellation Energy: Green Nuclear Energy That Will Fuel AI And Make Stock Soar",
+          "summary": "Constellation Energy is uniquely positioned to benefit from the AI-driven data center boom, thanks to its dominant, zero-emission nuclear fleet and long-term PPAs. The pending Calpine acquisition will...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4799786-constellation-energy-green-nuclear-energy-that-will-fuel-ai-stock-soar",
+          "timestamp": "2025-07-08 00:42:11",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Exclusive: WeightWatchers names new medical chief, plans to offer menopause therapy and support",
+          "summary": "WeightWatchers will announce on Tuesday Dr. Kim Boyd as its chief medical officer, and plans for a new program to help women manage the transition into menopause and beyond, part of its growth strateg...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/weightwatchers-names-new-medical-chief-plans-offer-menopause-therapy-support-2025-07-08/",
+          "timestamp": "2025-07-08 00:19:41",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Samsung Elec to buy healthcare services company Xealth",
+          "summary": "Samsung Electronics said on Tuesday it had signed an agreement to acquire Xealth, a U.S.-based healthcare platform, as part of its efforts to expand its mobile healthcare services business....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/samsung-elec-buy-healthcare-services-company-xealth-2025-07-08/",
+          "timestamp": "2025-07-08 00:13:09",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Lockheed Martin: Well Positioned For Tomorrow's Wars",
+          "summary": "Lockheed Martin is well positioned for future growth, driven by increasing demand for drones, anti-drone systems, and cybersecurity solutions. Despite recent share price declines and stagnant revenues...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4799781-lockheed-martin-well-positioned-for-tomorrows-wars",
+          "timestamp": "2025-07-08 00:12:26",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Tigo Energy Adds Solar-Plus-Storage Portfolio in Czech Republic to Build on MLPE Success",
+          "summary": "CAMPBELL, Calif. & PRAGUE--(BUSINESS WIRE)--Tigo Energy, Inc. (NASDAQ: TYGO) (“Tigo” or “Company”), a leading provider of intelligent solar and energy software solutions, today announced that the Comp...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707591402/en/Tigo-Energy-Adds-Solar-Plus-Storage-Portfolio-in-Czech-Republic-to-Build-on-MLPE-Success/",
+          "timestamp": "2025-07-08 00:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Invivoscribe Expands Flow Cytometry Services to Accelerate CAR-T Immunotherapy Development and Regulatory Readiness with the Initiation of CERo Therapeutics Phase 1 Clinical Trial",
+          "summary": "SAN DIEGO--(BUSINESS WIRE)-- #invivoscribe--Invivoscribe Inc., a global leader in precision diagnostics and measurable residual disease (MRD) testing, is proud to support CERo Therapeutics Holdings, I...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707133010/en/Invivoscribe-Expands-Flow-Cytometry-Services-to-Accelerate-CAR-T-Immunotherapy-Development-and-Regulatory-Readiness-with-the-Initiation-of-CERo-Therapeutics-Phase-1-Clinical-Trial/",
+          "timestamp": "2025-07-08 00:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Diginex Announces Plans for Eight-for-One Forward Stock Split",
+          "summary": "LONDON, July 07, 2025 (GLOBE NEWSWIRE) -- Diginex Limited (“Diginex” or the “Company”) (NASDAQ: DGNX), a leading provider of Sustainability RegTech solutions, today announced that on July 1, 2025 the ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111427/0/en/Diginex-Announces-Plans-for-Eight-for-One-Forward-Stock-Split.html",
+          "timestamp": "2025-07-07 23:29:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Liberty Energy Inc. Announces Date Change for its Second Quarter 2025 Earnings Release and Conference Call",
+          "summary": "DENVER--(BUSINESS WIRE)--Liberty Energy Inc. (NYSE: LBRT) announced today that it has rescheduled the date of its upcoming earnings release and conference call. The Company will now report its financi...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707559528/en/Liberty-Energy-Inc.-Announces-Date-Change-for-its-Second-Quarter-2025-Earnings-Release-and-Conference-Call/",
+          "timestamp": "2025-07-07 23:07:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bunge charters first Argentine soy meal cargo to China",
+          "summary": "U.S. grains trading group Bunge has chartered 30,000 metric tons of Argentine soybean meal cargo destined for China, data seen by Reuters on Monday showed, marking the first such soymeal cargo since B...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/business/autos-transportation/bunge-charters-first-argentine-soy-meal-cargo-china-2025-07-08/",
+          "timestamp": "2025-07-07 23:05:48",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Clara Technologies Secures 14-Month Development Agreement to Advance Quantum-Enabled Sales Buddi",
+          "summary": "Global Expansion Underway as Sales Buddi Evolves into a World leading Quantum-Powered AI Sales Ecosystem Vancouver, British Columbia--(Newsfile Corp. - July 7, 2025) - Clara Technologies Corp. (CSE: C...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/257943/Clara-Technologies-Secures-14Month-Development-Agreement-to-Advance-QuantumEnabled-Sales-Buddi",
+          "timestamp": "2025-07-07 23:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "NIO's firefly brand taps HERE Technologies to power smart, connected EV journeys",
+          "summary": "Shanghai – HERE Technologies, the leading location data and technology platform, is proud to announce its collaboration with NIO's latest car brand, firefly. HERE is providing firefly with high-qualit...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111425/0/en/NIO-s-firefly-brand-taps-HERE-Technologies-to-power-smart-connected-EV-journeys.html",
+          "timestamp": "2025-07-07 23:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Mitsubishi UFJ Financial Group, Inc. Announces Filing of Annual Report on Form 20-F for the Year Ended March 31, 2025",
+          "summary": "TOKYO--(BUSINESS WIRE)--Mitsubishi UFJ Financial Group, Inc. (NYSE:MUFG)(TOKYO:8306)(ISIN:JP3902900004)(MUFG) hereby announces that it has filed its Annual Report on Form 20-F for the fiscal year ende...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707462144/en/Mitsubishi-UFJ-Financial-Group-Inc.-Announces-Filing-of-Annual-Report-on-Form-20-F-for-the-Year-Ended-March-31-2025/",
+          "timestamp": "2025-07-07 22:49:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Oil and Natural Gas Technical Analysis: Volatility Rises on OPEC+ Output and Trade Tensions",
+          "summary": "WTI crude oil is rebounding from its long-term support at $66, while natural gas prices are consolidating within the ascending channel, awaiting the next move....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fxempire.com/forecasts/article/oil-and-natural-gas-technical-analysis-volatility-rises-on-opec-output-and-trade-tensions-1531817",
+          "timestamp": "2025-07-07 22:42:39",
+          "affected_tickers": ""
+        },
+        {
+          "title": "WuXi AppTec Provides Updates on Q2 Share Repurchase/Acquisition Activities",
+          "summary": "SHANGHAI , July 7, 2025 /PRNewswire/ -- WuXi AppTec Co., Ltd. (Stock codes: 603259.SH/2359.HK), a global company that provides a broad portfolio of R&D and manufacturing services to enable companies i...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.prnewswire.com/news-releases/wuxi-apptec-provides-updates-on-q2-share-repurchaseacquisition-activities-302499523.html",
+          "timestamp": "2025-07-07 22:41:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CGDG: Global Dividend ETF With Income Growth Potential",
+          "summary": "CGDG offers strong total returns and dividend growth potential, outperforming peer dividend ETFs since inception, though its history is short. The fund provides global diversification and unique techn...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4799774-cgdg-global-dividend-etf-income-growth-potential",
+          "timestamp": "2025-07-07 22:35:21",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Goldman Sachs lifts S&P 500 return forecasts on Fed outlook, large-cap stocks",
+          "summary": "Goldman Sachs has raised its three-, six- and 12-month return forecasts for the S&P 500, citing expectations of U.S. interest rate cuts and continued fundamental strength of major large-cap stocks as ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/business/finance/goldman-sachs-lifts-sp-500-return-forecasts-fed-outlook-large-cap-stocks-2025-07-08/",
+          "timestamp": "2025-07-07 22:33:18",
+          "affected_tickers": ""
+        },
+        {
+          "title": "PBBK Stock Alert: Halper Sadeh LLC Is Investigating Whether the Sale of PB Bankshares, Inc. Is Fair to Shareholders",
+          "summary": "NEW YORK--(BUSINESS WIRE)--Halper Sadeh LLC, an investor rights law firm, is investigating whether the sale of PB Bankshares, Inc. (NASDAQ: PBBK) to Norwood Financial Corp is fair to PB Bankshares sha...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707635666/en/PBBK-Stock-Alert-Halper-Sadeh-LLC-Is-Investigating-Whether-the-Sale-of-PB-Bankshares-Inc.-Is-Fair-to-Shareholders/",
+          "timestamp": "2025-07-07 22:08:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "New Zealand Energy Corp. Provides Update on Private Placement and Shares for Debt",
+          "summary": "Vancouver, British Columbia--(Newsfile Corp. - July 7, 2025) - New Zealand Energy Corp. (TSXV: NZ) (\"NZEC\" or the \"Company\") is pleased to announce that, further to its May 12, 2025, June 25, 2025, an...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/258063/New-Zealand-Energy-Corp.-Provides-Update-on-Private-Placement-and-Shares-for-Debt",
+          "timestamp": "2025-07-07 22:07:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Golden Goliath Announces Private Placement",
+          "summary": "Vancouver, British Columbia--(Newsfile Corp. - July 7, 2025) - Golden Goliath Resources Ltd. (TSXV: GNG) (\"Golden Goliath\" or the \"Company\")....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/258065/Golden-Goliath-Announces-Private-Placement",
+          "timestamp": "2025-07-07 22:02:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Fluence Chosen for 300 MW / 600 MWh Wellington Battery Energy Storage System for AMPYR Australia",
+          "summary": "The project will include the full suite of Fluence's innovative storage products, including Gridstack ™, a 20-year service contract, Mosaic bidding software, and Nispera asset performance management s...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111421/0/en/Fluence-Chosen-for-300-MW-600-MWh-Wellington-Battery-Energy-Storage-System-for-AMPYR-Australia.html",
+          "timestamp": "2025-07-07 22:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Black Hawk Acquisition Corporation Amends Its Definitive Proxy Statement",
+          "summary": "DANVILLE, Calif., July 07, 2025 (GLOBE NEWSWIRE) -- Black Hawk Acquisition Corporation (NASDAQ: BKHAU, the “Company”) announced today that it filed a supplement to its definitive proxy statement, orig...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111419/0/en/Black-Hawk-Acquisition-Corporation-Amends-Its-Definitive-Proxy-Statement.html",
+          "timestamp": "2025-07-07 21:45:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "UK MHRA Approves ImmunityBio's ANKTIVA® Plus BCG for BCG-Unresponsive Non-Muscle Invasive Bladder Cancer Carcinoma In Situ",
+          "summary": "CULVER CITY, Calif.--(BUSINESS WIRE)--ImmunityBio, Inc. (NASDAQ: IBRX) today announced that the UK Medicines and Healthcare products Regulatory Agency (MHRA) has granted marketing authorization for AN...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.businesswire.com/news/home/20250707451616/en/UK-MHRA-Approves-ImmunityBio%E2%80%99s-ANKTIVA%C2%AE-Plus-BCG-for-BCG-Unresponsive-Non-Muscle-Invasive-Bladder-Cancer-Carcinoma-In-Situ/",
+          "timestamp": "2025-07-07 21:43:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CGDG: A Global Dividend Grower With Active Edge And Smart Diversification",
+          "summary": "Capital Group Dividend Growers ETF offers a rare, actively managed international dividend growth strategy with strong manager diversification, mitigating groupthink and concentration risks. The ETF ba...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4799771-cgdg-etf-global-dividend-grower-with-active-edge-smart-diversification",
+          "timestamp": "2025-07-07 21:41:52",
+          "affected_tickers": ""
+        },
+        {
+          "title": "The Keg Royalties Income Fund Announces Receipt of Interim Order and Filing of Special Meeting Materials in Respect of Proposed Transaction with Fairfax",
+          "summary": "Not for distribution to U.S. News wire services or dissemination in the U.S. VANCOUVER, British Columbia, July 07, 2025 (GLOBE NEWSWIRE) -- The Keg Royalties Income Fund (the “Fund”) (TSX: KEG.UN) tod...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111418/0/en/The-Keg-Royalties-Income-Fund-Announces-Receipt-of-Interim-Order-and-Filing-of-Special-Meeting-Materials-in-Respect-of-Proposed-Transaction-with-Fairfax.html",
+          "timestamp": "2025-07-07 21:37:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Meta Hires Top Apple AI Expert",
+          "summary": "Mark Zuckerberg wooed another elite researcher with pay package in the tens of millions, continuing a recruitment push....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.wsj.com/tech/ai/meta-hires-top-apple-ai-expert-c29bdbc0",
+          "timestamp": "2025-07-07 21:32:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "UPRO: Avoid The Rip, Buy The Dip",
+          "summary": "ProShares UltraPro S&P500 ETF offers 3x S&P 500 exposure. Despite a bullish outlook for the S&P 500, chasing UPRO after an extended rally is risky due to increased pullback potential and diminishing r...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4799769-upro-etf-increased-pullback-potential-wait-well-timed-entry",
+          "timestamp": "2025-07-07 21:21:14",
+          "affected_tickers": ""
+        },
+        {
+          "title": "FMC ALERT: Bragar Eagel & Squire, P.C. is Investigating FMC Corporation on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, July 07, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against FMC Corporation (NYSE:FMC) on be...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111408/0/en/FMC-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-FMC-Corporation-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-07 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "DMC GLOBAL ALERT: Bragar Eagel & Squire, P.C. is Investigating DMC Global Inc. on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, July 07, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against DMC Global Inc. (NASDAQ: BOOM) o...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111409/0/en/DMC-GLOBAL-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-DMC-Global-Inc-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-07 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "AMYLYX ALERT: Bragar Eagel & Squire, P.C. is Investigating Amylyx Pharmaceuticals, Inc. on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, July 07, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against Amylyx Pharmaceuticals, Inc. (NA...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111414/0/en/AMYLYX-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-Amylyx-Pharmaceuticals-Inc-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-07 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "BELLRING BRANDS ALERT: Bragar Eagel & Squire, P.C. is Investigating BellRing Brands Inc. on Behalf of BellRing Brands Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, July 07, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized stockholder rights law firm, is investigating potential claims against BellRing Brands Inc. (“BellRing ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111406/0/en/BELLRING-BRANDS-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-BellRing-Brands-Inc-on-Behalf-of-BellRing-Brands-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-07 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CENTENE ALERT: Bragar Eagel & Squire, P.C. is Investigating Centene Corporation on Behalf of Centene Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "NEW YORK, July 07, 2025 (GLOBE NEWSWIRE) -- Bragar Eagel & Squire, P.C., a nationally recognized stockholder rights law firm, is investigating potential claims against Centene Corporation (“Centene” o...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111407/0/en/CENTENE-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-Centene-Corporation-on-Behalf-of-Centene-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-07 21:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Corbion announces Executive Committee changes to strengthen its leadership structure",
+          "summary": "Corbion restructures its Executive Committee by appointing Oli Arnason as Chief Integrated Supply Chain Officer, Yves Boland as Chief Technology Officer, and Ruud Peerbooms as Chief Commercial Officer...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111433/0/en/Corbion-announces-Executive-Committee-changes-to-strengthen-its-leadership-structure.html",
+          "timestamp": "2025-07-08T05:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "TGS Q2 2025 Operational and Financial Update",
+          "summary": "TGS reported Q2 2025 revenues of approximately USD 332 million, lower than internal expectations due to postponed data licensing deals, operational challenges, and reduced joint venture partner partic...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111435/0/en/TGS-Q2-2025-Operational-and-Financial-Update.html",
+          "timestamp": "2025-07-08T05:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "INVESTIGATION ALERT: Edelson Lechtzin LLP Announces an Investigation of PetMed Express, Inc. (NASDAQ: PETS) and Encourages Investors with Substantial Losses or Witnesses with Relevant Information to Contact the Firm",
+          "summary": "Law firm investigating potential securities law violations by PetMed Express after company delayed earnings release and annual report filing due to internal audit and whistleblower complaints about re...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111424/0/en/INVESTIGATION-ALERT-Edelson-Lechtzin-LLP-Announces-an-Investigation-of-PetMed-Express-Inc-NASDAQ-PETS-and-Encourages-Investors-with-Substantial-Losses-or-Witnesses-with-Relevant-In.html",
+          "timestamp": "2025-07-08T02:59:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "INVESTIGATION ALERT: Edelson Lechtzin LLP Announces an Investigation of Centene Corporation (NYSE: CNC) and Encourages Investors with Substantial Losses or Witnesses with Relevant Information to Contact the Firm",
+          "summary": "Law firm investigating potential securities law violations by Centene Corporation after the company withdrew 2025 earnings guidance due to higher than anticipated health risks, causing a 40.37% stock ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111423/0/en/INVESTIGATION-ALERT-Edelson-Lechtzin-LLP-Announces-an-Investigation-of-Centene-Corporation-NYSE-CNC-and-Encourages-Investors-with-Substantial-Losses-or-Witnesses-with-Relevant-Info.html",
+          "timestamp": "2025-07-08T02:56:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "CENTENE ALERT: Bragar Eagel & Squire, P.C. is Investigating Centene Corporation on Behalf of Centene Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "Law firm investigating potential securities law violations by Centene after stock dropped 39.5% following withdrawal of 2025 earnings guidance due to higher medical costs and underperforming Affordabl...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111407/0/en/CENTENE-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-Centene-Corporation-on-Behalf-of-Centene-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-08T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Compass Diversified, Digimarc, and Elevance, and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against Compass Diversified, Digimarc, and Elevance Health, alleging financial misrepresentations and misleading statements that potentia...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111410/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Compass-Diversified-Digimarc-and-Elevance-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-08T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Red Cat, Reckitt, UroGen and Fortrea and Encourages Investors to Contact the Firm",
+          "summary": "Law firm Bragar Eagel & Squire announced class action lawsuits against Reckitt, UroGen, Red Cat, and Fortrea for alleged misleading statements and financial misrepresentations during specified class p...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111405/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Red-Cat-Reckitt-UroGen-and-Fortrea-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-08T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "DMC GLOBAL ALERT: Bragar Eagel & Squire, P.C. is Investigating DMC Global Inc. on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "Law firm investigating potential claims against DMC Global Inc. for alleged securities law violations and breaches of fiduciary duties related to financial reporting and internal processes during Janu...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3111409/0/en/DMC-GLOBAL-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-DMC-Global-Inc-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-08T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "2 Millionaire-Maker Technology Stocks",
+          "summary": "The article discusses two technology stocks with significant potential: Coupang and Taiwan Semiconductor Manufacturing (TSMC), both demonstrating strong market positioning and growth potential in e-co...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/07/2-millionaire-maker-technology-stocks/?source=iedfolrf0000001",
+          "timestamp": "2025-07-08T00:17:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "1 No-Brainer Vanguard ETF to Invest $1,000 Into This July",
+          "summary": "The Vanguard Real Estate ETF offers a diversified approach to real estate investing, with a history of delivering solid returns through REIT investments. The fund provides steady value appreciation an...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/07/1-no-brainer-vanguard-etf-to-invest-1000-into-this/?source=iedfolrf0000001",
+          "timestamp": "2025-07-08T00:14:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Attention, Nvidia Shareholders: 1 Crucial Thing to Watch in the Second Half",
+          "summary": "Nvidia is preparing to launch its Blackwell Ultra platform, which could potentially provide a significant performance leap in AI chip technology. The company's success depends on smoothly delivering i...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/07/attention-nvidia-investors-crucial-thing-to-watch/?source=iedfolrf0000001",
+          "timestamp": "2025-07-08T00:10:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Cathie Wood's Tesla Bet Pays Off Again. But How Long Can It Last?",
+          "summary": "Tesla faces significant challenges including declining automotive revenue, reduced EV tax credits, intense competition from BYD, and potential market uncertainties despite past stock performance and i...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/07/cathie-woods-tesla-bet-pays-off-again-but-how-long/?source=iedfolrf0000001",
+          "timestamp": "2025-07-08T00:05:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Ascentage Pharma Appoints Dr. Veet Misra as Chief Financial Officer and Eric Huang as Senior Vice President of Global Corporate Development and Finance",
+          "summary": "Ascentage Pharma announced the appointments of Dr. Veet Misra as Chief Financial Officer and Eric Huang as Senior Vice President of Global Corporate Development and Finance to support the company's gl...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111397/0/en/Ascentage-Pharma-Appoints-Dr-Veet-Misra-as-Chief-Financial-Officer-and-Eric-Huang-as-Senior-Vice-President-of-Global-Corporate-Development-and-Finance.html",
+          "timestamp": "2025-07-07T23:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "VRA Investor News: If You Have Suffered Losses in Vera Bradley, Inc. (NASDAQ: VRA), You Are Encouraged to Contact The Rosen Law Firm About Your Rights",
+          "summary": "Rosen Law Firm is investigating potential securities claims for Vera Bradley shareholders after the company reported disappointing first quarter financial results, causing a 19% stock price drop....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111392/673/en/VRA-Investor-News-If-You-Have-Suffered-Losses-in-Vera-Bradley-Inc-NASDAQ-VRA-You-Are-Encouraged-to-Contact-The-Rosen-Law-Firm-About-Your-Rights.html",
+          "timestamp": "2025-07-07T23:08:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Krispy Kreme, Inc. Investors: Please contact the Portnoy Law Firm to recover your losses. July 15, 2025 Deadline to file Lead Plaintiff Motion.",
+          "summary": "Krispy Kreme faces a class action lawsuit alleging misleading statements about its McDonald's partnership, with declining product demand and financial performance leading to stock price drop....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111393/0/en/Krispy-Kreme-Inc-Investors-Please-contact-the-Portnoy-Law-Firm-to-recover-your-losses-July-15-2025-Deadline-to-file-Lead-Plaintiff-Motion.html",
+          "timestamp": "2025-07-07T23:08:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "BAY Miner Launches Flexible Cloud Mining for BTC, SOL, XRP, and DOGE Investors",
+          "summary": "BAY Miner introduces a cloud mining platform enabling users to mine multiple cryptocurrencies like Bitcoin, Solana, Ripple, and Dogecoin with low costs, using renewable energy and offering daily earni...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111388/0/en/BAY-Miner-Launches-Flexible-Cloud-Mining-for-BTC-SOL-XRP-and-DOGE-Investors.html",
+          "timestamp": "2025-07-07T23:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "$HAREHOLDER ALERT: Class Action Attorney Juan Monteverde Investigates the Merger of Olo Inc. (NYSE: OLO)",
+          "summary": "Class action attorney Juan Monteverde is investigating the merger of Olo Inc., which is being sold to Thoma Bravo for $10.25 per share in cash, to determine if the deal is fair to shareholders....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111387/0/en/HAREHOLDER-ALERT-Class-Action-Attorney-Juan-Monteverde-Investigates-the-Merger-of-Olo-Inc-NYSE-OLO.html",
+          "timestamp": "2025-07-07T22:59:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Bitfarms Ltd. Investors: Please contact the Portnoy Law Firm to recover your losses. July 8, 2025 Deadline to file Lead Plaintiff Motion.",
+          "summary": "Bitfarms Ltd. faces a class action lawsuit alleging financial reporting irregularities, including misclassification of digital asset sale proceeds and incorrect financial statement reporting during 20...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111386/0/en/Bitfarms-Ltd-Investors-Please-contact-the-Portnoy-Law-Firm-to-recover-your-losses-July-8-2025-Deadline-to-file-Lead-Plaintiff-Motion.html",
+          "timestamp": "2025-07-07T22:56:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Compass Group Diversified Holdings, LLC Investors: Please contact the Portnoy Law Firm to recover your losses. July 8, 2025 Deadline to file Lead Plaintiff Motion.",
+          "summary": "Compass Group Diversified Holdings (CODI) announced it cannot rely on its 2024 financial statements due to an internal investigation into subsidiary Lugano Holding's financing and accounting practices...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111385/0/en/Compass-Group-Diversified-Holdings-LLC-Investors-Please-contact-the-Portnoy-Law-Firm-to-recover-your-losses-July-8-2025-Deadline-to-file-Lead-Plaintiff-Motion.html",
+          "timestamp": "2025-07-07T22:54:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "$HAREHOLDER ALERT: Class Action Attorney Juan Monteverde Investigates the Merger of WNS (Holdings) Limited (NYSE: WNS)",
+          "summary": "Class action attorney Juan Monteverde is investigating the merger of WNS (Holdings) Limited, which is being sold to Capgemini, S.E. for $76.50 per share in cash....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111382/0/en/HAREHOLDER-ALERT-Class-Action-Attorney-Juan-Monteverde-Investigates-the-Merger-of-WNS-Holdings-Limited-NYSE-WNS.html",
+          "timestamp": "2025-07-07T22:42:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "EGBN Investor News: If You Have Suffered Losses in Eagle Bancorp, Inc. (NASDAQ: EGBN), You Are Encouraged to Contact The Rosen Law Firm About Your Rights",
+          "summary": "Rosen Law Firm is investigating potential securities claims for Eagle Bancorp shareholders after the company's Q1 2025 financial results showed a significant miss on earnings and revenue, causing an 1...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111381/673/en/EGBN-Investor-News-If-You-Have-Suffered-Losses-in-Eagle-Bancorp-Inc-NASDAQ-EGBN-You-Are-Encouraged-to-Contact-The-Rosen-Law-Firm-About-Your-Rights.html",
+          "timestamp": "2025-07-07T22:20:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "FTI Consulting Expands Cybersecurity Capabilities in Australia with Appointment of Natasha Passley",
+          "summary": "FTI Consulting has appointed Natasha Passley as a Senior Managing Director in its Cybersecurity practice, bringing over two decades of experience in security, risk, and technology to help organization...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111376/33891/en/FTI-Consulting-Expands-Cybersecurity-Capabilities-in-Australia-with-Appointment-of-Natasha-Passley.html",
+          "timestamp": "2025-07-07T22:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Hut 8 Schedules Second Quarter 2025 Earnings Release and Conference Call",
+          "summary": "Hut 8 Corp. will release its second quarter 2025 financial results on August 7, 2025, and host a conference call and webcast to review the results. The company operates an energy infrastructure platfo...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111369/0/en/Hut-8-Schedules-Second-Quarter-2025-Earnings-Release-and-Conference-Call.html",
+          "timestamp": "2025-07-07T21:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "ROSEN, A HIGHLY RECOGNIZED LAW FIRM, Encourages Fortrea Holdings, Inc. Investors to Secure Counsel Before Important Deadline in Securities Class Action – FTRE",
+          "summary": "Rosen Law Firm alerts Fortrea Holdings investors about a securities class action lawsuit alleging false financial statements and misleading disclosures during the period of July 3, 2023 to February 28...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/07/3111368/673/en/ROSEN-A-HIGHLY-RECOGNIZED-LAW-FIRM-Encourages-Fortrea-Holdings-Inc-Investors-to-Secure-Counsel-Before-Important-Deadline-in-Securities-Class-Action-FTRE.html",
+          "timestamp": "2025-07-07T21:29:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "ExxonMobil: Limited Risk and Lots of Reward With This Oil Play",
+          "summary": "ExxonMobil is positioned for growth with plans to launch ten new projects in key locations like Permian, Guyana, and Indonesia, expected to add $3 billion to its bottom line. An upcoming arbitration a...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.investing.com/analysis/exxonmobil-limited-risk-and-lots-of-reward-with-this-oil-play-200663291",
+          "timestamp": "2025-07-07T21:01:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Dabba: Upcoming TGE, Adoption, and Roadmap",
+          "summary": "Key Insights\n\nDabba will launch its native utility token, DBT, in the second half of 2025. DBT will be used to activate hotspots, settle protocol-level fees, and coordinate demand-driven network deplo...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/dabba-upcoming-tge-adoption-and-roadmap",
+          "timestamp": "2025-07-07T15:09:53Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Humanity Protocol: Bringing Identity Verification Onchain",
+          "summary": "Key Insights\n\nHumanity Protocol is an identity verification network that uses palm biometrics to verify user liveness and generate onchain credentials.\nUsing the Proof-of-Humanity protocol, palm scans...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/humanity-protocol-bringing-identity-verification-onchain",
+          "timestamp": "2025-07-07T11:18:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Shadow Exchange: Every Sonic needs a Shadow",
+          "summary": "Key Insights\n\nShadow is an x(3,3) decentralized exchange (DEX), an evolution of the ve(3,3) first introduced by Andre Cronje that took aspects from Ohm and Curve to build a more sustainable DEX. \nAt t...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/shadow-exchange-every-sonic-needs-a-shadow",
+          "timestamp": "2025-07-03T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding VeChain: A Comprehensive Overview",
+          "summary": "Key Insights\n\nVeChain is a Layer-1 blockchain purpose-built for real-world use cases. Its architecture includes features such as multi-party gas payment (MPP), adjustable gas fees, batched transaction...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-vechain-a-comprehensive-overview",
+          "timestamp": "2025-07-03T13:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "TEE: The Hardware Backbone for Next-Gen Onchain Experience",
+          "summary": "Key Insights\n\nTEEs are increasingly integrated into blockchain protocols, with projects like iExec, Oasis, and Phala Network adopting TEE-powered infrastructure to enable confidential computation and ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/tee-the-hardware-backbone-for-next-gen-onchain-experience",
+          "timestamp": "2025-07-02T17:00:24Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding ROVR: A Comprehensive Overview",
+          "summary": "Key Insights\n\nROVR widened its network footprint with 2,451 users operating 1,631 devices, which have collected data across 16.74 million km of roads worldwide as of June 2025.\nEight enterprises have ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-rovr-a-comprehensive-overview",
+          "timestamp": "2025-07-02T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "NodeOps Network: Rethinking DePIN Tokenomics ",
+          "summary": "Key Insights\n\nNodeOps distinguishes itself with a real-time, revenue-linked mint-and-burn model, aligning NODE issuance directly with economic activity and enabling adaptive supply control beyond stat...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/nodeops-network-rethinking-depin-tokenomics",
+          "timestamp": "2025-07-02T13:55:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Akash Q1 2025 ",
+          "summary": "Key Insights\n\nLease revenue surpassed $1 million (38% QoQ), driven by longer and higher-value GPU deployments.\nAverage GPU capacity rose 55% QoQ to 897 units, while usage increased 54% to 553 units.\nT...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-akash-q1-2025",
+          "timestamp": "2025-06-30T20:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Stellar Ecosystem Overview",
+          "summary": "Key Insights\n\nBy the end of 2025, the Stellar Development Foundation aims for Stellar to have $3 billion in yield-bearing RWA’s onchain and be a top-ten chain in DeFi TVL. This could create a flywheel...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/stellar-ecosystem-overview",
+          "timestamp": "2025-06-30T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Algorand Q1 2025 Brief",
+          "summary": "Key Insights\n\nAlgorand activated its staking rewards in January, replacing the governance payout structure and giving validators a direct income stream to secure the network. \nStablecoin market cap on...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/algorand-q1-2025-brief",
+          "timestamp": "2025-06-30T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Seraph Q1 2025",
+          "summary": "Key Insights\n\nSeraph's circulating market cap declined 29.4% from $49.3 million at token launch to $34.8 million by quarter-end, driven partly by price dilution caused by a 23% increase in circulating...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-seraph-q1-2025",
+          "timestamp": "2025-06-27T18:30:31Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Polkadot Q1 2025",
+          "summary": "Key Insights\n\nPolkadot Core developer activity stabilized in Q1 2025 after several quarters of decline. The average weekly number of active core developers rose 1.5% QoQ to 122.\nFrequency, Phala, and ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-polkadot-q1-2025",
+          "timestamp": "2025-06-27T17:39:08Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Caldera: A Comprehensive Overview",
+          "summary": "Key Insights\n\nCaldera has become a leading rollup platform within the Ethereum ecosystem, powering over 52 rollups with a combined $412 million in total value locked. Caldera supports a range of rollu...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-caldera-a-comprehensive-overview",
+          "timestamp": "2025-06-27T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Somnia: A Comprehensive Overview",
+          "summary": "Key Insights\n\nSomnia’s testnet, Shannon, settled over 1 billion transactions while maintaining a 0.10-second average block time. Since going live in February, 4.2 million accounts have deployed 18.3 m...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-somnia-a-comprehensive-overview",
+          "timestamp": "2025-06-26T15:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Marinade: Introducing ETF-Ready Solana Staking Infrastructure with Marinade Select",
+          "summary": "Key Insights\n\nMarinade Native surpassed 5.3 million SOL in TVL, up 21.1% from Q1. Institutional adoption rose, supported by SOC 2 compliance, custodian integrations (BitGo, Zodia, Copper), tax reporti...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/marinade-introducing-etf-ready-solana-staking-infrastructure-with-marinade-select",
+          "timestamp": "2025-06-25T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Rumpel: Converting Point Farming into Liquid Yield",
+          "summary": "Key Insights\n\nThe airdrop model is broken. Keyrock’s 2024 analysis shows 88% of tokens fall in value within months of their TGE. \nRumpel transforms the risk-reward equation by providing instant liquid...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/rumpel-converting-point-farming-into-liquid-yield",
+          "timestamp": "2025-06-25T15:07:16Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Rango Exchange Q1 2025",
+          "summary": "Key Insights\n\nRango outperformed the broader DEX aggregator market with $538 million in quarterly swap volume. This marks its strongest quarter in absolute volume growth since launch, and demonstrates...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-rango-exchange-q1-2025",
+          "timestamp": "2025-06-25T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Subnet 33: ReadyAI",
+          "summary": "Key Insights\n\nReadyAI outperforms Mechanical Turk and GPT-4o benchmarks by 91% and 50%, respectively. Built on Bittensor’s Subnet 33, ReadyAI uses a miner-validator architecture to annotate unstructur...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/subnet-33-readyai",
+          "timestamp": "2025-06-25T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "LayerZero: Scaling Stablecoin Issuers with the OFT Standard",
+          "summary": "Key Insights\n\nLayerZero is an interoperability protocol that enables cross-chain messaging and token transfers, including stablecoins issued using the Omnichain Fungible Token (OFT) Standard. OFT enab...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/layerzero-scaling-stablecoin-issuers-with-the-oft-standard",
+          "timestamp": "2025-06-25T13:01:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Odyssey Finance: A Multichain DeFi Hub Built On ERC-4337",
+          "summary": "Key Insights\n\nOdyssey is building a DeFi hub built on ERC-4337 smart contract accounts. Odyssey offers gasless, cross-chain execution and smart contract wallets for programmable account behavior.\nLoop...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/odyssey-finance-a-multichain-defi-hub-built-on-erc-4337",
+          "timestamp": "2025-06-25T12:00:00Z",
+          "affected_tickers": ""
+        }
+      ],
+      "total_count": 83,
+      "sources_processed": [
+        "polygon",
+        "perplexity",
+        "messari",
+        "fmp"
+      ],
+      "timestamp": "2025-07-08T01:14:53.404722",
+      "database_insertions": 83
+    },
+    "chart_generator": {
+      "charts_generated": [
+        {
+          "chart_type": "custom_comparison",
+          "file_path": "output\\custom_comparison_BTCUSD_XAUUSD_QQQ_20250708_0114.png",
+          "description": "Custom asset comparison: BTCUSD, XAUUSD, QQQ",
+          "context": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+          "generated_at": "2025-07-08T01:14:55.783285",
+          "success": true
+        }
+      ],
+      "analysis_summary": "Generated 1 charts based on market conditions. Fear & Greed Index: 50 (Neutral)",
+      "market_conditions": {
+        "fear_greed_score": 50,
+        "fear_greed_rating": "Neutral",
+        "charts_needed": [
+          {
+            "type": "custom_comparison",
+            "description": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+            "priority": "high",
+            "assets": [
+              "BTCUSD",
+              "XAUUSD",
+              "QQQ"
+            ],
+            "condition": null
+          }
+        ],
+        "custom_condition": null,
+        "condition_met": true,
+        "timestamp": "2025-07-08T01:14:54.407822"
+      },
+      "timestamp": "2025-07-08T01:14:55.784283"
+    },
+    "playbook_strategist": {
+      "market_regime": "Neutral",
+      "selected_strategies": [
+        {
+          "name": "Tier 2 Momentum Reload",
+          "description": "Strategy: Tier 2 Momentum Reload",
+          "confidence": 0.7,
+          "conditions": {}
+        }
+      ],
+      "avoid_list": [
+        "Tier 1 Reversal Ignition (Insufficient volatility)",
+        "Tier 3 Breakout Acceleration (VIX too high (20.0 > 18))",
+        "Tier 4 Mean Reversion (Insufficient volatility)",
+        "Tier 5 Defensive Hedge (VIX too low (20.0 < 25), Greed too high (50 > 30), Insufficient volatility)"
+      ],
+      "macro_notes": [
+        "Neutral environment - mixed signals suggest selective positioning"
+      ],
+      "analysis_timestamp": "2025-07-08T01:14:57.154079"
+    },
+    "email_dispatcher": {
+      "email_sent": true,
+      "recipients": [
+        "rick84etter@gmail.com"
+      ],
+      "report_summary": "Daily MacroIntel report sent to 1 recipients",
+      "attachments": [],
+      "timestamp": "2025-07-08T01:14:59.227685"
+    }
+  },
+  "summary": {
+    "articles_processed": 83,
+    "charts_generated": 1,
+    "market_regime": "Neutral",
+    "strategies_selected": 1,
+    "email_sent": true,
+    "recipients_count": 1
+  }
+}

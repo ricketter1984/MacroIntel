@@ -11,6 +11,9 @@ from dotenv import load_dotenv
 from email.utils import formataddr
 from pathlib import Path
 
+# Load environment variables at the top
+load_dotenv(dotenv_path="config/.env")
+
 # Import visual query engine
 try:
     from visual_query_engine import generate_extreme_fear_chart
@@ -19,7 +22,14 @@ except ImportError:
     print("⚠️ Visual query engine not available - charts will be skipped")
     VISUAL_ENGINE_AVAILABLE = False
 
-load_dotenv(dotenv_path="config/.env")
+# Import agent pipeline
+try:
+    from macrointel_agents import run_agents_pipeline
+    AGENT_PIPELINE_AVAILABLE = True
+except ImportError:
+    print("⚠️ Agent pipeline not available - agent results will be skipped")
+    AGENT_PIPELINE_AVAILABLE = False
+
 
 def load_regime_score_data():
     """
@@ -243,6 +253,299 @@ def generate_sentiment_gauge_placeholder():
     
     return gauge_html
 
+def generate_agent_results_html(agent_results):
+    """
+    Generate HTML for the agent pipeline results section.
+    
+    Args:
+        agent_results: Dict containing results from run_agents_pipeline()
+        
+    Returns:
+        HTML string for agent results section
+    """
+    if not agent_results or not agent_results.get('pipeline_completed'):
+        return """
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #6c757d;">
+            <h3>🤖 AI Agent Analysis</h3>
+            <p><em>Agent pipeline results not available</em></p>
+        </div>
+        """
+    
+    try:
+        html = """
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: white;">🤖 AI Agent Analysis</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        """
+        
+        # News Analysis Section
+        if agent_results.get('news_analysis'):
+            na = agent_results['news_analysis']
+            sentiment_color = {
+                'bullish': '#28a745',
+                'bearish': '#dc3545',
+                'neutral': '#6c757d'
+            }.get(na.overall_sentiment, '#6c757d')
+            
+            # Safely handle potential Series objects
+            headlines_count = len(na.headlines) if hasattr(na.headlines, '__len__') else 0
+            key_themes_str = ', '.join(na.key_themes) if hasattr(na.key_themes, '__iter__') else 'None'
+            
+            # Safely calculate average impact score
+            if hasattr(na.impact_scores, '__iter__') and len(na.impact_scores) > 0:
+                avg_impact = sum(na.impact_scores) / len(na.impact_scores)
+            else:
+                avg_impact = 0.0
+            
+            html += f"""
+                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px;">
+                    <h4 style="margin-top: 0; color: white;">📰 News Sentiment</h4>
+                    <p style="font-size: 18px; font-weight: bold; color: {sentiment_color}; margin: 5px 0;">
+                        {na.overall_sentiment.upper()}
+                    </p>
+                    <p style="margin: 5px 0;"><strong>Headlines Analyzed:</strong> {headlines_count}</p>
+                    <p style="margin: 5px 0;"><strong>Key Themes:</strong> {key_themes_str}</p>
+                    <p style="margin: 5px 0;"><strong>Avg Impact:</strong> {avg_impact:.2f}</p>
+                </div>
+            """
+        
+        # Strategy Recommendation Section
+        if agent_results.get('strategy_recommendation'):
+            sr = agent_results['strategy_recommendation']
+            tier_color = {
+                'conservative': '#28a745',
+                'moderate': '#ffc107',
+                'aggressive': '#dc3545',
+                'defensive': '#17a2b8'
+            }.get(sr.recommended_tier, '#6c757d')
+            
+            html += f"""
+                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px;">
+                    <h4 style="margin-top: 0; color: white;">🎯 Strategy Tier</h4>
+                    <p style="font-size: 18px; font-weight: bold; color: {tier_color}; margin: 5px 0;">
+                        {sr.recommended_tier.upper()}
+                    </p>
+                    <p style="margin: 5px 0;"><strong>Confidence:</strong> {sr.confidence:.1%}</p>
+                    <p style="margin: 5px 0;"><strong>Regime:</strong> {sr.regime_score:.2f}</p>
+                    <p style="margin: 5px 0;"><strong>VIX:</strong> {sr.vix_level:.1f}</p>
+                    <p style="margin: 5px 0;"><strong>F&G:</strong> {sr.fear_greed_score}</p>
+                </div>
+            """
+        
+        html += """
+            </div>
+        """
+        
+        # Instrument Selection Section
+        if agent_results.get('instrument_selection'):
+            isel = agent_results['instrument_selection']
+            html += f"""
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px; margin-top: 15px;">
+                <h4 style="margin-top: 0; color: white;">📊 Recommended Instruments</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+            """
+            
+            # Safely handle allocation weights (could be Series or dict)
+            allocation_weights = isel.allocation_weights
+            if hasattr(allocation_weights, 'items'):
+                # It's a dictionary-like object
+                for instrument, weight in allocation_weights.items():
+                    percentage = weight * 100
+                    html += f"""
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; text-align: center;">
+                            <strong>{instrument}</strong><br>
+                            <span style="font-size: 16px; font-weight: bold;">{percentage:.0f}%</span>
+                        </div>
+                    """
+            else:
+                # Fallback if it's not a dictionary-like object
+                html += """
+                    <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; text-align: center;">
+                        <strong>No allocation data</strong><br>
+                        <span style="font-size: 16px; font-weight: bold;">N/A</span>
+                    </div>
+                """
+            
+            html += f"""
+                </div>
+                <p style="margin-top: 10px; margin-bottom: 5px;"><strong>Risk Level:</strong> {isel.risk_level.upper()}</p>
+                <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">{isel.reasoning}</p>
+            </div>
+            """
+        
+        html += """
+        </div>
+        """
+        
+        return html
+        
+    except Exception as e:
+        print(f"⚠️ Error generating agent results HTML: {e}")
+        return """
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #6c757d;">
+            <h3>🤖 AI Agent Analysis</h3>
+            <p><em>Error processing agent results</em></p>
+        </div>
+        """
+
+def load_polygon_articles():
+    """
+    Load Polygon articles from the latest swarm execution log.
+    
+    Returns:
+        List of Polygon articles or empty list if not found
+    """
+    try:
+        # Look for swarm execution logs in logs directory
+        logs_dir = Path("logs")
+        if not logs_dir.exists():
+            return []
+        
+        # Find all swarm execution log files
+        log_files = list(logs_dir.glob("swarm_execution_*.json"))
+        if not log_files:
+            return []
+        
+        # Get the most recent file
+        latest_file = max(log_files, key=lambda x: x.stat().st_mtime)
+        
+        # Load and parse the JSON data
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            log_data = json.load(f)
+        
+        # Extract articles from summarizer agent results
+        summarizer_data = log_data.get("agents", {}).get("summarizer", {})
+        all_articles = summarizer_data.get("articles", [])
+        
+        # Filter for Polygon articles
+        polygon_articles = []
+        for article in all_articles:
+            if article.get("source") == "polygon":
+                # Convert to standard format
+                polygon_articles.append({
+                    "title": article.get("title", ""),
+                    "summary": article.get("summary", ""),
+                    "url": article.get("url", ""),
+                    "timestamp": article.get("timestamp", ""),
+                    "source": "polygon",
+                    "tone": article.get("sentiment", "Neutral"),
+                    "affected_tickers": article.get("affected_tickers", "")
+                })
+        
+        print(f"✅ Loaded {len(polygon_articles)} Polygon articles from: {latest_file}")
+        return polygon_articles
+        
+    except Exception as e:
+        print(f"⚠️ Error loading Polygon articles: {e}")
+        return []
+
+def deduplicate_articles(articles):
+    """
+    Remove duplicate articles based on title similarity.
+    
+    Args:
+        articles: List of articles to deduplicate
+        
+    Returns:
+        List of deduplicated articles
+    """
+    if not articles:
+        return []
+    
+    # Create a dictionary to track unique articles by normalized title
+    unique_articles = {}
+    
+    for article in articles:
+        # Normalize title for comparison (lowercase, remove extra spaces)
+        normalized_title = " ".join(article.get("title", "").lower().split())
+        
+        # If we haven't seen this title before, add it
+        if normalized_title not in unique_articles:
+            unique_articles[normalized_title] = article
+        else:
+            # If we have seen it, keep the one with more content (longer summary)
+            existing = unique_articles[normalized_title]
+            if len(article.get("summary", "")) > len(existing.get("summary", "")):
+                unique_articles[normalized_title] = article
+    
+    return list(unique_articles.values())
+
+def load_latest_yahoo_futures():
+    """
+    Load the most recent Yahoo Futures data from output directory.
+    Returns a list of futures contracts or empty list if not found.
+    """
+    try:
+        output_dir = Path("output")
+        if not output_dir.exists():
+            return []
+        futures_files = list(output_dir.glob("yahoo_futures_*.json"))
+        if not futures_files:
+            return []
+        latest_file = max(futures_files, key=lambda x: x.stat().st_mtime)
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get("futures_data", [])
+    except Exception as e:
+        print(f"⚠️ Error loading Yahoo Futures data: {e}")
+        return []
+
+def generate_futures_screener_html(futures_data):
+    """
+    Generate HTML for the Futures Screener section.
+    Args:
+        futures_data: List of futures contracts
+    Returns:
+        HTML string for the section
+    """
+    if not futures_data:
+        return """
+        <div style='background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #6c757d;'>
+            <h3>📈 Futures Screener</h3>
+            <p><em>No futures data available.</em></p>
+        </div>
+        """
+    html = """
+    <div style='background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #007bff;'>
+        <h3 style='margin-top: 0; color: #2c3e50;'>📈 Futures Screener</h3>
+        <table style='width: 100%; border-collapse: collapse; background: white;'>
+            <thead>
+                <tr style='background: #e9ecef;'>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Symbol</th>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Name</th>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Price</th>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Change %</th>
+                </tr>
+            </thead>
+            <tbody>
+    """
+    for fut in futures_data:
+        symbol = fut.get("symbol", "")
+        name = fut.get("name", "")
+        price = fut.get("price", "")
+        change = fut.get("change_percent", "")
+        # Color code change
+        try:
+            change_val = float(change)
+            color = '#28a745' if change_val > 0 else ('#dc3545' if change_val < 0 else '#6c757d')
+            change_str = f"<span style='color: {color};'>{change_val:+.2f}%</span>"
+        except Exception:
+            change_str = f"<span style='color: #6c757d;'>{change}</span>"
+        html += f"""
+            <tr>
+                <td style='padding: 8px; border-bottom: 1px solid #dee2e6; font-weight: bold;'>{symbol}</td>
+                <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{name}</td>
+                <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{price}</td>
+                <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{change_str}</td>
+            </tr>
+        """
+    html += """
+            </tbody>
+        </table>
+    </div>
+    """
+    return html
+
 def generate_email_content(articles, limit=25):
     """
     Generate HTML email content with articles, summaries, and visuals
@@ -254,12 +557,69 @@ def generate_email_content(articles, limit=25):
     Returns:
         HTML string for email body
     """
+    # Load Polygon articles and combine with existing articles
+    polygon_articles = load_polygon_articles()
+    all_articles = articles + polygon_articles
+    
+    # Deduplicate articles
+    deduplicated_articles = deduplicate_articles(all_articles)
+    
     # Limit articles
-    articles_to_include = articles[:limit]
+    articles_to_include = deduplicated_articles[:limit]
+    
+    # Count articles by source
+    source_counts = {}
+    for article in articles_to_include:
+        source = article.get("source", "unknown")
+        source_counts[source] = source_counts.get(source, 0) + 1
     
     # Load regime score data
     regime_data = load_regime_score_data()
     regime_summary_html = generate_regime_summary_html(regime_data)
+    
+    # Generate agent results if available
+    agent_results_html = ""
+    if AGENT_PIPELINE_AVAILABLE:
+        try:
+            # Extract headlines from articles for agent analysis
+            headlines = [article.get("title", "") for article in articles_to_include if article.get("title")]
+            
+            # Get regime metrics for agent pipeline
+            regime_score = 0.5  # Default
+            vix_level = 20.0    # Default
+            fear_greed_score = 50  # Default
+            
+            if regime_data:
+                regime_score = regime_data.get('total_score', 50) / 100.0  # Convert to 0-1 scale
+                # Try to extract VIX and F&G from regime data if available
+                component_breakdown = regime_data.get('component_breakdown', {})
+                if 'volatility' in component_breakdown:
+                    vix_level = component_breakdown['volatility'].get('raw_score', 20.0)
+                if 'fear_greed' in component_breakdown:
+                    fear_greed_score = component_breakdown['fear_greed'].get('raw_score', 50)
+            
+            # Run agent pipeline
+            agent_results = run_agents_pipeline(
+                news_headlines=headlines,
+                regime_score=regime_score,
+                vix_level=vix_level,
+                fear_greed_score=fear_greed_score,
+                macro_factors={'articles_analyzed': len(headlines)}
+            )
+            
+            agent_results_html = generate_agent_results_html(agent_results)
+            print(f"✅ Agent pipeline completed - {len(headlines)} headlines analyzed")
+            
+        except Exception as e:
+            print(f"⚠️ Error running agent pipeline: {e}")
+            agent_results_html = """
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #6c757d;">
+                <h3>🤖 AI Agent Analysis</h3>
+                <p><em>Agent pipeline failed to run</em></p>
+            </div>
+            """
+    else:
+        print("⚠️ Agent pipeline not available - skipping agent analysis")
     
     # Generate visual placeholders
     fear_greed = generate_fear_greed_placeholder()
@@ -283,6 +643,10 @@ def generate_email_content(articles, limit=25):
         except Exception as e:
             print(f"⚠️ Error generating extreme fear chart: {str(e)}")
     
+    # Load Yahoo Futures data
+    futures_data = load_latest_yahoo_futures()
+    futures_screener_html = generate_futures_screener_html(futures_data)
+
     # Start HTML content
     html_content = f"""
     <!DOCTYPE html>
@@ -302,6 +666,7 @@ def generate_email_content(articles, limit=25):
             .tone-volatile {{ background: #fff3cd; color: #856404; }}
             .visuals {{ background: #ecf0f1; padding: 15px; border-radius: 5px; margin: 20px 0; }}
             .footer {{ margin-top: 30px; padding: 15px; background: #95a5a6; color: white; border-radius: 5px; }}
+            .source-header {{ background: #34495e; color: white; padding: 8px 15px; margin: 20px 0 10px 0; border-radius: 5px; font-weight: bold; }}
         </style>
     </head>
     <body>
@@ -309,9 +674,12 @@ def generate_email_content(articles, limit=25):
             <h1>📰 MacroIntel Daily News Report</h1>
             <p>Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</p>
             <p>📊 {len(articles_to_include)} relevant articles from your watchlist</p>
+            <p>📈 Sources: {', '.join([f'{source} ({count})' for source, count in source_counts.items()])}</p>
         </div>
         
         {regime_summary_html}
+        
+        {agent_results_html}
         
         <div class="visuals">
             <h2>📈 Market Overview</h2>
@@ -320,36 +688,64 @@ def generate_email_content(articles, limit=25):
             {sentiment_gauge}
         </div>
         
+        {futures_screener_html}
+        
         {extreme_fear_chart_html}
         
         <h2>📰 Relevant Headlines</h2>
     """
     
-    # Add articles
-    for i, article in enumerate(articles_to_include, 1):
-        title = article.get("title", "No title")
-        url = article.get("url", "#")
-        summary = article.get("summary", "No summary available")
-        tickers = article.get("affected_tickers", "")
-        tone = article.get("tone", "Neutral")
+    # Group articles by source for better organization
+    articles_by_source = {}
+    for article in articles_to_include:
         source = article.get("source", "unknown")
-        
-        # Determine tone class
-        tone_class = f"tone-{tone.lower()}"
+        if source not in articles_by_source:
+            articles_by_source[source] = []
+        articles_by_source[source].append(article)
+    
+    # Add articles grouped by source
+    article_counter = 1
+    for source, source_articles in articles_by_source.items():
+        # Add source header
+        source_display_name = {
+            "fmp": "Financial Modeling Prep",
+            "polygon": "Polygon.io",
+            "perplexity": "Perplexity AI",
+            "messari": "Messari",
+            "benzinga": "Benzinga"
+        }.get(source, source.title())
         
         html_content += f"""
-        <div class="article">
-            <div class="title">
-                <a href="{url}" style="color: #2c3e50; text-decoration: none;">{i}. {title}</a>
-            </div>
-            <div class="summary">{summary}</div>
-            <div style="margin-top: 5px;">
-                <span class="tickers">📈 {tickers}</span> | 
-                <span class="tone {tone_class}">{tone}</span> | 
-                <small>Source: {source}</small>
-            </div>
+        <div class="source-header">
+            📈 Source: {source_display_name} ({len(source_articles)} articles)
         </div>
         """
+        
+        # Add articles for this source
+        for article in source_articles:
+            title = article.get("title", "No title")
+            url = article.get("url", "#")
+            summary = article.get("summary", "No summary available")
+            tickers = article.get("affected_tickers", "")
+            tone = article.get("tone", "Neutral")
+            
+            # Determine tone class
+            tone_class = f"tone-{tone.lower()}"
+            
+            html_content += f"""
+            <div class="article">
+                <div class="title">
+                    <a href="{url}" style="color: #2c3e50; text-decoration: none;">{article_counter}. {title}</a>
+                </div>
+                <div class="summary">{summary}</div>
+                <div style="margin-top: 5px;">
+                    <span class="tickers">📈 {tickers}</span> | 
+                    <span class="tone {tone_class}">{tone}</span> | 
+                    <small>Source: {source_display_name}</small>
+                </div>
+            </div>
+            """
+            article_counter += 1
     
     # Add footer
     html_content += f"""
@@ -373,36 +769,43 @@ def send_daily_report(html_content, attachments=None):
     Returns:
         True if sent successfully, False otherwise.
     """
-    # Load credentials using os.getenv()
+    # Load credentials using standardized environment variables
     smtp_user = os.getenv("SMTP_USER")
     smtp_password = os.getenv("SMTP_PASSWORD")
-    email_to = os.getenv("EMAIL_TO")
+    email_recipient = os.getenv("EMAIL_RECIPIENT")
     
     # Additional email settings
     sender_email = os.getenv("EMAIL_SENDER")
-    sender_name = os.getenv("EMAIL_SENDER_NAME", "MacroIntel Bot")
+    sender_name = os.getenv("EMAIL_SENDER_NAME")
     smtp_server = os.getenv("SMTP_SERVER")
     smtp_port = int(os.getenv("SMTP_PORT", 587))
     subject = os.getenv("EMAIL_SUBJECT", "MacroIntel Daily News Report")
 
     # Validate required credentials
-    if not all([smtp_user, smtp_password, email_to]):
-        print("[ERROR] Missing required email credentials: SMTP_USER, SMTP_PASSWORD, or EMAIL_TO")
+    if not all([smtp_user, smtp_password, email_recipient, sender_email, sender_name, smtp_server]):
+        print("[ERROR] Missing required email credentials. Please check your .env file for:")
+        print("  - SMTP_USER")
+        print("  - SMTP_PASSWORD") 
+        print("  - EMAIL_RECIPIENT")
+        print("  - EMAIL_SENDER")
+        print("  - EMAIL_SENDER_NAME")
+        print("  - SMTP_SERVER")
         return False
 
     # Ensure all required fields are strings
     smtp_user = str(smtp_user)
     smtp_password = str(smtp_password)
-    email_to = str(email_to)
-    sender_email = str(sender_email) if sender_email else "noreply@macrointel.com"
-    smtp_server = str(smtp_server) if smtp_server else "smtp.gmail.com"
+    email_recipient = str(email_recipient)
+    sender_email = str(sender_email)
+    sender_name = str(sender_name)
+    smtp_server = str(smtp_server)
 
-    print(f"[INFO] Sending email to {email_to}")
+    print(f"[INFO] Sending email to {email_recipient}")
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
     msg['From'] = formataddr((sender_name, sender_email))
-    msg['To'] = email_to
+    msg['To'] = email_recipient
 
     # Attach the HTML content
     msg.attach(MIMEText(html_content, 'html'))
@@ -424,7 +827,7 @@ def send_daily_report(html_content, attachments=None):
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
             server.login(smtp_user, smtp_password)
-            server.sendmail(sender_email, email_to, msg.as_string())
+            server.sendmail(sender_email, email_recipient, msg.as_string())
         print("[SUCCESS] Email sent successfully")
         return True
     except Exception as e:
@@ -444,12 +847,27 @@ def generate_text_report(articles, limit=25):
     Returns:
         Plain text string
     """
-    articles_to_include = articles[:limit]
+    # Load Polygon articles and combine with existing articles
+    polygon_articles = load_polygon_articles()
+    all_articles = articles + polygon_articles
+    
+    # Deduplicate articles
+    deduplicated_articles = deduplicate_articles(all_articles)
+    
+    # Limit articles
+    articles_to_include = deduplicated_articles[:limit]
+    
+    # Count articles by source
+    source_counts = {}
+    for article in articles_to_include:
+        source = article.get("source", "unknown")
+        source_counts[source] = source_counts.get(source, 0) + 1
     
     text_content = f"""
 📰 MacroIntel Daily News Report
 Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
 📊 {len(articles_to_include)} relevant articles from your watchlist
+📈 Sources: {', '.join([f'{source} ({count})' for source, count in source_counts.items()])}
 
 📈 Market Overview:
 {generate_fear_greed_placeholder()}
@@ -457,21 +875,46 @@ Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
 📰 Relevant Headlines:
 """
     
-    for i, article in enumerate(articles_to_include, 1):
-        title = article.get("title", "No title")
-        url = article.get("url", "#")
-        summary = article.get("summary", "No summary available")
-        tickers = article.get("affected_tickers", "")
-        tone = article.get("tone", "Neutral")
+    # Group articles by source for better organization
+    articles_by_source = {}
+    for article in articles_to_include:
         source = article.get("source", "unknown")
+        if source not in articles_by_source:
+            articles_by_source[source] = []
+        articles_by_source[source].append(article)
+    
+    # Add articles grouped by source
+    article_counter = 1
+    for source, source_articles in articles_by_source.items():
+        # Add source header
+        source_display_name = {
+            "fmp": "Financial Modeling Prep",
+            "polygon": "Polygon.io",
+            "perplexity": "Perplexity AI",
+            "messari": "Messari",
+            "benzinga": "Benzinga"
+        }.get(source, source.title())
         
         text_content += f"""
-{i}. {title}
+📈 Source: {source_display_name} ({len(source_articles)} articles)
+"""
+        
+        # Add articles for this source
+        for article in source_articles:
+            title = article.get("title", "No title")
+            url = article.get("url", "#")
+            summary = article.get("summary", "No summary available")
+            tickers = article.get("affected_tickers", "")
+            tone = article.get("tone", "Neutral")
+            
+            text_content += f"""
+{article_counter}. {title}
    URL: {url}
    Summary: {summary}
    Tickers: {tickers}
-   Tone: {tone} | Source: {source}
+   Tone: {tone} | Source: {source_display_name}
 """
+            article_counter += 1
     
     text_content += f"""
 ---

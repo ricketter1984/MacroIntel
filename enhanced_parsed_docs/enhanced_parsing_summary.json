@@ -1,0 +1,21 @@
+{
+  "total_apis_parsed": 4,
+  "apis": [
+    "api_documentation",
+    "documentation_v2",
+    "home",
+    "rest_api_quickstart_｜_polygon_(7_4_2025_8：18：32_am)"
+  ],
+  "parsed_files": [
+    "api_documentation_enhanced.json",
+    "documentation_v2_enhanced.json",
+    "home_enhanced.json",
+    "rest_api_quickstart_｜_polygon_(7_4_2025_8：18：32_am)_enhanced.json"
+  ],
+  "output_directory": "C:\\Users\\ricke\\Desktop\\MacroIntel\\enhanced_parsed_docs",
+  "statistics": {
+    "total_endpoints": 5,
+    "total_examples": 13387,
+    "total_parameters": 1395
+  }
+}

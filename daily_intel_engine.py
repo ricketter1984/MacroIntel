@@ -42,10 +42,10 @@ logging.basicConfig(
 
 # Import existing modules
 from utils.api_clients import fetch_all_news, init_env
-from visual_query_engine import generate_extreme_fear_chart, VisualQueryEngine
-from email_report import send_daily_report, generate_email_content
+from core.visual_query_engine import generate_extreme_fear_chart, VisualQueryEngine
+from core.email_report import send_daily_report, generate_email_content
 from news_scanner.news_insight_feed import scan_relevant_news
-from playbook_interpreter import PlaybookInterpreter
+from core.playbook_interpreter import PlaybookInterpreter
 
 # Load environment variables
 load_dotenv(dotenv_path="config/.env")

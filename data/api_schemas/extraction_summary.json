@@ -1,0 +1,31 @@
+{
+  "processed_files": 4,
+  "successful_extractions": 4,
+  "failed_extractions": 0,
+  "files": [
+    {
+      "input_file": "API Documentation - Twelve Data (7_4_2025 8：23：18 AM).html",
+      "output_file": "API Documentation - Twelve Data (7_4_2025 8：23：18 AM).json",
+      "success": true,
+      "file_size": 5979089
+    },
+    {
+      "input_file": "Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).html",
+      "output_file": "Documentation V2 - API Reference ｜ FMP (7_4_2025 8：19：24 AM).json",
+      "success": true,
+      "file_size": 7826272
+    },
+    {
+      "input_file": "Home - Benzinga (7_4_2025 7：24：57 PM).html",
+      "output_file": "Home - Benzinga (7_4_2025 7：24：57 PM).json",
+      "success": true,
+      "file_size": 1349714
+    },
+    {
+      "input_file": "REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).html",
+      "output_file": "REST API Quickstart ｜ Polygon (7_4_2025 8：18：32 AM).json",
+      "success": true,
+      "file_size": 288503
+    }
+  ]
+}
