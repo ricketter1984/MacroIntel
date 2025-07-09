@@ -1,0 +1,4283 @@
+{
+  "status": "success",
+  "execution_time": "0:00:23.472615",
+  "start_time": "2025-07-09T06:03:02.285446",
+  "end_time": "2025-07-09T06:03:25.758061",
+  "agents": {
+    "summarizer": {
+      "articles": [
+        {
+          "title": "Perplexity Macro News: Recent macroeconomic news on CPI inflation data in...",
+          "summary": "Recent macroeconomic news on CPI inflation data in the United States indicates a modest increase in inflation for May and June 2025.\n\n- In May 2025, the Consumer Price Index (CPI) rose by **0.1% month...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-09T06:03:09.235196",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Perplexity Macro News: Here are the recent macroeconomic news summaries r...",
+          "summary": "Here are the recent macroeconomic news summaries related to the Federal Reserve's interest rate decisions:\n\n- **Fed Keeps Rates Steady**: The Federal Reserve maintained the federal funds rate at 4.25%...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-09T06:03:12.128762",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Perplexity Macro News: Here are recent macroeconomic news summaries about...",
+          "summary": "Here are recent macroeconomic news summaries about crude oil prices:\n\n- **Oil Prices Rise Amid Lower US Output and Geopolitical Uncertainty**: Brent crude futures climbed to a two-week high, reaching ...",
+          "sentiment": "Neutral",
+          "source": "perplexity",
+          "url": "",
+          "timestamp": "2025-07-09T06:03:15.226077",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Xylem: Robust Long-Term Growth Runway",
+          "summary": "I rate Xylem a buy, driven by secular water scarcity, aging infrastructure, and PFAS treatment themes that ensure durable, non-discretionary demand. XYL's 80/20 transformation is already delivering ta...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800069-xylem-robust-long-term-growth-runway",
+          "timestamp": "2025-07-09 05:31:31",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Emperor Metals Announces Maiden Mineral Resource Estimate for the Duquesne West Project, Quebec",
+          "summary": "Edmonton, Alberta--(Newsfile Corp. - July 9, 2025) - Emperor Metals Inc. (CSE: AUOZ) (OTCQB: EMAUF) (FSE: 9NH) (\"Emperor Metals\") is pleased to release its initial Mineral Resource Estimate (\"2025 Duq...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.newsfilecorp.com/release/258222/Emperor-Metals-Announces-Maiden-Mineral-Resource-Estimate-for-the-Duquesne-West-Project-Quebec",
+          "timestamp": "2025-07-09 05:30:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Top Wall Street Forecasters Revamp Fulton Financial Expectations Ahead Of Q2 Earnings",
+          "summary": "Fulton Financial Corporation FULT will release earnings results for the second quarter, after the closing bell on Tuesday, July 15....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.benzinga.com/analyst-stock-ratings/price-target/25/07/46313894/top-wall-street-forecasters-revamp-fulton-financial-expectations-ahead-of-q2-earnings",
+          "timestamp": "2025-07-09 05:24:40",
+          "affected_tickers": ""
+        },
+        {
+          "title": "All In: CEO Martin Carlesund Invests More Than His Year's Salary In Evolution AB",
+          "summary": "CEO Martin Carlesund's substantial insider purchase signals strong confidence in Evolution's recovery and long-term prospects, especially at current depressed valuations. Evolution boasts exceptional ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800066-all-in-ceo-martin-carlesund-invests-more-than-his-years-salary-in-evolution-ab",
+          "timestamp": "2025-07-09 05:22:34",
+          "affected_tickers": ""
+        },
+        {
+          "title": "DIGITALX SECURES $20.7 MILLION STRATEGIC INVESTMENT TO EXPAND BITCOIN-FOCUSED STRATEGY",
+          "summary": "Highlights Strategic investment by Animoca Brands (Sole Advisor), UTXO Management, and ParaFi Capital, among others, has raised $20.7 million. Capital to be deployed into expanding DigitalX's existing...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.prnewswire.com/news-releases/digitalx-secures-20-7-million-strategic-investment-to-expand-bitcoin-focused-strategy-302501103.html",
+          "timestamp": "2025-07-09 05:22:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Strength Seen in Betterware de Mexico SAPI de C (BWMX): Can Its 12.0% Jump Turn into More Strength?",
+          "summary": "Betterware de Mexico SAPI de C (BWMX) witnessed a jump in share price last session on above-average trading volume. The latest trend in earnings estimate revisions for the stock suggests that there co...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.zacks.com/stock/news/2568473/strength-seen-in-betterware-de-mexico-sapi-de-c-bwmx-can-its-12-0-jump-turn-into-more-strength?cid=CS-STOCKNEWSAPI-FT-tale_of_the_tape|daily_price_change_5%-2568473",
+          "timestamp": "2025-07-09 05:21:05",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Zuckerberg's Meta reportedly takes stake in Ray-Ban maker, showing commitment to AI-powered smartglasses",
+          "summary": "Meta reportedly takes a 3% stake in EssilorLuxottica...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.marketwatch.com/story/zuckerbergs-meta-reportedly-takes-stake-in-ray-ban-maker-showing-commitment-to-ai-powered-smartglasses-4d4e812d",
+          "timestamp": "2025-07-09 05:19:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "1 Genius AI Stock That Could Be a Great Buy for July",
+          "summary": "A wide range of artificial intelligence (AI) stocks are available for you to choose from, ranging from the over-hyped to the undervalued: The task for investors is to uncover the best investments that...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/07/09/1-genius-ai-stock-that-could-be-a-great-buy-july/",
+          "timestamp": "2025-07-09 05:15:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "GPTBots.ai Showcases Business AI Agent Solutions at The MarTech Summit Hong Kong, Helping Enterprises Bridge the AI Adoption Gap",
+          "summary": "As enterprises worldwide race to adopt AI, GPTBots.ai made its mark at The MarTech Summit Hong Kong, Asia's premier marketing technology conference....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112371/0/en/GPTBots-ai-Showcases-Business-AI-Agent-Solutions-at-The-MarTech-Summit-Hong-Kong-Helping-Enterprises-Bridge-the-AI-Adoption-Gap.html",
+          "timestamp": "2025-07-09 05:11:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "EngageLab Showcases Omnichannel Engagement and AI Innovation at The MarTech Summit Hong Kong",
+          "summary": "SINGAPORE, July 09, 2025 (GLOBE NEWSWIRE) -- EngageLab, a global leader in customer engagement and marketing technology, proudly participated in The MarTech Summit Hong Kong, one of Asia's premier eve...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112370/0/en/EngageLab-Showcases-Omnichannel-Engagement-and-AI-Innovation-at-The-MarTech-Summit-Hong-Kong.html",
+          "timestamp": "2025-07-09 05:11:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Alibaba: A Generational Buying Opportunity Before AI, Robotics, And Drones Take Hold",
+          "summary": "Alibaba remains deeply undervalued at 11x earnings despite a 50% rally, offering a rare entry into AI, robotics, and drone growth. The company boasts a strong balance sheet, robust earnings growth, an...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800064-alibaba-stock-generational-buying-opportunity-before-ai-robotics-and-drones-take-hold",
+          "timestamp": "2025-07-09 05:06:42",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Buy, Sell, Or Hold Netflix Stock Ahead Of Q2 Earnings?",
+          "summary": "Netflix (NASDAQ:NFLX) is anticipated to announce its Q2 2025 earnings on Thursday, July 17, 2025. According to consensus estimates, revenues are expected to reach approximately $11 billion for the qua...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.forbes.com/sites/greatspeculations/2025/07/09/buy-sell-or-hold-netflix-stock-ahead-of-q2-earnings/",
+          "timestamp": "2025-07-09 05:05:03",
+          "affected_tickers": ""
+        },
+        {
+          "title": "The Chefs' Warehouse Is Still Appetizing",
+          "summary": "Chefs' Warehouse continues to outperform, with strong revenue and profit growth driven by organic expansion, acquisitions, and operational improvements. Management's ambitious targets for 2028, includ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800062-chefs-warehouse-still-appetizing",
+          "timestamp": "2025-07-09 05:02:05",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Fortuna delivers production of 71,229 gold equivalent ounces from ongoing operations for the second quarter of 2025",
+          "summary": "VANCOUVER, British Columbia, July 09, 2025 (GLOBE NEWSWIRE) -- Fortuna Mining Corp. (NYSE: FSM | TSX: FVI) reports production results for the second quarter of 2025 from its three operating mines loca...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112364/0/en/Fortuna-delivers-production-of-71-229-gold-equivalent-ounces-from-ongoing-operations-for-the-second-quarter-of-2025.html",
+          "timestamp": "2025-07-09 05:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Prediction: Nvidia Will Be a Top Stock to Own for the Back Half of 2025",
+          "summary": "Nvidia (NVDA 1.10%) has been one of the best investments to own over the past few years. However, if you examine how the stock has performed in 2023 and 2024, it's clear that the second half of the ye...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/07/09/prediction-nvidia-will-be-a-top-stock-to-own-for/",
+          "timestamp": "2025-07-09 05:00:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Xenia Hotels & Resorts: Undervalued REIT With Macro And Sector Tailwinds",
+          "summary": "Xenia Hotels & Resorts is a buy, with 33%+ upside, benefiting from sector recovery, macro tailwinds, and successful renovations driving revenue and profit growth. Occupancy rates are rebounding to pre...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800056-xenia-hotels-resorts-undervalued-reit-with-macro-and-sector-tailwinds",
+          "timestamp": "2025-07-09 04:48:35",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Chevron: Oil Holding The Mid-$60s, Shares Still Reasonably Attractive On Valuation",
+          "summary": "Oil prices stabilizing in the mid-$60s support a bullish outlook for Chevron, which remains the cheapest S&P 500 sector at 15x forward P/E. Chevron's Q1 results were strong, with solid EPS and robust ...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800055-chevron-oil-holding-the-mid-60s-shares-still-reasonably-attractive-on-valuation",
+          "timestamp": "2025-07-09 04:46:50",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Trump tariffs loom over copper and pharma",
+          "summary": "President Trump threatens substantial levies on copper and the pharma sector, as the EU scrambles to agree on a tariff deal. U.S. Commerce Secretary Howard Lutnick says that both sides are making prog...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.youtube.com/watch?v=r9QMWF_n1jU",
+          "timestamp": "2025-07-09 04:42:03",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Vedanta shares slide upto 8% after US-based short seller labels Group a ‘Ponzi Scheme'",
+          "summary": "Shares of Vedanta Ltd plunged as much as 8% intraday on July 9, before paring some losses, after US-based short seller Viceroy Research issued a scathing report on its parent Vedanta Resources. The no...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://invezz.com/news/2025/07/09/vedanta-shares-slide-upto-8-after-us-based-short-seller-labels-group-a-ponzi-scheme/",
+          "timestamp": "2025-07-09 04:40:59",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Rapidan's McNally on OPEC+ Production Increase, Oil Prices, Tariffs",
+          "summary": "Bob McNally, Rapidan Energy Group founder and president, discusses OPEC+'s recent decision to increase oil production for the month of August. He also talks about oil prices outlook, non-OPEC producti...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.youtube.com/watch?v=_29GQANRmpE",
+          "timestamp": "2025-07-09 04:34:59",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Best Buy: An Attractive 5% Dividend Yield That Could Increase If Catalyst Plays Out",
+          "summary": "FY2025, Best Buy incurred restructuring charges related to its Health segment. Despite the significant headwind Best Buy faces, it is still a retail market leader, focusing on consumer electronics. Th...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800051-best-buy-an-attractive-5-percent-dividend-yield-that-could-increase-if-catalyst-plays-out",
+          "timestamp": "2025-07-09 04:34:04",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Antofagasta wobbles as Trump threatens 50% copper tariff",
+          "summary": "Shares in Antofagasta PLC (LSE:ANTO) fell as confusion reigned amid President Trump's latest tariff threat on copper imports. The miner's stock dropped as much as 3% despite a sharp rally in copper pr...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.proactiveinvestors.co.uk/companies/news/1074393",
+          "timestamp": "2025-07-09 04:32:57",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Patriot Battery Metals Has Likely Bottomed Along With Lithium Prices",
+          "summary": "Patriot's Northern Quebec Project has the largest lithium pegmatite resource, by grade and tonnage, in the Americas. They have a resource estimate of 108.0 Mt at 1.40% Li2O Indicated and 33.3 Mt at 1....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800045-patriot-battery-metals-has-likely-bottomed-along-with-lithium-prices",
+          "timestamp": "2025-07-09 04:30:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Nomura says valuations in India are biggest 'pushback' for foreign investors",
+          "summary": "Chetan Seth, Asia-Pacific Equity Strategist at Nomura believes rich valuations are a key reason why foreign investors remain underweight on India. Seth highlighted that international investors usually...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.youtube.com/watch?v=BxE1Hm05YEo",
+          "timestamp": "2025-07-09 04:23:22",
+          "affected_tickers": ""
+        },
+        {
+          "title": "10 Under-the-Radar Tech Stocks With Incredible Growth Potential",
+          "summary": "It's not exactly a secret that big technology stocks like Microsoft, Nvidia, and Alphabet have led the market for several years now. And rightfully so....",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/07/09/10-under-the-radar-tech-stocks-with-incredible-gro/",
+          "timestamp": "2025-07-09 04:23:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Uniper sells stake in Latvijas Gaze under bailout conditions",
+          "summary": "Uniper said on Wednesday it would sell its 18.26% shareholding stake in AS Latvijas Gaze to Energy Investments SIA, as the German utility fulfills one of the conditions of a government bailout it rece...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.reuters.com/sustainability/boards-policy-regulation/uniper-sells-stake-latvijas-gaze-under-bailout-conditions-2025-07-09/",
+          "timestamp": "2025-07-09 04:21:39",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Prediction: Nvidia Will Do Something No Other Company Has Done, and It Could Happen This Summer",
+          "summary": "Nvidia (NVDA 1.10%) has impressed investors with a string of accomplishments: from double- and triple-digit revenue increases to reaching record revenue levels to soaring stock performance. This is th...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://www.fool.com/investing/2025/07/09/prediction-nvidia-to-do-something-no-other-has/",
+          "timestamp": "2025-07-09 04:20:00",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Burford Capital: A Conviction Buy Of A Future Industry Giant",
+          "summary": "Burford is the dominant player in litigation finance, with a proven model, strong track record, and a massive, expanding addressable market. Our long-term thesis is driven by Burford's unique data, un...",
+          "sentiment": "Neutral",
+          "source": "fmp",
+          "url": "https://seekingalpha.com/article/4800048-burford-capital-conviction-buy-of-a-future-industry-giant",
+          "timestamp": "2025-07-09 04:18:57",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Fortuna delivers production of 71,229 gold equivalent ounces from ongoing operations for the second quarter of 2025",
+          "summary": "Fortuna Mining Corp. reported Q2 2025 gold equivalent production of 71,229 ounces across its ongoing operations in West Africa and Latin America, maintaining its annual production guidance of 309,000 ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112364/0/en/Fortuna-delivers-production-of-71-229-gold-equivalent-ounces-from-ongoing-operations-for-the-second-quarter-of-2025.html",
+          "timestamp": "2025-07-09T09:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Virtual Power Plant (VPP) Industry Research Report 2025-2035 | Distributed Energy Resources Proliferation Driving VPP Ecosystem Expansion",
+          "summary": "Global Virtual Power Plant market projected to exceed $2.67 billion by 2025, driven by distributed energy resources like solar and wind, despite regulatory challenges and trade tariff impacts....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112363/28124/en/Virtual-Power-Plant-VPP-Industry-Research-Report-2025-2035-Distributed-Energy-Resources-Proliferation-Driving-VPP-Ecosystem-Expansion.html",
+          "timestamp": "2025-07-09T08:59:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Near-Eye Display Market Report 2025-2030 | Increasing Applications in Healthcare for Diagnostic and Surgical Visualization, As Well As Defense for Training and Real-time Awareness",
+          "summary": "The global near-eye display market is projected to grow from $2.17 billion in 2025 to $6.65 billion by 2030, with a 25.1% CAGR, driven by increasing demand in healthcare, defense, gaming, and AR/VR te...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112362/28124/en/Near-Eye-Display-Market-Report-2025-2030-Increasing-Applications-in-Healthcare-for-Diagnostic-and-Surgical-Visualization-As-Well-As-Defense-for-Training-and-Real-time-Awareness.html",
+          "timestamp": "2025-07-09T08:55:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "1 No-Brainer Dividend Stock to Buy Now and Hold Forever",
+          "summary": "Medtronic, a medical device specialist, faces challenges like slow revenue growth and trade uncertainties but remains an attractive investment with consistent earnings, a strong dividend history, and ...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/1-no-brainer-dividend-stock-to-buy-now-and-hold-fo/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T08:31:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "10 Under-the-Radar Tech Stocks With Incredible Growth Potential",
+          "summary": "The article explores 10 lesser-known technology stocks with significant growth potential across sectors like cybersecurity, cloud computing, data analytics, and emerging technologies like quantum comp...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/10-under-the-radar-tech-stocks-with-incredible-gro/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T08:23:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Prediction: Nvidia Will Do Something No Other Company Has Done, and It Could Happen This Summer",
+          "summary": "Nvidia is predicted to potentially reach a $4 trillion market capitalization this summer, driven by strong AI chip demand, reasonable stock valuation, and potential positive news on import tariffs....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/prediction-nvidia-to-do-something-no-other-has/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T08:20:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Meet the Monster Stock That Continues to Crush the Market",
+          "summary": "CoreWeave, a specialized AI cloud computing provider, has experienced remarkable growth by offering high-performance GPU computing services, particularly leveraging Nvidia's latest chip architectures....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/meet-the-monster-stock-that-continues-to-crush-the/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T08:15:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Prediction: 2 Stocks That Will Be Worth More Than D-Wave Quantum 2 Years From Now",
+          "summary": "The article explores three emerging technology companies in quantum computing, battery technology, and hydrogen fuel cells, analyzing their potential growth, current market valuations, and future pros...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/predict-stocks-worth-more-d-wave-quantum/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T08:10:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Man Group PLC : Form 8.3 - American Axle & Manufacturing Holdings, Inc.",
+          "summary": "Man Group PLC disclosed a significant position in American Axle & Manufacturing Holdings, Inc. and Dowlais Group plc, holding 0.82% interests and 1.65% cash-settled derivatives in the relevant securit...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112326/0/en/Man-Group-PLC-Form-8-3-American-Axle-Manufacturing-Holdings-Inc.html",
+          "timestamp": "2025-07-09T07:58:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Man Group PLC : Form 8.3 - Dowlais Group plc",
+          "summary": "Man Group PLC filed a Form 8.3 disclosure revealing interests and dealings in Dowlais Group plc and American Axle & Manufacturing Holdings, Inc. securities, specifically holding 22,268,465 shares (1.6...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112325/0/en/Man-Group-PLC-Form-8-3-Dowlais-Group-plc.html",
+          "timestamp": "2025-07-09T07:56:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "A Look at the US Indices After the Latest Tariff Drama From Trump Administration",
+          "summary": "US markets showed mixed reactions to the Trump Administration's latest tariff threats, with indices experiencing slight fluctuations and the US Dollar appreciating amid trade negotiation uncertainties...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.investing.com/analysis/a-look-at-the-us-indices-after-the-latest-drama-from-the-trump-administration-200663377",
+          "timestamp": "2025-07-09T07:20:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Exxon's Profit Took a $1.5 Billion Hit Last Quarter. Is the Oil Stock Still Worth Buying?",
+          "summary": "ExxonMobil expects a $1.5 billion profit decline in Q2 due to lower oil and gas prices, but remains optimistic about long-term growth potential through strategic investments and cost-saving initiative...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/exxons-profit-took-a-15-billion-hit-last-quarter-i/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T07:14:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Verizon's Days as a Dow Jones Industrial Average Component May Be Numbered: Here Are 3 Logical Candidates to Replace It",
+          "summary": "The article discusses potential replacements for Verizon in the Dow Jones Industrial Average, highlighting three companies that could fill the spot based on share price, performance, and industry repr...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/09/verizon-days-as-a-dow-component-numbered-3-stocks/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T07:06:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Wall Street Analysts Are Bullish on These 2 Casino Gambling Stocks",
+          "summary": "Goldman Sachs initiated coverage of gambling stocks, expressing bullish views on Wynn Resorts and Caesars Entertainment while rating MGM as a sell. Analysts highlighted potential growth, favorable dem...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.investing.com/analysis/wall-street-analysts-are-bullish-on-these-2-casino-gambling-stocks-200663371",
+          "timestamp": "2025-07-09T07:04:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Technology Sector: Looking at the 'Upside Surprise' Factor Over Last 5 Quarters",
+          "summary": "Analysis reveals tech sector earnings and revenue have consistently exceeded expectations over the past 5 quarters, with upside surprises gradually diminishing. Tech sector revenue growth has increase...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.investing.com/analysis/technology-sector-looking-at-the-upside-surprise-factor-over-last-5-quarters-200663366",
+          "timestamp": "2025-07-09T06:55:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "3 Champion Dividend Stocks Raising Dividends for Over 25 Years",
+          "summary": "The article highlights three dividend champion stocks - Emerson Electric, Sherwin-Williams, and Sonoco Products - that have consistently raised dividends for over 25 years, demonstrating financial res...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.investing.com/analysis/3-champion-dividend-stocks-raising-dividends-for-over-25-years-200663379",
+          "timestamp": "2025-07-09T06:50:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Start green smart cloud mining and easily earn Bitcoin income using the MintMiner app!",
+          "summary": "MintMiner introduces a clean energy-driven cloud mining platform that allows users to mine cryptocurrencies like Bitcoin using mobile applications, focusing on sustainability and low-carbon computing....",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112317/0/en/Start-green-smart-cloud-mining-and-easily-earn-Bitcoin-income-using-the-MintMiner-app.html",
+          "timestamp": "2025-07-09T06:46:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Elizabeth Warren Says GOP Chose Trump Over American People, Slams 'Big Beautiful Bill' For Potentially Ushering Health Care Cuts, Price Hikes",
+          "summary": "Senator Elizabeth Warren and Lawrence Summers condemned the recently passed bill, warning of significant cuts to Medicaid and potential health care coverage losses for millions of Americans, with crit...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.benzinga.com/news/politics/25/07/46311721/elizabeth-warren-says-gop-chose-trump-over-american-people-slams-big-beautiful-bill-for-potentially",
+          "timestamp": "2025-07-09T03:43:25Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "ZenaTech lista para beneficiarse de la histórica inversión de 33 mil millones de dólares en defensa de Estados Unidos para inversiones en drones y sistemas autónomos dentro de la ley ‘One Big Beautiful Bill’",
+          "summary": "ZenaTech anticipates significant benefits from the 'One Big Beautiful Bill' which includes $33 billion in drone and autonomous systems investment, offering potential opportunities in defense technolog...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112289/0/es/ZenaTech-lista-para-beneficiarse-de-la-hist%C3%B3rica-inversi%C3%B3n-de-33-mil-millones-de-d%C3%B3lares-en-defensa-de-Estados-Unidos-para-inversiones-en-drones-y-sistemas-aut%C3%B3nomos-dentro-de-la-l.html",
+          "timestamp": "2025-07-09T02:39:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "TEMPUS AI SHAREHOLDER ALERT BY FORMER LOUISIANA ATTORNEY GENERAL: KAHN SWICK & FOTI, LLC REMINDS INVESTORS WITH LOSSES IN EXCESS OF $100,000 of Lead Plaintiff Deadline in Class Action Lawsuit Against Tempus AI, Inc. - TEM",
+          "summary": "Kahn Swick & Foti, LLC alerts investors about a class action lawsuit against Tempus AI for potential securities law violations, following a report by Spruce Point Capital Management highlighting conce...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112286/6713/en/TEMPUS-AI-SHAREHOLDER-ALERT-BY-FORMER-LOUISIANA-ATTORNEY-GENERAL-KAHN-SWICK-FOTI-LLC-REMINDS-INVESTORS-WITH-LOSSES-IN-EXCESS-OF-100-000-of-Lead-Plaintiff-Deadline-in-Class-Action-L.html",
+          "timestamp": "2025-07-09T02:16:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Jeff Bezos Offloads Nearly $666 Million In Amazon Stock — Adds To Post-Wedding Sell-Off Streak",
+          "summary": "Amazon founder Jeff Bezos sold approximately 2.97 million shares worth $666 million under a pre-arranged trading plan, continuing a recent stock sell-off trend following his wedding. Despite the sale,...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.benzinga.com/trading-ideas/insider-trades/25/07/46311520/jeff-bezos-offloads-nearly-666-million-in-amazon-stock-adds-to-post-wedding-sell-off",
+          "timestamp": "2025-07-09T02:10:39Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "IROBOT ALERT: Bragar Eagel & Squire, P.C. Announces that a Class Action Lawsuit Has Been Filed Against iRobot Corporation and Encourages Investors to Contact the Firm",
+          "summary": "A class action lawsuit has been filed against iRobot Corporation alleging false and misleading statements about the company's business prospects after the failed Amazon acquisition, with significant f...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112277/0/en/IROBOT-ALERT-Bragar-Eagel-Squire-P-C-Announces-that-a-Class-Action-Lawsuit-Has-Been-Filed-Against-iRobot-Corporation-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-09T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "MARAVAI ALERT: Bragar Eagel & Squire, P.C. is Investigating Maravai LifeSciences Holdings, Inc. on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "Law firm investigating potential claims against Maravai LifeSciences for alleged financial reporting irregularities, including revenue recognition errors and potential goodwill impairment during fisca...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112279/0/en/MARAVAI-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-Maravai-LifeSciences-Holdings-Inc-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-09T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "LAMB WESTON ALERT: Bragar Eagel & Squire, P.C. is Investigating Lamb Weston Holdings, Inc. on Behalf of Long-Term Stockholders and Encourages Investors to Contact the Firm",
+          "summary": "Lamb Weston is under investigation for potential misrepresentations about its new Enterprise Resource Planning (ERP) system implementation, which resulted in significant financial losses and reduced s...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/09/3112278/0/en/LAMB-WESTON-ALERT-Bragar-Eagel-Squire-P-C-is-Investigating-Lamb-Weston-Holdings-Inc-on-Behalf-of-Long-Term-Stockholders-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "timestamp": "2025-07-09T01:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "2 Ultra-High-Yield Dividend Stocks at 10-Year Lows to Buy in July",
+          "summary": "Conagra and Campbell's are experiencing significant challenges including shifts in consumer behavior, regulatory changes, and poor acquisition strategies, resulting in stock prices at decade-low level...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.fool.com/investing/2025/07/08/2-ultra-high-yield-dividend-stocks-at-10-year-lows/?source=iedfolrf0000001",
+          "timestamp": "2025-07-09T00:05:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "RICH Miner launches cloud mining application to allow global users to enjoy stable returns from cryptocurrency",
+          "summary": "RICH Miner has launched a cloud mining mobile application that enables global users to participate in cryptocurrency mining without technical expertise, offering flexible contracts, global support, an...",
+          "sentiment": "Neutral",
+          "source": "polygon",
+          "url": "https://www.globenewswire.com/news-release/2025/07/08/3112269/0/en/RICH-Miner-launches-cloud-mining-application-to-allow-global-users-to-enjoy-stable-returns-from-cryptocurrency.html",
+          "timestamp": "2025-07-08T23:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Galxe/Gravity: Galxe Enters The InfoFi Sector With Its Starboard Launch ",
+          "summary": "Key Insights\n\nOn May 29, 2025, Galxe launched Starboard, a data-driven growth and analytics tool. Starboard gives projects a unified view of user activity across multiple channels. \nStarboard brings t...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/galxe-gravity-galxe-enters-the-infofi-sector-with-its-starboard-launch",
+          "timestamp": "2025-07-08T18:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Dabba: Upcoming TGE, Adoption, and Roadmap",
+          "summary": "Key Insights\n\nDabba will launch its native utility token, DBT, in the second half of 2025. DBT will be used to activate hotspots, settle protocol-level fees, and coordinate demand-driven network deplo...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/dabba-upcoming-tge-adoption-and-roadmap",
+          "timestamp": "2025-07-07T15:09:53Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Humanity Protocol: Bringing Identity Verification Onchain",
+          "summary": "Key Insights\n\nHumanity Protocol is an identity verification network that uses palm biometrics to verify user liveness and generate onchain credentials.\nUsing the Proof-of-Humanity protocol, palm scans...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/humanity-protocol-bringing-identity-verification-onchain",
+          "timestamp": "2025-07-07T11:18:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Shadow Exchange: Every Sonic needs a Shadow",
+          "summary": "Key Insights\n\nShadow is an x(3,3) decentralized exchange (DEX), an evolution of the ve(3,3) first introduced by Andre Cronje that took aspects from Ohm and Curve to build a more sustainable DEX. \nAt t...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/shadow-exchange-every-sonic-needs-a-shadow",
+          "timestamp": "2025-07-03T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding VeChain: A Comprehensive Overview",
+          "summary": "Key Insights\n\nVeChain is a Layer-1 blockchain purpose-built for real-world use cases. Its architecture includes features such as multi-party gas payment (MPP), adjustable gas fees, batched transaction...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-vechain-a-comprehensive-overview",
+          "timestamp": "2025-07-03T13:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "TEE: The Hardware Backbone for Next-Gen Onchain Experience",
+          "summary": "Key Insights\n\nTEEs are increasingly integrated into blockchain protocols, with projects like iExec, Oasis, and Phala Network adopting TEE-powered infrastructure to enable confidential computation and ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/tee-the-hardware-backbone-for-next-gen-onchain-experience",
+          "timestamp": "2025-07-02T17:00:24Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding ROVR: A Comprehensive Overview",
+          "summary": "Key Insights\n\nROVR widened its network footprint with 2,451 users operating 1,631 devices, which have collected data across 16.74 million km of roads worldwide as of June 2025.\nEight enterprises have ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-rovr-a-comprehensive-overview",
+          "timestamp": "2025-07-02T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "NodeOps Network: Rethinking DePIN Tokenomics ",
+          "summary": "Key Insights\n\nNodeOps distinguishes itself with a real-time, revenue-linked mint-and-burn model, aligning NODE issuance directly with economic activity and enabling adaptive supply control beyond stat...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/nodeops-network-rethinking-depin-tokenomics",
+          "timestamp": "2025-07-02T13:55:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Akash Q1 2025 ",
+          "summary": "Key Insights\n\nLease revenue surpassed $1 million (38% QoQ), driven by longer and higher-value GPU deployments.\nAverage GPU capacity rose 55% QoQ to 897 units, while usage increased 54% to 553 units.\nT...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-akash-q1-2025",
+          "timestamp": "2025-06-30T20:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Stellar Ecosystem Overview",
+          "summary": "Key Insights\n\nBy the end of 2025, the Stellar Development Foundation aims for Stellar to have $3 billion in yield-bearing RWA’s onchain and be a top-ten chain in DeFi TVL. This could create a flywheel...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/stellar-ecosystem-overview",
+          "timestamp": "2025-06-30T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Algorand Q1 2025 Brief",
+          "summary": "Key Insights\n\nAlgorand activated its staking rewards in January, replacing the governance payout structure and giving validators a direct income stream to secure the network. \nStablecoin market cap on...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/algorand-q1-2025-brief",
+          "timestamp": "2025-06-30T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Seraph Q1 2025",
+          "summary": "Key Insights\n\nSeraph's circulating market cap declined 29.4% from $49.3 million at token launch to $34.8 million by quarter-end, driven partly by price dilution caused by a 23% increase in circulating...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-seraph-q1-2025",
+          "timestamp": "2025-06-27T18:30:31Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Polkadot Q1 2025",
+          "summary": "Key Insights\n\nPolkadot Core developer activity stabilized in Q1 2025 after several quarters of decline. The average weekly number of active core developers rose 1.5% QoQ to 122.\nFrequency, Phala, and ...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-polkadot-q1-2025",
+          "timestamp": "2025-06-27T17:39:08Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Caldera: A Comprehensive Overview",
+          "summary": "Key Insights\n\nCaldera has become a leading rollup platform within the Ethereum ecosystem, powering over 52 rollups with a combined $412 million in total value locked. Caldera supports a range of rollu...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-caldera-a-comprehensive-overview",
+          "timestamp": "2025-06-27T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Understanding Somnia: A Comprehensive Overview",
+          "summary": "Key Insights\n\nSomnia’s testnet, Shannon, settled over 1 billion transactions while maintaining a 0.10-second average block time. Since going live in February, 4.2 million accounts have deployed 18.3 m...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/understanding-somnia-a-comprehensive-overview",
+          "timestamp": "2025-06-26T15:30:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Marinade: Introducing ETF-Ready Solana Staking Infrastructure with Marinade Select",
+          "summary": "Key Insights\n\nMarinade Native surpassed 5.3 million SOL in TVL, up 21.1% from Q1. Institutional adoption rose, supported by SOC 2 compliance, custodian integrations (BitGo, Zodia, Copper), tax reporti...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/marinade-introducing-etf-ready-solana-staking-infrastructure-with-marinade-select",
+          "timestamp": "2025-06-25T16:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Rumpel: Converting Point Farming into Liquid Yield",
+          "summary": "Key Insights\n\nThe airdrop model is broken. Keyrock’s 2024 analysis shows 88% of tokens fall in value within months of their TGE. \nRumpel transforms the risk-reward equation by providing instant liquid...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/rumpel-converting-point-farming-into-liquid-yield",
+          "timestamp": "2025-06-25T15:07:16Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "State of Rango Exchange Q1 2025",
+          "summary": "Key Insights\n\nRango outperformed the broader DEX aggregator market with $538 million in quarterly swap volume. This marks its strongest quarter in absolute volume growth since launch, and demonstrates...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/state-of-rango-exchange-q1-2025",
+          "timestamp": "2025-06-25T15:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "Subnet 33: ReadyAI",
+          "summary": "Key Insights\n\nReadyAI outperforms Mechanical Turk and GPT-4o benchmarks by 91% and 50%, respectively. Built on Bittensor’s Subnet 33, ReadyAI uses a miner-validator architecture to annotate unstructur...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/subnet-33-readyai",
+          "timestamp": "2025-06-25T14:00:00Z",
+          "affected_tickers": ""
+        },
+        {
+          "title": "LayerZero: Scaling Stablecoin Issuers with the OFT Standard",
+          "summary": "Key Insights\n\nLayerZero is an interoperability protocol that enables cross-chain messaging and token transfers, including stablecoins issued using the Omnichain Fungible Token (OFT) Standard. OFT enab...",
+          "sentiment": "Neutral",
+          "source": "messari",
+          "url": "https://messari.io/article/layerzero-scaling-stablecoin-issuers-with-the-oft-standard",
+          "timestamp": "2025-06-25T13:01:00Z",
+          "affected_tickers": ""
+        }
+      ],
+      "total_count": 77,
+      "sources_processed": [
+        "messari",
+        "polygon",
+        "fmp",
+        "perplexity"
+      ],
+      "timestamp": "2025-07-09T06:03:17.218053",
+      "database_insertions": 77
+    },
+    "chart_generator": {
+      "status": "success",
+      "charts_generated": [
+        {
+          "success": true,
+          "chart_type": "intelligent_regime",
+          "file_path": "output\\regime_chart_4_general_MYM_20250709.png",
+          "description": "This chart highlights how recent news on general (e.g. 'recent headline') may be affecting MYM. The macro regime score of 70.10000000000001 and sentiment at 50 suggest favorable setup, making this setup ideal for a 4 approach.",
+          "context": "Regime: Greed, Strategy: Tier 4 Momentum",
+          "regime": "Greed",
+          "strategy": "Tier 4 Momentum",
+          "primary_instrument": "MYM",
+          "secondary_instrument": "MES",
+          "ai_explanation": "This chart highlights how recent news on general (e.g. 'recent headline') may be affecting MYM. The macro regime score of 70.10000000000001 and sentiment at 50 suggest favorable setup, making this setup ideal for a 4 approach."
+        },
+        {
+          "success": true,
+          "chart_type": "asset_comparison",
+          "file_path": "output\\asset_comparison_20250709_060322.png",
+          "description": "Asset comparison: BTCUSD, XAUUSD, QQQ",
+          "context": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)"
+        }
+      ],
+      "charts_failed": [],
+      "total_charts": 2,
+      "failed_charts": 0,
+      "market_conditions": {
+        "fear_greed_score": 50,
+        "fear_greed_rating": "Neutral",
+        "regime_data": {
+          "total_score": 70.10000000000001,
+          "regime_classification": "Greed",
+          "strategy_recommendation": "Tier 4 Momentum",
+          "strategy_description": "Greed conditions, momentum continuation",
+          "instrument": "MNQ",
+          "risk_allocation": "2.5%",
+          "component_breakdown": {
+            "volatility": {
+              "raw_score": 82.0,
+              "weight": 0.25,
+              "weighted_score": 20.5,
+              "interpretation": "Extreme volatility, panic conditions"
+            },
+            "structure": {
+              "raw_score": 86.0,
+              "weight": 0.2,
+              "weighted_score": 17.2,
+              "interpretation": "Extreme structure, powerful trends"
+            },
+            "volume_breadth": {
+              "raw_score": 50.0,
+              "weight": 0.2,
+              "weighted_score": 10.0,
+              "interpretation": "Elevated volume/breadth, increased activity"
+            },
+            "momentum": {
+              "raw_score": 76.0,
+              "weight": 0.2,
+              "weighted_score": 15.200000000000001,
+              "interpretation": "Moderate bearish momentum"
+            },
+            "institutional": {
+              "raw_score": 48.0,
+              "weight": 0.15,
+              "weighted_score": 7.199999999999999,
+              "interpretation": "Neutral institutional positioning"
+            }
+          },
+          "timestamp": "2025-07-03T23:28:30.815560",
+          "component_scores": {
+            "volatility": {
+              "score": 82.0,
+              "components": {
+                "vix_level": {
+                  "value": 33.83715517925515,
+                  "score": 100,
+                  "weight": 0.4
+                },
+                "term_structure": {
+                  "value": 0.10526315789473713,
+                  "score": 80,
+                  "weight": 0.3
+                },
+                "atr": {
+                  "value": 2.9136119615668905,
+                  "score": 60,
+                  "weight": 0.3
+                }
+              },
+              "interpretation": "Extreme volatility, panic conditions"
+            },
+            "structure": {
+              "score": 86.0,
+              "components": {
+                "adx": {
+                  "value": 33.930652200775896,
+                  "score": 80,
+                  "weight": 0.4
+                },
+                "bb_squeeze": {
+                  "value": 0.16031966961913338,
+                  "score": 100,
+                  "weight": 0.3
+                },
+                "failed_breakouts": {
+                  "value": 3,
+                  "score": 80,
+                  "weight": 0.3
+                }
+              },
+              "interpretation": "Extreme structure, powerful trends"
+            },
+            "volume_breadth": {
+              "score": 50.0,
+              "components": {
+                "volume_spikes": {
+                  "value": 1.4316053772780402,
+                  "score": 60,
+                  "weight": 0.25
+                },
+                "ad_divergence": {
+                  "value": -0.18366016480680822,
+                  "score": 80,
+                  "weight": 0.25
+                },
+                "mcclellan": {
+                  "value": 4.91959410310028,
+                  "score": 40,
+                  "weight": 0.25
+                },
+                "put_call_ratio": {
+                  "value": 0.7499196685134041,
+                  "score": 20,
+                  "weight": 0.25
+                }
+              },
+              "interpretation": "Elevated volume/breadth, increased activity"
+            },
+            "momentum": {
+              "score": 76.0,
+              "components": {
+                "rsi_divergence": {
+                  "value": -0.5602429020246396,
+                  "score": 100,
+                  "weight": 0.4
+                },
+                "macd_histogram": {
+                  "value": -1.3989061191272842,
+                  "score": 80,
+                  "weight": 0.3
+                },
+                "oscillator_confluence": {
+                  "value": 0.29923129175882013,
+                  "score": 40,
+                  "weight": 0.3
+                }
+              },
+              "interpretation": "Moderate bearish momentum"
+            },
+            "institutional": {
+              "score": 48.0,
+              "components": {
+                "smart_money_flow": {
+                  "value": 0.8163742956141831,
+                  "score": 0,
+                  "weight": 0.4
+                },
+                "options_flow": {
+                  "value": -0.5357579966201187,
+                  "score": 80,
+                  "weight": 0.3
+                },
+                "institutional_sentiment": {
+                  "value": 0.22169692665253593,
+                  "score": 80,
+                  "weight": 0.3
+                }
+              },
+              "interpretation": "Neutral institutional positioning"
+            }
+          },
+          "market_data": {
+            "vix": {
+              "current": 33.83715517925515,
+              "term_structure": {
+                "vix1m": 32.14529742029239,
+                "vix3m": 35.52901293821791,
+                "vix6m": 37.220870697180665
+              },
+              "atr_spy": 1.5285875061661687,
+              "atr_qqq": 4.298636416967613
+            },
+            "fear_greed": {
+              "score": 77.7714285714286,
+              "rating": "extreme greed",
+              "previous_close": 63.2,
+              "previous_1_week": 62.6571428571429,
+              "previous_1_month": 56.1142857142857,
+              "timestamp": "2025-07-03T23:59:59+00:00"
+            },
+            "polygon_data": null,
+            "fmp_calendar": [
+              {
+                "event": "3-Month Bill Auction",
+                "date": "2025-07-04 03:35:00",
+                "time": "",
+                "country": "JP",
+                "currency": "JPY",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 0.422
+              },
+              {
+                "event": "Foreign Exchange Reserves (Jun)",
+                "date": "2025-07-04 03:00:00",
+                "time": "",
+                "country": "ID",
+                "currency": "IDR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 152.5
+              },
+              {
+                "event": "Household Spending MoM (May)",
+                "date": "2025-07-04 01:30:00",
+                "time": "",
+                "country": "AU",
+                "currency": "AUD",
+                "impact": "Low",
+                "actual": 0.9,
+                "forecast": "",
+                "previous": 0
+              },
+              {
+                "event": "Household Spending YoY (May)",
+                "date": "2025-07-04 01:30:00",
+                "time": "",
+                "country": "AU",
+                "currency": "AUD",
+                "impact": "Low",
+                "actual": 4.2,
+                "forecast": "",
+                "previous": 3.8
+              },
+              {
+                "event": "CPI (Jun)",
+                "date": "2025-07-04 01:00:00",
+                "time": "",
+                "country": "PH",
+                "currency": "PHP",
+                "impact": "Low",
+                "actual": 0.1,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-04 01:00:00",
+                "time": "",
+                "country": "PH",
+                "currency": "PHP",
+                "impact": "Medium",
+                "actual": 1.4,
+                "forecast": "",
+                "previous": 1.3
+              },
+              {
+                "event": "Inflation Rate MoM (Jun)",
+                "date": "2025-07-04 01:00:00",
+                "time": "",
+                "country": "PH",
+                "currency": "PHP",
+                "impact": "Low",
+                "actual": 0.2,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "Core Inflation Rate YoY (Jun)",
+                "date": "2025-07-04 01:00:00",
+                "time": "",
+                "country": "PH",
+                "currency": "PHP",
+                "impact": "Low",
+                "actual": 2.2,
+                "forecast": "",
+                "previous": 2.2
+              },
+              {
+                "event": "S&P Global PMI (Jun)",
+                "date": "2025-07-04 00:30:00",
+                "time": "",
+                "country": "HK",
+                "currency": "HKD",
+                "impact": "Low",
+                "actual": 47.8,
+                "forecast": "",
+                "previous": 49
+              },
+              {
+                "event": "S&P Global Manufacturing PMI (Jun)",
+                "date": "2025-07-04 00:30:00",
+                "time": "",
+                "country": "HK",
+                "currency": "HKD",
+                "impact": "Low",
+                "actual": 47.8,
+                "forecast": "",
+                "previous": 49
+              },
+              {
+                "event": "Liberation Day",
+                "date": "2025-07-04 00:00:00",
+                "time": "",
+                "country": "RW",
+                "currency": "RWF",
+                "impact": "None",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "Independence Day",
+                "date": "2025-07-04 00:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "None",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "Household Spending MoM (May)",
+                "date": "2025-07-03 23:30:00",
+                "time": "",
+                "country": "JP",
+                "currency": "JPY",
+                "impact": "Medium",
+                "actual": 4.6,
+                "forecast": "",
+                "previous": -1.8
+              },
+              {
+                "event": "Household Spending YoY (May)",
+                "date": "2025-07-03 23:30:00",
+                "time": "",
+                "country": "JP",
+                "currency": "JPY",
+                "impact": "Medium",
+                "actual": 4.7,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "Current Account (May)",
+                "date": "2025-07-03 23:00:00",
+                "time": "",
+                "country": "KR",
+                "currency": "KRW",
+                "impact": "Low",
+                "actual": 10.14,
+                "forecast": "",
+                "previous": 5.7
+              },
+              {
+                "event": "Foreign Exchange Reserves (Jun)",
+                "date": "2025-07-03 21:00:00",
+                "time": "",
+                "country": "KR",
+                "currency": "KRW",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 404.6
+              },
+              {
+                "event": "Foreign Exchange Reserves (Jun)",
+                "date": "2025-07-03 17:00:00",
+                "time": "",
+                "country": "MX",
+                "currency": "MXN",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 240
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 17:00:00",
+                "time": "",
+                "country": "UY",
+                "currency": "UYU",
+                "impact": "Low",
+                "actual": 4.59,
+                "forecast": "",
+                "previous": 5.05
+              },
+              {
+                "event": "Atlanta Fed GDPNow (Q2)",
+                "date": "2025-07-03 17:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 2.6,
+                "forecast": "",
+                "previous": 2.5
+              },
+              {
+                "event": "Baker Hughes Oil Rig Count (Jul/04)",
+                "date": "2025-07-03 17:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 425,
+                "forecast": "",
+                "previous": 432
+              },
+              {
+                "event": "30-Year Mortgage Rate (Jul/03)",
+                "date": "2025-07-03 16:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 6.67,
+                "forecast": "",
+                "previous": 6.77
+              },
+              {
+                "event": "New Car Registrations YoY",
+                "date": "2025-07-03 16:00:00",
+                "time": "",
+                "country": "IT",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "15-Year Mortgage Rate (Jul/03)",
+                "date": "2025-07-03 16:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 5.8,
+                "forecast": "",
+                "previous": 5.89
+              },
+              {
+                "event": "Business Confidence (Jun)",
+                "date": "2025-07-03 16:00:00",
+                "time": "",
+                "country": "RU",
+                "currency": "RUB",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 0.1
+              },
+              {
+                "event": "Irish Exchequer Returns (Jun)",
+                "date": "2025-07-03 15:30:00",
+                "time": "",
+                "country": "IE",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 4.5,
+                "forecast": "",
+                "previous": 4
+              },
+              {
+                "event": "Fed Bostic Speech",
+                "date": "2025-07-03 15:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "EIA Natural Gas Stocks Change (Jun/27)",
+                "date": "2025-07-03 14:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 55,
+                "forecast": "",
+                "previous": 96
+              },
+              {
+                "event": "Durable Goods Orders Ex Transp MoM",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 0.5,
+                "forecast": "",
+                "previous": 0.5
+              },
+              {
+                "event": "ISM Non-Manufacturing Employment (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 47.2,
+                "forecast": "",
+                "previous": 50.7
+              },
+              {
+                "event": "ISM Non-Manufacturing Business Activity (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 54.2,
+                "forecast": "",
+                "previous": 50
+              },
+              {
+                "event": "4-Week Bill Auction",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 4.24,
+                "forecast": "",
+                "previous": 4
+              },
+              {
+                "event": "8-Week Bill Auction",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 4.3,
+                "forecast": "",
+                "previous": 4.39
+              },
+              {
+                "event": "Durable Goods Orders Ex Defense MoM",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 15.5,
+                "forecast": "",
+                "previous": 15.5
+              },
+              {
+                "event": "Factory Orders ex Transportation (May)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 0.2,
+                "forecast": "",
+                "previous": -0.6
+              },
+              {
+                "event": "Factory Orders MoM (May)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 8.2,
+                "forecast": "",
+                "previous": -3.9
+              },
+              {
+                "event": "ISM Services Prices (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 67.5,
+                "forecast": "",
+                "previous": 68.7
+              },
+              {
+                "event": "ISM Services PMI (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 50.8,
+                "forecast": "",
+                "previous": 49.9
+              },
+              {
+                "event": "ISM Services New Orders (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 51.3,
+                "forecast": "",
+                "previous": 46.4
+              },
+              {
+                "event": "ISM Services Employment (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 47.2,
+                "forecast": "",
+                "previous": 50.7
+              },
+              {
+                "event": "ISM Services Business Activity (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 54.2,
+                "forecast": "",
+                "previous": 50
+              },
+              {
+                "event": "ISM Non-Manufacturing Prices (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 67.5,
+                "forecast": "",
+                "previous": 68.7
+              },
+              {
+                "event": "ISM Non-Manufacturing PMI (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 50.8,
+                "forecast": "",
+                "previous": 49.9
+              },
+              {
+                "event": "ISM Non-Manufacturing New Orders (Jun)",
+                "date": "2025-07-03 14:00:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 51.3,
+                "forecast": "",
+                "previous": 46.4
+              },
+              {
+                "event": "S&P Global Composite PMI (Jun)",
+                "date": "2025-07-03 13:45:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 52.9,
+                "forecast": "",
+                "previous": 53
+              },
+              {
+                "event": "S&P Global Services PMI (Jun)",
+                "date": "2025-07-03 13:45:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 52.9,
+                "forecast": "",
+                "previous": 53.7
+              },
+              {
+                "event": "S&P Global Services PMI (Jun)",
+                "date": "2025-07-03 13:00:00",
+                "time": "",
+                "country": "BR",
+                "currency": "BRL",
+                "impact": "Medium",
+                "actual": 49.3,
+                "forecast": "",
+                "previous": 49.6
+              },
+              {
+                "event": "S&P Global Composite PMI (Jun)",
+                "date": "2025-07-03 13:00:00",
+                "time": "",
+                "country": "BR",
+                "currency": "BRL",
+                "impact": "Low",
+                "actual": 48.7,
+                "forecast": "",
+                "previous": 49.1
+              },
+              {
+                "event": "Central Bank Reserves $",
+                "date": "2025-07-03 13:00:00",
+                "time": "",
+                "country": "RU",
+                "currency": "RUB",
+                "impact": "Low",
+                "actual": 687.7,
+                "forecast": "",
+                "previous": 687.2
+              },
+              {
+                "event": "Government Payrolls (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 73,
+                "forecast": "",
+                "previous": 7
+              },
+              {
+                "event": "Continuing Jobless Claims (Jun/21)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 1964,
+                "forecast": "",
+                "previous": 1964
+              },
+              {
+                "event": "Manufacturing Payrolls (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": -7,
+                "forecast": "",
+                "previous": -7
+              },
+              {
+                "event": "Imports",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": null,
+                "forecast": "",
+                "previous": 351
+              },
+              {
+                "event": "Imports (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "CA",
+                "currency": "CAD",
+                "impact": "Low",
+                "actual": 66.66,
+                "forecast": "",
+                "previous": 67.72
+              },
+              {
+                "event": "Imports (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 350.5,
+                "forecast": "",
+                "previous": 350.8
+              },
+              {
+                "event": "Average Hourly Earnings YoY (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 3.7,
+                "forecast": "",
+                "previous": 3.8
+              },
+              {
+                "event": "Exports (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "CA",
+                "currency": "CAD",
+                "impact": "Low",
+                "actual": 60.81,
+                "forecast": "",
+                "previous": 60.12
+              },
+              {
+                "event": "Exports (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 279,
+                "forecast": "",
+                "previous": 290.6
+              },
+              {
+                "event": "Non Farm Payrolls (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 147,
+                "forecast": "",
+                "previous": 144
+              },
+              {
+                "event": "Trade Balance (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "CA",
+                "currency": "CAD",
+                "impact": "Medium",
+                "actual": -5.9,
+                "forecast": "",
+                "previous": -7.6
+              },
+              {
+                "event": "Trade Balance (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": -71.5,
+                "forecast": "",
+                "previous": -60.3
+              },
+              {
+                "event": "Jobless Claims 4-Week Average (Jun/28)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 241.5,
+                "forecast": "",
+                "previous": 245.25
+              },
+              {
+                "event": "U-6 Unemployment Rate (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 7.7,
+                "forecast": "",
+                "previous": 7.8
+              },
+              {
+                "event": "Initial Jobless Claims (Jun/28)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 233,
+                "forecast": "",
+                "previous": 237
+              },
+              {
+                "event": "Average Hourly Earnings MoM (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 0.2,
+                "forecast": "",
+                "previous": 0.4
+              },
+              {
+                "event": "Unemployment Rate (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 4.1,
+                "forecast": "",
+                "previous": 4.2
+              },
+              {
+                "event": "Balance of Trade (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": -71.5,
+                "forecast": "",
+                "previous": -60.3
+              },
+              {
+                "event": "Balance of Trade (May)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "CA",
+                "currency": "CAD",
+                "impact": "High",
+                "actual": -5.9,
+                "forecast": "",
+                "previous": -7.6
+              },
+              {
+                "event": "Participation Rate (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Medium",
+                "actual": 62.3,
+                "forecast": "",
+                "previous": 62.4
+              },
+              {
+                "event": "Nonfarm Payrolls Private (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "High",
+                "actual": 74,
+                "forecast": "",
+                "previous": 137
+              },
+              {
+                "event": "Average Weekly Hours (Jun)",
+                "date": "2025-07-03 12:30:00",
+                "time": "",
+                "country": "US",
+                "currency": "USD",
+                "impact": "Low",
+                "actual": 34.2,
+                "forecast": "",
+                "previous": 34.3
+              },
+              {
+                "event": "Gross Fixed Investment MoM (Apr)",
+                "date": "2025-07-03 12:00:00",
+                "time": "",
+                "country": "MX",
+                "currency": "MXN",
+                "impact": "Low",
+                "actual": -1.7,
+                "forecast": "",
+                "previous": 0.3
+              },
+              {
+                "event": "Gross Fixed Investment YoY (Apr)",
+                "date": "2025-07-03 12:00:00",
+                "time": "",
+                "country": "MX",
+                "currency": "MXN",
+                "impact": "Low",
+                "actual": -12.5,
+                "forecast": "",
+                "previous": -0.2
+              },
+              {
+                "event": "Foreign Exchange Reserves (Jun/27)",
+                "date": "2025-07-03 11:30:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Low",
+                "actual": 71.1,
+                "forecast": "",
+                "previous": 70.7
+              },
+              {
+                "event": "ECB Monetary Policy Meeting Accounts",
+                "date": "2025-07-03 11:30:00",
+                "time": "",
+                "country": "EU",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "New Car Registrations YoY (Jun)",
+                "date": "2025-07-03 11:00:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": -13.8,
+                "forecast": "",
+                "previous": 1.2
+              },
+              {
+                "event": "New Car Registrations YoY",
+                "date": "2025-07-03 10:00:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": 1.2
+              },
+              {
+                "event": "GDP Growth Rate YoY (Q1)",
+                "date": "2025-07-03 09:30:00",
+                "time": "",
+                "country": "KE",
+                "currency": "KES",
+                "impact": "Low",
+                "actual": 4.9,
+                "forecast": "",
+                "previous": 5.1
+              },
+              {
+                "event": "BoE Credit Conditions Survey",
+                "date": "2025-07-03 09:30:00",
+                "time": "",
+                "country": "UK",
+                "currency": "GBP",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "Gross Domestic Product QoQ (Q1)",
+                "date": "2025-07-03 09:30:00",
+                "time": "",
+                "country": "KE",
+                "currency": "KES",
+                "impact": "Low",
+                "actual": 4.9,
+                "forecast": "",
+                "previous": 5.1
+              },
+              {
+                "event": "OAT Auction",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 4.05,
+                "forecast": "",
+                "previous": 3.17
+              },
+              {
+                "event": "House Price Index MoM (Jun)",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "NO",
+                "currency": "NOK",
+                "impact": "Low",
+                "actual": 0.3,
+                "forecast": "",
+                "previous": 0
+              },
+              {
+                "event": "House Price Index YoY (Jun)",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "NO",
+                "currency": "NOK",
+                "impact": "Low",
+                "actual": 5.1,
+                "forecast": "",
+                "previous": 5.2
+              },
+              {
+                "event": "Inflation Rate MoM (Jun)",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "CY",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": -0.2,
+                "forecast": "",
+                "previous": 0.2
+              },
+              {
+                "event": "Russian Forex Intervention (Jul)",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "RU",
+                "currency": "RUB",
+                "impact": "Low",
+                "actual": -18.8,
+                "forecast": "",
+                "previous": 28.3
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 09:00:00",
+                "time": "",
+                "country": "CY",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": -0.4,
+                "forecast": "",
+                "previous": -0.2
+              },
+              {
+                "event": "Bonos Auction",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "15-Year Obligacion Auction",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 3.671,
+                "forecast": "",
+                "previous": 3.356
+              },
+              {
+                "event": "10-Year Obligacion Auction",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 3.163,
+                "forecast": "",
+                "previous": 3.208
+              },
+              {
+                "event": "Obligacion Auction",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 1.47,
+                "forecast": "",
+                "previous": 2.23
+              },
+              {
+                "event": "3-Year Bonos Auction",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 2.159,
+                "forecast": "",
+                "previous": 2.118
+              },
+              {
+                "event": "Budget Balance (May)",
+                "date": "2025-07-03 08:40:00",
+                "time": "",
+                "country": "PT",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": -4.6,
+                "forecast": "",
+                "previous": -4.3
+              },
+              {
+                "event": "CPI (Jun)",
+                "date": "2025-07-03 08:30:00",
+                "time": "",
+                "country": "UK",
+                "currency": "GBP",
+                "impact": "High",
+                "actual": 3.3,
+                "forecast": "",
+                "previous": 3
+              },
+              {
+                "event": "S&P Global Composite PMI (Jun)",
+                "date": "2025-07-03 08:30:00",
+                "time": "",
+                "country": "UK",
+                "currency": "GBP",
+                "impact": "Low",
+                "actual": 52,
+                "forecast": "",
+                "previous": 50.3
+              },
+              {
+                "event": "S&P Global Services PMI (Jun)",
+                "date": "2025-07-03 08:30:00",
+                "time": "",
+                "country": "UK",
+                "currency": "GBP",
+                "impact": "High",
+                "actual": 52.8,
+                "forecast": "",
+                "previous": 50.9
+              },
+              {
+                "event": "HCOB Composite PMI (Jun)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "EU",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 50.6,
+                "forecast": "",
+                "previous": 50.2
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "AM",
+                "currency": "AMD",
+                "impact": "Low",
+                "actual": 3.9,
+                "forecast": "",
+                "previous": 4.3
+              },
+              {
+                "event": "Producer Price Index YoY (May)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "JO",
+                "currency": "JOD",
+                "impact": "Low",
+                "actual": -1.39,
+                "forecast": "",
+                "previous": -0.75
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "EU",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 50.5,
+                "forecast": "",
+                "previous": 49.7
+              },
+              {
+                "event": "HCOB Services PMI (Jun)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "EU",
+                "currency": "EUR",
+                "impact": "High",
+                "actual": 50.5,
+                "forecast": "",
+                "previous": 49.7
+              },
+              {
+                "event": "Interest Rate Decision",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "TZ",
+                "currency": "TZS",
+                "impact": "Low",
+                "actual": 5.75,
+                "forecast": "",
+                "previous": 6
+              },
+              {
+                "event": "PMI (Jun)",
+                "date": "2025-07-03 08:00:00",
+                "time": "",
+                "country": "EU",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 50.6,
+                "forecast": "",
+                "previous": 50.2
+              },
+              {
+                "event": "PMI (Jun)",
+                "date": "2025-07-03 07:55:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 50.4,
+                "forecast": "",
+                "previous": 48.5
+              },
+              {
+                "event": "HCOB Composite PMI (Jun)",
+                "date": "2025-07-03 07:55:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 50.4,
+                "forecast": "",
+                "previous": 48.5
+              },
+              {
+                "event": "HCOB Services PMI (Jun)",
+                "date": "2025-07-03 07:55:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "High",
+                "actual": 49.7,
+                "forecast": "",
+                "previous": 47.1
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 07:55:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 49.7,
+                "forecast": "",
+                "previous": 47.1
+              },
+              {
+                "event": "HCOB Services PMI (Jun)",
+                "date": "2025-07-03 07:50:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "High",
+                "actual": 49.6,
+                "forecast": "",
+                "previous": 48.9
+              },
+              {
+                "event": "HCOB Composite PMI (Jun)",
+                "date": "2025-07-03 07:50:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 49.2,
+                "forecast": "",
+                "previous": 49.3
+              },
+              {
+                "event": "PMI (Jun)",
+                "date": "2025-07-03 07:50:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 49.2,
+                "forecast": "",
+                "previous": 49.3
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 07:50:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 49.6,
+                "forecast": "",
+                "previous": 48.9
+              },
+              {
+                "event": "HCOB Services PMI (Jun)",
+                "date": "2025-07-03 07:45:00",
+                "time": "",
+                "country": "IT",
+                "currency": "EUR",
+                "impact": "High",
+                "actual": 52.1,
+                "forecast": "",
+                "previous": 53.2
+              },
+              {
+                "event": "HCOB Composite PMI (Jun)",
+                "date": "2025-07-03 07:45:00",
+                "time": "",
+                "country": "IT",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 51.1,
+                "forecast": "",
+                "previous": 52.5
+              },
+              {
+                "event": "PMI (Jun)",
+                "date": "2025-07-03 07:45:00",
+                "time": "",
+                "country": "IT",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 51.1,
+                "forecast": "",
+                "previous": 52.5
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 07:45:00",
+                "time": "",
+                "country": "IT",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 52.1,
+                "forecast": "",
+                "previous": 53.2
+              },
+              {
+                "event": "S&P Global Manufacturing PMI (Jun)",
+                "date": "2025-07-03 07:15:00",
+                "time": "",
+                "country": "ZA",
+                "currency": "ZAR",
+                "impact": "Low",
+                "actual": 50.1,
+                "forecast": "",
+                "previous": 50.8
+              },
+              {
+                "event": "HCOB Services PMI (Jun)",
+                "date": "2025-07-03 07:15:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "High",
+                "actual": 51.9,
+                "forecast": "",
+                "previous": 51.3
+              },
+              {
+                "event": "HCOB Composite PMI (Jun)",
+                "date": "2025-07-03 07:15:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": 52.1,
+                "forecast": "",
+                "previous": 51.4
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 07:15:00",
+                "time": "",
+                "country": "ES",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": 51.9,
+                "forecast": "",
+                "previous": 51.3
+              },
+              {
+                "event": "S&P Global PMI (Jun)",
+                "date": "2025-07-03 07:15:00",
+                "time": "",
+                "country": "ZA",
+                "currency": "ZAR",
+                "impact": "Low",
+                "actual": 50.1,
+                "forecast": "",
+                "previous": 50.8
+              },
+              {
+                "event": "Bundesbank Balz Speech",
+                "date": "2025-07-03 07:05:00",
+                "time": "",
+                "country": "DE",
+                "currency": "EUR",
+                "impact": "Medium",
+                "actual": null,
+                "forecast": "",
+                "previous": null
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "GE",
+                "currency": "GEL",
+                "impact": "Low",
+                "actual": 4,
+                "forecast": "",
+                "previous": 3.5
+              },
+              {
+                "event": "Producer Price Index YoY (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Low",
+                "actual": 24.45,
+                "forecast": "",
+                "previous": 23.13
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Medium",
+                "actual": 35.05,
+                "forecast": "",
+                "previous": 35.41
+              },
+              {
+                "event": "Inflation Rate MoM (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Medium",
+                "actual": 1.37,
+                "forecast": "",
+                "previous": 1.53
+              },
+              {
+                "event": "CPI (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Medium",
+                "actual": 35.05,
+                "forecast": "",
+                "previous": 35.41
+              },
+              {
+                "event": "New Car Registrations YoY",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": -12.3
+              },
+              {
+                "event": "Inflation Rate MoM (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "GE",
+                "currency": "GEL",
+                "impact": "Low",
+                "actual": 0,
+                "forecast": "",
+                "previous": 0.4
+              },
+              {
+                "event": "New Car Registrations YoY (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "FR",
+                "currency": "EUR",
+                "impact": "Low",
+                "actual": null,
+                "forecast": "",
+                "previous": -12.3
+              },
+              {
+                "event": "Producer Price Index MoM (Jun)",
+                "date": "2025-07-03 07:00:00",
+                "time": "",
+                "country": "TR",
+                "currency": "TRY",
+                "impact": "Low",
+                "actual": 2.46,
+                "forecast": "",
+                "previous": 2.48
+              },
+              {
+                "event": "Services PMI (Jun)",
+                "date": "2025-07-03 06:30:00",
+                "time": "",
+                "country": "SE",
+                "currency": "SEK",
+                "impact": "Low",
+                "actual": 54.6,
+                "forecast": "",
+                "previous": 50.9
+              },
+              {
+                "event": "Inflation Rate YoY (Jun)",
+                "date": "2025-07-03 06:30:00",
+                "time": "",
+                "country": "CH",
+                "currency": "CHF",
+                "impact": "Medium",
+                "actual": 0.1,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "Inflation Rate MoM (Jun)",
+                "date": "2025-07-03 06:30:00",
+                "time": "",
+                "country": "CH",
+                "currency": "CHF",
+                "impact": "Low",
+                "actual": 0.2,
+                "forecast": "",
+                "previous": 0.1
+              },
+              {
+                "event": "CPI (Jun)",
+                "date": "2025-07-03 06:30:00",
+                "time": "",
+                "country": "CH",
+                "currency": "CHF",
+                "impact": "Low",
+                "actual": 0.1,
+                "forecast": "",
+                "previous": -0.1
+              },
+              {
+                "event": "S&P Global Services PMI (Jun)",
+                "date": "2025-07-03 06:00:00",
+                "time": "",
+                "country": "RU",
+                "currency": "RUB",
+                "impact": "Low",
+                "actual": 49.2,
+                "forecast": "",
+                "previous": 52.2
+              },
+              {
+                "event": "S&P Global Composite PMI (Jun)",
+                "date": "2025-07-03 06:00:00",
+                "time": "",
+                "country": "RU",
+                "currency": "RUB",
+                "impact": "Low",
+                "actual": 48.5,
+                "forecast": "",
+                "previous": 51.4
+              },
+              {
+                "event": "S&P Global Services PMI (Jun)",
+                "date": "2025-07-03 05:00:00",
+                "time": "",
+                "country": "IN",
+                "currency": "INR",
+                "impact": "Low",
+                "actual": 60.4,
+                "forecast": "",
+                "previous": 60.7
+              },
+              {
+                "event": "6-Month T-Bill Auction",
+                "date": "2025-07-03 05:00:00",
+                "time": "",
+                "country": "SG",
+                "currency": "SGD",
+                "impact": "Low",
+                "actual": 1.85,
+                "forecast": "",
+                "previous": 2
+              },
+              {
+                "event": "HSBC Composite PMI (Jun)",
+                "date": "2025-07-03 05:00:00",
+                "time": "",
+                "country": "IN",
+                "currency": "INR",
+                "impact": "Low",
+                "actual": 61,
+                "forecast": "",
+                "previous": 59.3
+              },
+              {
+                "event": "HSBC Services PMI (Jun)",
+                "date": "2025-07-03 05:00:00",
+                "time": "",
+                "country": "IN",
+                "currency": "INR",
+                "impact": "Low",
+                "actual": 60.4,
+                "forecast": "",
+                "previous": 60.7
+              },
+              {
+                "event": "Riyad Bank PMI (Jun)",
+                "date": "2025-07-03 04:15:00",
+                "time": "",
+                "country": "SA",
+                "currency": "SAR",
+                "impact": "Low",
+                "actual": 57.2,
+                "forecast": "",
+                "previous": 55.8
+              },
+              {
+                "event": "S&P Global Composite PMI (Jun)",
+                "date": "2025-07-03 04:15:00",
+                "time": "",
+                "country": "AE",
+                "currency": "AED",
+                "impact": "Low",
+                "actual": 53.5,
+                "forecast": "",
+                "previous": 53.3
+              },
+              {
+                "event": "PMI (Jun)",
+                "date": "2025-07-03 04:15:00",
+                "time": "",
+                "country": "SA",
+                "currency": "SAR",
+                "impact": "Low",
+                "actual": 57.2,
+                "forecast": "",
+                "previous": 55.8
+              },
+              {
+                "event": "S&P Global PMI (Jun)",
+                "date": "2025-07-03 04:15:00",
+                "time": "",
+                "country": "AE",
+                "currency": "AED",
+                "impact": "Low",
+                "actual": 53.5,
+                "forecast": "",
+                "previous": 53.3
+              }
+            ],
+            "timestamp": "2025-07-03T23:28:26.559967"
+          }
+        },
+        "charts_needed": [
+          {
+            "type": "intelligent_regime",
+            "description": "Intelligent regime-aware chart with AI explanation",
+            "priority": "high",
+            "regime_data": {
+              "total_score": 70.10000000000001,
+              "regime_classification": "Greed",
+              "strategy_recommendation": "Tier 4 Momentum",
+              "strategy_description": "Greed conditions, momentum continuation",
+              "instrument": "MNQ",
+              "risk_allocation": "2.5%",
+              "component_breakdown": {
+                "volatility": {
+                  "raw_score": 82.0,
+                  "weight": 0.25,
+                  "weighted_score": 20.5,
+                  "interpretation": "Extreme volatility, panic conditions"
+                },
+                "structure": {
+                  "raw_score": 86.0,
+                  "weight": 0.2,
+                  "weighted_score": 17.2,
+                  "interpretation": "Extreme structure, powerful trends"
+                },
+                "volume_breadth": {
+                  "raw_score": 50.0,
+                  "weight": 0.2,
+                  "weighted_score": 10.0,
+                  "interpretation": "Elevated volume/breadth, increased activity"
+                },
+                "momentum": {
+                  "raw_score": 76.0,
+                  "weight": 0.2,
+                  "weighted_score": 15.200000000000001,
+                  "interpretation": "Moderate bearish momentum"
+                },
+                "institutional": {
+                  "raw_score": 48.0,
+                  "weight": 0.15,
+                  "weighted_score": 7.199999999999999,
+                  "interpretation": "Neutral institutional positioning"
+                }
+              },
+              "timestamp": "2025-07-03T23:28:30.815560",
+              "component_scores": {
+                "volatility": {
+                  "score": 82.0,
+                  "components": {
+                    "vix_level": {
+                      "value": 33.83715517925515,
+                      "score": 100,
+                      "weight": 0.4
+                    },
+                    "term_structure": {
+                      "value": 0.10526315789473713,
+                      "score": 80,
+                      "weight": 0.3
+                    },
+                    "atr": {
+                      "value": 2.9136119615668905,
+                      "score": 60,
+                      "weight": 0.3
+                    }
+                  },
+                  "interpretation": "Extreme volatility, panic conditions"
+                },
+                "structure": {
+                  "score": 86.0,
+                  "components": {
+                    "adx": {
+                      "value": 33.930652200775896,
+                      "score": 80,
+                      "weight": 0.4
+                    },
+                    "bb_squeeze": {
+                      "value": 0.16031966961913338,
+                      "score": 100,
+                      "weight": 0.3
+                    },
+                    "failed_breakouts": {
+                      "value": 3,
+                      "score": 80,
+                      "weight": 0.3
+                    }
+                  },
+                  "interpretation": "Extreme structure, powerful trends"
+                },
+                "volume_breadth": {
+                  "score": 50.0,
+                  "components": {
+                    "volume_spikes": {
+                      "value": 1.4316053772780402,
+                      "score": 60,
+                      "weight": 0.25
+                    },
+                    "ad_divergence": {
+                      "value": -0.18366016480680822,
+                      "score": 80,
+                      "weight": 0.25
+                    },
+                    "mcclellan": {
+                      "value": 4.91959410310028,
+                      "score": 40,
+                      "weight": 0.25
+                    },
+                    "put_call_ratio": {
+                      "value": 0.7499196685134041,
+                      "score": 20,
+                      "weight": 0.25
+                    }
+                  },
+                  "interpretation": "Elevated volume/breadth, increased activity"
+                },
+                "momentum": {
+                  "score": 76.0,
+                  "components": {
+                    "rsi_divergence": {
+                      "value": -0.5602429020246396,
+                      "score": 100,
+                      "weight": 0.4
+                    },
+                    "macd_histogram": {
+                      "value": -1.3989061191272842,
+                      "score": 80,
+                      "weight": 0.3
+                    },
+                    "oscillator_confluence": {
+                      "value": 0.29923129175882013,
+                      "score": 40,
+                      "weight": 0.3
+                    }
+                  },
+                  "interpretation": "Moderate bearish momentum"
+                },
+                "institutional": {
+                  "score": 48.0,
+                  "components": {
+                    "smart_money_flow": {
+                      "value": 0.8163742956141831,
+                      "score": 0,
+                      "weight": 0.4
+                    },
+                    "options_flow": {
+                      "value": -0.5357579966201187,
+                      "score": 80,
+                      "weight": 0.3
+                    },
+                    "institutional_sentiment": {
+                      "value": 0.22169692665253593,
+                      "score": 80,
+                      "weight": 0.3
+                    }
+                  },
+                  "interpretation": "Neutral institutional positioning"
+                }
+              },
+              "market_data": {
+                "vix": {
+                  "current": 33.83715517925515,
+                  "term_structure": {
+                    "vix1m": 32.14529742029239,
+                    "vix3m": 35.52901293821791,
+                    "vix6m": 37.220870697180665
+                  },
+                  "atr_spy": 1.5285875061661687,
+                  "atr_qqq": 4.298636416967613
+                },
+                "fear_greed": {
+                  "score": 77.7714285714286,
+                  "rating": "extreme greed",
+                  "previous_close": 63.2,
+                  "previous_1_week": 62.6571428571429,
+                  "previous_1_month": 56.1142857142857,
+                  "timestamp": "2025-07-03T23:59:59+00:00"
+                },
+                "polygon_data": null,
+                "fmp_calendar": [
+                  {
+                    "event": "3-Month Bill Auction",
+                    "date": "2025-07-04 03:35:00",
+                    "time": "",
+                    "country": "JP",
+                    "currency": "JPY",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 0.422
+                  },
+                  {
+                    "event": "Foreign Exchange Reserves (Jun)",
+                    "date": "2025-07-04 03:00:00",
+                    "time": "",
+                    "country": "ID",
+                    "currency": "IDR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 152.5
+                  },
+                  {
+                    "event": "Household Spending MoM (May)",
+                    "date": "2025-07-04 01:30:00",
+                    "time": "",
+                    "country": "AU",
+                    "currency": "AUD",
+                    "impact": "Low",
+                    "actual": 0.9,
+                    "forecast": "",
+                    "previous": 0
+                  },
+                  {
+                    "event": "Household Spending YoY (May)",
+                    "date": "2025-07-04 01:30:00",
+                    "time": "",
+                    "country": "AU",
+                    "currency": "AUD",
+                    "impact": "Low",
+                    "actual": 4.2,
+                    "forecast": "",
+                    "previous": 3.8
+                  },
+                  {
+                    "event": "CPI (Jun)",
+                    "date": "2025-07-04 01:00:00",
+                    "time": "",
+                    "country": "PH",
+                    "currency": "PHP",
+                    "impact": "Low",
+                    "actual": 0.1,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-04 01:00:00",
+                    "time": "",
+                    "country": "PH",
+                    "currency": "PHP",
+                    "impact": "Medium",
+                    "actual": 1.4,
+                    "forecast": "",
+                    "previous": 1.3
+                  },
+                  {
+                    "event": "Inflation Rate MoM (Jun)",
+                    "date": "2025-07-04 01:00:00",
+                    "time": "",
+                    "country": "PH",
+                    "currency": "PHP",
+                    "impact": "Low",
+                    "actual": 0.2,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "Core Inflation Rate YoY (Jun)",
+                    "date": "2025-07-04 01:00:00",
+                    "time": "",
+                    "country": "PH",
+                    "currency": "PHP",
+                    "impact": "Low",
+                    "actual": 2.2,
+                    "forecast": "",
+                    "previous": 2.2
+                  },
+                  {
+                    "event": "S&P Global PMI (Jun)",
+                    "date": "2025-07-04 00:30:00",
+                    "time": "",
+                    "country": "HK",
+                    "currency": "HKD",
+                    "impact": "Low",
+                    "actual": 47.8,
+                    "forecast": "",
+                    "previous": 49
+                  },
+                  {
+                    "event": "S&P Global Manufacturing PMI (Jun)",
+                    "date": "2025-07-04 00:30:00",
+                    "time": "",
+                    "country": "HK",
+                    "currency": "HKD",
+                    "impact": "Low",
+                    "actual": 47.8,
+                    "forecast": "",
+                    "previous": 49
+                  },
+                  {
+                    "event": "Liberation Day",
+                    "date": "2025-07-04 00:00:00",
+                    "time": "",
+                    "country": "RW",
+                    "currency": "RWF",
+                    "impact": "None",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "Independence Day",
+                    "date": "2025-07-04 00:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "None",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "Household Spending MoM (May)",
+                    "date": "2025-07-03 23:30:00",
+                    "time": "",
+                    "country": "JP",
+                    "currency": "JPY",
+                    "impact": "Medium",
+                    "actual": 4.6,
+                    "forecast": "",
+                    "previous": -1.8
+                  },
+                  {
+                    "event": "Household Spending YoY (May)",
+                    "date": "2025-07-03 23:30:00",
+                    "time": "",
+                    "country": "JP",
+                    "currency": "JPY",
+                    "impact": "Medium",
+                    "actual": 4.7,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "Current Account (May)",
+                    "date": "2025-07-03 23:00:00",
+                    "time": "",
+                    "country": "KR",
+                    "currency": "KRW",
+                    "impact": "Low",
+                    "actual": 10.14,
+                    "forecast": "",
+                    "previous": 5.7
+                  },
+                  {
+                    "event": "Foreign Exchange Reserves (Jun)",
+                    "date": "2025-07-03 21:00:00",
+                    "time": "",
+                    "country": "KR",
+                    "currency": "KRW",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 404.6
+                  },
+                  {
+                    "event": "Foreign Exchange Reserves (Jun)",
+                    "date": "2025-07-03 17:00:00",
+                    "time": "",
+                    "country": "MX",
+                    "currency": "MXN",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 240
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 17:00:00",
+                    "time": "",
+                    "country": "UY",
+                    "currency": "UYU",
+                    "impact": "Low",
+                    "actual": 4.59,
+                    "forecast": "",
+                    "previous": 5.05
+                  },
+                  {
+                    "event": "Atlanta Fed GDPNow (Q2)",
+                    "date": "2025-07-03 17:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 2.6,
+                    "forecast": "",
+                    "previous": 2.5
+                  },
+                  {
+                    "event": "Baker Hughes Oil Rig Count (Jul/04)",
+                    "date": "2025-07-03 17:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 425,
+                    "forecast": "",
+                    "previous": 432
+                  },
+                  {
+                    "event": "30-Year Mortgage Rate (Jul/03)",
+                    "date": "2025-07-03 16:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 6.67,
+                    "forecast": "",
+                    "previous": 6.77
+                  },
+                  {
+                    "event": "New Car Registrations YoY",
+                    "date": "2025-07-03 16:00:00",
+                    "time": "",
+                    "country": "IT",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "15-Year Mortgage Rate (Jul/03)",
+                    "date": "2025-07-03 16:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 5.8,
+                    "forecast": "",
+                    "previous": 5.89
+                  },
+                  {
+                    "event": "Business Confidence (Jun)",
+                    "date": "2025-07-03 16:00:00",
+                    "time": "",
+                    "country": "RU",
+                    "currency": "RUB",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 0.1
+                  },
+                  {
+                    "event": "Irish Exchequer Returns (Jun)",
+                    "date": "2025-07-03 15:30:00",
+                    "time": "",
+                    "country": "IE",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 4.5,
+                    "forecast": "",
+                    "previous": 4
+                  },
+                  {
+                    "event": "Fed Bostic Speech",
+                    "date": "2025-07-03 15:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "EIA Natural Gas Stocks Change (Jun/27)",
+                    "date": "2025-07-03 14:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 55,
+                    "forecast": "",
+                    "previous": 96
+                  },
+                  {
+                    "event": "Durable Goods Orders Ex Transp MoM",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 0.5,
+                    "forecast": "",
+                    "previous": 0.5
+                  },
+                  {
+                    "event": "ISM Non-Manufacturing Employment (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 47.2,
+                    "forecast": "",
+                    "previous": 50.7
+                  },
+                  {
+                    "event": "ISM Non-Manufacturing Business Activity (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 54.2,
+                    "forecast": "",
+                    "previous": 50
+                  },
+                  {
+                    "event": "4-Week Bill Auction",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 4.24,
+                    "forecast": "",
+                    "previous": 4
+                  },
+                  {
+                    "event": "8-Week Bill Auction",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 4.3,
+                    "forecast": "",
+                    "previous": 4.39
+                  },
+                  {
+                    "event": "Durable Goods Orders Ex Defense MoM",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 15.5,
+                    "forecast": "",
+                    "previous": 15.5
+                  },
+                  {
+                    "event": "Factory Orders ex Transportation (May)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 0.2,
+                    "forecast": "",
+                    "previous": -0.6
+                  },
+                  {
+                    "event": "Factory Orders MoM (May)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 8.2,
+                    "forecast": "",
+                    "previous": -3.9
+                  },
+                  {
+                    "event": "ISM Services Prices (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 67.5,
+                    "forecast": "",
+                    "previous": 68.7
+                  },
+                  {
+                    "event": "ISM Services PMI (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 50.8,
+                    "forecast": "",
+                    "previous": 49.9
+                  },
+                  {
+                    "event": "ISM Services New Orders (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 51.3,
+                    "forecast": "",
+                    "previous": 46.4
+                  },
+                  {
+                    "event": "ISM Services Employment (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 47.2,
+                    "forecast": "",
+                    "previous": 50.7
+                  },
+                  {
+                    "event": "ISM Services Business Activity (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 54.2,
+                    "forecast": "",
+                    "previous": 50
+                  },
+                  {
+                    "event": "ISM Non-Manufacturing Prices (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 67.5,
+                    "forecast": "",
+                    "previous": 68.7
+                  },
+                  {
+                    "event": "ISM Non-Manufacturing PMI (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 50.8,
+                    "forecast": "",
+                    "previous": 49.9
+                  },
+                  {
+                    "event": "ISM Non-Manufacturing New Orders (Jun)",
+                    "date": "2025-07-03 14:00:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 51.3,
+                    "forecast": "",
+                    "previous": 46.4
+                  },
+                  {
+                    "event": "S&P Global Composite PMI (Jun)",
+                    "date": "2025-07-03 13:45:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 52.9,
+                    "forecast": "",
+                    "previous": 53
+                  },
+                  {
+                    "event": "S&P Global Services PMI (Jun)",
+                    "date": "2025-07-03 13:45:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 52.9,
+                    "forecast": "",
+                    "previous": 53.7
+                  },
+                  {
+                    "event": "S&P Global Services PMI (Jun)",
+                    "date": "2025-07-03 13:00:00",
+                    "time": "",
+                    "country": "BR",
+                    "currency": "BRL",
+                    "impact": "Medium",
+                    "actual": 49.3,
+                    "forecast": "",
+                    "previous": 49.6
+                  },
+                  {
+                    "event": "S&P Global Composite PMI (Jun)",
+                    "date": "2025-07-03 13:00:00",
+                    "time": "",
+                    "country": "BR",
+                    "currency": "BRL",
+                    "impact": "Low",
+                    "actual": 48.7,
+                    "forecast": "",
+                    "previous": 49.1
+                  },
+                  {
+                    "event": "Central Bank Reserves $",
+                    "date": "2025-07-03 13:00:00",
+                    "time": "",
+                    "country": "RU",
+                    "currency": "RUB",
+                    "impact": "Low",
+                    "actual": 687.7,
+                    "forecast": "",
+                    "previous": 687.2
+                  },
+                  {
+                    "event": "Government Payrolls (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 73,
+                    "forecast": "",
+                    "previous": 7
+                  },
+                  {
+                    "event": "Continuing Jobless Claims (Jun/21)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 1964,
+                    "forecast": "",
+                    "previous": 1964
+                  },
+                  {
+                    "event": "Manufacturing Payrolls (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": -7,
+                    "forecast": "",
+                    "previous": -7
+                  },
+                  {
+                    "event": "Imports",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 351
+                  },
+                  {
+                    "event": "Imports (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "CA",
+                    "currency": "CAD",
+                    "impact": "Low",
+                    "actual": 66.66,
+                    "forecast": "",
+                    "previous": 67.72
+                  },
+                  {
+                    "event": "Imports (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 350.5,
+                    "forecast": "",
+                    "previous": 350.8
+                  },
+                  {
+                    "event": "Average Hourly Earnings YoY (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 3.7,
+                    "forecast": "",
+                    "previous": 3.8
+                  },
+                  {
+                    "event": "Exports (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "CA",
+                    "currency": "CAD",
+                    "impact": "Low",
+                    "actual": 60.81,
+                    "forecast": "",
+                    "previous": 60.12
+                  },
+                  {
+                    "event": "Exports (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 279,
+                    "forecast": "",
+                    "previous": 290.6
+                  },
+                  {
+                    "event": "Non Farm Payrolls (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 147,
+                    "forecast": "",
+                    "previous": 144
+                  },
+                  {
+                    "event": "Trade Balance (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "CA",
+                    "currency": "CAD",
+                    "impact": "Medium",
+                    "actual": -5.9,
+                    "forecast": "",
+                    "previous": -7.6
+                  },
+                  {
+                    "event": "Trade Balance (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": -71.5,
+                    "forecast": "",
+                    "previous": -60.3
+                  },
+                  {
+                    "event": "Jobless Claims 4-Week Average (Jun/28)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 241.5,
+                    "forecast": "",
+                    "previous": 245.25
+                  },
+                  {
+                    "event": "U-6 Unemployment Rate (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 7.7,
+                    "forecast": "",
+                    "previous": 7.8
+                  },
+                  {
+                    "event": "Initial Jobless Claims (Jun/28)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 233,
+                    "forecast": "",
+                    "previous": 237
+                  },
+                  {
+                    "event": "Average Hourly Earnings MoM (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 0.2,
+                    "forecast": "",
+                    "previous": 0.4
+                  },
+                  {
+                    "event": "Unemployment Rate (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 4.1,
+                    "forecast": "",
+                    "previous": 4.2
+                  },
+                  {
+                    "event": "Balance of Trade (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": -71.5,
+                    "forecast": "",
+                    "previous": -60.3
+                  },
+                  {
+                    "event": "Balance of Trade (May)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "CA",
+                    "currency": "CAD",
+                    "impact": "High",
+                    "actual": -5.9,
+                    "forecast": "",
+                    "previous": -7.6
+                  },
+                  {
+                    "event": "Participation Rate (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Medium",
+                    "actual": 62.3,
+                    "forecast": "",
+                    "previous": 62.4
+                  },
+                  {
+                    "event": "Nonfarm Payrolls Private (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "High",
+                    "actual": 74,
+                    "forecast": "",
+                    "previous": 137
+                  },
+                  {
+                    "event": "Average Weekly Hours (Jun)",
+                    "date": "2025-07-03 12:30:00",
+                    "time": "",
+                    "country": "US",
+                    "currency": "USD",
+                    "impact": "Low",
+                    "actual": 34.2,
+                    "forecast": "",
+                    "previous": 34.3
+                  },
+                  {
+                    "event": "Gross Fixed Investment MoM (Apr)",
+                    "date": "2025-07-03 12:00:00",
+                    "time": "",
+                    "country": "MX",
+                    "currency": "MXN",
+                    "impact": "Low",
+                    "actual": -1.7,
+                    "forecast": "",
+                    "previous": 0.3
+                  },
+                  {
+                    "event": "Gross Fixed Investment YoY (Apr)",
+                    "date": "2025-07-03 12:00:00",
+                    "time": "",
+                    "country": "MX",
+                    "currency": "MXN",
+                    "impact": "Low",
+                    "actual": -12.5,
+                    "forecast": "",
+                    "previous": -0.2
+                  },
+                  {
+                    "event": "Foreign Exchange Reserves (Jun/27)",
+                    "date": "2025-07-03 11:30:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Low",
+                    "actual": 71.1,
+                    "forecast": "",
+                    "previous": 70.7
+                  },
+                  {
+                    "event": "ECB Monetary Policy Meeting Accounts",
+                    "date": "2025-07-03 11:30:00",
+                    "time": "",
+                    "country": "EU",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "New Car Registrations YoY (Jun)",
+                    "date": "2025-07-03 11:00:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": -13.8,
+                    "forecast": "",
+                    "previous": 1.2
+                  },
+                  {
+                    "event": "New Car Registrations YoY",
+                    "date": "2025-07-03 10:00:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": 1.2
+                  },
+                  {
+                    "event": "GDP Growth Rate YoY (Q1)",
+                    "date": "2025-07-03 09:30:00",
+                    "time": "",
+                    "country": "KE",
+                    "currency": "KES",
+                    "impact": "Low",
+                    "actual": 4.9,
+                    "forecast": "",
+                    "previous": 5.1
+                  },
+                  {
+                    "event": "BoE Credit Conditions Survey",
+                    "date": "2025-07-03 09:30:00",
+                    "time": "",
+                    "country": "UK",
+                    "currency": "GBP",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "Gross Domestic Product QoQ (Q1)",
+                    "date": "2025-07-03 09:30:00",
+                    "time": "",
+                    "country": "KE",
+                    "currency": "KES",
+                    "impact": "Low",
+                    "actual": 4.9,
+                    "forecast": "",
+                    "previous": 5.1
+                  },
+                  {
+                    "event": "OAT Auction",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 4.05,
+                    "forecast": "",
+                    "previous": 3.17
+                  },
+                  {
+                    "event": "House Price Index MoM (Jun)",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "NO",
+                    "currency": "NOK",
+                    "impact": "Low",
+                    "actual": 0.3,
+                    "forecast": "",
+                    "previous": 0
+                  },
+                  {
+                    "event": "House Price Index YoY (Jun)",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "NO",
+                    "currency": "NOK",
+                    "impact": "Low",
+                    "actual": 5.1,
+                    "forecast": "",
+                    "previous": 5.2
+                  },
+                  {
+                    "event": "Inflation Rate MoM (Jun)",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "CY",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": -0.2,
+                    "forecast": "",
+                    "previous": 0.2
+                  },
+                  {
+                    "event": "Russian Forex Intervention (Jul)",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "RU",
+                    "currency": "RUB",
+                    "impact": "Low",
+                    "actual": -18.8,
+                    "forecast": "",
+                    "previous": 28.3
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 09:00:00",
+                    "time": "",
+                    "country": "CY",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": -0.4,
+                    "forecast": "",
+                    "previous": -0.2
+                  },
+                  {
+                    "event": "Bonos Auction",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "15-Year Obligacion Auction",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 3.671,
+                    "forecast": "",
+                    "previous": 3.356
+                  },
+                  {
+                    "event": "10-Year Obligacion Auction",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 3.163,
+                    "forecast": "",
+                    "previous": 3.208
+                  },
+                  {
+                    "event": "Obligacion Auction",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 1.47,
+                    "forecast": "",
+                    "previous": 2.23
+                  },
+                  {
+                    "event": "3-Year Bonos Auction",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 2.159,
+                    "forecast": "",
+                    "previous": 2.118
+                  },
+                  {
+                    "event": "Budget Balance (May)",
+                    "date": "2025-07-03 08:40:00",
+                    "time": "",
+                    "country": "PT",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": -4.6,
+                    "forecast": "",
+                    "previous": -4.3
+                  },
+                  {
+                    "event": "CPI (Jun)",
+                    "date": "2025-07-03 08:30:00",
+                    "time": "",
+                    "country": "UK",
+                    "currency": "GBP",
+                    "impact": "High",
+                    "actual": 3.3,
+                    "forecast": "",
+                    "previous": 3
+                  },
+                  {
+                    "event": "S&P Global Composite PMI (Jun)",
+                    "date": "2025-07-03 08:30:00",
+                    "time": "",
+                    "country": "UK",
+                    "currency": "GBP",
+                    "impact": "Low",
+                    "actual": 52,
+                    "forecast": "",
+                    "previous": 50.3
+                  },
+                  {
+                    "event": "S&P Global Services PMI (Jun)",
+                    "date": "2025-07-03 08:30:00",
+                    "time": "",
+                    "country": "UK",
+                    "currency": "GBP",
+                    "impact": "High",
+                    "actual": 52.8,
+                    "forecast": "",
+                    "previous": 50.9
+                  },
+                  {
+                    "event": "HCOB Composite PMI (Jun)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "EU",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 50.6,
+                    "forecast": "",
+                    "previous": 50.2
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "AM",
+                    "currency": "AMD",
+                    "impact": "Low",
+                    "actual": 3.9,
+                    "forecast": "",
+                    "previous": 4.3
+                  },
+                  {
+                    "event": "Producer Price Index YoY (May)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "JO",
+                    "currency": "JOD",
+                    "impact": "Low",
+                    "actual": -1.39,
+                    "forecast": "",
+                    "previous": -0.75
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "EU",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 50.5,
+                    "forecast": "",
+                    "previous": 49.7
+                  },
+                  {
+                    "event": "HCOB Services PMI (Jun)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "EU",
+                    "currency": "EUR",
+                    "impact": "High",
+                    "actual": 50.5,
+                    "forecast": "",
+                    "previous": 49.7
+                  },
+                  {
+                    "event": "Interest Rate Decision",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "TZ",
+                    "currency": "TZS",
+                    "impact": "Low",
+                    "actual": 5.75,
+                    "forecast": "",
+                    "previous": 6
+                  },
+                  {
+                    "event": "PMI (Jun)",
+                    "date": "2025-07-03 08:00:00",
+                    "time": "",
+                    "country": "EU",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 50.6,
+                    "forecast": "",
+                    "previous": 50.2
+                  },
+                  {
+                    "event": "PMI (Jun)",
+                    "date": "2025-07-03 07:55:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 50.4,
+                    "forecast": "",
+                    "previous": 48.5
+                  },
+                  {
+                    "event": "HCOB Composite PMI (Jun)",
+                    "date": "2025-07-03 07:55:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 50.4,
+                    "forecast": "",
+                    "previous": 48.5
+                  },
+                  {
+                    "event": "HCOB Services PMI (Jun)",
+                    "date": "2025-07-03 07:55:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "High",
+                    "actual": 49.7,
+                    "forecast": "",
+                    "previous": 47.1
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 07:55:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 49.7,
+                    "forecast": "",
+                    "previous": 47.1
+                  },
+                  {
+                    "event": "HCOB Services PMI (Jun)",
+                    "date": "2025-07-03 07:50:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "High",
+                    "actual": 49.6,
+                    "forecast": "",
+                    "previous": 48.9
+                  },
+                  {
+                    "event": "HCOB Composite PMI (Jun)",
+                    "date": "2025-07-03 07:50:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 49.2,
+                    "forecast": "",
+                    "previous": 49.3
+                  },
+                  {
+                    "event": "PMI (Jun)",
+                    "date": "2025-07-03 07:50:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 49.2,
+                    "forecast": "",
+                    "previous": 49.3
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 07:50:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 49.6,
+                    "forecast": "",
+                    "previous": 48.9
+                  },
+                  {
+                    "event": "HCOB Services PMI (Jun)",
+                    "date": "2025-07-03 07:45:00",
+                    "time": "",
+                    "country": "IT",
+                    "currency": "EUR",
+                    "impact": "High",
+                    "actual": 52.1,
+                    "forecast": "",
+                    "previous": 53.2
+                  },
+                  {
+                    "event": "HCOB Composite PMI (Jun)",
+                    "date": "2025-07-03 07:45:00",
+                    "time": "",
+                    "country": "IT",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 51.1,
+                    "forecast": "",
+                    "previous": 52.5
+                  },
+                  {
+                    "event": "PMI (Jun)",
+                    "date": "2025-07-03 07:45:00",
+                    "time": "",
+                    "country": "IT",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 51.1,
+                    "forecast": "",
+                    "previous": 52.5
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 07:45:00",
+                    "time": "",
+                    "country": "IT",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 52.1,
+                    "forecast": "",
+                    "previous": 53.2
+                  },
+                  {
+                    "event": "S&P Global Manufacturing PMI (Jun)",
+                    "date": "2025-07-03 07:15:00",
+                    "time": "",
+                    "country": "ZA",
+                    "currency": "ZAR",
+                    "impact": "Low",
+                    "actual": 50.1,
+                    "forecast": "",
+                    "previous": 50.8
+                  },
+                  {
+                    "event": "HCOB Services PMI (Jun)",
+                    "date": "2025-07-03 07:15:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "High",
+                    "actual": 51.9,
+                    "forecast": "",
+                    "previous": 51.3
+                  },
+                  {
+                    "event": "HCOB Composite PMI (Jun)",
+                    "date": "2025-07-03 07:15:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": 52.1,
+                    "forecast": "",
+                    "previous": 51.4
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 07:15:00",
+                    "time": "",
+                    "country": "ES",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": 51.9,
+                    "forecast": "",
+                    "previous": 51.3
+                  },
+                  {
+                    "event": "S&P Global PMI (Jun)",
+                    "date": "2025-07-03 07:15:00",
+                    "time": "",
+                    "country": "ZA",
+                    "currency": "ZAR",
+                    "impact": "Low",
+                    "actual": 50.1,
+                    "forecast": "",
+                    "previous": 50.8
+                  },
+                  {
+                    "event": "Bundesbank Balz Speech",
+                    "date": "2025-07-03 07:05:00",
+                    "time": "",
+                    "country": "DE",
+                    "currency": "EUR",
+                    "impact": "Medium",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": null
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "GE",
+                    "currency": "GEL",
+                    "impact": "Low",
+                    "actual": 4,
+                    "forecast": "",
+                    "previous": 3.5
+                  },
+                  {
+                    "event": "Producer Price Index YoY (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Low",
+                    "actual": 24.45,
+                    "forecast": "",
+                    "previous": 23.13
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Medium",
+                    "actual": 35.05,
+                    "forecast": "",
+                    "previous": 35.41
+                  },
+                  {
+                    "event": "Inflation Rate MoM (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Medium",
+                    "actual": 1.37,
+                    "forecast": "",
+                    "previous": 1.53
+                  },
+                  {
+                    "event": "CPI (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Medium",
+                    "actual": 35.05,
+                    "forecast": "",
+                    "previous": 35.41
+                  },
+                  {
+                    "event": "New Car Registrations YoY",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": -12.3
+                  },
+                  {
+                    "event": "Inflation Rate MoM (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "GE",
+                    "currency": "GEL",
+                    "impact": "Low",
+                    "actual": 0,
+                    "forecast": "",
+                    "previous": 0.4
+                  },
+                  {
+                    "event": "New Car Registrations YoY (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "FR",
+                    "currency": "EUR",
+                    "impact": "Low",
+                    "actual": null,
+                    "forecast": "",
+                    "previous": -12.3
+                  },
+                  {
+                    "event": "Producer Price Index MoM (Jun)",
+                    "date": "2025-07-03 07:00:00",
+                    "time": "",
+                    "country": "TR",
+                    "currency": "TRY",
+                    "impact": "Low",
+                    "actual": 2.46,
+                    "forecast": "",
+                    "previous": 2.48
+                  },
+                  {
+                    "event": "Services PMI (Jun)",
+                    "date": "2025-07-03 06:30:00",
+                    "time": "",
+                    "country": "SE",
+                    "currency": "SEK",
+                    "impact": "Low",
+                    "actual": 54.6,
+                    "forecast": "",
+                    "previous": 50.9
+                  },
+                  {
+                    "event": "Inflation Rate YoY (Jun)",
+                    "date": "2025-07-03 06:30:00",
+                    "time": "",
+                    "country": "CH",
+                    "currency": "CHF",
+                    "impact": "Medium",
+                    "actual": 0.1,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "Inflation Rate MoM (Jun)",
+                    "date": "2025-07-03 06:30:00",
+                    "time": "",
+                    "country": "CH",
+                    "currency": "CHF",
+                    "impact": "Low",
+                    "actual": 0.2,
+                    "forecast": "",
+                    "previous": 0.1
+                  },
+                  {
+                    "event": "CPI (Jun)",
+                    "date": "2025-07-03 06:30:00",
+                    "time": "",
+                    "country": "CH",
+                    "currency": "CHF",
+                    "impact": "Low",
+                    "actual": 0.1,
+                    "forecast": "",
+                    "previous": -0.1
+                  },
+                  {
+                    "event": "S&P Global Services PMI (Jun)",
+                    "date": "2025-07-03 06:00:00",
+                    "time": "",
+                    "country": "RU",
+                    "currency": "RUB",
+                    "impact": "Low",
+                    "actual": 49.2,
+                    "forecast": "",
+                    "previous": 52.2
+                  },
+                  {
+                    "event": "S&P Global Composite PMI (Jun)",
+                    "date": "2025-07-03 06:00:00",
+                    "time": "",
+                    "country": "RU",
+                    "currency": "RUB",
+                    "impact": "Low",
+                    "actual": 48.5,
+                    "forecast": "",
+                    "previous": 51.4
+                  },
+                  {
+                    "event": "S&P Global Services PMI (Jun)",
+                    "date": "2025-07-03 05:00:00",
+                    "time": "",
+                    "country": "IN",
+                    "currency": "INR",
+                    "impact": "Low",
+                    "actual": 60.4,
+                    "forecast": "",
+                    "previous": 60.7
+                  },
+                  {
+                    "event": "6-Month T-Bill Auction",
+                    "date": "2025-07-03 05:00:00",
+                    "time": "",
+                    "country": "SG",
+                    "currency": "SGD",
+                    "impact": "Low",
+                    "actual": 1.85,
+                    "forecast": "",
+                    "previous": 2
+                  },
+                  {
+                    "event": "HSBC Composite PMI (Jun)",
+                    "date": "2025-07-03 05:00:00",
+                    "time": "",
+                    "country": "IN",
+                    "currency": "INR",
+                    "impact": "Low",
+                    "actual": 61,
+                    "forecast": "",
+                    "previous": 59.3
+                  },
+                  {
+                    "event": "HSBC Services PMI (Jun)",
+                    "date": "2025-07-03 05:00:00",
+                    "time": "",
+                    "country": "IN",
+                    "currency": "INR",
+                    "impact": "Low",
+                    "actual": 60.4,
+                    "forecast": "",
+                    "previous": 60.7
+                  },
+                  {
+                    "event": "Riyad Bank PMI (Jun)",
+                    "date": "2025-07-03 04:15:00",
+                    "time": "",
+                    "country": "SA",
+                    "currency": "SAR",
+                    "impact": "Low",
+                    "actual": 57.2,
+                    "forecast": "",
+                    "previous": 55.8
+                  },
+                  {
+                    "event": "S&P Global Composite PMI (Jun)",
+                    "date": "2025-07-03 04:15:00",
+                    "time": "",
+                    "country": "AE",
+                    "currency": "AED",
+                    "impact": "Low",
+                    "actual": 53.5,
+                    "forecast": "",
+                    "previous": 53.3
+                  },
+                  {
+                    "event": "PMI (Jun)",
+                    "date": "2025-07-03 04:15:00",
+                    "time": "",
+                    "country": "SA",
+                    "currency": "SAR",
+                    "impact": "Low",
+                    "actual": 57.2,
+                    "forecast": "",
+                    "previous": 55.8
+                  },
+                  {
+                    "event": "S&P Global PMI (Jun)",
+                    "date": "2025-07-03 04:15:00",
+                    "time": "",
+                    "country": "AE",
+                    "currency": "AED",
+                    "impact": "Low",
+                    "actual": 53.5,
+                    "forecast": "",
+                    "previous": 53.3
+                  }
+                ],
+                "timestamp": "2025-07-03T23:28:26.559967"
+              }
+            },
+            "fear_greed_score": 50
+          },
+          {
+            "type": "custom_comparison",
+            "description": "Custom asset comparison (BTCUSD, XAUUSD, QQQ)",
+            "priority": "medium",
+            "assets": [
+              "BTCUSD",
+              "XAUUSD",
+              "QQQ"
+            ],
+            "condition": null
+          }
+        ],
+        "custom_condition": null,
+        "condition_met": true,
+        "timestamp": "2025-07-09T06:03:21.653983"
+      },
+      "timestamp": "2025-07-09T06:03:23.292963"
+    },
+    "playbook_strategist": {
+      "market_regime": "Neutral",
+      "selected_strategies": [
+        {
+          "name": "Tier 2 Momentum Reload",
+          "description": "Strategy: Tier 2 Momentum Reload",
+          "confidence": 0.7,
+          "conditions": {}
+        }
+      ],
+      "avoid_list": [
+        "Tier 1 Reversal Ignition (Insufficient volatility)",
+        "Tier 5 Defensive Hedge (VIX too low (20.0 < 25), Greed too high (50 > 30), Insufficient volatility)"
+      ],
+      "macro_notes": [
+        "Neutral environment - mixed signals suggest selective positioning"
+      ],
+      "analysis_timestamp": "2025-07-09T06:03:20.804819"
+    },
+    "email_dispatcher": {
+      "email_sent": true,
+      "recipients": [
+        "rick84etter@gmail.com"
+      ],
+      "report_summary": "Daily MacroIntel report sent to 1 recipients",
+      "attachments": [],
+      "timestamp": "2025-07-09T06:03:25.758061"
+    }
+  },
+  "summary": {
+    "articles_processed": 77,
+    "charts_generated": 2,
+    "market_regime": "Neutral",
+    "strategies_selected": 1,
+    "email_sent": true,
+    "recipients_count": 1,
+    "dominant_keywords": []
+  }
+}

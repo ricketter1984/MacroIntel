@@ -83,8 +83,6 @@ class EnhancedVisualizations:
         self.strategy_charts = {
             'Tier 1': 'momentum_breakout',
             'Tier 2': 'mean_reversion',
-            'Tier 3': 'range_trading',
-            'Tier 4': 'momentum_continuation',
             'Tier 5': 'extreme_momentum'
         }
         
@@ -603,86 +601,94 @@ class EnhancedVisualizations:
             return None
     
     def generate_intelligent_chart(self, regime_data: Dict[str, Any], fear_greed_score: int, 
-                                 market_data: Dict[str, Any] | None = None) -> Dict[str, Any]:
+                                 market_data: Dict[str, Any] | None = None, 
+                                 dominant_keywords: list = None, tags: list = None) -> Dict[str, Any]:
         """
-        Generate intelligent chart based on current regime and strategy.
-        
+        Generate intelligent chart based on current regime, strategy, and dominant keywords.
         Args:
             regime_data: Market regime analysis data
             fear_greed_score: Current Fear & Greed Index score
             market_data: Additional market data
-            
+            dominant_keywords: List of dominant keywords from Perplexity
+            tags: List of tags from Perplexity
         Returns:
             Dictionary with chart information and AI explanation
         """
         self.logger.info("🧠 Generating intelligent regime-aware chart...")
-        
         try:
             # Extract regime information
             regime = regime_data.get('regime_classification', 'Neutral')
-            strategy = regime_data.get('strategy_recommendation', 'Tier 3 Range Trading')
+            strategy = regime_data.get('strategy_recommendation', 'Tier 2 Mean Reversion')
             instrument = regime_data.get('instrument', 'MES')
             total_score = regime_data.get('total_score', 50)
-            
-            # Normalize regime to our mapping
-            if 'Bullish' in regime or 'Greed' in regime:
-                regime_key = 'BULLISH'
-            elif 'Bearish' in regime or 'Fear' in regime:
-                regime_key = 'BEARISH'
+
+            # Asset selection logic using dominant_keywords and tags
+            assets = None
+            if dominant_keywords is None:
+                dominant_keywords = []
+            if tags is None:
+                tags = []
+            # Lowercase for matching
+            dom_kw = [k.lower() for k in dominant_keywords]
+            tags_lc = [t.lower() for t in tags]
+            if "oil" in dom_kw or "middle east" in tags_lc:
+                assets = ['MCL', 'MGC', 'MYM']
+                topic = "oil"
+            elif "inflation" in dom_kw:
+                assets = ['MYM', 'MGC', 'MES']
+                topic = "inflation"
+            elif "ai stocks" in dom_kw:
+                assets = ['NVDA', 'QQQ', 'MNQ']
+                topic = "AI stocks"
             else:
-                regime_key = 'NEUTRAL'
-            
-            # Get regime-specific configuration
-            regime_config = self.regime_instruments.get(regime_key, self.regime_instruments['NEUTRAL'])
-            
-            # Determine best instruments to visualize
-            primary_instrument = str(regime_config['primary'])
-            secondary_instrument = str(regime_config['secondary'])
-            macro_indicators = list(regime_config['macro_indicators'])
-            
+                assets = ['MYM', 'MES', 'MCL']
+                topic = "general"
+            main_asset = assets[0]
+
             # Generate appropriate chart based on strategy
-            chart_type = self._determine_chart_type(strategy, regime_key, fear_greed_score)
-            
-            # Create the chart
+            chart_type = self._determine_chart_type(strategy, regime, fear_greed_score)
+
+            # Generate filename as specified
+            tier = (strategy.split()[1] if 'Tier' in strategy else 'unknown').lower()
+            date_str = datetime.now().strftime('%Y%m%d')
+            filename = f"regime_chart_{tier}_{topic}_{main_asset}_{date_str}.png"
+            output_path = os.path.join(self.output_dir, filename)
+
+            # Create the chart (reuse _create_regime_chart, but pass selected assets)
             chart_result = self._create_regime_chart(
                 chart_type=chart_type,
-                primary_instrument=primary_instrument,
-                secondary_instrument=secondary_instrument,
-                macro_indicators=macro_indicators,
+                primary_instrument=assets[0],
+                secondary_instrument=assets[1],
+                macro_indicators=assets[2:],
                 regime_data=regime_data,
                 fear_greed_score=fear_greed_score,
                 market_data=market_data
             )
-            
-            # Generate AI explanation
-            ai_explanation = self._generate_chart_explanation(
-                chart_type=chart_type,
-                regime=regime,
-                strategy=strategy,
-                instrument=instrument,
-                fear_greed_score=fear_greed_score,
-                total_score=total_score,
-                primary_instrument=primary_instrument,
-                secondary_instrument=secondary_instrument
-            )
-            
+            # Overwrite path with our filename
+            if chart_result:
+                chart_result["path"] = output_path
+
+            # Generate AI explanation (to be updated in chart_generator_agent)
+            ai_explanation = ""
+
             result = {
-                "chart_path": chart_result.get("path"),
+                "chart_path": output_path,
                 "chart_type": chart_type,
                 "regime": regime,
                 "strategy": strategy,
-                "primary_instrument": primary_instrument,
-                "secondary_instrument": secondary_instrument,
-                "macro_indicators": macro_indicators,
+                "primary_instrument": assets[0],
+                "secondary_instrument": assets[1],
+                "macro_indicators": assets[2:],
                 "ai_explanation": ai_explanation,
                 "fear_greed_score": fear_greed_score,
                 "regime_score": total_score,
+                "topic": topic,
+                "main_asset": main_asset,
+                "tier": tier,
                 "timestamp": datetime.now().isoformat()
             }
-            
-            self.logger.info(f"✅ Intelligent chart generated: {chart_type} for {regime} regime")
+            self.logger.info(f"✅ Intelligent chart generated: {chart_type} for {regime} regime with assets {assets}")
             return result
-            
         except Exception as e:
             self.logger.error(f"❌ Error generating intelligent chart: {str(e)}")
             return {
@@ -699,10 +705,7 @@ class EnhancedVisualizations:
             return 'momentum_breakout'
         elif 'Tier 2' in strategy:
             return 'mean_reversion'
-        elif 'Tier 3' in strategy:
-            return 'range_trading'
-        elif 'Tier 4' in strategy:
-            return 'momentum_continuation'
+
         elif 'Tier 5' in strategy:
             return 'extreme_momentum'
         
@@ -1109,8 +1112,6 @@ class EnhancedVisualizations:
             strategy_insights = {
                 'Tier 1': "This Tier 1 strategy focuses on aggressive momentum plays with high conviction setups.",
                 'Tier 2': "This Tier 2 approach emphasizes mean reversion opportunities in volatile conditions.",
-                'Tier 3': "This Tier 3 strategy targets range-bound trading with moderate risk allocation.",
-                'Tier 4': "This Tier 4 approach leverages momentum continuation in trending markets.",
                 'Tier 5': "This Tier 5 strategy capitalizes on extreme momentum with maximum risk allocation."
             }
             

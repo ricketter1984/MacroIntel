@@ -371,8 +371,6 @@ app.layout = html.Div([
                             options=[
                                 {'label': 'Tier 1 Reversal', 'value': 'Tier 1 Reversal'},
                                 {'label': 'Tier 2 Mean Reversion', 'value': 'Tier 2 Mean Reversion'},
-                                {'label': 'Tier 3 Range Trading', 'value': 'Tier 3 Range Trading'},
-                                {'label': 'Tier 4 Momentum', 'value': 'Tier 4 Momentum'},
                                 {'label': 'Tier 5 Extreme Momentum', 'value': 'Tier 5 Extreme Momentum'}
                             ],
                             value='Tier 1 Reversal',

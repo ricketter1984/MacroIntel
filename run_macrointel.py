@@ -14,11 +14,13 @@ import os
 import sys
 import json
 import logging
-import schedule
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
+import pytz
 
 # Fix Unicode encoding issues on Windows
 if sys.platform == "win32":
@@ -67,7 +69,8 @@ class EnhancedMacroIntel:
             'polygon': 'scripts/fetch_polygon_indices.py',
             'fmp_calendar': 'scripts/fetch_fmp_calendar.py',
             'messari': 'scripts/fetch_messari_intel.py',
-            'twelve_data': 'scripts/fetch_twelve_data.py'
+            'twelve_data': 'scripts/fetch_twelve_data.py',
+            'yahoo_futures': 'scripts/fetch_yahoo_futures.py'
         }
         
         logger.info("🚀 Enhanced MacroIntel System initialized")
@@ -225,6 +228,20 @@ class EnhancedMacroIntel:
                 'error': f'VIX fetch failed: {str(e)}'
             }
     
+    def fetch_yahoo_futures(self):
+        """Fetch Yahoo Futures data."""
+        logger.info("📈 Fetching Yahoo Futures data...")
+        try:
+            result = dispatch_api_task("yahoo_futures", self.data_sources['yahoo_futures'])
+            if result['success']:
+                logger.info(f"✅ Yahoo Futures: Data fetched successfully")
+            else:
+                logger.error(f"❌ Yahoo Futures fetch failed: {result.get('error')}")
+            return result
+        except Exception as e:
+            logger.error(f"❌ Yahoo Futures fetch error: {str(e)}")
+            return {'success': False, 'error': str(e)}
+    
     def aggregate_data_sources(self):
         """Aggregate data from all sources."""
         logger.info("🔄 Aggregating data from all sources...")
@@ -242,7 +259,8 @@ class EnhancedMacroIntel:
             ('messari', self.fetch_messari_intel),
             ('twelve_data', self.fetch_twelve_data),
             ('fear_greed', self.fetch_fear_greed_index),
-            ('vix', self.fetch_vix_data)
+            ('vix', self.fetch_vix_data),
+            ('yahoo_futures', self.fetch_yahoo_futures)
         ]
         
         for source_name, fetch_func in sources_to_fetch:
@@ -438,40 +456,119 @@ class EnhancedMacroIntel:
         except Exception as e:
             logger.error(f"❌ Market analysis error: {str(e)}")
             return None
+    
+    def run_swarm_pipeline(self):
+        """Run the complete MacroIntel swarm pipeline."""
+        logger.info("🤖 Starting MacroIntel Swarm Pipeline...")
+        
+        try:
+            # Import the swarm orchestrator
+            from agents.swarm_orchestrator import MacroIntelSwarm
+            
+            # Create swarm instance and execute
+            swarm = MacroIntelSwarm()
+            results = swarm.execute_swarm()
+            
+            if results.get("status") == "success":
+                summary = results.get("summary", {})
+                logger.info("✅ Swarm Pipeline Completed Successfully")
+                logger.info(f"   📰 Articles Processed: {summary.get('articles_processed', 0)}")
+                logger.info(f"   📈 Charts Generated: {summary.get('charts_generated', 0)}")
+                logger.info(f"   📘 Market Regime: {summary.get('market_regime', 'Unknown')}")
+                logger.info(f"   🎯 Strategies Selected: {summary.get('strategies_selected', 0)}")
+                logger.info(f"   📧 Email Sent: {'✅ Yes' if summary.get('email_sent', False) else '❌ No'}")
+                logger.info(f"   👥 Recipients: {summary.get('recipients_count', 0)}")
+                logger.info(f"   ⏱️ Execution Time: {results.get('execution_time', 'Unknown')}")
+                
+                return True
+            else:
+                logger.error(f"❌ Swarm Pipeline Failed: {results.get('error', 'Unknown error')}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"❌ Swarm Pipeline Error: {str(e)}")
+            return False
 
 def setup_scheduler():
-    """Setup the job scheduler."""
-    logger.info("⏰ Setting up job scheduler...")
+    """Setup the APScheduler with swarm pipeline jobs."""
+    logger.info("⏰ Setting up APScheduler...")
     
     # Create MacroIntel instance
     macrointel = EnhancedMacroIntel()
     
-    # Schedule jobs
-    schedule.every().day.at("06:00").do(macrointel.run_daily_report)  # Morning report
-    schedule.every().day.at("18:00").do(macrointel.run_daily_report)  # Evening report
-    schedule.every().hour.do(macrointel.run_market_analysis)          # Hourly market check
+    # Create background scheduler
+    scheduler = BackgroundScheduler()
     
-    logger.info("✅ Scheduler setup complete")
-    logger.info("   📅 Daily reports: 06:00 and 18:00")
-    logger.info("   📈 Market analysis: Every hour")
+    # Set timezone to Eastern Time
+    eastern_tz = pytz.timezone('US/Eastern')
     
-    return macrointel
+    # Schedule swarm pipeline at 07:30 ET (morning)
+    scheduler.add_job(
+        func=macrointel.run_swarm_pipeline,
+        trigger=CronTrigger(hour=7, minute=30, timezone=eastern_tz),
+        id='morning_swarm',
+        name='Morning Swarm Pipeline (07:30 ET)',
+        replace_existing=True
+    )
+    
+    # Schedule swarm pipeline at 15:45 ET (10 min before close)
+    scheduler.add_job(
+        func=macrointel.run_swarm_pipeline,
+        trigger=CronTrigger(hour=15, minute=45, timezone=eastern_tz),
+        id='afternoon_swarm',
+        name='Afternoon Swarm Pipeline (15:45 ET)',
+        replace_existing=True
+    )
+    
+    # Schedule daily report at 06:00 ET
+    scheduler.add_job(
+        func=macrointel.run_daily_report,
+        trigger=CronTrigger(hour=6, minute=0, timezone=eastern_tz),
+        id='daily_report',
+        name='Daily Report (06:00 ET)',
+        replace_existing=True
+    )
+    
+    # Schedule market analysis every hour
+    scheduler.add_job(
+        func=macrointel.run_market_analysis,
+        trigger=CronTrigger(minute=0, timezone=eastern_tz),
+        id='hourly_analysis',
+        name='Hourly Market Analysis',
+        replace_existing=True
+    )
+    
+    logger.info("✅ APScheduler setup complete")
+    logger.info("   🤖 Swarm Pipeline: 07:30 ET and 15:45 ET")
+    logger.info("   📅 Daily Report: 06:00 ET")
+    logger.info("   📈 Market Analysis: Every hour")
+    
+    return scheduler, macrointel
 
 def run_scheduler():
-    """Run the job scheduler."""
-    logger.info("🚀 Starting Enhanced MacroIntel Scheduler...")
+    """Run the APScheduler in background."""
+    logger.info("🚀 Starting Enhanced MacroIntel APScheduler...")
     
-    macrointel = setup_scheduler()
+    scheduler, macrointel = setup_scheduler()
     
     try:
+        # Start the scheduler
+        scheduler.start()
+        logger.info("✅ APScheduler started successfully")
+        logger.info("🔄 Scheduler running in background...")
+        logger.info("⏹️  Press Ctrl+C to stop")
+        
+        # Keep the main thread alive
         while True:
-            schedule.run_pending()
-            time.sleep(60)  # Check every minute
+            time.sleep(60)
             
     except KeyboardInterrupt:
-        logger.info("⏹️  Scheduler stopped by user")
+        logger.info("⏹️  Stopping scheduler...")
+        scheduler.shutdown()
+        logger.info("✅ Scheduler stopped gracefully")
     except Exception as e:
         logger.error(f"❌ Scheduler error: {str(e)}")
+        scheduler.shutdown()
 
 def test_system():
     """Test the enhanced system functionality."""
@@ -527,8 +624,9 @@ def main():
     parser = argparse.ArgumentParser(description="Enhanced MacroIntel System")
     parser.add_argument("--test", action="store_true", help="Run system tests")
     parser.add_argument("--report", action="store_true", help="Generate single comprehensive report")
-    parser.add_argument("--scheduler", action="store_true", help="Run the job scheduler")
+    parser.add_argument("--scheduler", action="store_true", help="Run the APScheduler")
     parser.add_argument("--analysis", action="store_true", help="Run market analysis")
+    parser.add_argument("--swarm", action="store_true", help="Run single swarm pipeline execution")
     
     args = parser.parse_args()
     
@@ -540,6 +638,9 @@ def main():
     elif args.analysis:
         macrointel = EnhancedMacroIntel()
         macrointel.run_market_analysis()
+    elif args.swarm:
+        macrointel = EnhancedMacroIntel()
+        macrointel.run_swarm_pipeline()
     elif args.scheduler:
         run_scheduler()
     else:

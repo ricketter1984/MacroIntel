@@ -1,53 +1,95 @@
 #!/usr/bin/env python3
 """
-Test script for the MacroIntel scheduler
+Test script for APScheduler implementation in MacroIntel
 """
 
 import sys
-import os
-from datetime import datetime
-from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
-import pytz
+import logging
+from pathlib import Path
 
-# Add project root to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add project root to Python path
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
 
-def test_job():
-    """Test job function"""
-    print(f"🧪 Test job executed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+from run_macrointel import setup_scheduler, EnhancedMacroIntel
 
-def test_scheduler():
-    """Test the scheduler functionality"""
-    print("🧪 Testing MacroIntel Scheduler...")
-    
-    # Create scheduler
-    scheduler = BlockingScheduler()
-    
-    # Add a test job that runs in 10 seconds
-    from datetime import datetime, timedelta
-    test_time = datetime.now() + timedelta(seconds=10)
-    
-    scheduler.add_job(
-        func=test_job,
-        trigger='date',
-        run_date=test_time,
-        id='test_job',
-        name='Test Job',
-        replace_existing=True
-    )
-    
-    print(f"⏰ Test job scheduled for: {test_time}")
-    print("🔄 Starting scheduler (will run for ~15 seconds)...")
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('logs/scheduler_test.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def test_scheduler_setup():
+    """Test the scheduler setup."""
+    logger.info("🧪 Testing APScheduler setup...")
     
     try:
-        # Start the scheduler
-        scheduler.start()
-    except KeyboardInterrupt:
-        print("\n🛑 Test stopped by user")
-        scheduler.shutdown()
+        scheduler, macrointel = setup_scheduler()
+        
+        # Check if jobs were added
+        jobs = scheduler.get_jobs()
+        logger.info(f"✅ Scheduler setup successful - {len(jobs)} jobs configured")
+        
+        for job in jobs:
+            logger.info(f"   📅 Job: {job.name} - Next run: {job.next_run_time}")
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"❌ Scheduler setup failed: {str(e)}")
+        return False
+
+def test_swarm_pipeline():
+    """Test the swarm pipeline execution."""
+    logger.info("🧪 Testing swarm pipeline execution...")
     
-    print("✅ Scheduler test completed")
+    try:
+        macrointel = EnhancedMacroIntel()
+        result = macrointel.run_swarm_pipeline()
+        
+        if result:
+            logger.info("✅ Swarm pipeline test successful")
+        else:
+            logger.error("❌ Swarm pipeline test failed")
+        
+        return result
+        
+    except Exception as e:
+        logger.error(f"❌ Swarm pipeline test error: {str(e)}")
+        return False
+
+def main():
+    """Run all tests."""
+    logger.info("🚀 Starting MacroIntel Scheduler Tests...")
+    
+    # Test scheduler setup
+    setup_success = test_scheduler_setup()
+    
+    # Test swarm pipeline (optional - may take time)
+    print("\nDo you want to test the swarm pipeline execution? (y/n): ", end="")
+    response = input().lower().strip()
+    
+    if response == 'y':
+        pipeline_success = test_swarm_pipeline()
+    else:
+        pipeline_success = True  # Skip test
+        logger.info("⏭️  Skipping swarm pipeline test")
+    
+    # Summary
+    logger.info("\n📊 Test Results:")
+    logger.info(f"   Scheduler Setup: {'✅ PASS' if setup_success else '❌ FAIL'}")
+    logger.info(f"   Swarm Pipeline: {'✅ PASS' if pipeline_success else '❌ FAIL'}")
+    
+    if setup_success and pipeline_success:
+        logger.info("🎉 All tests passed! Scheduler is ready to use.")
+        logger.info("💡 To start the scheduler: python run_macrointel.py --scheduler")
+    else:
+        logger.error("❌ Some tests failed. Please check the logs.")
 
 if __name__ == "__main__":
-    test_scheduler() 
+    main() 

@@ -13,7 +13,7 @@ import logging
 import argparse
 import re
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from dotenv import load_dotenv
 
 # Load environment variables from config/.env
@@ -22,7 +22,15 @@ load_dotenv(dotenv_path="config/.env")
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.visual_query_engine import VisualQueryEngine, generate_comparison_chart, generate_extreme_fear_chart
+try:
+    from core.visual_query_engine import VisualQueryEngine, generate_comparison_chart, generate_extreme_fear_chart
+    _visual_engine_imported = True
+except ImportError as e:
+    print(f"⚠️ Visual query engine not available: {e}")
+    VisualQueryEngine = None
+    generate_comparison_chart = None
+    generate_extreme_fear_chart = None
+    _visual_engine_imported = False
 from core.enhanced_visualizations import EnhancedVisualizations
 from utils.api_clients import init_env
 
@@ -42,7 +50,18 @@ class ChartGeneratorAgent:
             custom_condition: Custom condition string (e.g., "fear < 30")
         """
         init_env()
-        self.visual_engine = VisualQueryEngine()
+        self.visual_engine: Any = None
+        self.visual_engine_available = False
+        if _visual_engine_imported and VisualQueryEngine is not None:
+            try:
+                self.visual_engine = VisualQueryEngine()
+                self.visual_engine_available = True
+            except Exception as e:
+                print(f"⚠️ Visual query engine could not be instantiated: {e}")
+                self.visual_engine = None
+        else:
+            self.visual_engine = None
+            print("⚠️ Visual query engine not available - charts will be skipped")
         self.enhanced_viz = EnhancedVisualizations()
         self.output_dir = "output"
         self.custom_assets = custom_assets or ["BTCUSD", "XAUUSD", "QQQ"]
@@ -170,7 +189,7 @@ class ChartGeneratorAgent:
                 return {
                     "total_score": 50.0,
                     "regime_classification": "Neutral",
-                    "strategy_recommendation": "Tier 3 Range Trading",
+                    "strategy_recommendation": "Tier 2 Mean Reversion",
                     "instrument": "MES",
                     "component_breakdown": {
                         "volatility": {"weighted_score": 12.5},
@@ -186,7 +205,7 @@ class ChartGeneratorAgent:
             return {
                 "total_score": 50.0,
                 "regime_classification": "Neutral",
-                "strategy_recommendation": "Tier 3 Range Trading",
+                "strategy_recommendation": "Tier 2 Mean Reversion",
                 "instrument": "MES",
                 "component_breakdown": {}
             }
@@ -202,7 +221,11 @@ class ChartGeneratorAgent:
             logger.info("🔍 Analyzing market conditions...")
             
             # Get Fear & Greed Index
-            fear_score, fear_rating = self.visual_engine.get_fear_greed_index()
+            if self.visual_engine_available and self.visual_engine is not None:
+                fear_score, fear_rating = self.visual_engine.get_fear_greed_index()
+            else:
+                logger.warning("⚠️ Visual query engine not available - using default Fear & Greed Index")
+                fear_score, fear_rating = 50, "Neutral"
             
             # Get regime data
             regime_data = self.get_regime_data()
@@ -293,39 +316,66 @@ class ChartGeneratorAgent:
                 "error": str(e)
             }
     
-    def generate_intelligent_chart(self, regime_data: Dict[str, Any], fear_greed_score: int) -> Dict[str, Any]:
+    def generate_intelligent_chart(self, regime_data: Dict[str, Any], fear_greed_score: int, dominant_keywords=None, tags=None, topic=None, headline=None) -> Dict[str, Any]:
         """
         Generate intelligent regime-aware chart with AI explanation.
-        
         Args:
             regime_data: Market regime analysis data
             fear_greed_score: Current Fear & Greed Index score
-            
+            dominant_keywords: List of dominant keywords (from Perplexity)
+            tags: List of tags (from Perplexity)
+            topic: Main topic string (optional)
+            headline: Example headline string (optional)
         Returns:
             Dictionary with chart information and AI explanation
         """
         try:
             logger.info("🧠 Generating intelligent regime-aware chart...")
-            
+            # Ensure lists
+            if dominant_keywords is None:
+                dominant_keywords = []
+            if tags is None:
+                tags = []
             # Generate the intelligent chart
             chart_result = self.enhanced_viz.generate_intelligent_chart(
                 regime_data=regime_data,
-                fear_greed_score=fear_greed_score
+                fear_greed_score=fear_greed_score,
+                dominant_keywords=dominant_keywords,
+                tags=tags
             )
-            
             if chart_result and chart_result.get("chart_path"):
-                logger.info(f"✅ Intelligent chart generated: {chart_result.get('chart_type', 'unknown')}")
+                # Compose new AI explanation
+                topic_val = topic or (chart_result.get("topic") if chart_result else "macro theme")
+                headline_val = headline or "recent headline"
+                instrument = (chart_result.get("main_asset") if chart_result else None) or (chart_result.get("primary_instrument") if chart_result else "instrument")
+                score = chart_result.get("regime_score") if chart_result else "?"
+                fg_score = chart_result.get("fear_greed_score") if chart_result else "?"
+                interpretation = "favorable setup"
+                tier_val = chart_result.get("tier") if chart_result and chart_result.get("tier") else "Tier 2"
+                
+                # Validate tier - only allow Tier 1 or Tier 2, default to Tier 2
+                if tier_val not in ["Tier 1", "Tier 2"]:
+                    tier_val = "Tier 2"
+                
+                # Ensure tier is a string before calling capitalize
+                tier = str(tier_val).capitalize() if tier_val is not None else "Tier 2"
+                ai_explanation = (
+                    f"This chart highlights how recent news on {topic_val} (e.g. '{headline_val}') "
+                    f"may be affecting {instrument}. The macro regime score of {score} and sentiment at {fg_score} "
+                    f"suggest {interpretation}, making this setup ideal for a {tier} approach."
+                )
+                chart_result["ai_explanation"] = ai_explanation
                 return {
                     "success": True,
                     "chart_type": "intelligent_regime",
-                    "file_path": chart_result.get("chart_path", ""),
-                    "description": chart_result.get("ai_explanation", ""),
-                    "context": f"Regime: {chart_result.get('regime', 'Unknown')}, Strategy: {chart_result.get('strategy', 'Unknown')}",
-                    "regime": chart_result.get("regime", "Unknown"),
-                    "strategy": chart_result.get("strategy", "Unknown"),
-                    "primary_instrument": chart_result.get("primary_instrument", ""),
-                    "secondary_instrument": chart_result.get("secondary_instrument", ""),
-                    "ai_explanation": chart_result.get("ai_explanation", "")
+                    "file_path": chart_result.get("chart_path", "") if chart_result else "",
+                    "description": ai_explanation,
+                    "context": f"Regime: {chart_result.get('regime', 'Unknown')}, Strategy: {chart_result.get('strategy', 'Unknown')}" if chart_result else "",
+                    "regime": chart_result.get("regime", "Unknown") if chart_result else "Unknown",
+                    "strategy": chart_result.get("strategy", "Unknown") if chart_result else "Unknown",
+                    "primary_instrument": chart_result.get("primary_instrument", "") if chart_result else "",
+                    "secondary_instrument": chart_result.get("secondary_instrument", "") if chart_result else "",
+                    "ai_explanation": ai_explanation
                 }
             else:
                 logger.warning("⚠️ Intelligent chart generation failed")
@@ -333,7 +383,6 @@ class ChartGeneratorAgent:
                     "success": False,
                     "error": "Chart generation failed"
                 }
-                
         except Exception as e:
             logger.error(f"❌ Error generating intelligent chart: {str(e)}")
             return {
@@ -358,13 +407,17 @@ class ChartGeneratorAgent:
             
             if chart_type == "intelligent_regime":
                 # Generate intelligent regime chart
-                regime_data = chart_config.get("regime_data", {})
-                fear_greed_score = chart_config.get("fear_greed_score", 50)
+                regime_data = chart_config.get("regime_data", {}) if chart_config else {}
+                fear_greed_score = chart_config.get("fear_greed_score", 50) if chart_config else 50
                 return self.generate_intelligent_chart(regime_data, fear_greed_score)
             
             elif chart_type == "extreme_fear":
                 # Generate extreme fear chart
-                chart_path = generate_extreme_fear_chart()
+                if generate_extreme_fear_chart is not None:
+                    chart_path = generate_extreme_fear_chart()
+                else:
+                    logger.warning("⚠️ Visual query engine not available - cannot generate extreme fear chart")
+                    chart_path = None
                 if chart_path:
                     return {
                         "success": True,
@@ -378,13 +431,17 @@ class ChartGeneratorAgent:
             
             elif chart_type in ["asset_comparison", "custom_comparison"]:
                 # Generate asset comparison chart
-                assets = chart_config.get("assets", ["BTCUSD", "XAUUSD", "QQQ"])
-                condition = chart_config.get("condition", "")
+                assets = chart_config.get("assets", ["BTCUSD", "XAUUSD", "QQQ"]) if chart_config else ["BTCUSD", "XAUUSD", "QQQ"]
+                condition = chart_config.get("condition", "") if chart_config else ""
                 
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 output_path = os.path.join(self.output_dir, f"asset_comparison_{timestamp}.png")
                 
-                generate_comparison_chart(assets, condition=condition, output_path=output_path)
+                if generate_comparison_chart is not None:
+                    generate_comparison_chart(assets, condition=condition, output_path=output_path)
+                else:
+                    logger.warning("⚠️ Visual query engine not available - cannot generate asset comparison chart")
+                    return {"success": False, "error": "Asset comparison chart generation failed"}
                 
                 return {
                     "success": True,

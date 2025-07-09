@@ -97,19 +97,7 @@ class MarketRegimeCalculator:
                 'risk_allocation': '2.5%',
                 'instruments': ['MYM', 'MES', 'M2K']
             },
-            (40, 60): {
-                'name': 'Tier 3 Range Trading',
-                'description': 'Neutral conditions, range-bound trading',
-                'risk_allocation': '2.0%',
-                'instruments': ['MES', 'MNQ']
-            },
-            (60, 80): {
-                'name': 'Tier 4 Momentum',
-                'description': 'Greed conditions, momentum continuation',
-                'risk_allocation': '2.5%',
-                'instruments': ['MNQ', 'M2K']
-            },
-            (80, 100): {
+            (40, 100): {
                 'name': 'Tier 5 Extreme Momentum',
                 'description': 'Extreme greed, strong momentum continuation',
                 'risk_allocation': '3.0%',

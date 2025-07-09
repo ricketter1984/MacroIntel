@@ -472,7 +472,7 @@ def deduplicate_articles(articles):
 
 def load_latest_yahoo_futures():
     """
-    Load the most recent Yahoo Futures data from output directory.
+    Load the most recent Yahoo Futures data from output directory (yfinance format).
     Returns a list of futures contracts or empty list if not found.
     """
     try:
@@ -485,36 +485,57 @@ def load_latest_yahoo_futures():
         latest_file = max(futures_files, key=lambda x: x.stat().st_mtime)
         with open(latest_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        return data.get("futures_data", [])
+        if isinstance(data, list):
+            return data
+        return []
     except Exception as e:
         print(f"⚠️ Error loading Yahoo Futures data: {e}")
         return []
 
-def generate_futures_screener_html(futures_data):
+def load_latest_barchart_futures():
     """
-    Generate HTML for the Futures Screener section.
-    Args:
-        futures_data: List of futures contracts
-    Returns:
-        HTML string for the section
+    Load the most recent Barchart.com Most Active Futures data from output directory.
+    Returns a list of futures contracts or empty list if not found.
+    """
+    try:
+        output_dir = Path("output")
+        if not output_dir.exists():
+            return []
+        futures_files = list(output_dir.glob("barchart_futures_*.json"))
+        if not futures_files:
+            return []
+        latest_file = max(futures_files, key=lambda x: x.stat().st_mtime)
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            return data
+        return []
+    except Exception as e:
+        print(f"⚠️ Error loading Barchart Futures data: {e}")
+        return []
+
+def generate_futures_table_html(futures_data, title):
+    """
+    Generate an HTML table for a list of futures contracts with a given title.
     """
     if not futures_data:
-        return """
+        return f"""
         <div style='background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #6c757d;'>
-            <h3>📈 Futures Screener</h3>
+            <h3>{title}</h3>
             <p><em>No futures data available.</em></p>
         </div>
         """
-    html = """
+    html = f"""
     <div style='background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #007bff;'>
-        <h3 style='margin-top: 0; color: #2c3e50;'>📈 Futures Screener</h3>
+        <h3 style='margin-top: 0; color: #2c3e50;'>{title}</h3>
         <table style='width: 100%; border-collapse: collapse; background: white;'>
             <thead>
                 <tr style='background: #e9ecef;'>
                     <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Symbol</th>
                     <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Name</th>
                     <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Price</th>
-                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Change %</th>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>% Change</th>
+                    <th style='padding: 8px; border-bottom: 1px solid #dee2e6;'>Volume</th>
                 </tr>
             </thead>
             <tbody>
@@ -522,21 +543,27 @@ def generate_futures_screener_html(futures_data):
     for fut in futures_data:
         symbol = fut.get("symbol", "")
         name = fut.get("name", "")
-        price = fut.get("price", "")
-        change = fut.get("change_percent", "")
-        # Color code change
+        price = fut.get("last_price", fut.get("price", ""))
+        percent_change = fut.get("percent_change", "")
+        volume = fut.get("volume", "")
+        # Color code change based on percent_change
         try:
-            change_val = float(change)
-            color = '#28a745' if change_val > 0 else ('#dc3545' if change_val < 0 else '#6c757d')
-            change_str = f"<span style='color: {color};'>{change_val:+.2f}%</span>"
+            if percent_change and '(' in percent_change and ')' in percent_change:
+                pct_str = percent_change.strip('()').replace('%', '')
+                change_val = float(pct_str)
+                color = '#28a745' if change_val > 0 else ('#dc3545' if change_val < 0 else '#6c757d')
+                change_str = f"<span style='color: {color};'>{change_val:+.2f}%</span>"
+            else:
+                change_str = f"<span style='color: #6c757d;'>{percent_change}</span>"
         except Exception:
-            change_str = f"<span style='color: #6c757d;'>{change}</span>"
+            change_str = f"<span style='color: #6c757d;'>{percent_change}</span>"
         html += f"""
             <tr>
                 <td style='padding: 8px; border-bottom: 1px solid #dee2e6; font-weight: bold;'>{symbol}</td>
                 <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{name}</td>
                 <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{price}</td>
                 <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{change_str}</td>
+                <td style='padding: 8px; border-bottom: 1px solid #dee2e6;'>{volume}</td>
             </tr>
         """
     html += """
@@ -644,9 +671,10 @@ def generate_email_content(articles, limit=25):
             print(f"⚠️ Error generating extreme fear chart: {str(e)}")
     
     # Load Yahoo Futures data
-    futures_data = load_latest_yahoo_futures()
-    futures_screener_html = generate_futures_screener_html(futures_data)
-
+    yahoo_futures_data = load_latest_yahoo_futures()
+    barchart_futures_data = load_latest_barchart_futures()
+    yahoo_futures_html = generate_futures_table_html(yahoo_futures_data, "Yahoo Futures Screener")
+    barchart_futures_html = generate_futures_table_html(barchart_futures_data, "Barchart Most Active Futures")
     # Start HTML content
     html_content = f"""
     <!DOCTYPE html>
@@ -688,8 +716,8 @@ def generate_email_content(articles, limit=25):
             {sentiment_gauge}
         </div>
         
-        {futures_screener_html}
-        
+        {yahoo_futures_html}
+        {barchart_futures_html}
         {extreme_fear_chart_html}
         
         <h2>📰 Relevant Headlines</h2>

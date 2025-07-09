@@ -409,7 +409,7 @@ def main():
 Examples:
   python backtest_simulator.py --strategy "Tier 1 Reversal" --min_score 70 --start 2024-01-01 --end 2024-01-31
   python backtest_simulator.py --strategy "Tier 2 Momentum" --min_score 80 --start 2024-01-01 --end 2024-01-31 --components "volatility>70,structure>60"
-  python backtest_simulator.py --strategy "Tier 3 Range Trading" --min_score 50 --start 2024-01-01 --end 2024-01-31 --summary --export
+  python backtest_simulator.py --strategy "Tier 2 Mean Reversion" --min_score 50 --start 2024-01-01 --end 2024-01-31 --summary --export
         """
     )
     

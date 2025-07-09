@@ -48,26 +48,6 @@ class PlaybookInterpreter:
                 },
                 "description": "Momentum continuation in stable market conditions"
             },
-            "Tier 3 Breakout Acceleration": {
-                "conditions": {
-                    "vix_max": 18,
-                    "fear_greed_min": 40,
-                    "fear_greed_max": 60,
-                    "volatility_required": False,
-                    "momentum_required": True
-                },
-                "description": "Breakout plays in low volatility, trending markets"
-            },
-            "Tier 4 Mean Reversion": {
-                "conditions": {
-                    "vix_max": 30,
-                    "fear_greed_min": 10,
-                    "fear_greed_max": 90,
-                    "volatility_required": True,
-                    "momentum_required": False
-                },
-                "description": "Mean reversion plays in extreme conditions"
-            },
             "Tier 5 Defensive Hedge": {
                 "conditions": {
                     "vix_min": 25,
