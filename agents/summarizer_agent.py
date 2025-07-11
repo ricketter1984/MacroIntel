@@ -41,7 +41,17 @@ class SummarizerAgent:
         """Initialize the summarizer agent."""
         init_env()
         self.sources = ["benzinga", "messari", "polygon", "fmp"]
-        logger.info("🧠 Summarizer Agent initialized")
+        
+        # Geopolitical and trade-related keywords for detection
+        self.geopolitical_keywords = {
+            'tariffs': ['tariff', 'tariffs', 'trade duty', 'trade duties', 'customs duty'],
+            'china': ['china', 'chinese', 'beijing', 'xi jinping', 'prc', 'mainland china'],
+            'sanctions': ['sanction', 'sanctions', 'embargo', 'trade ban', 'economic restrictions'],
+            'trade': ['import', 'imports', 'export', 'exports', 'import/export', 'trade deficit', 'trade surplus'],
+            'supply_chains': ['supply chain', 'supply chains', 'global supply', 'supply disruption', 'logistics', 'shipping']
+        }
+        
+        logger.info("🧠 Summarizer Agent initialized with geopolitical keyword detection")
     
     def fetch_news(self) -> List[Dict[str, Any]]:
         """
@@ -64,6 +74,50 @@ class SummarizerAgent:
             logger.error(f"❌ Error fetching news: {str(e)}")
             return []
     
+    def detect_geopolitical_keywords(self, text: str) -> Dict[str, Any]:
+        """
+        Detect geopolitical and trade-related keywords in text.
+        
+        Args:
+            text: Text to analyze (title + summary)
+            
+        Returns:
+            Dictionary with detected keywords and metadata
+        """
+        if not text:
+            return {"is_geopolitical": False, "categories": [], "keywords_found": []}
+        
+        text_lower = text.lower()
+        detected_categories = []
+        keywords_found = []
+        
+        for category, keywords in self.geopolitical_keywords.items():
+            for keyword in keywords:
+                if keyword.lower() in text_lower:
+                    if category not in detected_categories:
+                        detected_categories.append(category)
+                    if keyword not in keywords_found:
+                        keywords_found.append(keyword)
+        
+        is_geopolitical = len(detected_categories) > 0
+        
+        # Determine impact level based on number of categories detected
+        impact_level = "low"
+        if len(detected_categories) >= 3:
+            impact_level = "high"
+        elif len(detected_categories) >= 2:
+            impact_level = "medium"
+        elif len(detected_categories) == 1:
+            impact_level = "low"
+        
+        return {
+            "is_geopolitical": is_geopolitical,
+            "categories": detected_categories,
+            "keywords_found": keywords_found,
+            "impact_level": impact_level,
+            "category_count": len(detected_categories)
+        }
+    
     def summarize_articles(self, articles: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Summarize articles and extract key insights.
@@ -76,22 +130,37 @@ class SummarizerAgent:
         """
         try:
             summarized_articles = []
+            geopolitical_articles = []
             sources_processed = set()
             db_insertions = 0
             
             for article in articles:
                 # Extract key information
+                title = article.get("title", "")
+                article_summary = article.get("summary", article.get("body", "")[:200] + "...")
+                
+                # Detect geopolitical content
+                text_to_analyze = f"{title} {article_summary}"
+                geopolitical_data = self.detect_geopolitical_keywords(text_to_analyze)
+                
                 summary = {
-                    "title": article.get("title", ""),
-                    "summary": article.get("summary", article.get("body", "")[:200] + "..."),
+                    "title": title,
+                    "summary": article_summary,
                     "sentiment": article.get("tone", "Neutral"),
                     "source": article.get("source", "unknown"),
                     "url": article.get("url", ""),
                     "timestamp": article.get("timestamp", datetime.now().isoformat()),
-                    "affected_tickers": article.get("affected_tickers", "")
+                    "affected_tickers": article.get("affected_tickers", ""),
+                    "geopolitical": geopolitical_data
                 }
                 
                 summarized_articles.append(summary)
+                
+                # Track geopolitical articles separately for email section
+                if geopolitical_data["is_geopolitical"]:
+                    geopolitical_articles.append(summary)
+                    logger.info(f"🌍 Detected geopolitical content: {title} - Categories: {geopolitical_data['categories']}")
+                
                 sources_processed.add(summary["source"])
                 
                 # Store summarized headline in database
@@ -100,8 +169,10 @@ class SummarizerAgent:
                         # Build headline dictionary for database insertion
                         affected_tickers = summary.get('affected_tickers', '')
                         symbol = None
-                        if affected_tickers:
+                        if affected_tickers and isinstance(affected_tickers, str):
                             symbol = affected_tickers.split(',')[0].strip()
+                        elif affected_tickers and isinstance(affected_tickers, list):
+                            symbol = str(affected_tickers[0]) if affected_tickers else None
                         
                         headline_dict = {
                             'timestamp': summary['timestamp'],
@@ -122,13 +193,16 @@ class SummarizerAgent:
             
             result = {
                 "articles": summarized_articles,
+                "geopolitical_articles": geopolitical_articles,
                 "total_count": len(summarized_articles),
+                "geopolitical_count": len(geopolitical_articles),
                 "sources_processed": list(sources_processed),
                 "timestamp": datetime.now().isoformat(),
                 "database_insertions": db_insertions
             }
             
             logger.info(f"📝 Summarized {len(summarized_articles)} articles from {len(sources_processed)} sources")
+            logger.info(f"🌍 Detected {len(geopolitical_articles)} geopolitical/trade-related articles")
             if DATA_STORE_AVAILABLE:
                 logger.info(f"💾 Stored {db_insertions} headlines in database")
             else:

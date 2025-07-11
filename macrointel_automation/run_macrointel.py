@@ -36,7 +36,10 @@ def main(send_email=False):
         regime_data = {}
     elif hasattr(regime_data, 'to_dict'):
         regime_data = regime_data.to_dict()
-    logging.info(f"📊 Regime data keys: {list(regime_data.keys()) if regime_data else 'None'}")
+    if isinstance(regime_data, dict):
+        logging.info(f"📊 Regime data keys: {list(regime_data.keys())}")
+    else:
+        logging.info("📊 Regime data keys: None")
 
     # Step 2: Run AI agent pipeline
     logging.info("🤖 Step 2: Running AI agent pipeline...")

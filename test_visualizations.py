@@ -131,13 +131,19 @@ def test_visualization_engine():
     if results['charts_generated']:
         print(f"\n✅ Generated charts:")
         for chart in results['charts_generated']:
-            print(f"   - {chart['type']}: {chart['path']}")
-    
+            if isinstance(chart, dict):
+                print(f"   - {chart.get('type', 'Unknown')}: {chart.get('path', 'Unknown')}")
+            else:
+                print(f"   - {str(chart)}")
+
     if results['charts_skipped']:
         print(f"\n⚠️ Skipped charts:")
         for chart in results['charts_skipped']:
-            print(f"   - {chart}")
-    
+            if isinstance(chart, dict):
+                print(f"   - {chart.get('type', 'Unknown')}: {chart.get('path', 'Unknown')}")
+            else:
+                print(f"   - {str(chart)}")
+
     if results['errors']:
         print(f"\n❌ Errors:")
         for error in results['errors']:

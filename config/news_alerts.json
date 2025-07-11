@@ -1,0 +1,89 @@
+{
+  "enabled": true,
+  "check_interval": 300,
+  "notification_cooldown": 900,
+  "max_notifications_per_hour": 10,
+  "strategy_keywords": {
+    "fed": {
+      "terms": [
+        "federal reserve",
+        "fed",
+        "jerome powell",
+        "fomc",
+        "federal open market",
+        "fed meeting",
+        "fed decision",
+        "fed rate"
+      ],
+      "priority": "high",
+      "enabled": true
+    },
+    "inflation": {
+      "terms": [
+        "inflation",
+        "cpi",
+        "consumer price index",
+        "pce",
+        "deflation",
+        "price stability",
+        "inflationary"
+      ],
+      "priority": "high",
+      "enabled": true
+    },
+    "oil": {
+      "terms": [
+        "oil price",
+        "crude oil",
+        "opec",
+        "brent",
+        "wti",
+        "petroleum",
+        "oil production",
+        "energy crisis"
+      ],
+      "priority": "medium",
+      "enabled": true
+    },
+    "bitcoin": {
+      "terms": [
+        "bitcoin",
+        "btc",
+        "cryptocurrency",
+        "crypto",
+        "blockchain",
+        "bitcoin price",
+        "bitcoin etf"
+      ],
+      "priority": "medium",
+      "enabled": true
+    },
+    "geopolitical": {
+      "terms": [
+        "war",
+        "conflict",
+        "sanctions",
+        "trade war",
+        "china trade",
+        "tariffs",
+        "russia",
+        "ukraine"
+      ],
+      "priority": "high",
+      "enabled": true
+    },
+    "market_stress": {
+      "terms": [
+        "market crash",
+        "recession",
+        "bear market",
+        "volatility spike",
+        "vix",
+        "market selloff",
+        "panic"
+      ],
+      "priority": "critical",
+      "enabled": true
+    }
+  }
+}

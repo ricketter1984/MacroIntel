@@ -157,18 +157,9 @@ class MarketRegimeCalculator:
         return market_data
     
     def _simulate_vix_data(self) -> Dict[str, Any]:
-        """Simulate VIX data for testing purposes."""
-        current_vix = np.random.uniform(15, 35)
-        return {
-            'current': current_vix,
-            'term_structure': {
-                'vix1m': current_vix * 0.95,
-                'vix3m': current_vix * 1.05,
-                'vix6m': current_vix * 1.10
-            },
-            'atr_spy': np.random.uniform(1.5, 4.0),
-            'atr_qqq': np.random.uniform(2.0, 5.0)
-        }
+        """DEPRECATED: No longer simulating VIX data - real API required."""
+        logger.error("❌ Real VIX API data required - no simulated data available")
+        return None
     
     def calculate_volatility_score(self, market_data: Dict[str, Any]) -> Dict[str, Any]:
         """

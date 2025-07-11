@@ -1,0 +1,254 @@
+[
+  {
+    "timestamp": "2025-07-11T19:04:55.178668",
+    "headline": "Perplexity Macro News: The Federal Reserve recently decided to **maintain...",
+    "summary": "",
+    "source": "perplexity",
+    "url": "",
+    "categories": [
+      "fed"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "fed",
+        "term": "federal reserve",
+        "priority": "high"
+      }
+    ],
+    "notified": true,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.185999",
+    "headline": "Occidental Petroleum (OXY) Increases Despite Market Slip: Here's What You Need to Know",
+    "summary": "",
+    "source": "fmp",
+    "url": "https://www.zacks.com/stock/news/2574624/occidental-petroleum-oxy-increases-despite-market-slip-here-s-what-you-need-to-know?cid=CS-STOCKNEWSAPI-FT-tale_of_the_tape|yseop_template_6v1-2574624",
+    "categories": [
+      "oil"
+    ],
+    "priority": "medium",
+    "matches": [
+      {
+        "category": "oil",
+        "term": "petroleum",
+        "priority": "medium"
+      }
+    ],
+    "notified": true,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.220253",
+    "headline": "Precipio Enters Into Agreement With Warrant Holder To Exercise Majority Of Warrants As Cashless",
+    "summary": "",
+    "source": "polygon",
+    "url": "https://www.globenewswire.com/news-release/2025/07/11/3114274/0/en/Precipio-Enters-Into-Agreement-With-Warrant-Holder-To-Exercise-Majority-Of-Warrants-As-Cashless.html",
+    "categories": [
+      "geopolitical"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "geopolitical",
+        "term": "war",
+        "priority": "high"
+      }
+    ],
+    "notified": true,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.226024",
+    "headline": "Super Micro Computer: The Hidden Winner of Soaring Copper Tariffs",
+    "summary": "",
+    "source": "polygon",
+    "url": "https://www.investing.com/analysis/super-micro-computer-the-hidden-winner-of-soaring-copper-tariffs-200663564",
+    "categories": [
+      "geopolitical"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "geopolitical",
+        "term": "tariffs",
+        "priority": "high"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.233506",
+    "headline": "Crypto Exchanges Will Acquire Neobanks To Access Mainstream Finance",
+    "summary": "",
+    "source": "polygon",
+    "url": "https://www.benzinga.com/markets/cryptocurrency/25/07/46371679/crypto-exchanges-will-acquire-neobanks-to-access-mainstream-finance",
+    "categories": [
+      "bitcoin"
+    ],
+    "priority": "medium",
+    "matches": [
+      {
+        "category": "bitcoin",
+        "term": "crypto",
+        "priority": "medium"
+      }
+    ],
+    "notified": true,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.240696",
+    "headline": "World's Smartest Banker Warns Investors, Banks To Kick Off Earnings Season, Bitcoin Hits $118K",
+    "summary": "",
+    "source": "polygon",
+    "url": "https://www.benzinga.com/markets/cryptocurrency/25/07/46371409/worlds-smartest-banker-warns-investors-banks-to-kick-off-earnings-season-bitcoin-hits-118k",
+    "categories": [
+      "bitcoin",
+      "geopolitical"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "bitcoin",
+        "term": "bitcoin",
+        "priority": "medium"
+      },
+      {
+        "category": "geopolitical",
+        "term": "war",
+        "priority": "high"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.248287",
+    "headline": "Warden Protocol: Closing the UX Gap to Mass Crypto Adoption with AI Agents",
+    "summary": "",
+    "source": "messari",
+    "url": "https://messari.io/article/warden-protocol-closing-the-ux-gap-to-mass-crypto-adoption-with-ai-agents",
+    "categories": [
+      "bitcoin",
+      "geopolitical"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "bitcoin",
+        "term": "crypto",
+        "priority": "medium"
+      },
+      {
+        "category": "geopolitical",
+        "term": "war",
+        "priority": "high"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:04:55.256369",
+    "headline": "TEE: The Hardware Backbone for Next-Gen Onchain Experience",
+    "summary": "",
+    "source": "messari",
+    "url": "https://messari.io/article/tee-the-hardware-backbone-for-next-gen-onchain-experience",
+    "categories": [
+      "geopolitical"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "geopolitical",
+        "term": "war",
+        "priority": "high"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:10:06.539232",
+    "headline": "Perplexity Macro News: **Recent Headline Macroeconomic News: Federal Rese...",
+    "summary": "",
+    "source": "perplexity",
+    "url": "",
+    "categories": [
+      "fed"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "fed",
+        "term": "fed",
+        "priority": "high"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:10:06.548938",
+    "headline": "Perplexity Macro News: Recent macroeconomic developments show **crude oil...",
+    "summary": "",
+    "source": "perplexity",
+    "url": "",
+    "categories": [
+      "oil"
+    ],
+    "priority": "medium",
+    "matches": [
+      {
+        "category": "oil",
+        "term": "crude oil",
+        "priority": "medium"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:15:26.116354",
+    "headline": "Perplexity Macro News: Recent U.S. CPI inflation data shows a modest incr...",
+    "summary": "",
+    "source": "perplexity",
+    "url": "",
+    "categories": [
+      "inflation"
+    ],
+    "priority": "high",
+    "matches": [
+      {
+        "category": "inflation",
+        "term": "inflation",
+        "priority": "high"
+      }
+    ],
+    "notified": true,
+    "sentiment": "neutral"
+  },
+  {
+    "timestamp": "2025-07-11T19:15:26.136376",
+    "headline": "Perplexity Macro News: Recent macroeconomic news on crude oil prices indi...",
+    "summary": "",
+    "source": "perplexity",
+    "url": "",
+    "categories": [
+      "oil"
+    ],
+    "priority": "medium",
+    "matches": [
+      {
+        "category": "oil",
+        "term": "oil price",
+        "priority": "medium"
+      }
+    ],
+    "notified": false,
+    "sentiment": "neutral"
+  }
+]

@@ -316,9 +316,301 @@ class ChartGeneratorAgent:
                 "error": str(e)
             }
     
+    def analyze_regime_strength(self, regime_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Analyze regime strength and provide detailed interpretation.
+        
+        Args:
+            regime_data: Market regime analysis data
+            
+        Returns:
+            Dictionary with regime strength analysis
+        """
+        try:
+            total_score = regime_data.get('total_score', 50.0)
+            classification = regime_data.get('regime_classification', 'Neutral')
+            component_breakdown = regime_data.get('component_breakdown', {})
+            
+            # Determine regime strength
+            if total_score >= 75:
+                strength = "very strong"
+                confidence = "high"
+            elif total_score >= 60:
+                strength = "strong"
+                confidence = "moderate-high"
+            elif total_score >= 40:
+                strength = "neutral"
+                confidence = "moderate"
+            elif total_score >= 25:
+                strength = "weak"
+                confidence = "low-moderate"
+            else:
+                strength = "very weak"
+                confidence = "low"
+            
+            # Analyze key components
+            key_drivers = []
+            weak_areas = []
+            
+            for component, data in component_breakdown.items():
+                if isinstance(data, dict):
+                    score = data.get('weighted_score', 0)
+                    if score > 15:  # Strong component
+                        key_drivers.append(component.replace('_', ' ').title())
+                    elif score < 8:  # Weak component
+                        weak_areas.append(component.replace('_', ' ').title())
+            
+            return {
+                "score": total_score,
+                "classification": classification,
+                "strength": strength,
+                "confidence": confidence,
+                "key_drivers": key_drivers,
+                "weak_areas": weak_areas,
+                "is_bullish": total_score > 60,
+                "is_bearish": total_score < 40,
+                "is_extreme": total_score > 75 or total_score < 25
+            }
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Error analyzing regime strength: {str(e)}")
+            return {
+                "score": 50.0,
+                "classification": "Neutral",
+                "strength": "neutral",
+                "confidence": "low",
+                "key_drivers": [],
+                "weak_areas": [],
+                "is_bullish": False,
+                "is_bearish": False,
+                "is_extreme": False
+            }
+    
+    def determine_tier_logic(self, regime_analysis: Dict[str, Any], fear_greed_score: int) -> Dict[str, Any]:
+        """
+        Determine appropriate tier strategy based on regime and sentiment.
+        
+        Args:
+            regime_analysis: Regime strength analysis
+            fear_greed_score: Current Fear & Greed Index score
+            
+        Returns:
+            Dictionary with tier strategy logic
+        """
+        try:
+            regime_score = regime_analysis.get('score', 50.0)
+            is_extreme = regime_analysis.get('is_extreme', False)
+            strength = regime_analysis.get('strength', 'neutral')
+            confidence = regime_analysis.get('confidence', 'moderate')
+            
+            # Determine tier based on combined analysis
+            if is_extreme and confidence in ['high', 'moderate-high']:
+                # Strong regime signals suggest Tier 1 (momentum)
+                if regime_score > 70 or regime_score < 30:
+                    tier = "Tier 1"
+                    strategy_type = "momentum_breakout"
+                    rationale = f"Extreme regime conditions ({regime_score:.1f}) with {confidence} confidence warrant aggressive positioning"
+                else:
+                    tier = "Tier 2"
+                    strategy_type = "mean_reversion"
+                    rationale = f"Moderate regime signals suggest mean reversion approach"
+            elif fear_greed_score < 25 or fear_greed_score > 75:
+                # Extreme sentiment often creates mean reversion opportunities
+                tier = "Tier 2"
+                strategy_type = "mean_reversion"
+                rationale = f"Extreme sentiment ({fear_greed_score}) typically creates mean reversion setups"
+            elif regime_score > 65 and fear_greed_score > 60:
+                # Strong bullish alignment
+                tier = "Tier 1"
+                strategy_type = "momentum_continuation"
+                rationale = f"Strong regime ({regime_score:.1f}) + bullish sentiment ({fear_greed_score}) align for momentum"
+            elif regime_score < 35 and fear_greed_score < 40:
+                # Strong bearish alignment
+                tier = "Tier 1"
+                strategy_type = "momentum_breakout"
+                rationale = f"Weak regime ({regime_score:.1f}) + fearful sentiment ({fear_greed_score}) suggest defensive momentum"
+            else:
+                # Default to mean reversion in unclear conditions
+                tier = "Tier 2"
+                strategy_type = "mean_reversion"
+                rationale = f"Mixed signals (Regime: {regime_score:.1f}, F&G: {fear_greed_score}) favor mean reversion"
+            
+            return {
+                "tier": tier,
+                "strategy_type": strategy_type,
+                "rationale": rationale,
+                "risk_level": "high" if tier == "Tier 1" else "moderate",
+                "time_horizon": "short-term" if tier == "Tier 1" else "medium-term"
+            }
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Error determining tier logic: {str(e)}")
+            return {
+                "tier": "Tier 2",
+                "strategy_type": "mean_reversion",
+                "rationale": "Default to mean reversion due to analysis error",
+                "risk_level": "moderate",
+                "time_horizon": "medium-term"
+            }
+    
+    def analyze_perplexity_context(self, dominant_keywords: List[str], tags: List[str], topic: str | None = None) -> Dict[str, Any]:
+        """
+        Analyze Perplexity topic tags and keywords to understand market context.
+        
+        Args:
+            dominant_keywords: List of dominant keywords from Perplexity
+            tags: List of tags from Perplexity
+            topic: Main topic string
+            
+        Returns:
+            Dictionary with context analysis
+        """
+        try:
+            # Market-relevant categories
+            market_categories = {
+                'monetary_policy': ['fed', 'interest', 'rates', 'inflation', 'monetary', 'policy', 'powell', 'fomc'],
+                'geopolitical': ['war', 'conflict', 'china', 'russia', 'trade', 'tariffs', 'sanctions', 'geopolitical'],
+                'earnings': ['earnings', 'revenue', 'profit', 'guidance', 'beat', 'miss', 'outlook'],
+                'sector_rotation': ['sector', 'rotation', 'tech', 'energy', 'financials', 'healthcare', 'utilities'],
+                'volatility': ['volatility', 'vix', 'options', 'hedge', 'risk', 'uncertainty'],
+                'crypto': ['bitcoin', 'crypto', 'blockchain', 'ethereum', 'digital', 'currency'],
+                'commodities': ['oil', 'gold', 'copper', 'commodities', 'energy', 'metals'],
+                'economic_data': ['gdp', 'employment', 'jobless', 'unemployment', 'manufacturing', 'consumer']
+            }
+            
+            # Analyze keywords and tags
+            all_terms = [term.lower() for term in (dominant_keywords + tags + ([topic] if topic else []))]
+            
+            category_scores = {}
+            for category, keywords in market_categories.items():
+                score = sum(1 for term in all_terms for keyword in keywords if keyword in term)
+                if score > 0:
+                    category_scores[category] = score
+            
+            # Determine primary theme
+            primary_theme = max(category_scores.keys(), key=lambda x: category_scores[x]) if category_scores else 'general_market'
+            
+            # Assess market impact
+            high_impact_categories = ['monetary_policy', 'geopolitical', 'volatility']
+            market_impact = 'high' if primary_theme in high_impact_categories else 'moderate'
+            
+            return {
+                "primary_theme": primary_theme.replace('_', ' ').title(),
+                "category_scores": category_scores,
+                "market_impact": market_impact,
+                "key_terms": dominant_keywords[:5],  # Top 5 keywords
+                "relevant_tags": [tag for tag in tags if any(cat in tag.lower() for cat in market_categories.keys())][:3]
+            }
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Error analyzing Perplexity context: {str(e)}")
+            return {
+                "primary_theme": "General Market",
+                "category_scores": {},
+                "market_impact": "moderate",
+                "key_terms": dominant_keywords[:3] if dominant_keywords else [],
+                "relevant_tags": tags[:2] if tags else []
+            }
+    
+    def generate_intelligent_explanation(self, chart_result: Dict[str, Any], regime_analysis: Dict[str, Any], 
+                                       tier_logic: Dict[str, Any], perplexity_context: Dict[str, Any], 
+                                       fear_greed_score: int) -> str:
+        """
+        Generate sophisticated AI explanation for the chart.
+        
+        Args:
+            chart_result: Chart generation result
+            regime_analysis: Regime strength analysis
+            tier_logic: Tier strategy logic
+            perplexity_context: Perplexity context analysis
+            fear_greed_score: Current Fear & Greed Index score
+            
+        Returns:
+            Detailed AI explanation string
+        """
+        try:
+            # Extract key information
+            primary_instrument = chart_result.get("primary_instrument", "market instrument")
+            secondary_instrument = chart_result.get("secondary_instrument", "secondary asset")
+            regime_score = regime_analysis.get('score', 50.0)
+            tier = tier_logic.get('tier', 'Tier 2')
+            strategy_type = tier_logic.get('strategy_type', 'mean_reversion')
+            theme = perplexity_context.get('primary_theme', 'Market Activity')
+            key_terms = perplexity_context.get('key_terms', [])
+            market_impact = perplexity_context.get('market_impact', 'moderate')
+            
+            # Build explanation sections
+            sections = []
+            
+            # Context section
+            if key_terms:
+                terms_str = ', '.join(key_terms[:3])
+                sections.append(f"📰 **News Context**: Recent coverage of {theme.lower()} ({terms_str}) is creating {market_impact} market impact.")
+            else:
+                sections.append(f"📰 **News Context**: Current {theme.lower()} developments are influencing market dynamics.")
+            
+            # Regime analysis section
+            strength = regime_analysis.get('strength', 'neutral')
+            confidence = regime_analysis.get('confidence', 'moderate')
+            sections.append(f"📊 **Regime Analysis**: Market regime score of {regime_score:.1f} indicates {strength} conditions with {confidence} confidence.")
+            
+            # Key drivers
+            key_drivers = regime_analysis.get('key_drivers', [])
+            if key_drivers:
+                drivers_str = ', '.join(key_drivers[:2])
+                sections.append(f"🔑 **Key Drivers**: {drivers_str} are primary factors supporting current regime.")
+            
+            # Sentiment analysis
+            if fear_greed_score < 25:
+                sentiment_desc = "extreme fear creating potential mean reversion opportunities"
+            elif fear_greed_score > 75:
+                sentiment_desc = "extreme greed suggesting caution and potential reversal"
+            elif fear_greed_score < 40:
+                sentiment_desc = "fearful sentiment favoring defensive positioning"
+            elif fear_greed_score > 60:
+                sentiment_desc = "optimistic sentiment supporting trend continuation"
+            else:
+                sentiment_desc = "neutral sentiment allowing for tactical positioning"
+            
+            sections.append(f"😨 **Sentiment**: Fear & Greed at {fear_greed_score} indicates {sentiment_desc}.")
+            
+            # Strategy rationale
+            rationale = tier_logic.get('rationale', 'Strategy based on current conditions')
+            risk_level = tier_logic.get('risk_level', 'moderate')
+            time_horizon = tier_logic.get('time_horizon', 'medium-term')
+            
+            sections.append(f"🎯 **{tier} Strategy**: {rationale}. This {risk_level}-risk, {time_horizon} approach focuses on {primary_instrument} with {secondary_instrument} as a hedge.")
+            
+            # Chart explanation
+            if tier == "Tier 1":
+                chart_purpose = f"This chart visualizes momentum opportunities in {primary_instrument}, designed for aggressive positioning when regime signals align with trend direction."
+            else:
+                chart_purpose = f"This chart identifies mean reversion opportunities in {primary_instrument}, optimal for moderate risk positioning during uncertain or transitional market phases."
+            
+            sections.append(f"📈 **Chart Purpose**: {chart_purpose}")
+            
+            # Trading logic explanation
+            if strategy_type == "momentum_breakout":
+                trading_logic = "Look for breakout confirmations with strong volume. Risk management via stop-losses below key support levels."
+            elif strategy_type == "momentum_continuation":
+                trading_logic = "Focus on trend continuation patterns. Scale in on pullbacks to moving averages."
+            else:  # mean_reversion
+                trading_logic = "Target oversold/overbought conditions. Use range boundaries for entry/exit signals."
+            
+            sections.append(f"⚙️ **Trading Logic**: {trading_logic}")
+            
+            # Combine all sections
+            explanation = " ".join(sections)
+            
+            return explanation
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Error generating intelligent explanation: {str(e)}")
+            return f"Chart analysis for current market conditions focusing on {chart_result.get('primary_instrument', 'market instrument')} using {tier_logic.get('tier', 'Tier 2')} strategy approach."
+    
     def generate_intelligent_chart(self, regime_data: Dict[str, Any], fear_greed_score: int, dominant_keywords=None, tags=None, topic=None, headline=None) -> Dict[str, Any]:
         """
-        Generate intelligent regime-aware chart with AI explanation.
+        Generate intelligent regime-aware chart with enhanced AI explanation.
         Args:
             regime_data: Market regime analysis data
             fear_greed_score: Current Fear & Greed Index score
@@ -327,55 +619,67 @@ class ChartGeneratorAgent:
             topic: Main topic string (optional)
             headline: Example headline string (optional)
         Returns:
-            Dictionary with chart information and AI explanation
+            Dictionary with chart information and sophisticated AI explanation
         """
         try:
-            logger.info("🧠 Generating intelligent regime-aware chart...")
+            logger.info("🧠 Generating intelligent regime-aware chart with enhanced explanations...")
+            
             # Ensure lists
             if dominant_keywords is None:
                 dominant_keywords = []
             if tags is None:
                 tags = []
-            # Generate the intelligent chart
+            
+            # Perform enhanced analysis
+            regime_analysis = self.analyze_regime_strength(regime_data)
+            tier_logic = self.determine_tier_logic(regime_analysis, fear_greed_score)
+            perplexity_context = self.analyze_perplexity_context(dominant_keywords, tags, topic)
+            
+            logger.info(f"📊 Analysis complete: {tier_logic['tier']} strategy, {perplexity_context['primary_theme']} theme")
+            
+            # Generate the intelligent chart with determined tier
             chart_result = self.enhanced_viz.generate_intelligent_chart(
                 regime_data=regime_data,
                 fear_greed_score=fear_greed_score,
                 dominant_keywords=dominant_keywords,
                 tags=tags
             )
+            
             if chart_result and chart_result.get("chart_path"):
-                # Compose new AI explanation
-                topic_val = topic or (chart_result.get("topic") if chart_result else "macro theme")
-                headline_val = headline or "recent headline"
-                instrument = (chart_result.get("main_asset") if chart_result else None) or (chart_result.get("primary_instrument") if chart_result else "instrument")
-                score = chart_result.get("regime_score") if chart_result else "?"
-                fg_score = chart_result.get("fear_greed_score") if chart_result else "?"
-                interpretation = "favorable setup"
-                tier_val = chart_result.get("tier") if chart_result and chart_result.get("tier") else "Tier 2"
-                
-                # Validate tier - only allow Tier 1 or Tier 2, default to Tier 2
-                if tier_val not in ["Tier 1", "Tier 2"]:
-                    tier_val = "Tier 2"
-                
-                # Ensure tier is a string before calling capitalize
-                tier = str(tier_val).capitalize() if tier_val is not None else "Tier 2"
-                ai_explanation = (
-                    f"This chart highlights how recent news on {topic_val} (e.g. '{headline_val}') "
-                    f"may be affecting {instrument}. The macro regime score of {score} and sentiment at {fg_score} "
-                    f"suggest {interpretation}, making this setup ideal for a {tier} approach."
+                # Generate sophisticated AI explanation
+                ai_explanation = self.generate_intelligent_explanation(
+                    chart_result=chart_result,
+                    regime_analysis=regime_analysis,
+                    tier_logic=tier_logic,
+                    perplexity_context=perplexity_context,
+                    fear_greed_score=fear_greed_score
                 )
-                chart_result["ai_explanation"] = ai_explanation
+                
+                # Add enhanced analysis to chart result
+                chart_result.update({
+                    "ai_explanation": ai_explanation,
+                    "tier_logic": tier_logic,
+                    "regime_analysis": regime_analysis,
+                    "perplexity_context": perplexity_context,
+                    "enhanced_analysis": True
+                })
+                
+                logger.info(f"✅ Generated {tier_logic['tier']} chart with enhanced explanation")
+                
                 return {
                     "success": True,
                     "chart_type": "intelligent_regime",
-                    "file_path": chart_result.get("chart_path", "") if chart_result else "",
+                    "file_path": chart_result.get("chart_path", ""),
                     "description": ai_explanation,
-                    "context": f"Regime: {chart_result.get('regime', 'Unknown')}, Strategy: {chart_result.get('strategy', 'Unknown')}" if chart_result else "",
-                    "regime": chart_result.get("regime", "Unknown") if chart_result else "Unknown",
-                    "strategy": chart_result.get("strategy", "Unknown") if chart_result else "Unknown",
-                    "primary_instrument": chart_result.get("primary_instrument", "") if chart_result else "",
-                    "secondary_instrument": chart_result.get("secondary_instrument", "") if chart_result else "",
-                    "ai_explanation": ai_explanation
+                    "context": f"Regime: {regime_analysis['classification']}, Strategy: {tier_logic['tier']} {tier_logic['strategy_type'].replace('_', ' ').title()}",
+                    "regime": chart_result.get("regime", regime_analysis['classification']),
+                    "strategy": tier_logic['tier'],
+                    "primary_instrument": chart_result.get("primary_instrument", ""),
+                    "secondary_instrument": chart_result.get("secondary_instrument", ""),
+                    "ai_explanation": ai_explanation,
+                    "tier_logic": tier_logic,
+                    "market_theme": perplexity_context['primary_theme'],
+                    "regime_strength": regime_analysis['strength']
                 }
             else:
                 logger.warning("⚠️ Intelligent chart generation failed")
@@ -383,6 +687,7 @@ class ChartGeneratorAgent:
                     "success": False,
                     "error": "Chart generation failed"
                 }
+                
         except Exception as e:
             logger.error(f"❌ Error generating intelligent chart: {str(e)}")
             return {
