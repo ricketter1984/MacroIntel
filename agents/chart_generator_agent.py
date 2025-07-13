@@ -399,56 +399,35 @@ class ChartGeneratorAgent:
         """
         try:
             regime_score = regime_analysis.get('score', 50.0)
-            is_extreme = regime_analysis.get('is_extreme', False)
-            strength = regime_analysis.get('strength', 'neutral')
-            confidence = regime_analysis.get('confidence', 'moderate')
             
-            # Determine tier based on combined analysis
-            if is_extreme and confidence in ['high', 'moderate-high']:
-                # Strong regime signals suggest Tier 1 (momentum)
-                if regime_score > 70 or regime_score < 30:
-                    tier = "Tier 1"
-                    strategy_type = "momentum_breakout"
-                    rationale = f"Extreme regime conditions ({regime_score:.1f}) with {confidence} confidence warrant aggressive positioning"
-                else:
-                    tier = "Tier 2"
-                    strategy_type = "mean_reversion"
-                    rationale = f"Moderate regime signals suggest mean reversion approach"
-            elif fear_greed_score < 25 or fear_greed_score > 75:
-                # Extreme sentiment often creates mean reversion opportunities
-                tier = "Tier 2"
-                strategy_type = "mean_reversion"
-                rationale = f"Extreme sentiment ({fear_greed_score}) typically creates mean reversion setups"
-            elif regime_score > 65 and fear_greed_score > 60:
-                # Strong bullish alignment
+            # Simplified tier logic - override any Tier 3 or 4 strategies
+            if regime_score >= 65:
                 tier = "Tier 1"
-                strategy_type = "momentum_continuation"
-                rationale = f"Strong regime ({regime_score:.1f}) + bullish sentiment ({fear_greed_score}) align for momentum"
-            elif regime_score < 35 and fear_greed_score < 40:
-                # Strong bearish alignment
-                tier = "Tier 1"
-                strategy_type = "momentum_breakout"
-                rationale = f"Weak regime ({regime_score:.1f}) + fearful sentiment ({fear_greed_score}) suggest defensive momentum"
+                strategy_type = "reversal"
+                rationale = f"High regime score ({regime_score:.1f}) indicates reversal opportunity"
+                risk_level = "high"
+                time_horizon = "short-term"
             else:
-                # Default to mean reversion in unclear conditions
                 tier = "Tier 2"
-                strategy_type = "mean_reversion"
-                rationale = f"Mixed signals (Regime: {regime_score:.1f}, F&G: {fear_greed_score}) favor mean reversion"
+                strategy_type = "momentum"
+                rationale = f"Moderate regime score ({regime_score:.1f}) favors momentum strategy"
+                risk_level = "moderate"
+                time_horizon = "medium-term"
             
             return {
                 "tier": tier,
                 "strategy_type": strategy_type,
                 "rationale": rationale,
-                "risk_level": "high" if tier == "Tier 1" else "moderate",
-                "time_horizon": "short-term" if tier == "Tier 1" else "medium-term"
+                "risk_level": risk_level,
+                "time_horizon": time_horizon
             }
             
         except Exception as e:
             logger.warning(f"⚠️ Error determining tier logic: {str(e)}")
             return {
                 "tier": "Tier 2",
-                "strategy_type": "mean_reversion",
-                "rationale": "Default to mean reversion due to analysis error",
+                "strategy_type": "momentum",
+                "rationale": "Default to momentum strategy due to analysis error",
                 "risk_level": "moderate",
                 "time_horizon": "medium-term"
             }
@@ -583,19 +562,17 @@ class ChartGeneratorAgent:
             
             # Chart explanation
             if tier == "Tier 1":
-                chart_purpose = f"This chart visualizes momentum opportunities in {primary_instrument}, designed for aggressive positioning when regime signals align with trend direction."
+                chart_purpose = f"This chart visualizes reversal opportunities in {primary_instrument}, designed for high-conviction positioning when regime signals indicate potential reversals."
             else:
-                chart_purpose = f"This chart identifies mean reversion opportunities in {primary_instrument}, optimal for moderate risk positioning during uncertain or transitional market phases."
+                chart_purpose = f"This chart identifies momentum opportunities in {primary_instrument}, optimal for moderate risk positioning during trending market conditions."
             
             sections.append(f"📈 **Chart Purpose**: {chart_purpose}")
             
             # Trading logic explanation
-            if strategy_type == "momentum_breakout":
-                trading_logic = "Look for breakout confirmations with strong volume. Risk management via stop-losses below key support levels."
-            elif strategy_type == "momentum_continuation":
-                trading_logic = "Focus on trend continuation patterns. Scale in on pullbacks to moving averages."
-            else:  # mean_reversion
-                trading_logic = "Target oversold/overbought conditions. Use range boundaries for entry/exit signals."
+            if strategy_type == "reversal":
+                trading_logic = "Look for reversal confirmations with strong volume. Target counter-trend moves with disciplined risk management."
+            else:  # momentum
+                trading_logic = "Focus on trend continuation patterns. Scale in on pullbacks to moving averages and momentum signals."
             
             sections.append(f"⚙️ **Trading Logic**: {trading_logic}")
             
@@ -645,7 +622,10 @@ class ChartGeneratorAgent:
                 tags=tags
             )
             
-            if chart_result and chart_result.get("chart_path"):
+            # Check for either chart_path or file_path (different modules use different keys)
+            chart_file_path = chart_result.get("chart_path") or chart_result.get("file_path") or chart_result.get("filename")
+            
+            if chart_result and chart_file_path:
                 # Generate sophisticated AI explanation
                 ai_explanation = self.generate_intelligent_explanation(
                     chart_result=chart_result,
@@ -669,7 +649,7 @@ class ChartGeneratorAgent:
                 return {
                     "success": True,
                     "chart_type": "intelligent_regime",
-                    "file_path": chart_result.get("chart_path", ""),
+                    "file_path": chart_file_path,
                     "description": ai_explanation,
                     "context": f"Regime: {regime_analysis['classification']}, Strategy: {tier_logic['tier']} {tier_logic['strategy_type'].replace('_', ' ').title()}",
                     "regime": chart_result.get("regime", regime_analysis['classification']),

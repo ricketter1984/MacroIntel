@@ -40,6 +40,7 @@ load_dotenv(dotenv_path=project_root / "config" / ".env")
 from api_dispatcher import dispatch_api_task
 from core.enhanced_report_builder import EnhancedReportBuilder
 from core.enhanced_visualizations import EnhancedVisualizations
+from agents.quiver_agent import run_quiver_pipeline, QuiverAgent
 
 # Setup logging
 logging.basicConfig(
@@ -627,6 +628,8 @@ def main():
     parser.add_argument("--scheduler", action="store_true", help="Run the APScheduler")
     parser.add_argument("--analysis", action="store_true", help="Run market analysis")
     parser.add_argument("--swarm", action="store_true", help="Run single swarm pipeline execution")
+    parser.add_argument("--quiver", action="store_true", help="Run Quiver data pipeline for congressional trades and alternative data")
+    parser.add_argument("--summary", action="store_true", help="When used with --quiver, display summary of 5 most recent congressional trades")
     
     args = parser.parse_args()
     
@@ -641,6 +644,55 @@ def main():
     elif args.swarm:
         macrointel = EnhancedMacroIntel()
         macrointel.run_swarm_pipeline()
+    elif args.quiver:
+        # Run Quiver data pipeline
+        logger.info("🏛️ Running Quiver data pipeline...")
+        result = run_quiver_pipeline()
+        
+        if result['success']:
+            logger.info("✅ Quiver pipeline completed successfully")
+            
+            # Display statistics
+            if result['stats']:
+                print("\n📊 Database Statistics:")
+                for key, value in result['stats'].items():
+                    print(f"  {key}: {value:,}")
+        else:
+            logger.error("❌ Quiver pipeline failed")
+            for error in result['errors']:
+                logger.error(f"  - {error}")
+            
+            # Still show stats even if there were some errors
+            if result['stats']:
+                print("\n📊 Database Statistics:")
+                for key, value in result['stats'].items():
+                    print(f"  {key}: {value:,}")
+        
+        # If summary flag is also provided, show recent congressional trades
+        if args.summary:
+            try:
+                agent = QuiverAgent()
+                recent_trades = agent.get_recent_congress_trades(5)
+                
+                if recent_trades:
+                    print("\n🏛️ 5 Most Recent Congressional Trades:")
+                    print("-" * 80)
+                    for i, trade in enumerate(recent_trades, 1):
+                        ticker = trade.get('ticker', 'N/A')
+                        transaction = trade.get('transaction_type', 'N/A')
+                        representative = trade.get('politician', 'N/A')
+                        date = trade.get('transaction_date', 'N/A')
+                        
+                        print(f"{i}. Ticker: {ticker}")
+                        print(f"   Transaction: {transaction}")
+                        print(f"   Representative: {representative}")
+                        print(f"   Date: {date}")
+                        print()
+                else:
+                    print("\n⚠️ No recent congressional trades found in database")
+                    
+            except Exception as e:
+                logger.error(f"❌ Failed to retrieve congressional trades summary: {str(e)}")
     elif args.scheduler:
         run_scheduler()
     else:

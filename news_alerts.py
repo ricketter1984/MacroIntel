@@ -56,11 +56,24 @@ try:
         from agents.summarizer_agent import SummarizerAgent
         logging.info("Successfully imported SummarizerAgent from agents")
     except ImportError:
-        try:
-            from news_scanner.macro_insight_builder import MacroInsightBuilder as SummarizerAgent
-            logging.info("Successfully imported SummarizerAgent alternative")
-        except ImportError:
-            logging.warning("Could not import SummarizerAgent from any location")
+        import logging
+        logging.warning("⚠️ Could not import SummarizerAgent — using fallback.")
+
+        class SummarizerAgent:
+            def summarize(self, article):
+                return {
+                    "summary": "No AI summary available.",
+                    "sentiment": "neutral",
+                    "tags": []
+                }
+            
+            def run(self):
+                return {
+                    "articles": [],
+                    "summary": "No AI summary available.",
+                    "sentiment": "neutral",
+                    "tags": []
+                }
     
     # Check if we have at least one working module
     if fetch_all_news is not None:

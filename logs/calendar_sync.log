@@ -1,0 +1,15 @@
+2025-07-12 12:13:57,576 - __main__ - ERROR - ERROR: credentials.json not found at config\credentials.json
+2025-07-12 12:13:57,576 - __main__ - ERROR - HELP: Download credentials.json from Google Cloud Console and place in config/
+2025-07-12 12:15:04,811 - __main__ - INFO - SYNC: Starting MacroIntel calendar sync...
+2025-07-12 12:15:04,812 - __main__ - ERROR - ERROR: credentials.json not found at config\credentials.json
+2025-07-12 12:15:04,812 - __main__ - ERROR - HELP: Download credentials.json from Google Cloud Console and place in config/
+2025-07-12 12:15:04,812 - __main__ - ERROR - ERROR: Google Calendar authentication failed
+2025-07-12 12:23:33,385 - calendar_google_sync - ERROR - ERROR: FMP_API_KEY not found in environment variables
+2025-07-12 12:25:09,717 - calendar_google_sync - INFO - API: Fetching events from 2025-07-12 to 2025-07-15
+2025-07-12 12:25:21,108 - calendar_google_sync - INFO - SUCCESS: Retrieved 251 events from FMP API
+2025-07-12 12:25:31,806 - calendar_google_sync - INFO - API: Fetching events from 2025-07-12 to 2025-07-15
+2025-07-12 12:25:33,094 - calendar_google_sync - INFO - SUCCESS: Retrieved 251 events from FMP API
+2025-07-12 12:25:33,095 - calendar_google_sync - INFO - FILTER: 140 important events out of 251 total
+2025-07-12 12:26:15,619 - calendar_google_sync - INFO - API: Fetching events from 2025-07-12 to 2025-07-15
+2025-07-12 12:26:15,797 - calendar_google_sync - INFO - SUCCESS: Retrieved 251 events from FMP API
+2025-07-12 12:26:15,798 - calendar_google_sync - INFO - FILTER: 140 important events out of 251 total

@@ -32,6 +32,83 @@ warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
 # Load environment variables
 load_dotenv(dotenv_path="config/.env")
 
+def fetch_valid_data(symbol, period="5d", interval="1d", min_rows=3):
+    """
+    Fetch valid market data using yfinance with fallback logic.
+    
+    Args:
+        symbol: Trading symbol (e.g., 'MES=F', 'MYM=F')
+        period: Time period for data (default: '5d')
+        interval: Data interval (default: '1d')
+        min_rows: Minimum required rows (default: 3)
+        
+    Returns:
+        dict with 'data', 'symbol_used', 'fallback_used' keys or None if all fail
+    """
+    import yfinance as yf
+    
+    logger = logging.getLogger(__name__)
+    
+    # Define fallback symbols
+    fallback_map = {
+        'MCL=F': 'CL=F',  # Oil futures fallback
+        'MNQ=F': 'NQ=F',  # NASDAQ futures fallback
+        'M2K=F': 'RTY=F', # Russell 2000 futures fallback
+        'MES=F': 'ES=F',  # S&P 500 futures fallback
+        'MYM=F': 'YM=F'   # Dow futures fallback
+    }
+    
+    def try_fetch_symbol(sym):
+        """Try to fetch data for a specific symbol."""
+        try:
+            data = yf.download(sym, period=period, interval=interval, progress=False)
+            if data is not None and not data.empty and len(data) >= min_rows:
+                logger.info(f"✅ Successfully fetched {len(data)} rows for {sym}")
+                return data
+            elif data is not None and not data.empty:
+                logger.warning(f"⚠️ {sym} returned {len(data)} rows, need at least {min_rows}")
+                return None
+            else:
+                logger.warning(f"⚠️ {sym} returned empty data")
+                return None
+        except Exception as e:
+            logger.error(f"❌ Data fetch failed for {sym}: {e}")
+            return None
+    
+    # First try the original symbol
+    logger.info(f"📊 Fetching data for {symbol} (need {min_rows}+ rows)")
+    data = try_fetch_symbol(symbol)
+    
+    if data is not None:
+        return {
+            'data': data,
+            'symbol_used': symbol,
+            'fallback_used': False,
+            'warning_message': None
+        }
+    
+    # Try fallback if available
+    if symbol in fallback_map:
+        fallback_symbol = fallback_map[symbol]
+        logger.info(f"🔄 Trying fallback {fallback_symbol} for {symbol}")
+        
+        fallback_data = try_fetch_symbol(fallback_symbol)
+        
+        if fallback_data is not None:
+            logger.info(f"✅ Fallback successful: {fallback_symbol} ({len(fallback_data)} rows)")
+            return {
+                'data': fallback_data,
+                'symbol_used': fallback_symbol,
+                'fallback_used': True,
+                'warning_message': f"Using {fallback_symbol} (fallback for {symbol})"
+            }
+        else:
+            logger.error(f"❌ Fallback {fallback_symbol} also failed for {symbol}")
+    
+    # All attempts failed
+    logger.error(f"❌ All fetch attempts failed for {symbol}")
+    return None
+
 class EnhancedVisualizations:
     def __init__(self):
         """Initialize the enhanced visualization engine."""
@@ -57,35 +134,43 @@ class EnhancedVisualizations:
             'dark': '#343a40'
         }
         
-        # Regime-aware instrument mapping
+        # Regime-aware instrument mapping with futures symbols
         self.regime_instruments = {
             'BULLISH': {
-                'primary': 'SPY',
-                'secondary': 'QQQ',
-                'macro_indicators': ['VIX', 'OIL', 'GOLD'],
+                'primary': 'MES=F',  # S&P 500 E-mini futures
+                'secondary': 'MNQ=F',  # NASDAQ E-mini futures
+                'macro_indicators': ['VIX', 'MCL=F', 'MGC=F'],  # VIX, Oil, Gold futures
                 'description': 'Risk-on environment favoring growth assets'
             },
             'NEUTRAL': {
-                'primary': 'GLD',
-                'secondary': 'TLT',
-                'macro_indicators': ['VIX', 'OIL', 'USD'],
+                'primary': 'MGC=F',  # Gold futures
+                'secondary': 'MYM=F',  # Dow E-mini futures
+                'macro_indicators': ['VIX', 'MCL=F', 'DX-Y.NYB'],  # VIX, Oil, Dollar
                 'description': 'Balanced environment with defensive positioning'
             },
             'BEARISH': {
                 'primary': 'VIX',
-                'secondary': 'GLD',
-                'macro_indicators': ['VIX', 'OIL', 'USD', 'GOLD'],
+                'secondary': 'MGC=F',  # Gold futures
+                'macro_indicators': ['VIX', 'MCL=F', 'DX-Y.NYB', 'MGC=F'],  # VIX, Oil, Dollar, Gold
                 'description': 'Risk-off environment with defensive assets'
             }
         }
         
+        # Futures symbol mapping
+        self.futures_symbols = {
+            'MES': 'MES=F',  # E-mini S&P 500
+            'MYM': 'MYM=F',  # E-mini Dow Jones
+            'MNQ': 'MNQ=F',  # E-mini NASDAQ-100
+            'M2K': 'M2K=F',  # E-mini Russell 2000
+            'MCL': 'MCL=F',  # Oil futures
+            'MGC': 'MGC=F',  # Gold futures
+            'VIX': '^VIX'    # VIX index
+        }
+        
         # Strategy-based chart types
         self.strategy_charts = {
-            'Tier 1': 'momentum_breakout',
-            'Tier 2': 'mean_reversion',
-            'Tier 3': 'mean_reversion',  # Default to Tier 2 behavior
-            'Tier 4': 'mean_reversion',  # Override to default to Tier 2
-            'Tier 5': 'mean_reversion'   # Override to default to Tier 2 (was 'extreme_momentum')
+            'Tier 1': 'reversal_breakout',
+            'Tier 2': 'momentum_continuation'
         }
         
         self.logger.info("🎨 Enhanced Visualization Engine initialized")
@@ -650,10 +735,9 @@ class EnhancedVisualizations:
             # Generate appropriate chart based on strategy
             chart_type = self._determine_chart_type(strategy, regime, fear_greed_score)
 
-            # Generate filename as specified
-            tier = (strategy.split()[1] if 'Tier' in strategy else 'unknown').lower()
-            date_str = datetime.now().strftime('%Y%m%d')
-            filename = f"regime_chart_{tier}_{topic}_{main_asset}_{date_str}.png"
+            # Generate filename (use same format as _create_regime_chart)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"regime_chart_{chart_type}_{timestamp}.png"
             output_path = os.path.join(self.output_dir, filename)
 
             # Create the chart (reuse _create_regime_chart, but pass selected assets)
@@ -686,7 +770,7 @@ class EnhancedVisualizations:
                 "regime_score": total_score,
                 "topic": topic,
                 "main_asset": main_asset,
-                "tier": tier,
+                "tier": strategy,  # Use the full strategy name instead of extracted tier
                 "timestamp": datetime.now().isoformat()
             }
             self.logger.info(f"✅ Intelligent chart generated: {chart_type} for {regime} regime with assets {assets}")
@@ -702,25 +786,19 @@ class EnhancedVisualizations:
     def _determine_chart_type(self, strategy: str, regime: str, fear_greed_score: int) -> str:
         """Determine the best chart type based on strategy and regime."""
         
-        # Extract strategy tier
+        # Extract strategy tier - only Tier 1 and Tier 2 supported
         if 'Tier 1' in strategy:
-            return 'momentum_breakout'
+            return 'reversal_breakout'
         elif 'Tier 2' in strategy:
-            return 'mean_reversion'
-        elif 'Tier 3' in strategy:
-            return 'mean_reversion'  # Default to Tier 2 behavior
-        elif 'Tier 4' in strategy:
-            return 'mean_reversion'  # Override to default to Tier 2
-        elif 'Tier 5' in strategy:
-            return 'mean_reversion'  # Override to default to Tier 2 (was 'extreme_momentum')
+            return 'momentum_continuation'
         
         # Fallback based on regime and fear/greed
         if regime == 'BULLISH' and fear_greed_score > 60:
             return 'momentum_continuation'
         elif regime == 'BEARISH' and fear_greed_score < 40:
-            return 'mean_reversion'
+            return 'reversal_breakout'
         else:
-            return 'range_trading'
+            return 'momentum_continuation'
     
     def _create_regime_chart(self, chart_type: str, primary_instrument: str, 
                            secondary_instrument: str, macro_indicators: list,
@@ -920,25 +998,143 @@ class EnhancedVisualizations:
 
     def _create_instrument_panel(self, ax, instrument: str, title: str, 
                                regime_data: Dict[str, Any], fear_greed_score: int):
-        """Create instrument performance panel - requires real API data."""
+        """Create instrument performance panel using real yfinance data."""
         try:
-            # Real implementation would fetch from API - no simulation
-            self.logger.error(f"❌ Real API data required for {instrument} - no simulated data available")
-            self._create_data_unavailable_panel(ax, instrument, "Real API data required")
+            # Get the correct symbol for the instrument
+            symbol = self.futures_symbols.get(instrument, instrument)
             
+            # Fetch real data using yfinance with fallback
+            result = fetch_valid_data(symbol, period="30d", interval="1d", min_rows=3)
+            
+            if result is not None and 'data' in result:
+                data = result['data']
+                symbol_used = result['symbol_used']
+                fallback_used = result['fallback_used']
+                warning_message = result['warning_message']
+                
+                # Calculate performance metrics
+                close_prices = data['Close']
+                if len(close_prices) > 0:
+                    current_price = float(close_prices.iloc[-1])
+                    start_price = float(close_prices.iloc[0])
+                    pct_change = ((current_price - start_price) / start_price) * 100
+                    
+                    # Create the visualization
+                    ax.plot(data.index, close_prices, color=self.colors['primary'], linewidth=2)
+                    
+                    # Add title with fallback indicator
+                    panel_title = f"{title} - {instrument}"
+                    if fallback_used:
+                        panel_title += f" (via {symbol_used})"
+                    ax.set_title(panel_title, fontsize=12, fontweight='bold')
+                    ax.set_ylabel('Price', fontsize=10)
+                    ax.grid(True, alpha=0.3)
+                    
+                    # Add performance annotation
+                    color = self.colors['success'] if pct_change > 0 else self.colors['danger']
+                    ax.text(0.02, 0.98, f"30d: {pct_change:+.1f}%", 
+                           transform=ax.transAxes, fontsize=10, fontweight='bold',
+                           verticalalignment='top', color=color)
+                    
+                    # Add current price
+                    ax.text(0.98, 0.98, f"${current_price:.2f}", 
+                           transform=ax.transAxes, fontsize=10, fontweight='bold',
+                           verticalalignment='top', horizontalalignment='right')
+                    
+                    # Add warning box if fallback was used
+                    if fallback_used and warning_message:
+                        ax.text(0.02, 0.02, warning_message, 
+                               transform=ax.transAxes, fontsize=8, 
+                               verticalalignment='bottom', color='orange',
+                               bbox=dict(boxstyle="round,pad=0.3", facecolor='#fff3cd', alpha=0.9))
+                    
+                    self.logger.info(f"✅ Created panel for {instrument} ({symbol_used}): {pct_change:+.1f}%")
+                else:
+                    self.logger.warning(f"⚠️ Empty price data for {instrument} ({symbol_used})")
+                    self._create_data_unavailable_panel(ax, instrument, "Empty price data")
+                
+            else:
+                self.logger.warning(f"⚠️ No data available for {instrument} ({symbol})")
+                self._create_data_unavailable_panel(ax, instrument, "No data available")
+                
         except Exception as e:
-            self.logger.warning(f"⚠️ Error creating instrument panel for {instrument}: {str(e)}")
+            self.logger.error(f"❌ Error creating instrument panel for {instrument}: {str(e)}")
             self._create_data_unavailable_panel(ax, instrument, f"Error: {str(e)}")
     
     def _create_macro_correlation_panel(self, ax, macro_indicators: list, regime_data: Dict[str, Any]):
-        """Create macro indicators correlation panel - requires real API data."""
+        """Create macro indicators correlation panel using real yfinance data."""
         try:
-            # Real implementation would fetch from API - no simulation
-            self.logger.error("❌ Real API data required for macro indicators - no simulated data available")
-            self._create_data_unavailable_panel(ax, "Macro Indicators", "Real API data required")
+            # Fetch data for all macro indicators
+            indicator_data = {}
+            fallback_warnings = []
+            colors = [self.colors['primary'], self.colors['secondary'], self.colors['warning'], self.colors['danger']]
             
+            for i, indicator in enumerate(macro_indicators[:4]):  # Limit to 4 indicators
+                symbol = self.futures_symbols.get(indicator, indicator)
+                result = fetch_valid_data(symbol, period="30d", interval="1d", min_rows=3)
+                
+                if result is not None and 'data' in result:
+                    data = result['data']
+                    symbol_used = result['symbol_used']
+                    fallback_used = result['fallback_used']
+                    warning_message = result['warning_message']
+                    
+                    # Track fallback warnings
+                    if fallback_used and warning_message:
+                        fallback_warnings.append(warning_message)
+                    
+                    # Normalize data to percentage change from start
+                    close_prices = data['Close']
+                    normalized = ((close_prices - close_prices.iloc[0]) / close_prices.iloc[0]) * 100
+                    indicator_data[indicator] = normalized
+                    
+                    # Plot the normalized data
+                    label = indicator
+                    if fallback_used:
+                        label += f" (via {symbol_used})"
+                    
+                    ax.plot(data.index, normalized, 
+                           color=colors[i % len(colors)], 
+                           linewidth=2, 
+                           label=label)
+                else:
+                    self.logger.warning(f"⚠️ Skipping {indicator} - insufficient data")
+            
+            if indicator_data:
+                ax.set_title("Macro Indicators Correlation (30d)", fontsize=12, fontweight='bold')
+                ax.set_ylabel('% Change', fontsize=10)
+                ax.grid(True, alpha=0.3)
+                ax.legend(loc='upper left', fontsize=8)
+                ax.axhline(y=0, color='black', linestyle='-', alpha=0.3)
+                
+                # Add correlation summary
+                if len(indicator_data) >= 2:
+                    indicators = list(indicator_data.keys())
+                    corr_text = f"Correlations:\n"
+                    for i in range(min(3, len(indicators)-1)):  # Show max 3 correlations
+                        for j in range(i+1, min(i+2, len(indicators))):
+                            corr = indicator_data[indicators[i]].corr(indicator_data[indicators[j]])
+                            corr_text += f"{indicators[i]}-{indicators[j]}: {corr:.2f}\n"
+                    
+                    ax.text(0.02, 0.02, corr_text, transform=ax.transAxes, 
+                           fontsize=8, verticalalignment='bottom',
+                           bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
+                
+                # Add fallback warnings box
+                if fallback_warnings:
+                    warning_text = "Fallbacks used:\n" + "\n".join(fallback_warnings[:2])  # Show max 2
+                    ax.text(0.98, 0.02, warning_text, transform=ax.transAxes, 
+                           fontsize=7, verticalalignment='bottom', horizontalalignment='right',
+                           bbox=dict(boxstyle="round,pad=0.3", facecolor="#fff3cd", alpha=0.9),
+                           color='orange')
+                
+                self.logger.info(f"✅ Created macro correlation panel with {len(indicator_data)} indicators")
+            else:
+                self.logger.warning("⚠️ No macro indicator data available")
+                self._create_data_unavailable_panel(ax, "Macro Indicators", "No data available")
+                
         except Exception as e:
-            self.logger.warning(f"⚠️ Error creating macro correlation panel: {str(e)}")
+            self.logger.error(f"❌ Error creating macro correlation panel: {str(e)}")
             self._create_data_unavailable_panel(ax, "Macro Indicators", f"Error: {str(e)}")
     
     def _create_regime_breakdown_panel(self, ax, regime_data: Dict[str, Any]):
@@ -1433,19 +1629,95 @@ class EnhancedVisualizations:
             return None
     
     def _simulate_fear_greed_data(self):
-        """DEPRECATED: No longer simulating Fear & Greed data - API required."""
-        self.logger.error("❌ FEAR_GREED_API_KEY required - no simulated data available")
-        return None
+        """Generate Fear & Greed data using market indicators as proxy."""
+        try:
+            # Use VIX as proxy for fear/greed sentiment
+            vix_data = fetch_valid_data('^VIX', period="30d", interval="1d")
+            
+            if vix_data is not None and not vix_data.empty:
+                # Convert VIX to Fear & Greed scale (inverse relationship)
+                vix_close = vix_data['Close'].iloc[-1]
+                # VIX 10-20 = Greed (80-60), VIX 20-30 = Neutral (60-40), VIX 30+ = Fear (40-0)
+                if vix_close <= 20:
+                    fg_score = max(0, 80 - (vix_close - 10) * 2)
+                elif vix_close <= 30:
+                    fg_score = max(0, 60 - (vix_close - 20) * 2)
+                else:
+                    fg_score = max(0, 40 - (vix_close - 30) * 1.3)
+                
+                self.logger.info(f"✅ Generated Fear & Greed proxy from VIX: {fg_score:.1f}")
+                return {'score': fg_score, 'rating': self._get_fear_greed_rating(fg_score)}
+            else:
+                self.logger.warning("⚠️ Could not fetch VIX data for Fear & Greed proxy")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"❌ Error generating Fear & Greed proxy: {str(e)}")
+            return None
     
     def _simulate_regime_data(self):
-        """DEPRECATED: No longer simulating Regime Score data - real data required."""
-        self.logger.error("❌ Regime Score files required - no simulated data available")
-        return None
+        """Generate basic regime data using market indicators."""
+        try:
+            # Use multiple indicators to assess regime
+            indicators = ['MES=F', 'MGC=F', 'MCL=F', '^VIX']
+            scores = []
+            
+            for symbol in indicators:
+                data = fetch_valid_data(symbol, period="10d", interval="1d")
+                if data is not None and not data.empty:
+                    # Calculate momentum score
+                    close_prices = data['Close']
+                    pct_change = ((close_prices.iloc[-1] - close_prices.iloc[0]) / close_prices.iloc[0]) * 100
+                    
+                    # Convert to score (0-100)
+                    if symbol == '^VIX':  # VIX is inverse
+                        score = max(0, min(100, 50 - pct_change * 2))
+                    else:
+                        score = max(0, min(100, 50 + pct_change * 2))
+                    
+                    scores.append(score)
+            
+            if scores:
+                avg_score = sum(scores) / len(scores)
+                regime_data = {
+                    'total_score': avg_score,
+                    'regime_classification': 'Bullish' if avg_score > 60 else 'Bearish' if avg_score < 40 else 'Neutral',
+                    'strategy_recommendation': 'Tier 1: Reversal' if avg_score > 65 else 'Tier 2: Momentum',
+                    'component_breakdown': {
+                        'volatility': {'raw_score': scores[0] if len(scores) > 0 else 50},
+                        'momentum': {'raw_score': scores[1] if len(scores) > 1 else 50},
+                        'structure': {'raw_score': scores[2] if len(scores) > 2 else 50},
+                        'sentiment': {'raw_score': scores[3] if len(scores) > 3 else 50}
+                    }
+                }
+                
+                self.logger.info(f"✅ Generated regime data from market indicators: {avg_score:.1f}")
+                return regime_data
+            else:
+                self.logger.warning("⚠️ Could not generate regime data from market indicators")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"❌ Error generating regime data: {str(e)}")
+            return None
     
     def _simulate_vix_data(self):
-        """DEPRECATED: No longer simulating VIX data - real API data required."""
-        self.logger.error("❌ VIX API data required - no simulated data available") 
-        return None
+        """Fetch real VIX data using yfinance."""
+        try:
+            vix_data = fetch_valid_data('^VIX', period="365d", interval="1d")
+            
+            if vix_data is not None and not vix_data.empty:
+                # Rename column to match expected format
+                vix_data = vix_data.rename(columns={'Close': 'VIX'})
+                self.logger.info(f"✅ Fetched VIX data via yfinance: {len(vix_data)} records")
+                return vix_data
+            else:
+                self.logger.warning("⚠️ Could not fetch VIX data via yfinance")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"❌ Error fetching VIX data: {str(e)}")
+            return None
     
     def _create_vix_panel(self, ax, vix_data):
         """Create Panel 1: VIX Over Time with Zones."""
@@ -2101,10 +2373,10 @@ class EnhancedVisualizations:
         try:
             # Define the equity index futures to track
             futures_config = {
-                'MES': {'primary': 'ES=F', 'fallback': '^GSPC', 'name': 'E-mini S&P 500'},
-                'MYM': {'primary': 'YM=F', 'fallback': '^DJI', 'name': 'E-mini Dow Jones'},
-                'MNQ': {'primary': 'NQ=F', 'fallback': '^IXIC', 'name': 'E-mini NASDAQ-100'},
-                'M2K': {'primary': 'RTY=F', 'fallback': '^RUT', 'name': 'E-mini Russell 2000'}
+                'MES': {'primary': 'MES=F', 'fallback': '^GSPC', 'name': 'E-mini S&P 500'},
+                'MYM': {'primary': 'MYM=F', 'fallback': '^DJI', 'name': 'E-mini Dow Jones'},
+                'MNQ': {'primary': 'MNQ=F', 'fallback': '^IXIC', 'name': 'E-mini NASDAQ-100'},
+                'M2K': {'primary': 'M2K=F', 'fallback': '^RUT', 'name': 'E-mini Russell 2000'}
             }
             
             futures_data = {}

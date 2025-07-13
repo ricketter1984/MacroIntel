@@ -85,23 +85,17 @@ class MarketRegimeCalculator:
         
         # Strategy recommendations based on regime score
         self.strategy_recommendations = {
-            (0, 20): {
-                'name': 'Tier 1 Reversal',
-                'description': 'Extreme fear conditions, strong reversal potential',
-                'risk_allocation': '3.0%',
-                'instruments': ['MYM', 'MES']
-            },
-            (20, 40): {
-                'name': 'Tier 2 Mean Reversion',
-                'description': 'Fear conditions, mean reversion opportunities',
+            (0, 65): {
+                'name': 'Tier 2: Momentum',
+                'description': 'Moderate regime conditions favor momentum strategies',
                 'risk_allocation': '2.5%',
                 'instruments': ['MYM', 'MES', 'M2K']
             },
-            (40, 100): {
-                'name': 'Tier 5 Extreme Momentum',
-                'description': 'Extreme greed, strong momentum continuation',
+            (65, 100): {
+                'name': 'Tier 1: Reversal',
+                'description': 'High regime score indicates reversal opportunities',
                 'risk_allocation': '3.0%',
-                'instruments': ['MNQ', 'M2K']
+                'instruments': ['MYM', 'MES']
             }
         }
     

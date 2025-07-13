@@ -29,7 +29,27 @@ try:
         generate_mini_ticker_cards, _fetch_ticker_data, load_regime_score_data,
         load_polygon_articles, load_latest_yahoo_futures
     )
-    from agents.summarizer_agent import SummarizerAgent
+    try:
+        from agents.summarizer_agent import SummarizerAgent
+    except ImportError:
+        import logging
+        logging.warning("⚠️ Could not import SummarizerAgent — using fallback.")
+
+        class SummarizerAgent:
+            def run(self):
+                return {
+                    "articles": [],
+                    "summary": "No AI summary available.",
+                    "sentiment": "neutral", 
+                    "tags": []
+                }
+            
+            def summarize(self, article):
+                return {
+                    "summary": "No AI summary available.",
+                    "sentiment": "neutral",
+                    "tags": []
+                }
     from core.enhanced_visualizations import EnhancedVisualizations
     from utils.api_clients import fetch_all_news
     MODULES_AVAILABLE = True

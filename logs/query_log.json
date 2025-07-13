@@ -1,0 +1,236 @@
+{
+  "queries": [
+    {
+      "timestamp": "2025-07-12T19:19:13.354283",
+      "query": "What's the current market regime?",
+      "route": "regime",
+      "success": true,
+      "response_length": 512,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T19:19:48.017626",
+      "query": "Show me volatility trends for oil",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-12T19:21:46.057482",
+      "query": "Show me volatility trends for oil",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-12T20:36:21.146599",
+      "query": "What's the current market regime?",
+      "route": "regime",
+      "success": true,
+      "response_length": 508,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T20:42:25.361706",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-12T20:42:33.442949",
+      "query": "Latest news headlines",
+      "route": "news",
+      "success": true,
+      "response_length": 93,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T20:42:43.649354",
+      "query": "What economic events are coming up?",
+      "route": "calendar",
+      "success": true,
+      "response_length": 64,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T20:42:50.540745",
+      "query": "something completely random",
+      "route": "unknown",
+      "success": false,
+      "response_length": 115,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T20:43:22.791050",
+      "query": "What's the current market regime?",
+      "route": "regime",
+      "success": true,
+      "response_length": 510,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T20:43:39.481515",
+      "query": "What economic events are coming up?",
+      "route": "calendar",
+      "success": true,
+      "response_length": 64,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-12T22:26:21.215769",
+      "query": "Compare MES and MNQ",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:16:16.870008",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:17:36.511905",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:18:50.150315",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:19:35.739151",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:23:42.965234",
+      "query": "Show me volatility trends",
+      "route": "unknown",
+      "success": false,
+      "response_length": 49,
+      "error": "Chart generation failed"
+    },
+    {
+      "timestamp": "2025-07-13T00:25:00.770038",
+      "query": "Show me volatility trends",
+      "route": "chart",
+      "success": true,
+      "response_length": 54,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T00:28:19.746695",
+      "query": "Compare oil and gold trends",
+      "route": "chart",
+      "success": true,
+      "response_length": 54,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T04:21:25.815612",
+      "query": "Show me oil trends",
+      "route": "chart",
+      "success": true,
+      "response_length": 54,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T04:24:21.525502",
+      "query": "What's happening with oil prices today?",
+      "route": "unknown",
+      "success": false,
+      "response_length": 127,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T04:24:33.886492",
+      "query": "Show me current oil volatility chart",
+      "route": "chart",
+      "success": true,
+      "response_length": 54,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T04:24:53.621453",
+      "query": "Compare NASDAQ and Russell trends",
+      "route": "chart",
+      "success": true,
+      "response_length": 54,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T13:40:21.416902",
+      "query": "Show me all market data records",
+      "route": "unknown",
+      "success": false,
+      "response_length": 100,
+      "error": "Vanna AI not available - OpenAI API key required for natural language queries"
+    },
+    {
+      "timestamp": "2025-07-13T13:40:30.356694",
+      "query": "Show me database stats",
+      "route": "unknown",
+      "success": false,
+      "response_length": 100,
+      "error": "Vanna AI not available - OpenAI API key required for natural language queries"
+    },
+    {
+      "timestamp": "2025-07-13T13:40:59.921526",
+      "query": "Show me database stats",
+      "route": "unknown",
+      "success": true,
+      "response_length": 141,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T13:41:06.433044",
+      "query": "Show me all market data records",
+      "route": "unknown",
+      "success": true,
+      "response_length": 194,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T13:45:10.100089",
+      "query": "What's the current market regime?",
+      "route": "regime",
+      "success": true,
+      "response_length": 517,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T13:54:03.568435",
+      "query": "What are the best technology ETFs available?",
+      "route": "unknown",
+      "success": false,
+      "response_length": 132,
+      "error": null
+    },
+    {
+      "timestamp": "2025-07-13T13:59:07.686872",
+      "query": "What's the current market regime?",
+      "route": "regime",
+      "success": true,
+      "response_length": 513,
+      "error": null
+    }
+  ]
+}
