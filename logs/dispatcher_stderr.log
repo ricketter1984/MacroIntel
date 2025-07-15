@@ -9617,3 +9617,45 @@
 
 [TWELVE_DATA STDERR @ 2025-07-04 19:15:22.234912]
 
+
+[POLYGON STDERR @ 2025-07-13 16:00:00.899637]
+2025-07-13 16:00:00,661 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 16:00:00,791 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 16:00:00,883 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 17:00:00.935294]
+2025-07-13 17:00:00,715 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 17:00:00,807 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 17:00:00,915 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 18:00:00.997357]
+2025-07-13 18:00:00,754 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 18:00:00,854 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 18:00:00,966 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 20:00:00.759756]
+2025-07-13 20:00:00,531 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 20:00:00,629 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 20:00:00,739 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 21:00:02.538895]
+2025-07-13 21:00:02,260 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 21:00:02,391 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 21:00:02,511 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 22:00:01.485798]
+2025-07-13 22:00:00,800 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 22:00:01,170 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 22:00:01,462 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-13 23:00:00.797463]
+2025-07-13 23:00:00,568 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-13 23:00:00,677 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-13 23:00:00,773 - ERROR - [Polygon] Error fetching RUT: 'v'
+

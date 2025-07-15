@@ -142307,3 +142307,157 @@ Chart data fetch completed successfully!
   "source": "twelve_data"
 }
 
+
+[POLYGON STDOUT @ 2025-07-13 16:00:00.899637]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_160000.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_160000.json",
+  "timestamp": "2025-07-13T16:00:00.893832",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 17:00:00.935294]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_170000.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_170000.json",
+  "timestamp": "2025-07-13T17:00:00.915179",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 18:00:00.997357]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_180000.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_180000.json",
+  "timestamp": "2025-07-13T18:00:00.982071",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 20:00:00.756593]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_200000.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_200000.json",
+  "timestamp": "2025-07-13T20:00:00.742248",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 21:00:02.536684]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_210002.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_210002.json",
+  "timestamp": "2025-07-13T21:00:02.515242",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 22:00:01.484798]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_220001.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_220001.json",
+  "timestamp": "2025-07-13T22:00:01.464727",
+  "source": "polygon"
+}
+
+
+[POLYGON STDOUT @ 2025-07-13 23:00:00.796480]
+Executing polygon API task in isolated environment
+Project root: C:\Users\ricke\Desktop\MacroIntel
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Fetching Polygon Market Indices Data...
+Project root: C:\Users\ricke\AppData\Local\Temp
+Python executable: C:\Users\ricke\Desktop\MacroIntel\venv_polygon\Scripts\python.exe
+Indices data saved to: C:\Users\ricke\AppData\Local\Temp\output\polygon_indices_20250713_230000.json
+SPX: No data available
+NDX: No data available
+RUT: No data available
+
+Indices fetch completed!
+{
+  "success": true,
+  "indices_count": 0,
+  "output_file": "C:\\Users\\ricke\\AppData\\Local\\Temp\\output\\polygon_indices_20250713_230000.json",
+  "timestamp": "2025-07-13T23:00:00.776460",
+  "source": "polygon"
+}
+
