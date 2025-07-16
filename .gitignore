@@ -7,3 +7,10 @@ output/
 *.db
 .DS_Store
 Thumbs.db
+
+# Google Credentials and sensitive files
+config/credentials*.json*
+**/credentials*.json*
+**/service-account*.json
+**/*credentials*
+**/*secrets*
