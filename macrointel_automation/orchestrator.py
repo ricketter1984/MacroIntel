@@ -44,10 +44,11 @@ class MacroIntelOrchestrator:
         try:
             self.api_explorer = APIExplorerAgent(
                 schemas_dir="data/api_schemas",
-                openai_api_key=openai_api_key
+                openai_api_key=None  # OpenAI support disabled
             )
             self.api_explorer.load_schemas()
             logger.info("API Explorer agent initialized successfully")
+            logger.info("✅ OpenAI support disabled (API key removed from environment)")
             return True
         except Exception as e:
             logger.error(f"Failed to initialize API Explorer agent: {str(e)}")
@@ -59,7 +60,7 @@ class MacroIntelOrchestrator:
         
         # Initialize API explorer if not already done
         if not self.api_explorer:
-            if not self.setup_api_explorer(openai_api_key):
+            if not self.setup_api_explorer(None):  # OpenAI support disabled
                 return {
                     "error": "Failed to initialize API Explorer agent",
                     "query": query,

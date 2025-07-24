@@ -17,10 +17,8 @@ from dotenv import load_dotenv
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-try:
-    from openai import OpenAI
-except ImportError:
-    OpenAI = None
+# OpenAI support disabled
+OpenAI = None
 
 from visual_query_engine import VisualQueryEngine, generate_comparison_chart
 from utils.api_clients import init_env
@@ -43,17 +41,17 @@ logger = logging.getLogger(__name__)
 class InsightQueryAgent:
     """Agent responsible for parsing natural language queries and generating market insights."""
     
-    def __init__(self, ai_engine: str = "gpt"):
+    def __init__(self, ai_engine: str = "fallback"):
         """Initialize the insight query agent."""
         self.visual_engine = VisualQueryEngine()
         self.ai_engine = ai_engine
         self.openai_client = None
-        if ai_engine == "gpt" and OpenAI:
-            self.openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        # OpenAI support disabled
         self.output_dir = "output/insight_query"
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs("logs", exist_ok=True)
         logger.info(f"🔍 Insight Query Agent initialized (engine: {ai_engine})")
+        logger.info("✅ OpenAI support disabled (API key removed from environment)")
     
     def parse_query_with_ai(self, query: str) -> Dict[str, Any]:
         """

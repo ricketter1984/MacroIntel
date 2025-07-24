@@ -3,7 +3,7 @@
 Enhanced MacroIntel System
 
 This is the main entry point for the MacroIntel system, now with enhanced capabilities:
-- Multi-source data integration (Benzinga, Polygon, FMP, Messari, Twelve Data, Fear & Greed)
+- Multi-source data integration (Polygon, FMP, Messari, Twelve Data, Fear & Greed, CME, Quiver)
 - Enhanced visualizations (VIX analysis, multi-asset comparison, economic calendar impact)
 - Strategy recommendations based on playbook logic
 - Comprehensive risk assessment
@@ -18,9 +18,13 @@ import time
 from datetime import datetime, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.cron import CronTrigger
-import pytz
+try:
+    from apscheduler.schedulers.background import BackgroundScheduler
+    from apscheduler.triggers.cron import CronTrigger
+    import pytz
+    SCHEDULER_AVAILABLE = True
+except ImportError:
+    SCHEDULER_AVAILABLE = False
 
 # Fix Unicode encoding issues on Windows
 if sys.platform == "win32":
@@ -41,6 +45,7 @@ from api_dispatcher import dispatch_api_task
 from core.enhanced_report_builder import EnhancedReportBuilder
 from core.enhanced_visualizations import EnhancedVisualizations
 from agents.quiver_agent import run_quiver_pipeline, QuiverAgent
+from utils.cme_scraper import fetch_cme_data
 
 # Setup logging
 logging.basicConfig(
@@ -66,29 +71,13 @@ class EnhancedMacroIntel:
         
         # Data sources configuration
         self.data_sources = {
-            'benzinga': 'scripts/fetch_benzinga_news.py',
             'polygon': 'scripts/fetch_polygon_indices.py',
             'fmp_calendar': 'scripts/fetch_fmp_calendar.py',
             'messari': 'scripts/fetch_messari_intel.py',
-            'twelve_data': 'scripts/fetch_twelve_data.py',
-            'yahoo_futures': 'scripts/fetch_yahoo_futures.py'
+            'twelve_data': 'scripts/fetch_twelve_data.py'
         }
         
         logger.info("🚀 Enhanced MacroIntel System initialized")
-    
-    def fetch_benzinga_news(self):
-        """Fetch news from Benzinga API."""
-        logger.info("📰 Fetching Benzinga news...")
-        try:
-            result = dispatch_api_task("benzinga", self.data_sources['benzinga'])
-            if result['success']:
-                logger.info(f"✅ Benzinga: {len(result.get('data', {}).get('articles', []))} articles")
-            else:
-                logger.error(f"❌ Benzinga fetch failed: {result.get('error')}")
-            return result
-        except Exception as e:
-            logger.error(f"❌ Benzinga fetch error: {str(e)}")
-            return {'success': False, 'error': str(e)}
     
     def fetch_polygon_indices(self):
         """Fetch market indices from Polygon API."""
@@ -229,20 +218,6 @@ class EnhancedMacroIntel:
                 'error': f'VIX fetch failed: {str(e)}'
             }
     
-    def fetch_yahoo_futures(self):
-        """Fetch Yahoo Futures data."""
-        logger.info("📈 Fetching Yahoo Futures data...")
-        try:
-            result = dispatch_api_task("yahoo_futures", self.data_sources['yahoo_futures'])
-            if result['success']:
-                logger.info(f"✅ Yahoo Futures: Data fetched successfully")
-            else:
-                logger.error(f"❌ Yahoo Futures fetch failed: {result.get('error')}")
-            return result
-        except Exception as e:
-            logger.error(f"❌ Yahoo Futures fetch error: {str(e)}")
-            return {'success': False, 'error': str(e)}
-    
     def aggregate_data_sources(self):
         """Aggregate data from all sources."""
         logger.info("🔄 Aggregating data from all sources...")
@@ -254,14 +229,12 @@ class EnhancedMacroIntel:
         
         # Fetch from all sources
         sources_to_fetch = [
-            ('benzinga', self.fetch_benzinga_news),
             ('polygon', self.fetch_polygon_indices),
             ('fmp_calendar', self.fetch_fmp_calendar),
             ('messari', self.fetch_messari_intel),
             ('twelve_data', self.fetch_twelve_data),
             ('fear_greed', self.fetch_fear_greed_index),
-            ('vix', self.fetch_vix_data),
-            ('yahoo_futures', self.fetch_yahoo_futures)
+            ('vix', self.fetch_vix_data)
         ]
         
         for source_name, fetch_func in sources_to_fetch:
@@ -492,6 +465,10 @@ class EnhancedMacroIntel:
 
 def setup_scheduler():
     """Setup the APScheduler with swarm pipeline jobs."""
+    if not SCHEDULER_AVAILABLE:
+        logger.error("❌ APScheduler not available")
+        return None, None
+    
     logger.info("⏰ Setting up APScheduler...")
     
     # Create MacroIntel instance
@@ -548,6 +525,11 @@ def setup_scheduler():
 
 def run_scheduler():
     """Run the APScheduler in background."""
+    if not SCHEDULER_AVAILABLE:
+        logger.error("❌ APScheduler not available. Install with: pip install apscheduler")
+        print("❌ Scheduler functionality requires APScheduler. Install with: pip install apscheduler")
+        return
+    
     logger.info("🚀 Starting Enhanced MacroIntel APScheduler...")
     
     scheduler, macrointel = setup_scheduler()
@@ -579,10 +561,6 @@ def test_system():
     
     # Test individual components
     logger.info("Testing individual data sources...")
-    
-    # Test Benzinga
-    benzinga_result = macrointel.fetch_benzinga_news()
-    logger.info(f"Benzinga: {'✅ PASS' if benzinga_result['success'] else '❌ FAIL'}")
     
     # Test Polygon
     polygon_result = macrointel.fetch_polygon_indices()
@@ -630,6 +608,7 @@ def main():
     parser.add_argument("--swarm", action="store_true", help="Run single swarm pipeline execution")
     parser.add_argument("--quiver", action="store_true", help="Run Quiver data pipeline for congressional trades and alternative data")
     parser.add_argument("--summary", action="store_true", help="When used with --quiver, display summary of 5 most recent congressional trades")
+    parser.add_argument("--cme", action="store_true", help="Fetch CME settlement data and show top 3 highest volume contracts")
     
     args = parser.parse_args()
     
@@ -693,6 +672,62 @@ def main():
                     
             except Exception as e:
                 logger.error(f"❌ Failed to retrieve congressional trades summary: {str(e)}")
+    elif args.cme:
+        # Run CME data scraping with summary
+        logger.info("🏦 Running CME data scraping...")
+        try:
+            df = fetch_cme_data()
+            
+            if df.empty:
+                logger.error("❌ No CME data available")
+                print("❌ Failed to fetch CME data - check logs for details")
+            else:
+                # Print summary of top 3 highest volume contracts
+                print("📊 CME Data Summary")
+                print("=" * 50)
+                
+                # Sort by volume (descending) and get top 3
+                if 'volume' in df.columns:
+                    top_volume = df.nlargest(3, 'volume')
+                    print("🔥 Top 3 Highest Volume Contracts:")
+                    print()
+                    
+                    for i, (_, row) in enumerate(top_volume.iterrows(), 1):
+                        symbol = row.get('symbol', 'N/A')
+                        volume = row.get('volume', 0)
+                        last_price = row.get('last_price', 0)
+                        change = row.get('change', 0)
+                        open_interest = row.get('open_interest', 0)
+                        
+                        # Handle None values in change comparison
+                        change_val = change if change is not None else 0
+                        change_symbol = "📈" if change_val > 0 else "📉" if change_val < 0 else "➡️"
+                        
+                        print(f"#{i} {symbol}")
+                        print(f"   💰 Last Price: ${last_price:,.2f}")
+                        print(f"   {change_symbol} Change: {change_val:+.2f}")
+                        print(f"   📊 Volume: {volume:,}")
+                        print(f"   🏗️ Open Interest: {open_interest:,}")
+                        print()
+                else:
+                    print("⚠️ Volume data not available for ranking")
+                    print("📋 All Contracts:")
+                    for _, row in df.iterrows():
+                        symbol = row.get('symbol', 'N/A')
+                        last_price = row.get('last_price', 0)
+                        change = row.get('change', 0)
+                        # Handle None values in change comparison
+                        change_val = change if change is not None else 0
+                        change_symbol = "📈" if change_val > 0 else "📉" if change_val < 0 else "➡️"
+                        print(f"   {symbol}: ${last_price:,.2f} ({change_symbol}{change_val:+.2f})")
+                
+                print("=" * 50)
+                print(f"✅ CME data saved to output/cme_data_today.csv")
+                logger.info("✅ CME data scraping completed successfully")
+                
+        except Exception as e:
+            logger.error(f"❌ Failed to run CME data scraping: {str(e)}")
+            print(f"❌ Error: {str(e)}")
     elif args.scheduler:
         run_scheduler()
     else:

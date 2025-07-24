@@ -46,6 +46,8 @@ def fetch_valid_data(symbol, period="5d", interval="1d", min_rows=3):
         dict with 'data', 'symbol_used', 'fallback_used' keys or None if all fail
     """
     import yfinance as yf
+    import pandas as pd
+    from datetime import datetime, timedelta
     
     logger = logging.getLogger(__name__)
     
@@ -75,38 +77,158 @@ def fetch_valid_data(symbol, period="5d", interval="1d", min_rows=3):
             logger.error(f"❌ Data fetch failed for {sym}: {e}")
             return None
     
-    # First try the original symbol
-    logger.info(f"📊 Fetching data for {symbol} (need {min_rows}+ rows)")
-    data = try_fetch_symbol(symbol)
-    
-    if data is not None:
+    def create_placeholder_data(symbol, label):
+        """Create placeholder data when both primary and fallback fail."""
+        logger.warning(f"⚠️ Creating placeholder data for {symbol} - both primary and fallback failed")
+        
+        # Create a minimal DataFrame with placeholder data
+        dates = pd.date_range(start=datetime.now() - timedelta(days=5), end=datetime.now(), freq='D')
+        placeholder_data = pd.DataFrame({
+            'Open': [0.0] * len(dates),
+            'High': [0.0] * len(dates),
+            'Low': [0.0] * len(dates),
+            'Close': [0.0] * len(dates),
+            'Volume': [0] * len(dates)
+        }, index=dates)
+        
         return {
-            'data': data,
+            'data': placeholder_data,
             'symbol_used': symbol,
             'fallback_used': False,
-            'warning_message': None
+            'warning_message': f"Data Unavailable - Using placeholder for {label}",
+            'is_placeholder': True
         }
     
-    # Try fallback if available
-    if symbol in fallback_map:
-        fallback_symbol = fallback_map[symbol]
+    # Try primary symbol first
+    primary_data = try_fetch_symbol(symbol)
+    if primary_data is not None:
+        return {
+            'data': primary_data,
+            'symbol_used': symbol,
+            'fallback_used': False,
+            'is_placeholder': False
+        }
+    
+    # Try fallback symbol if available
+    fallback_symbol = fallback_map.get(symbol)
+    if fallback_symbol:
         logger.info(f"🔄 Trying fallback {fallback_symbol} for {symbol}")
-        
         fallback_data = try_fetch_symbol(fallback_symbol)
-        
         if fallback_data is not None:
             logger.info(f"✅ Fallback successful: {fallback_symbol} ({len(fallback_data)} rows)")
             return {
                 'data': fallback_data,
                 'symbol_used': fallback_symbol,
                 'fallback_used': True,
-                'warning_message': f"Using {fallback_symbol} (fallback for {symbol})"
+                'is_placeholder': False
+            }
+    
+    # If both fail, create placeholder data
+    if symbol == 'MCL=F':
+        return create_placeholder_data(symbol, "Crude Oil")
+    elif symbol == 'MGC=F':
+        return create_placeholder_data(symbol, "Gold")
+    elif symbol == 'MES=F':
+        return create_placeholder_data(symbol, "S&P 500 E-mini")
+    elif symbol == 'MYM=F':
+        return create_placeholder_data(symbol, "Dow E-mini")
+    elif symbol == 'MNQ=F':
+        return create_placeholder_data(symbol, "NASDAQ E-mini")
+    elif symbol == 'M2K=F':
+        return create_placeholder_data(symbol, "Russell 2000 E-mini")
+    else:
+        return create_placeholder_data(symbol, symbol)
+    
+    return None
+
+def fetch_price_safe(ticker):
+    """
+    Safely fetch price data for futures contracts with CME fallback.
+    
+    Args:
+        ticker: Trading symbol (e.g., 'MES=F', 'MYM=F', 'MCL=F')
+        
+    Returns:
+        dict with price data or None if all methods fail
+    """
+    import yfinance as yf
+    import pandas as pd
+    from datetime import datetime, timedelta
+    
+    logger = logging.getLogger(__name__)
+    
+    # Try yfinance first (5d, 1d)
+    try:
+        logger.info(f"📈 Fetching {ticker} via yfinance...")
+        data = yf.download(ticker, period="5d", interval="1d", progress=False)
+        
+        # Convert to DataFrame if it's not already
+        if not isinstance(data, pd.DataFrame):
+            logger.warning(f"⚠️ {ticker} yfinance returned non-DataFrame data")
+            data = None
+        
+        if data is not None and not data.empty and len(data) >= 3:
+            # Calculate current price and percent change
+            current_price = float(data['Close'].iloc[-1])
+            start_price = float(data['Close'].iloc[0])
+            pct_change = ((current_price - start_price) / start_price) * 100
+            
+            logger.info(f"✅ {ticker} via yfinance: ${current_price:.2f} ({pct_change:+.2f}%)")
+            return {
+                'price': current_price,
+                'pct_change': pct_change,
+                'source': 'yfinance',
+                'data_points': len(data),
+                'success': True
             }
         else:
-            logger.error(f"❌ Fallback {fallback_symbol} also failed for {symbol}")
+            logger.warning(f"⚠️ {ticker} yfinance data insufficient: {len(data) if data is not None else 0} rows")
+            
+    except Exception as e:
+        logger.warning(f"⚠️ {ticker} yfinance fetch failed: {e}")
     
-    # All attempts failed
-    logger.error(f"❌ All fetch attempts failed for {symbol}")
+    # Try CME scraper fallback
+    try:
+        logger.info(f"🏦 Trying CME scraper fallback for {ticker}...")
+        
+        # Import CME scraper
+        from utils.cme_scraper import fetch_cme_data
+        
+        # Get CME data
+        cme_df = fetch_cme_data()
+        
+        # Ensure cme_df is a pandas DataFrame
+        if isinstance(cme_df, pd.DataFrame) and not cme_df.empty:
+            # Extract symbol from ticker (remove =F suffix)
+            symbol = ticker.replace("=F", "")
+            
+            # Find matching symbol in CME data
+            symbol_data = cme_df[cme_df['symbol'] == symbol]
+            
+            if isinstance(symbol_data, pd.DataFrame) and not symbol_data.empty and len(symbol_data) > 0:
+                last_price = float(symbol_data.iloc[0]['last_price'])
+                change = float(symbol_data.iloc[0]['change'])
+                
+                # Calculate percent change (approximate)
+                pct_change = (change / (last_price - change)) * 100 if (last_price - change) != 0 else 0
+                
+                logger.info(f"✅ {ticker} via CME scraper: ${last_price:.2f} ({pct_change:+.2f}%)")
+                return {
+                    'price': last_price,
+                    'pct_change': pct_change,
+                    'source': 'cme_scraper',
+                    'data_points': 1,
+                    'success': True
+                }
+            else:
+                logger.warning(f"⚠️ {symbol} not found in CME data")
+        else:
+            logger.warning(f"⚠️ CME data empty")
+            
+    except Exception as e:
+        logger.error(f"❌ {ticker} CME scraper fallback failed: {e}")
+    
+    logger.warning(f"⚠️ {ticker} - all price fetch methods failed")
     return None
 
 class EnhancedVisualizations:
@@ -176,7 +298,7 @@ class EnhancedVisualizations:
         self.logger.info("🎨 Enhanced Visualization Engine initialized")
         self.logger.info(f"📁 Output directory: {os.path.abspath(self.output_dir)}")
     
-    def create_vix_analysis_chart(self, vix_data, output_filename="vix_analysis.png"):
+    def create_vix_analysis_chart(self, vix_data, output_filename=None):
         """Create comprehensive VIX analysis chart."""
         self.logger.info("📊 Creating VIX analysis chart...")
         
@@ -248,8 +370,15 @@ class EnhancedVisualizations:
             
             plt.tight_layout()
             
-            # Save chart
-            output_path = os.path.join(self.output_dir, output_filename)
+            # Generate filename with date if not provided
+            if output_filename is None:
+                from datetime import date
+                output_filename = f"vix_analysis_{date.today().isoformat()}.png"
+            
+            # Save chart to charts directory
+            charts_dir = "charts"
+            os.makedirs(charts_dir, exist_ok=True)
+            output_path = os.path.join(charts_dir, output_filename)
             plt.savefig(output_path, dpi=300, bbox_inches='tight')
             plt.close()
             
@@ -675,8 +804,10 @@ class EnhancedVisualizations:
             plt.tight_layout()
             plt.subplots_adjust(top=0.92, hspace=0.3)
             
-            # Save chart
-            output_path = os.path.join(self.output_dir, output_filename)
+            # Save chart to charts directory
+            charts_dir = "charts"
+            os.makedirs(charts_dir, exist_ok=True)
+            output_path = os.path.join(charts_dir, output_filename)
             plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
             plt.close()
             
@@ -1011,6 +1142,13 @@ class EnhancedVisualizations:
                 symbol_used = result['symbol_used']
                 fallback_used = result['fallback_used']
                 warning_message = result['warning_message']
+                is_placeholder = result.get('is_placeholder', False)
+                
+                # Handle placeholder data
+                if is_placeholder:
+                    self.logger.warning(f"⚠️ Using placeholder data for {instrument} ({symbol})")
+                    self._create_data_unavailable_panel(ax, instrument, warning_message)
+                    return
                 
                 # Calculate performance metrics
                 close_prices = data['Close']
@@ -1067,17 +1205,49 @@ class EnhancedVisualizations:
             # Fetch data for all macro indicators
             indicator_data = {}
             fallback_warnings = []
+            placeholder_warnings = []
             colors = [self.colors['primary'], self.colors['secondary'], self.colors['warning'], self.colors['danger']]
             
             for i, indicator in enumerate(macro_indicators[:4]):  # Limit to 4 indicators
                 symbol = self.futures_symbols.get(indicator, indicator)
-                result = fetch_valid_data(symbol, period="30d", interval="1d", min_rows=3)
+                
+                # Use fetch_price_safe for futures, fetch_valid_data for others
+                if symbol.endswith('=F'):
+                    # Use fetch_price_safe for futures with CME fallback
+                    result = fetch_price_safe(symbol)
+                    if result and result.get('success'):
+                        # Create a simple DataFrame for correlation analysis
+                        dates = pd.date_range(start=datetime.now() - timedelta(days=30), end=datetime.now(), freq='D')
+                        # Create a linear trend based on the percent change
+                        pct_change = result['pct_change']
+                        daily_change = pct_change / 30  # Distribute change over 30 days
+                        values = [daily_change * i for i in range(len(dates))]
+                        data = pd.DataFrame({'Close': values}, index=dates)
+                        
+                        result = {
+                            'data': data,
+                            'symbol_used': symbol,
+                            'fallback_used': result['source'] == 'cme_scraper',
+                            'warning_message': None,
+                            'is_placeholder': False
+                        }
+                    else:
+                        result = None
+                else:
+                    result = fetch_valid_data(symbol, period="30d", interval="1d", min_rows=3)
                 
                 if result is not None and 'data' in result:
                     data = result['data']
                     symbol_used = result['symbol_used']
                     fallback_used = result['fallback_used']
                     warning_message = result['warning_message']
+                    is_placeholder = result.get('is_placeholder', False)
+                    
+                    # Skip placeholder data
+                    if is_placeholder:
+                        self.logger.warning(f"⚠️ Skipping {indicator} - using placeholder data")
+                        placeholder_warnings.append(f"{indicator}: {warning_message}")
+                        continue
                     
                     # Track fallback warnings
                     if fallback_used and warning_message:
@@ -1127,6 +1297,14 @@ class EnhancedVisualizations:
                            fontsize=7, verticalalignment='bottom', horizontalalignment='right',
                            bbox=dict(boxstyle="round,pad=0.3", facecolor="#fff3cd", alpha=0.9),
                            color='orange')
+                
+                # Add placeholder warnings box
+                if placeholder_warnings:
+                    placeholder_text = "Data unavailable:\n" + "\n".join(placeholder_warnings[:2])  # Show max 2
+                    ax.text(0.98, 0.15, placeholder_text, transform=ax.transAxes, 
+                           fontsize=7, verticalalignment='bottom', horizontalalignment='right',
+                           bbox=dict(boxstyle="round,pad=0.3", facecolor="#f8d7da", alpha=0.9),
+                           color='red')
                 
                 self.logger.info(f"✅ Created macro correlation panel with {len(indicator_data)} indicators")
             else:
@@ -1261,24 +1439,70 @@ class EnhancedVisualizations:
         else:
             return "extreme greed"
     
+    def _fetch_vix_from_yfinance(self):
+        """Fetch VIX data from yfinance as fallback."""
+        try:
+            import yfinance as yf
+            
+            self.logger.info("📊 Attempting VIX fallback fetch from yfinance...")
+            vix = yf.download("^VIX", period="6mo", interval="1d", progress=False)
+            
+            if vix is not None and not vix.empty:
+                vix.reset_index(inplace=True)
+                vix['date'] = vix['Date'].dt.strftime("%Y-%m-%d")
+                
+                # Convert to the expected format with datetime index and close column
+                vix_df = vix[['Date', 'Close']].copy()
+                vix_df = vix_df.set_index('Date')
+                vix_df = vix_df.rename(columns={"Close": "close"})
+                
+                # Flatten column names if MultiIndex
+                if hasattr(vix_df.columns, 'nlevels') and vix_df.columns.nlevels > 1:
+                    vix_df.columns = vix_df.columns.get_level_values(0)
+                
+                self.logger.info(f"✅ Fetched VIX data from yfinance: {len(vix_df)} records")
+                self.logger.info(f"📊 yfinance VIX range: {float(vix_df['close'].min()):.2f} - {float(vix_df['close'].max()):.2f}")
+                return vix_df
+            else:
+                self.logger.warning("⚠️ No VIX data returned from yfinance")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"❌ yfinance VIX fallback failed: {e}")
+            return None
+
     def _fetch_vix_data(self):
-        """Fetch VIX data using the dedicated FMP API function."""
+        """Fetch VIX data using FMP API with yfinance fallback."""
         try:
             from utils.api_clients import fetch_vix_data
             
-            # Use the dedicated VIX fetching function
+            # Try FMP first
             vix_df = fetch_vix_data(days=365)
             
             if vix_df is not None and not vix_df.empty:
                 self.logger.info(f"✅ Fetched VIX data from FMP: {len(vix_df)} records")
                 return vix_df
             else:
-                self.logger.warning("⚠️ No VIX data returned from FMP API - using simulated data")
-                return self._simulate_vix_data()
+                self.logger.warning("⚠️ No VIX data returned from FMP API - trying yfinance fallback")
+                
+                # Try yfinance fallback
+                vix_df = self._fetch_vix_from_yfinance()
+                if vix_df is not None and not vix_df.empty:
+                    return vix_df
+                else:
+                    self.logger.warning("⚠️ yfinance fallback also failed - using simulated data")
+                    return self._simulate_vix_data()
                 
         except Exception as e:
             self.logger.error(f"❌ Error in VIX data fetch: {e}")
-            return self._simulate_vix_data()
+            
+            # Try yfinance fallback on exception
+            self.logger.info("🔄 Attempting yfinance fallback due to FMP error...")
+            vix_df = self._fetch_vix_from_yfinance()
+            if vix_df is not None and not vix_df.empty:
+                return vix_df
+            else:
+                return self._simulate_vix_data()
     
     def _fetch_fear_greed_data(self):
         """Fetch Fear & Greed data."""
@@ -1663,19 +1887,39 @@ class EnhancedVisualizations:
             scores = []
             
             for symbol in indicators:
-                data = fetch_valid_data(symbol, period="10d", interval="1d")
-                if data is not None and not data.empty:
-                    # Calculate momentum score
-                    close_prices = data['Close']
-                    pct_change = ((close_prices.iloc[-1] - close_prices.iloc[0]) / close_prices.iloc[0]) * 100
-                    
-                    # Convert to score (0-100)
-                    if symbol == '^VIX':  # VIX is inverse
-                        score = max(0, min(100, 50 - pct_change * 2))
+                try:
+                    # Special handling for MCL=F with detailed error logging
+                    if symbol == 'MCL=F':
+                        self.logger.info("🛢️ Fetching MCL=F data for regime calculation...")
+                        data = fetch_valid_data(symbol, period="10d", interval="1d")
+                        if data is None or data.empty:
+                            self.logger.warning("⚠️ MCL=F fetch failed - skipping oil futures from regime calculation")
+                            continue
                     else:
-                        score = max(0, min(100, 50 + pct_change * 2))
+                        data = fetch_valid_data(symbol, period="10d", interval="1d")
                     
-                    scores.append(score)
+                    if data is not None and not data.empty:
+                        # Calculate momentum score
+                        close_prices = data['Close']
+                        pct_change = ((close_prices.iloc[-1] - close_prices.iloc[0]) / close_prices.iloc[0]) * 100
+                        
+                        # Convert to score (0-100)
+                        if symbol == '^VIX':  # VIX is inverse
+                            score = max(0, min(100, 50 - pct_change * 2))
+                        else:
+                            score = max(0, min(100, 50 + pct_change * 2))
+                        
+                        scores.append(score)
+                        self.logger.info(f"✅ {symbol}: {pct_change:+.2f}% -> score {score:.1f}")
+                    else:
+                        self.logger.warning(f"⚠️ No data available for {symbol}")
+                        
+                except Exception as e:
+                    if symbol == 'MCL=F':
+                        self.logger.warning(f"⚠️ MCL=F fetch failed: {str(e)} - continuing without oil futures")
+                    else:
+                        self.logger.error(f"❌ Error fetching {symbol}: {str(e)}")
+                    continue
             
             if scores:
                 avg_score = sum(scores) / len(scores)
@@ -1691,7 +1935,7 @@ class EnhancedVisualizations:
                     }
                 }
                 
-                self.logger.info(f"✅ Generated regime data from market indicators: {avg_score:.1f}")
+                self.logger.info(f"✅ Generated regime data from {len(scores)} indicators: {avg_score:.1f}")
                 return regime_data
             else:
                 self.logger.warning("⚠️ Could not generate regime data from market indicators")
@@ -2000,30 +2244,47 @@ class EnhancedVisualizations:
             for asset_name, symbol in assets.items():
                 self.logger.info(f"📈 Fetching 5-day data for {asset_name} ({symbol})...")
                 
-                # Try yfinance first
-                try:
-                    import yfinance as yf
-                    ticker = yf.Ticker(symbol)
-                    hist = ticker.history(period="5d", interval="1d")
-                    
-                    if not hist.empty and len(hist) >= 2:
-                        # Calculate 5-day percent change from first to last price
-                        start_price = float(hist['Close'].iloc[0])
-                        end_price = float(hist['Close'].iloc[-1])
-                        pct_change = ((end_price - start_price) / start_price) * 100
-                        
+                # Use fetch_price_safe for futures, direct yfinance for others
+                if symbol.endswith('=F'):
+                    # Use fetch_price_safe for futures with CME fallback
+                    result = fetch_price_safe(symbol)
+                    if result and result.get('success'):
                         asset_data[asset_name] = {
-                            'data': hist,
-                            'pct_change': pct_change,
-                            'start_price': start_price,
-                            'end_price': end_price,
+                            'data': None,  # No historical data from CME
+                            'pct_change': result['pct_change'],
+                            'start_price': result['price'] * (1 - result['pct_change']/100),
+                            'end_price': result['price'],
                             'symbol': symbol
                         }
-                        self.logger.info(f"✅ {asset_name}: {pct_change:+.2f}% (yfinance)")
+                        self.logger.info(f"✅ {asset_name}: {result['pct_change']:+.2f}% ({result['source']})")
                         continue
+                    else:
+                        self.logger.warning(f"⚠️ fetch_price_safe failed for {asset_name}: {symbol}")
+                else:
+                    # Try yfinance first for non-futures
+                    try:
+                        import yfinance as yf
+                        ticker = yf.Ticker(symbol)
+                        hist = ticker.history(period="5d", interval="1d")
                         
-                except Exception as e:
-                    self.logger.warning(f"⚠️ yfinance failed for {asset_name}: {e}")
+                        if not hist.empty and len(hist) >= 2:
+                            # Calculate 5-day percent change from first to last price
+                            start_price = float(hist['Close'].iloc[0])
+                            end_price = float(hist['Close'].iloc[-1])
+                            pct_change = ((end_price - start_price) / start_price) * 100
+                            
+                            asset_data[asset_name] = {
+                                'data': hist,
+                                'pct_change': pct_change,
+                                'start_price': start_price,
+                                'end_price': end_price,
+                                'symbol': symbol
+                            }
+                            self.logger.info(f"✅ {asset_name}: {pct_change:+.2f}% (yfinance)")
+                            continue
+                            
+                    except Exception as e:
+                        self.logger.warning(f"⚠️ yfinance failed for {asset_name}: {e}")
                 
                 # Try FMP as fallback
                 try:
@@ -2082,7 +2343,12 @@ class EnhancedVisualizations:
             # Create the chart if we have data for at least 2 assets
             if len(asset_data) < 2:
                 self.logger.error("❌ Insufficient asset data for chart creation")
-                return None
+                # Create placeholder chart instead of returning None
+                return self._create_placeholder_chart(
+                    output_filename=output_filename,
+                    title="Macro Volatility Chart - Data Unavailable",
+                    message=f"Only {len(asset_data)}/4 assets have valid data\nMinimum 2 required for volatility analysis"
+                )
             
             # Create the visualization
             fig, ax = plt.subplots(figsize=(12, 8))
@@ -2355,6 +2621,68 @@ class EnhancedVisualizations:
                bbox=dict(boxstyle="round,pad=0.3", facecolor='#ffcccc', alpha=0.8),
                fontsize=8, ha='center', va='center', transform=ax.transAxes,
                color='red', fontweight='bold')
+    
+    def _create_placeholder_chart(self, output_filename: str, title: str = "Data Unavailable", 
+                                 message: str = "Required data could not be fetched"):
+        """
+        Create a placeholder chart when data is unavailable.
+        
+        Args:
+            output_filename: Name of the output file
+            title: Chart title
+            message: Message to display
+            
+        Returns:
+            str: Path to the saved placeholder chart file
+        """
+        try:
+            fig, ax = plt.subplots(figsize=(12, 8))
+            
+            # Clear the axes
+            ax.clear()
+            
+            # Set background
+            ax.set_facecolor('#f8f9fa')
+            fig.patch.set_facecolor('#f8f9fa')
+            
+            # Add title
+            ax.text(0.5, 0.8, title, ha='center', va='center', 
+                   fontsize=18, fontweight='bold', color='#6c757d',
+                   transform=ax.transAxes)
+            
+            # Add message
+            ax.text(0.5, 0.6, message, ha='center', va='center',
+                   fontsize=14, color='#6c757d', alpha=0.8,
+                   transform=ax.transAxes)
+            
+            # Add timestamp
+            from datetime import datetime
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+            ax.text(0.5, 0.2, f"Generated: {timestamp}", ha='center', va='center',
+                   fontsize=10, color='#6c757d', alpha=0.6,
+                   transform=ax.transAxes)
+            
+            # Remove axes
+            ax.set_xticks([])
+            ax.set_yticks([])
+            ax.spines['top'].set_visible(False)
+            ax.spines['right'].set_visible(False)
+            ax.spines['bottom'].set_visible(False)
+            ax.spines['left'].set_visible(False)
+            
+            # Save the placeholder chart
+            output_path = os.path.join(self.output_dir, output_filename)
+            plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='#f8f9fa')
+            plt.close()
+            
+            file_size = os.path.getsize(output_path) if os.path.exists(output_path) else 0
+            self.logger.warning(f"⚠️ Created placeholder chart: {output_path} ({file_size:,} bytes)")
+            
+            return output_path
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error creating placeholder chart: {str(e)}")
+            return None
 
     def create_equity_index_matrix_chart(self, output_filename="equity_index_matrix.png"):
         """
@@ -2409,7 +2737,12 @@ class EnhancedVisualizations:
             # Check if we have sufficient data for chart creation
             if len(futures_data) < 2:
                 self.logger.error("❌ Insufficient futures data for matrix creation (need at least 2 valid symbols)")
-                return None
+                # Create placeholder chart instead of returning None
+                return self._create_placeholder_chart(
+                    output_filename=output_filename,
+                    title="Equity Index Matrix - Data Unavailable",
+                    message=f"Only {len(futures_data)}/4 futures have valid data\nMinimum 2 required for matrix analysis"
+                )
             
             # Create the visualization with adaptive layout based on available data
             fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
@@ -2731,11 +3064,27 @@ class EnhancedVisualizations:
             
             # Fetch data for all timeframes
             timeframe_data = {}
-            ticker = yf.Ticker(symbol)
+            
+            # Special handling for MCL=F with detailed error logging
+            if symbol == 'MCL=F':
+                self.logger.info(f"🛢️ Creating timeline panel for MCL=F with enhanced error handling...")
+            
+            try:
+                ticker = yf.Ticker(symbol)
+            except Exception as e:
+                if symbol == 'MCL=F':
+                    self.logger.warning(f"⚠️ MCL=F Ticker creation failed: {str(e)} - skipping oil futures timeline")
+                else:
+                    self.logger.error(f"❌ Ticker creation failed for {symbol}: {str(e)}")
+                return None
             
             for tf_key, tf_config in timeframes.items():
                 try:
-                    self.logger.debug(f"📈 Fetching {tf_key} data for {symbol}...")
+                    if symbol == 'MCL=F':
+                        self.logger.debug(f"🛢️ Fetching {tf_key} data for MCL=F...")
+                    else:
+                        self.logger.debug(f"📈 Fetching {tf_key} data for {symbol}...")
+                    
                     hist = ticker.history(period=tf_config['period'], interval=tf_config['interval'])
                     
                     is_valid, error_reason = self._validate_market_data(hist, symbol, min_rows=2)
@@ -2769,18 +3118,33 @@ class EnhancedVisualizations:
                             'period_low': period_low,
                             'title': tf_config['title']
                         }
-                        self.logger.debug(f"✅ {tf_key}: {pct_change:+.2f}% ({trend_direction})")
+                        if symbol == 'MCL=F':
+                            self.logger.debug(f"✅ MCL=F {tf_key}: {pct_change:+.2f}% ({trend_direction})")
+                        else:
+                            self.logger.debug(f"✅ {tf_key}: {pct_change:+.2f}% ({trend_direction})")
                     else:
-                        self.logger.warning(f"⚠️ Invalid data for {symbol} {tf_key}: {error_reason}")
+                        if symbol == 'MCL=F':
+                            self.logger.warning(f"⚠️ MCL=F invalid data for {tf_key}: {error_reason}")
+                        else:
+                            self.logger.warning(f"⚠️ Invalid data for {symbol} {tf_key}: {error_reason}")
                         
                 except Exception as e:
-                    self.logger.warning(f"⚠️ Failed to fetch {tf_key} data for {symbol}: {str(e)}")
+                    if symbol == 'MCL=F':
+                        self.logger.warning(f"⚠️ MCL=F failed to fetch {tf_key} data: {str(e)}")
+                    else:
+                        self.logger.warning(f"⚠️ Failed to fetch {tf_key} data for {symbol}: {str(e)}")
                     continue
             
             # Check if we have sufficient data
             if len(timeframe_data) < 2:
                 self.logger.error(f"❌ Insufficient timeframe data for {symbol} (got {len(timeframe_data)}, need 2+)")
-                return None
+                # Create placeholder chart instead of returning None
+                output_filename = f"{symbol}_multi_timeframe.png"
+                return self._create_placeholder_chart(
+                    output_filename=output_filename,
+                    title=f"{symbol} Timeline Analysis - Data Unavailable",
+                    message=f"Only {len(timeframe_data)}/4 timeframes have valid data\nMinimum 2 required for timeline analysis"
+                )
             
             # Create the 4-panel chart
             fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -2944,7 +3308,11 @@ class EnhancedVisualizations:
             
             for symbol, info in all_assets.items():
                 try:
-                    self.logger.info(f"📈 Fetching 5-day data for {info['name']} ({symbol})...")
+                    # Special handling for MCL=F with detailed error logging
+                    if symbol == 'MCL=F':
+                        self.logger.info(f"🛢️ Fetching 5-day data for {info['name']} ({symbol})...")
+                    else:
+                        self.logger.info(f"📈 Fetching 5-day data for {info['name']} ({symbol})...")
                     
                     # Try yfinance first
                     data = self._fetch_5day_returns_with_fallback(symbol, info['name'])
@@ -2962,16 +3330,27 @@ class EnhancedVisualizations:
                         self.logger.info(f"✅ {info['name']}: {data['pct_change_5d']:+.2f}% ({data['source']})")
                     else:
                         failed_symbols.append(symbol)
-                        self.logger.error(f"❌ Failed to fetch data for {symbol}")
+                        if symbol == 'MCL=F':
+                            self.logger.warning(f"⚠️ MCL=F fetch failed - skipping oil futures from macro vs futures chart")
+                        else:
+                            self.logger.error(f"❌ Failed to fetch data for {symbol}")
                         
                 except Exception as e:
-                    self.logger.error(f"❌ Error fetching {symbol}: {str(e)}")
+                    if symbol == 'MCL=F':
+                        self.logger.warning(f"⚠️ MCL=F fetch failed: {str(e)} - continuing without oil futures")
+                    else:
+                        self.logger.error(f"❌ Error fetching {symbol}: {str(e)}")
                     failed_symbols.append(symbol)
                     continue
             
             if len(asset_data) < 4:
                 self.logger.error("❌ Insufficient data for meaningful comparison")
-                return None
+                # Create placeholder chart instead of returning None
+                return self._create_placeholder_chart(
+                    output_filename=output_filename,
+                    title="Macro vs Futures Chart - Data Unavailable",
+                    message=f"Only {len(asset_data)}/{len(all_assets)} assets have valid data\nMinimum 4 required for meaningful comparison"
+                )
             
             # Separate the data by asset type
             macro_data = {k: v for k, v in asset_data.items() if k in macro_assets}
@@ -3052,7 +3431,7 @@ class EnhancedVisualizations:
     
     def _fetch_5day_returns_with_fallback(self, symbol, name):
         """
-        Fetch 5-day returns with yfinance and Polygon fallback.
+        Fetch 5-day returns with yfinance and enhanced fallback logic.
         
         Args:
             symbol: Asset symbol
@@ -3062,38 +3441,98 @@ class EnhancedVisualizations:
             Dict with performance data or None if failed
         """
         try:
-            # Try yfinance first
-            import yfinance as yf
-            ticker = yf.Ticker(symbol)
-            hist = ticker.history(period="7d", interval="1d")
+            # Special handling for MCL=F with detailed error logging
+            if symbol == 'MCL=F':
+                self.logger.info(f"🛢️ Fetching 5-day data for {name} ({symbol}) with fallback...")
+            else:
+                self.logger.info(f"📈 Fetching 5-day data for {name} ({symbol})...")
             
-            if not hist.empty and len(hist) >= 2:
-                start_price = float(hist['Close'].iloc[0])
-                end_price = float(hist['Close'].iloc[-1])
-                pct_change_5d = ((end_price - start_price) / start_price) * 100
+            # Use fetch_price_safe for futures contracts, fetch_valid_data for others
+            if symbol.endswith('=F'):
+                # Use fetch_price_safe for futures with CME fallback
+                result = fetch_price_safe(symbol)
+                if result and result.get('success'):
+                    # Log fallback usage if applicable
+                    if result.get('source') == 'cme_scraper':
+                        self.logger.info(f"🔄 Used CME fallback for {symbol} (yfinance failed)")
+                    
+                    # Convert fetch_price_safe result to expected format
+                    return {
+                        'pct_change_5d': result['pct_change'],
+                        'daily_volatility': 0.0,  # Not available from CME
+                        'current_price': result['price'],
+                        'source': result['source'],
+                        'data_points': result['data_points'],
+                        'symbol_used': symbol
+                    }
+                else:
+                    self.logger.warning(f"⚠️ Skipping {symbol}: no valid data available.")
+                    return None
+            else:
+                # Use the enhanced fetch_valid_data function with fallback logic
+                result = fetch_valid_data(symbol, period="7d", interval="1d", min_rows=2)
+            
+            if result is not None and 'data' in result:
+                data = result['data']
+                symbol_used = result['symbol_used']
+                fallback_used = result['fallback_used']
+                is_placeholder = result.get('is_placeholder', False)
                 
-                returns = hist['Close'].pct_change().dropna()
-                daily_volatility = returns.std() * 100
+                # Handle placeholder data
+                if is_placeholder:
+                    if symbol == 'MCL=F':
+                        self.logger.warning(f"⚠️ MCL=F placeholder data used - skipping oil futures")
+                    else:
+                        self.logger.warning(f"⚠️ Using placeholder data for {name} ({symbol})")
+                    return None
                 
-                return {
-                    'pct_change_5d': pct_change_5d,
-                    'daily_volatility': daily_volatility,
-                    'current_price': end_price,
-                    'source': 'yfinance',
-                    'data_points': len(hist)
-                }
+                # Log fallback usage
+                if fallback_used:
+                    self.logger.info(f"🔄 Used fallback symbol {symbol_used} for {symbol}")
+                
+                if not data.empty and len(data) >= 2:
+                    start_price = float(data['Close'].iloc[0])
+                    end_price = float(data['Close'].iloc[-1])
+                    pct_change_5d = ((end_price - start_price) / start_price) * 100
+                    
+                    returns = data['Close'].pct_change().dropna()
+                    daily_volatility = returns.std() * 100
+                    
+                    source = 'yfinance-fallback' if fallback_used else 'yfinance'
+                    
+                    # Log success with special handling for MCL=F
+                    if symbol == 'MCL=F':
+                        self.logger.info(f"✅ MCL=F data fetched successfully: {pct_change_5d:+.2f}% ({source})")
+                    else:
+                        self.logger.info(f"✅ {name} data fetched: {pct_change_5d:+.2f}% ({source})")
+                    
+                    return {
+                        'pct_change_5d': pct_change_5d,
+                        'daily_volatility': daily_volatility,
+                        'current_price': end_price,
+                        'source': source,
+                        'data_points': len(data),
+                        'symbol_used': symbol_used
+                    }
+                else:
+                    if symbol == 'MCL=F':
+                        self.logger.warning(f"⚠️ MCL=F insufficient data - skipping oil futures")
+                    else:
+                        self.logger.warning(f"⚠️ Insufficient data for {name} ({symbol})")
+                    return None
+            else:
+                if symbol == 'MCL=F':
+                    self.logger.warning(f"⚠️ MCL=F no data available - skipping oil futures")
+                else:
+                    self.logger.warning(f"⚠️ No data available for {name} ({symbol})")
+                return None
+                
         except Exception as e:
-            self.logger.debug(f"yfinance failed for {symbol}: {e}")
-        
-        # Try Polygon fallback (if available)
-        try:
-            # Placeholder for Polygon API integration
-            # This would require Polygon API credentials and implementation
-            self.logger.debug(f"Polygon fallback not implemented for {symbol}")
-        except Exception as e:
-            self.logger.debug(f"Polygon failed for {symbol}: {e}")
-        
-        return None
+            if symbol == 'MCL=F':
+                self.logger.warning(f"⚠️ MCL=F fetch failed: {str(e)} - continuing without oil futures")
+            else:
+                self.logger.error(f"❌ Error fetching data for {name} ({symbol}): {str(e)}")
+            return None
     
     def _create_grouped_performance_bars(self, ax, macro_data, equity_data):
         """Create grouped bar chart comparing macro vs equity performance."""

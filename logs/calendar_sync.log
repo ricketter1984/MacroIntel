@@ -13,3 +13,1389 @@
 2025-07-12 12:26:15,619 - calendar_google_sync - INFO - API: Fetching events from 2025-07-12 to 2025-07-15
 2025-07-12 12:26:15,797 - calendar_google_sync - INFO - SUCCESS: Retrieved 251 events from FMP API
 2025-07-12 12:26:15,798 - calendar_google_sync - INFO - FILTER: 140 important events out of 251 total
+2025-07-16 21:34:39,665 - __main__ - ERROR - ERROR: credentials.json not found at config\credentials.json
+2025-07-16 21:34:39,665 - __main__ - ERROR - HELP: Download credentials.json from Google Cloud Console and place in config/
+2025-07-18 05:35:34,319 - __main__ - ERROR - ERROR: Google API libraries not available. Install with: pip install google-auth google-auth-oauthlib google-api-python-client
+2025-07-18 05:55:56,161 - google_auth_oauthlib.flow - INFO - "GET /?state=4aaRfI6447se1J46QlWXHFSwgX2Ash&code=4/0AVMBsJjPTSU40HfuKjjED6ci_L4-cUEYvcdLk-bl9XSiouNpVDtwqzeCOnr_x9Ul_bxmXA&scope=https://www.googleapis.com/auth/calendar HTTP/1.1" 200 65
+2025-07-18 05:55:56,425 - __main__ - INFO - AUTH: Completed OAuth 2.0 flow
+2025-07-18 05:55:56,425 - __main__ - INFO - AUTH: Saved credentials to config\token.json
+2025-07-18 05:55:56,431 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-07-18 05:55:56,434 - __main__ - INFO - SUCCESS: Google Calendar API service initialized
+2025-07-18 05:55:59,409 - __main__ - INFO - CREATED: New MacroIntel calendar with ID: 47916b5e762c0a1743ab7ad083dce5053d299968bba4a676ec6dd94bffd8ae79@group.calendar.google.com
+2025-07-18 05:58:50,361 - __main__ - INFO - SYNC: Starting MacroIntel calendar sync...
+2025-07-18 05:58:50,379 - __main__ - INFO - AUTH: Loaded existing credentials from token file
+2025-07-18 05:58:50,379 - __main__ - INFO - AUTH: Saved credentials to config\token.json
+2025-07-18 05:58:50,384 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-07-18 05:58:50,386 - __main__ - INFO - SUCCESS: Google Calendar API service initialized
+2025-07-18 05:58:50,816 - __main__ - INFO - FOUND: MacroIntel calendar exists with ID: 47916b5e762c0a1743ab7ad083dce5053d299968bba4a676ec6dd94bffd8ae79@group.calendar.google.com
+2025-07-18 05:58:50,816 - __main__ - INFO - LOG: No existing events log found
+2025-07-18 05:58:50,816 - __main__ - ERROR - ERROR: FMP_API_KEY not found in environment variables
+2025-07-18 05:58:50,816 - __main__ - WARNING - WARNING: No events fetched from FMP API
+2025-07-18 06:05:35,137 - __main__ - INFO - SYNC: Starting MacroIntel calendar sync...
+2025-07-18 06:05:35,142 - __main__ - INFO - AUTH: Loaded existing credentials from token file
+2025-07-18 06:05:35,143 - __main__ - INFO - AUTH: Saved credentials to config\token.json
+2025-07-18 06:05:35,146 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-07-18 06:05:35,148 - __main__ - INFO - SUCCESS: Google Calendar API service initialized
+2025-07-18 06:05:35,592 - __main__ - INFO - FOUND: MacroIntel calendar exists with ID: 47916b5e762c0a1743ab7ad083dce5053d299968bba4a676ec6dd94bffd8ae79@group.calendar.google.com
+2025-07-18 06:05:35,592 - __main__ - INFO - LOG: No existing events log found
+2025-07-18 06:05:35,592 - __main__ - INFO - API: Fetching events from 2025-07-18 to 2025-08-01
+2025-07-18 06:05:35,917 - __main__ - INFO - SUCCESS: Retrieved 1177 events from FMP API
+2025-07-18 06:05:35,921 - __main__ - INFO - FILTER: 656 important events out of 1177 total
+2025-07-18 06:05:35,921 - __main__ - WARNING - WARNING: Could not parse datetime for event: Atlanta Fed GDPNow (Q3)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Davivienda Manufacturing PMI (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Federal Tax Revenues (Jun)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan Inflation Expectations (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan 5 Year Inflation Expectations (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: ISM Manufacturing New Orders (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Expectations (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: ISM Manufacturing Employment (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan Consumer Sentiment (Jul)
+2025-07-18 06:05:35,922 - __main__ - WARNING - WARNING: Could not parse datetime for event: ISM Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: ISM Manufacturing Prices (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: SIPMM Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Nonfarm Payrolls Private (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Payrolls (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Average Hourly Earnings MoM (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Average Hourly Earnings YoY (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Participation Rate (Jul)
+2025-07-18 06:05:35,923 - __main__ - WARNING - WARNING: Could not parse datetime for event: Non Farm Payrolls (Jul)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jul)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: U-6 Unemployment Rate (Jul)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Change (Jul)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,924 - __main__ - WARNING - WARNING: Could not parse datetime for event: ABSA Manufacturing PMI (Jul)
+2025-07-18 06:05:35,925 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,925 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Stanbic IBTC Bank Nigeria PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: DNB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,926 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: IPC-Fipe Inflation MoM (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: procure.ch Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,927 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: HALPIM Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Istanbul Chamber of Industry Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,928 - __main__ - WARNING - WARNING: Could not parse datetime for event: Swedbank Manufacturing PMI (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Nationwide Housing Prices MoM (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Nationwide Housing Prices YoY (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: HSBC Manufacturing PMI (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: NEVI Manufacturing PMI (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,929 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Caixin Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jibun Bank Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,930 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: AIB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Judo Bank Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: ANZ Roy Morgan Consumer Confidence (Jul)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Balance Sheet (Jul/30)
+2025-07-18 06:05:35,931 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,932 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,932 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,932 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Aug)
+2025-07-18 06:05:35,932 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q1)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Natural Gas Stocks Change (Jul/25)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Chicago PMI (Jul)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Jul)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Production YoY (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,933 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Cost - Wages QoQ (Q2)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Initial Jobless Claims (Jul/26)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Personal Spending MoM (Jun)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Benefits QoQ (Q2)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core PCE Price Index MoM (Jun)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: PCE Price Index MoM (Jun)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Wages QoQ (Q2)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Personal Income MoM (Jun)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Continuing Jobless Claims (Jul/19)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jobless Claims 4-Week Average (Jul/26)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Cost - Benefits QoQ (Q2)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Cost Index QoQ (Q2)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: PCE Price Index YoY (Jun)
+2025-07-18 06:05:35,934 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core PCE Price Index YoY (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Net Debt-to-GDP ratio (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Debt to GDP (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Q1)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,935 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,936 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (May)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,937 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Bavaria CPI MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Baden Wuerttemberg CPI MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: North Rhine Westphalia CPI YoY (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Hesse CPI MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Bavaria CPI YoY (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: North Rhine Westphalia CPI MoM (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Hesse CPI YoY (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Saxony CPI YoY (Jul)
+2025-07-18 06:05:35,938 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,939 - __main__ - WARNING - WARNING: Could not parse datetime for event: Brandenburg CPI YoY (Jul)
+2025-07-18 06:05:35,939 - __main__ - WARNING - WARNING: Could not parse datetime for event: Brandenburg CPI MoM (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Baden Wuerttemberg CPI YoY (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Saxony CPI MoM (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployed Persons (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Change (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jul)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (May)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (Jun)
+2025-07-18 06:05:35,940 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,941 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Housing Starts YoY (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoJ Interest Rate Decision
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoJ Quarterly Outlook Report
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Q2)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: NBS Non Manufacturing PMI (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: NBS General PMI (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: NBS Manufacturing PMI (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: PMI (Jul)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales QoQ (Q2)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Housing Credit MoM (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,942 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jul)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Aug)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Press Conference
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Interest Rate Decision
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Refinery Crude Runs Change (Jul/25)
+2025-07-18 06:05:35,943 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Crude Oil Stocks Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Gasoline Production Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Distillate Fuel Production Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Heating Oil Stocks Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Distillate Stocks Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Cushing Crude Oil Stocks Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Gasoline Stocks Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Crude Oil Imports Change (Jul/25)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: Pending Home Sales MoM (Jun)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: Pending Home Sales YoY (Jun)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoC Interest Rate Decision
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoC Monetary Policy Report
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Sales QoQ (Q2)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Price Index QoQ (Q2)
+2025-07-18 06:05:35,944 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product QoQ (Q2)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: ADP Employment Change (Jul)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: IGP-M Inflation MoM (Jul)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: MBA 30-Year Mortgage Rate (Jul/25)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,945 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,946 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,946 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,946 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,946 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,946 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product QoQ (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (May)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Inflation Expectation (Jul)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Economic Sentiment (Jul)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product YoY (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,947 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product YoY (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product QoQ (Q2)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Inflation Expectation (Jul)
+2025-07-18 06:05:35,948 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Harmonised Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Confidence (Jul)
+2025-07-18 06:05:35,949 - __main__ - WARNING - WARNING: Could not parse datetime for event: FDI (YTD) YoY (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q1)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q1)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,950 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Gross Domestic Product QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Spending MoM (Jun)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoJ Interest Rate Decision
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: RBA Trimmed Mean CPI YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Price Index (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: RBA Trimmed Mean CPI QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: RBA Weighted Median CPI YoY (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Monthly CPI Indicator (Jun)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: RBA Weighted Median CPI QoQ (Q2)
+2025-07-18 06:05:35,951 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Jul)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: API Crude Oil Stock Change (Jul/25)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Atlanta Fed GDPNow (Q2)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Dallas Fed Services Revenues Index (Jul)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Dallas Fed Services Index (Jul)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: CB Consumer Confidence (Jul)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: JOLTs Job Openings (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P/Case-Shiller Home Price YoY (May)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Inventories Ex Autos MoM (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Goods Trade Balance (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Wholesale Inventories MoM (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: Goods Trade Balance Adv (Jun)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q1)
+2025-07-18 06:05:35,952 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Distributive Trades (Jul)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Benefit Claims (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: BoE Consumer Credit (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mortgage Approvals (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mortgage Lending (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Bank Austria Manufacturing PMI (Jul)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,953 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Dallas Fed Manufacturing Index (Jul)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Output MoM (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Production YoY (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Distributive Trades (Jul)
+2025-07-18 06:05:35,955 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Production MoM (May)
+2025-07-18 06:05:35,956 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jun)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Atlanta Fed GDPNow (Q2)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Durable Goods Orders Ex Transp MoM (Jun)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Durable Goods Orders MoM (Jun)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: IPCA mid-month CPI YoY (Jul)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: IPCA mid-month CPI MoM (Jul)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (Jun)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: FGV Consumer Confidence (Jul)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Jul)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Business Optimism Index (Q3)
+2025-07-18 06:05:35,957 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Industrial Trends Orders (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Ifo Business Climate (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Inflation Expectation (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Confidence (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales Ex Fuel MoM (Jun)
+2025-07-18 06:05:35,958 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales Ex Fuel YoY (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core CPI YoY (Jul)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Balance Sheet (Jul/23)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Kansas Fed Composite Index (Jul)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: Kansas Fed Manufacturing Index (Jul)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Natural Gas Stocks Change (Jul/18)
+2025-07-18 06:05:35,959 - __main__ - WARNING - WARNING: Could not parse datetime for event: New Home Sales (Jun)
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Composite PMI (Jul)
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Services PMI (Jul)
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: ECB Press Conference
+2025-07-18 06:05:35,960 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: New Housing Price Index YoY (Jun)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing Sales MoM (Jun)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (Jun)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jobless Claims 4-Week Average (Jul/19)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (May)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Chicago Fed National Activity Index (Jun)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (May)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales Ex Autos MoM (May)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Continuing Jobless Claims (Jul/12)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Initial Jobless Claims (Jul/19)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Deposit Facility Rate
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Deposit Facility Rate (Jul)
+2025-07-18 06:05:35,961 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: ECB Monetary Policy Statement and Press Conference
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: ECB Interest Rate Decision
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mid-month Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mid-month Core Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mid-month Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Mid-month Core Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: TCMB Interest Rate Decision
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jun)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Industrial Trends Orders (Jul)
+2025-07-18 06:05:35,962 - __main__ - WARNING - WARNING: Could not parse datetime for event: CBI Business Optimism Index (Q3)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Composite PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Services PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Services PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Services PMI (Jul)
+2025-07-18 06:05:35,963 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Composite PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: Services PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Composite PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Services PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Services PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Composite PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: Services PMI (Jul)
+2025-07-18 06:05:35,964 - __main__ - WARNING - WARNING: Could not parse datetime for event: Manufacturing PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: HCOB Manufacturing PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Q2)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Business Confidence (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Aug)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: HSBC Composite PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Services PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: HSBC Services PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: HSBC Manufacturing PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: New Car Registrations YoY (Jun)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jibun Bank Services PMI (Jul)
+2025-07-18 06:05:35,965 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jibun Bank Composite PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Jibun Bank Manufacturing PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Services PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Manufacturing PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q2)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Judo Bank Manufacturing PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: S&P Global Composite PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Judo Bank Services PMI (Jul)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (May)
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate
+2025-07-18 06:05:35,966 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,967 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Cushing Crude Oil Stocks Change (Jul/18)
+2025-07-18 06:05:35,967 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Refinery Crude Runs Change (Jul/18)
+2025-07-18 06:05:35,967 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Heating Oil Stocks Change (Jul/18)
+2025-07-18 06:05:35,967 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Distillate Stocks Change (Jul/18)
+2025-07-18 06:05:35,967 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Crude Oil Stocks Change (Jul/18)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Distillate Fuel Production Change (Jul/18)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Gasoline Stocks Change (Jul/18)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Gasoline Production Change (Jul/18)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Weekly Refinery Utilization Rates WoW
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: EIA Crude Oil Imports Change (Jul/18)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: Existing Home Sales (Jun)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: Existing Home Sales MoM
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: New Housing Price Index MoM (Jun)
+2025-07-18 06:05:35,968 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q1)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate QoQ (Q1)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: MBA 30-Year Mortgage Rate (Jul/18)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,969 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: BOJ Uchida Speech
+2025-07-18 06:05:35,970 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: API Crude Oil Stock Change (Jul/18)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Bowman Speech
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Richmond Fed Services Revenues Index (Jul)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Richmond Fed Manufacturing Index (Jul)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Richmond Fed Manufacturing Shipments Index (Jul)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Fed Chair Powell Speech
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision (Jul)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (May)
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,971 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales MoM (May)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Deposit Interest Rate (Jul)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Consumer Confidence (Jul)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Retail Sales YoY (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jun)
+2025-07-18 06:05:35,972 - __main__ - WARNING - WARNING: Could not parse datetime for event: RBA Meeting Minutes
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (May)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production MoM (May)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Expectations (Jul)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (May)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,973 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Employment Growth YoY (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Industrial Production YoY (May)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: CPI (Jul)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Loan Prime Rate 1Y
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Loan Prime Rate 5Y (Jul)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Prime Rate
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate QoQ (Q2)
+2025-07-18 06:05:35,974 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Rate YoY (Q2)
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: Unemployment Rate (Jun)
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: Prime Rate
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: Core Inflation Rate MoM (Jun)
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC Crude Oil speculative net positions
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC EUR speculative net positions
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC GBP speculative net positions
+2025-07-18 06:05:35,975 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC S&P 500 speculative net positions
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC JPY speculative net positions
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC Nasdaq 100 speculative net positions
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: CFTC Gold Speculative net positions
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Atlanta Fed GDPNow (Q2)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan Consumer Sentiment (Jul)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan Inflation Expectations (Jul)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Inflation Expectations (Jul)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Michigan 5 Year Inflation Expectations (Jul)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Housing Starts MoM (Jun)
+2025-07-18 06:05:35,976 - __main__ - WARNING - WARNING: Could not parse datetime for event: Building Permits (Jun)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Housing Starts (Jun)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Interest Rate Decision
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Bundesbank Mauderer Speech
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Bundesbank Nagel Speech
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account s.a (May)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Current Account (May)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Producer Price Index YoY (Jun)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: GDP Growth Rate YoY (Q2)
+2025-07-18 06:05:35,977 - __main__ - WARNING - WARNING: Could not parse datetime for event: Trade Balance (Jun)
+2025-07-18 06:05:35,977 - __main__ - INFO - SUMMARY: Calendar sync completed
+2025-07-18 06:05:35,977 - __main__ - INFO -   Total FMP events: 1177
+2025-07-18 06:05:35,978 - __main__ - INFO -   Important events: 656
+2025-07-18 06:05:35,978 - __main__ - INFO -   Events synced: 0
+2025-07-18 06:05:35,978 - __main__ - INFO -   Events skipped: 656
+2025-07-18 06:05:35,978 - __main__ - WARNING - WARNING: No new events were synced to calendar
+2025-07-18 06:07:29,560 - calendar_google_sync - INFO - API: Fetching events from 2025-07-18 to 2025-07-21
+2025-07-18 06:07:29,870 - calendar_google_sync - INFO - SUCCESS: Retrieved 155 events from FMP API
+2025-07-18 06:07:30,048 - calendar_google_sync - INFO - FILTER: 61 important events out of 155 total
+2025-07-18 06:08:37,744 - calendar_google_sync - INFO - API: Fetching events from 2025-07-18 to 2025-07-21
+2025-07-18 06:08:37,966 - calendar_google_sync - INFO - SUCCESS: Retrieved 155 events from FMP API
+2025-07-18 06:08:37,970 - calendar_google_sync - INFO - FILTER: 61 important events out of 155 total
+2025-07-18 06:08:57,788 - __main__ - INFO - SYNC: Starting MacroIntel calendar sync...
+2025-07-18 06:08:57,806 - __main__ - INFO - AUTH: Loaded existing credentials from token file
+2025-07-18 06:08:57,807 - __main__ - INFO - AUTH: Saved credentials to config\token.json
+2025-07-18 06:08:57,810 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-07-18 06:08:57,812 - __main__ - INFO - SUCCESS: Google Calendar API service initialized
+2025-07-18 06:08:58,196 - __main__ - INFO - FOUND: MacroIntel calendar exists with ID: 47916b5e762c0a1743ab7ad083dce5053d299968bba4a676ec6dd94bffd8ae79@group.calendar.google.com
+2025-07-18 06:08:58,196 - __main__ - INFO - LOG: No existing events log found
+2025-07-18 06:08:58,196 - __main__ - INFO - API: Fetching events from 2025-07-18 to 2025-07-21
+2025-07-18 06:08:58,319 - __main__ - INFO - SUCCESS: Retrieved 155 events from FMP API
+2025-07-18 06:08:58,319 - __main__ - INFO - FILTER: 61 important events out of 155 total
+2025-07-18 06:08:58,724 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - MY - Medium on 2025-07-22 04:00
+2025-07-18 06:08:59,076 - __main__ - INFO - CREATED: [CPI (Jun)] - MY - Medium on 2025-07-22 04:00
+2025-07-18 06:08:59,413 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - MY - Medium on 2025-07-22 04:00
+2025-07-18 06:08:59,717 - __main__ - INFO - CREATED: [RBA Meeting Minutes] - AU - High on 2025-07-22 01:30
+2025-07-18 06:09:00,113 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - NZ - Low on 2025-07-21 22:45
+2025-07-18 06:09:00,476 - __main__ - INFO - CREATED: [Trade Balance (May)] - CO - Low on 2025-07-21 15:00
+2025-07-18 06:09:00,848 - __main__ - INFO - CREATED: [Industrial Production MoM (May)] - IL - Low on 2025-07-21 10:00
+2025-07-18 06:09:01,292 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - LU - Low on 2025-07-21 10:00
+2025-07-18 06:09:01,735 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - SK - Low on 2025-07-21 10:00
+2025-07-18 06:09:02,231 - __main__ - INFO - CREATED: [Inflation Expectations (Jul)] - IL - Low on 2025-07-21 10:00
+2025-07-18 06:09:02,720 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - HR - Low on 2025-07-21 10:00
+2025-07-18 06:09:03,346 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - MA - Low on 2025-07-21 09:00
+2025-07-18 06:09:03,690 - __main__ - INFO - CREATED: [Unemployment Rate (May)] - SI - Low on 2025-07-21 09:00
+2025-07-18 06:09:04,119 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - MA - Low on 2025-07-21 09:00
+2025-07-18 06:09:04,461 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - HK - Low on 2025-07-21 08:30
+2025-07-18 06:09:04,867 - __main__ - INFO - CREATED: [CPI (Jun)] - HK - Low on 2025-07-21 08:30
+2025-07-18 06:09:05,310 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - HK - Low on 2025-07-21 08:30
+2025-07-18 06:09:05,636 - __main__ - INFO - CREATED: [Employment Growth YoY (Jun)] - PL - Low on 2025-07-21 08:00
+2025-07-18 06:09:06,039 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - PL - Low on 2025-07-21 08:00
+2025-07-18 06:09:06,548 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - LB - Low on 2025-07-21 08:00
+2025-07-18 06:09:07,018 - __main__ - INFO - CREATED: [Industrial Production YoY (May)] - MD - Low on 2025-07-21 07:00
+2025-07-18 06:09:07,442 - __main__ - INFO - CREATED: [CPI (Jul)] - TR - Low on 2025-07-21 07:00
+2025-07-18 06:09:07,949 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - TL - Low on 2025-07-21 02:00
+2025-07-18 06:09:08,326 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - TL - Low on 2025-07-21 02:00
+2025-07-18 06:09:08,743 - __main__ - INFO - CREATED: [Loan Prime Rate 5Y (Jul)] - CN - Medium on 2025-07-21 01:15
+2025-07-18 06:09:09,161 - __main__ - INFO - CREATED: [Loan Prime Rate 1Y] - CN - Medium on 2025-07-21 01:15
+2025-07-18 06:09:09,570 - __main__ - INFO - CREATED: [Prime Rate] - CN - Medium on 2025-07-21 01:00
+2025-07-18 06:09:09,941 - __main__ - INFO - CREATED: [Inflation Rate QoQ (Q2)] - NZ - Medium on 2025-07-20 22:45
+2025-07-18 06:09:10,577 - __main__ - INFO - CREATED: [Inflation Rate YoY (Q2)] - NZ - Low on 2025-07-20 22:45
+2025-07-18 06:09:10,950 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - IL - Low on 2025-07-20 10:00
+2025-07-18 06:09:11,293 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - IL - Low on 2025-07-20 10:00
+2025-07-18 06:09:11,705 - __main__ - INFO - CREATED: [Prime Rate] - CN - Medium on 2025-07-20 01:15
+2025-07-18 06:09:12,341 - __main__ - INFO - CREATED: [Core Inflation Rate MoM (Jun)] - CA - Low on 2025-07-19 12:30
+2025-07-18 06:09:12,733 - __main__ - INFO - CREATED: [CFTC GBP speculative net positions] - UK - Medium on 2025-07-18 19:30
+2025-07-18 06:09:13,071 - __main__ - INFO - CREATED: [CFTC Nasdaq 100 speculative net positions] - US - Medium on 2025-07-18 19:30
+2025-07-18 06:09:13,511 - __main__ - INFO - CREATED: [CFTC JPY speculative net positions] - JP - Medium on 2025-07-18 19:30
+2025-07-18 06:09:13,934 - __main__ - INFO - CREATED: [CFTC Gold Speculative net positions] - US - Medium on 2025-07-18 19:30
+2025-07-18 06:09:14,393 - __main__ - INFO - CREATED: [CFTC EUR speculative net positions] - EU - Medium on 2025-07-18 19:30
+2025-07-18 06:09:14,786 - __main__ - INFO - CREATED: [CFTC Crude Oil speculative net positions] - US - Medium on 2025-07-18 19:30
+2025-07-18 06:09:15,108 - __main__ - INFO - CREATED: [CFTC S&P 500 speculative net positions] - US - Medium on 2025-07-18 19:30
+2025-07-18 06:09:15,626 - __main__ - INFO - CREATED: [Interest Rate] - GH - Low on 2025-07-18 16:00
+2025-07-18 06:09:16,049 - __main__ - INFO - CREATED: [Atlanta Fed GDPNow (Q2)] - US - Medium on 2025-07-18 15:30
+2025-07-18 06:09:16,532 - __main__ - INFO - CREATED: [Michigan Inflation Expectations (Jul)] - US - Low on 2025-07-18 14:00
+2025-07-18 06:09:16,956 - __main__ - INFO - CREATED: [Interest Rate Decision] - AO - Low on 2025-07-18 14:00
+2025-07-18 06:09:17,412 - __main__ - INFO - CREATED: [Inflation Expectations (Jul)] - US - Medium on 2025-07-18 14:00
+2025-07-18 06:09:17,794 - __main__ - INFO - CREATED: [Michigan 5 Year Inflation Expectations (Jul)] - US - Low on 2025-07-18 14:00
+2025-07-18 06:09:18,280 - __main__ - INFO - CREATED: [Michigan Consumer Sentiment (Jul)] - US - High on 2025-07-18 14:00
+2025-07-18 06:09:18,692 - __main__ - INFO - CREATED: [Housing Starts MoM (Jun)] - US - Medium on 2025-07-18 12:30
+2025-07-18 06:09:19,105 - __main__ - INFO - CREATED: [Housing Starts (Jun)] - US - High on 2025-07-18 12:30
+2025-07-18 06:09:19,631 - __main__ - INFO - CREATED: [Building Permits (Jun)] - US - Medium on 2025-07-18 12:30
+2025-07-18 06:09:20,094 - __main__ - INFO - CREATED: [Current Account (May)] - PT - Low on 2025-07-18 10:30
+2025-07-18 06:09:20,601 - __main__ - INFO - CREATED: [Interest Rate Decision] - GH - Low on 2025-07-18 10:00
+2025-07-18 06:09:21,205 - __main__ - INFO - CREATED: [Current Account (May)] - IT - Low on 2025-07-18 09:00
+2025-07-18 06:09:21,619 - __main__ - INFO - CREATED: [Bundesbank Nagel Speech] - DE - Medium on 2025-07-18 08:15
+2025-07-18 06:09:22,150 - __main__ - INFO - CREATED: [Bundesbank Mauderer Speech] - DE - Medium on 2025-07-18 08:15
+2025-07-18 06:09:22,463 - __main__ - INFO - CREATED: [Current Account (May)] - EU - Low on 2025-07-18 08:00
+2025-07-18 06:09:22,788 - __main__ - INFO - CREATED: [Current Account s.a (May)] - EU - Low on 2025-07-18 08:00
+2025-07-18 06:09:23,165 - __main__ - INFO - CREATED: [Current Account (May)] - SK - Low on 2025-07-18 07:00
+2025-07-18 06:09:23,431 - __main__ - INFO - CREATED: [Producer Price Index YoY (Jun)] - DE - Medium on 2025-07-18 06:00
+2025-07-18 06:09:23,767 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - MY - Low on 2025-07-18 04:00
+2025-07-18 06:09:24,057 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - MY - Low on 2025-07-18 04:00
+2025-07-18 06:09:24,062 - __main__ - INFO - LOG: Saved 61 events to logs\calendar_events_log.json
+2025-07-18 06:09:24,062 - __main__ - INFO - SUMMARY: Calendar sync completed
+2025-07-18 06:09:24,062 - __main__ - INFO -   Total FMP events: 155
+2025-07-18 06:09:24,062 - __main__ - INFO -   Important events: 61
+2025-07-18 06:09:24,062 - __main__ - INFO -   Events synced: 61
+2025-07-18 06:09:24,062 - __main__ - INFO -   Events skipped: 0
+2025-07-18 06:09:24,062 - __main__ - INFO - SUCCESS: Calendar sync completed successfully
+2025-07-18 06:10:35,620 - __main__ - INFO - SYNC: Starting MacroIntel calendar sync...
+2025-07-18 06:10:35,623 - __main__ - INFO - AUTH: Loaded existing credentials from token file
+2025-07-18 06:10:35,624 - __main__ - INFO - AUTH: Saved credentials to config\token.json
+2025-07-18 06:10:35,626 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-07-18 06:10:35,627 - __main__ - INFO - SUCCESS: Google Calendar API service initialized
+2025-07-18 06:10:35,919 - __main__ - INFO - FOUND: MacroIntel calendar exists with ID: 47916b5e762c0a1743ab7ad083dce5053d299968bba4a676ec6dd94bffd8ae79@group.calendar.google.com
+2025-07-18 06:10:35,935 - __main__ - INFO - LOADED: 61 previously processed events
+2025-07-18 06:10:35,935 - __main__ - INFO - API: Fetching events from 2025-07-18 to 2025-08-01
+2025-07-18 06:10:36,215 - __main__ - INFO - SUCCESS: Retrieved 1177 events from FMP API
+2025-07-18 06:10:36,215 - __main__ - INFO - FILTER: 656 important events out of 1177 total
+2025-07-18 06:10:36,543 - __main__ - INFO - CREATED: [Atlanta Fed GDPNow (Q3)] - US - Medium on 2025-08-01 17:00
+2025-07-18 06:10:36,970 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - MX - Low on 2025-08-01 15:00
+2025-07-18 06:10:37,248 - __main__ - INFO - CREATED: [Davivienda Manufacturing PMI (Jul)] - CO - Low on 2025-08-01 15:00
+2025-07-18 06:10:37,625 - __main__ - INFO - CREATED: [Federal Tax Revenues (Jun)] - BR - Low on 2025-08-01 14:30
+2025-07-18 06:10:37,924 - __main__ - INFO - CREATED: [ISM Manufacturing PMI (Jul)] - US - High on 2025-08-01 14:00
+2025-07-18 06:10:38,276 - __main__ - INFO - CREATED: [ISM Manufacturing Prices (Jul)] - US - Low on 2025-08-01 14:00
+2025-07-18 06:10:38,739 - __main__ - INFO - CREATED: [Michigan Consumer Sentiment (Jul)] - US - High on 2025-08-01 14:00
+2025-07-18 06:10:39,105 - __main__ - INFO - CREATED: [Michigan Inflation Expectations (Jul)] - US - Low on 2025-08-01 14:00
+2025-07-18 06:10:39,523 - __main__ - INFO - CREATED: [Inflation Expectations (Jul)] - US - Medium on 2025-08-01 14:00
+2025-07-18 06:10:39,958 - __main__ - INFO - CREATED: [ISM Manufacturing New Orders (Jul)] - US - Low on 2025-08-01 14:00
+2025-07-18 06:10:40,519 - __main__ - INFO - CREATED: [Michigan 5 Year Inflation Expectations (Jul)] - US - Low on 2025-08-01 14:00
+2025-07-18 06:10:40,970 - __main__ - INFO - CREATED: [ISM Manufacturing Employment (Jul)] - US - Medium on 2025-08-01 14:00
+2025-07-18 06:10:41,352 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - US - High on 2025-08-01 13:45
+2025-07-18 06:10:41,752 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - CA - High on 2025-08-01 13:30
+2025-07-18 06:10:42,227 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - BR - Low on 2025-08-01 13:00
+2025-07-18 06:10:42,648 - __main__ - INFO - CREATED: [SIPMM Manufacturing PMI (Jul)] - SG - Low on 2025-08-01 13:00
+2025-07-18 06:10:43,041 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - SG - Low on 2025-08-01 13:00
+2025-07-18 06:10:43,484 - __main__ - INFO - CREATED: [Manufacturing Payrolls (Jul)] - US - Low on 2025-08-01 12:30
+2025-07-18 06:10:43,920 - __main__ - INFO - CREATED: [U-6 Unemployment Rate (Jul)] - US - High on 2025-08-01 12:30
+2025-07-18 06:10:44,445 - __main__ - INFO - CREATED: [Unemployment Rate (Jul)] - US - High on 2025-08-01 12:30
+2025-07-18 06:10:44,765 - __main__ - INFO - CREATED: [Participation Rate (Jul)] - US - Medium on 2025-08-01 12:30
+2025-07-18 06:10:45,248 - __main__ - INFO - CREATED: [Non Farm Payrolls (Jul)] - US - High on 2025-08-01 12:30
+2025-07-18 06:10:45,602 - __main__ - INFO - CREATED: [Nonfarm Payrolls Private (Jul)] - US - High on 2025-08-01 12:30
+2025-07-18 06:10:46,125 - __main__ - INFO - CREATED: [Average Hourly Earnings YoY (Jul)] - US - Medium on 2025-08-01 12:30
+2025-07-18 06:10:46,483 - __main__ - INFO - CREATED: [Average Hourly Earnings MoM (Jul)] - US - Medium on 2025-08-01 12:30
+2025-07-18 06:10:46,930 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - BR - Medium on 2025-08-01 12:00
+2025-07-18 06:10:47,388 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - BR - Low on 2025-08-01 12:00
+2025-07-18 06:10:47,829 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - PT - Low on 2025-08-01 10:00
+2025-07-18 06:10:48,263 - __main__ - INFO - CREATED: [Interest Rate Decision] - BG - Low on 2025-08-01 10:00
+2025-07-18 06:10:48,722 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - PT - Low on 2025-08-01 10:00
+2025-07-18 06:10:49,136 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - CY - Low on 2025-08-01 09:00
+2025-07-18 06:10:49,598 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - IT - High on 2025-08-01 09:00
+2025-07-18 06:10:50,043 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - IT - High on 2025-08-01 09:00
+2025-07-18 06:10:50,380 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - EU - High on 2025-08-01 09:00
+2025-07-18 06:10:50,908 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - EU - Medium on 2025-08-01 09:00
+2025-07-18 06:10:51,388 - __main__ - INFO - CREATED: [Employment Change (Jul)] - AT - Low on 2025-08-01 09:00
+2025-07-18 06:10:51,806 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - HR - Low on 2025-08-01 09:00
+2025-07-18 06:10:52,118 - __main__ - INFO - CREATED: [ABSA Manufacturing PMI (Jul)] - ZA - Low on 2025-08-01 09:00
+2025-07-18 06:10:52,567 - __main__ - INFO - CREATED: [Core Inflation Rate YoY (Jul)] - EU - Medium on 2025-08-01 09:00
+2025-07-18 06:10:52,969 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - HR - Low on 2025-08-01 09:00
+2025-07-18 06:10:53,365 - __main__ - INFO - CREATED: [CPI (Jul)] - EU - High on 2025-08-01 09:00
+2025-07-18 06:10:53,750 - __main__ - INFO - CREATED: [Stanbic IBTC Bank Nigeria PMI (Jul)] - NG - Low on 2025-08-01 08:45
+2025-07-18 06:10:54,142 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - UK - High on 2025-08-01 08:30
+2025-07-18 06:10:54,514 - __main__ - INFO - CREATED: [DNB Manufacturing PMI (Jul)] - NO - Low on 2025-08-01 08:00
+2025-07-18 06:10:54,881 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - PE - Low on 2025-08-01 08:00
+2025-07-18 06:10:55,333 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - PK - Low on 2025-08-01 08:00
+2025-07-18 06:10:55,717 - __main__ - INFO - CREATED: [IPC-Fipe Inflation MoM (Jul)] - BR - Low on 2025-08-01 08:00
+2025-07-18 06:10:56,107 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - EU - Medium on 2025-08-01 08:00
+2025-07-18 06:10:56,493 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - PE - Low on 2025-08-01 08:00
+2025-07-18 06:10:56,978 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - GR - High on 2025-08-01 08:00
+2025-07-18 06:10:57,355 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - PK - Low on 2025-08-01 08:00
+2025-07-18 06:10:57,921 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - NO - Low on 2025-08-01 08:00
+2025-07-18 06:10:58,370 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - EU - High on 2025-08-01 08:00
+2025-07-18 06:10:58,833 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - GR - Low on 2025-08-01 08:00
+2025-07-18 06:10:59,394 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - DE - High on 2025-08-01 07:55
+2025-07-18 06:10:59,748 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - DE - Medium on 2025-08-01 07:55
+2025-07-18 06:11:00,255 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - FR - Medium on 2025-08-01 07:50
+2025-07-18 06:11:00,703 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - FR - High on 2025-08-01 07:50
+2025-07-18 06:11:01,023 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - IT - High on 2025-08-01 07:45
+2025-07-18 06:11:01,390 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - IT - Medium on 2025-08-01 07:45
+2025-07-18 06:11:01,908 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - CZ - Low on 2025-08-01 07:30
+2025-07-18 06:11:02,366 - __main__ - INFO - CREATED: [procure.ch Manufacturing PMI (Jul)] - CH - High on 2025-08-01 07:30
+2025-07-18 06:11:02,700 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - CZ - Low on 2025-08-01 07:30
+2025-07-18 06:11:03,158 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - KZ - Low on 2025-08-01 07:20
+2025-07-18 06:11:03,543 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - KZ - Low on 2025-08-01 07:20
+2025-07-18 06:11:03,963 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - ES - Medium on 2025-08-01 07:15
+2025-07-18 06:11:04,392 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - ES - High on 2025-08-01 07:15
+2025-07-18 06:11:04,827 - __main__ - INFO - CREATED: [Istanbul Chamber of Industry Manufacturing PMI (Jul)] - TR - Low on 2025-08-01 07:00
+2025-07-18 06:11:05,147 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - AT - Low on 2025-08-01 07:00
+2025-07-18 06:11:05,536 - __main__ - INFO - CREATED: [HALPIM Manufacturing PMI (Jul)] - HU - Low on 2025-08-01 07:00
+2025-07-18 06:11:05,855 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - HU - Low on 2025-08-01 07:00
+2025-07-18 06:11:06,337 - __main__ - INFO - CREATED: [Unemployment Rate (Jul)] - AT - High on 2025-08-01 07:00
+2025-07-18 06:11:06,765 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - AT - Low on 2025-08-01 07:00
+2025-07-18 06:11:07,179 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - AT - Low on 2025-08-01 07:00
+2025-07-18 06:11:07,575 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - AT - Low on 2025-08-01 07:00
+2025-07-18 06:11:07,919 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - PL - Low on 2025-08-01 07:00
+2025-07-18 06:11:08,325 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - FR - Medium on 2025-08-01 06:45
+2025-07-18 06:11:08,780 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - SE - Low on 2025-08-01 06:30
+2025-07-18 06:11:09,296 - __main__ - INFO - CREATED: [Swedbank Manufacturing PMI (Jul)] - SE - Low on 2025-08-01 06:30
+2025-07-18 06:11:09,661 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - RO - Low on 2025-08-01 06:00
+2025-07-18 06:11:10,045 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - RU - Medium on 2025-08-01 06:00
+2025-07-18 06:11:10,442 - __main__ - INFO - CREATED: [Unemployment Rate (Jul)] - NO - Low on 2025-08-01 06:00
+2025-07-18 06:11:10,851 - __main__ - INFO - CREATED: [Nationwide Housing Prices MoM (Jul)] - UK - Medium on 2025-08-01 06:00
+2025-07-18 06:11:11,353 - __main__ - INFO - CREATED: [Nationwide Housing Prices YoY (Jul)] - UK - Medium on 2025-08-01 06:00
+2025-07-18 06:11:11,730 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - IN - Low on 2025-08-01 05:00
+2025-07-18 06:11:12,148 - __main__ - INFO - CREATED: [HSBC Manufacturing PMI (Jul)] - IN - Low on 2025-08-01 05:00
+2025-07-18 06:11:12,682 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - FI - Low on 2025-08-01 05:00
+2025-07-18 06:11:13,018 - __main__ - INFO - CREATED: [NEVI Manufacturing PMI (Jul)] - NL - Low on 2025-08-01 05:00
+2025-07-18 06:11:13,447 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - FI - Low on 2025-08-01 05:00
+2025-07-18 06:11:13,903 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - NL - Medium on 2025-08-01 04:30
+2025-07-18 06:11:14,486 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - NL - Low on 2025-08-01 04:30
+2025-07-18 06:11:14,903 - __main__ - INFO - CREATED: [Core Inflation Rate YoY (Jul)] - ID - Low on 2025-08-01 04:00
+2025-07-18 06:11:15,382 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - ID - Medium on 2025-08-01 04:00
+2025-07-18 06:11:15,802 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - ID - Low on 2025-08-01 04:00
+2025-07-18 06:11:16,197 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - ID - Low on 2025-08-01 04:00
+2025-07-18 06:11:16,517 - __main__ - INFO - CREATED: [Caixin Manufacturing PMI (Jul)] - CN - High on 2025-08-01 01:45
+2025-07-18 06:11:17,090 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - MY - Low on 2025-08-01 00:30
+2025-07-18 06:11:17,443 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - TH - Low on 2025-08-01 00:30
+2025-07-18 06:11:17,724 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - KR - Medium on 2025-08-01 00:30
+2025-07-18 06:11:18,114 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - MY - Low on 2025-08-01 00:30
+2025-07-18 06:11:18,531 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - ID - Low on 2025-08-01 00:30
+2025-07-18 06:11:18,951 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - VN - Low on 2025-08-01 00:30
+2025-07-18 06:11:19,289 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - TH - Low on 2025-08-01 00:30
+2025-07-18 06:11:19,735 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - KR - Low on 2025-08-01 00:30
+2025-07-18 06:11:20,250 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - PH - Low on 2025-08-01 00:30
+2025-07-18 06:11:20,593 - __main__ - INFO - CREATED: [Jibun Bank Manufacturing PMI (Jul)] - JP - Low on 2025-08-01 00:30
+2025-07-18 06:11:21,027 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - TW - Low on 2025-08-01 00:30
+2025-07-18 06:11:21,429 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - IE - Low on 2025-08-01 00:01
+2025-07-18 06:11:21,823 - __main__ - INFO - CREATED: [AIB Manufacturing PMI (Jul)] - IE - Low on 2025-08-01 00:01
+2025-07-18 06:11:22,264 - __main__ - INFO - CREATED: [Trade Balance (Jul)] - KR - Low on 2025-08-01 00:00
+2025-07-18 06:11:22,726 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - KR - Low on 2025-07-31 23:55
+2025-07-18 06:11:23,153 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - JP - Medium on 2025-07-31 23:30
+2025-07-18 06:11:23,684 - __main__ - INFO - CREATED: [Judo Bank Manufacturing PMI (Jul)] - AU - Low on 2025-07-31 23:00
+2025-07-18 06:11:24,046 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - AU - High on 2025-07-31 23:00
+2025-07-18 06:11:24,453 - __main__ - INFO - CREATED: [ANZ Roy Morgan Consumer Confidence (Jul)] - NZ - Low on 2025-07-31 22:00
+2025-07-18 06:11:24,940 - __main__ - INFO - CREATED: [Fed Balance Sheet (Jul/30)] - US - Low on 2025-07-31 20:30
+2025-07-18 06:11:25,285 - __main__ - INFO - CREATED: [Interest Rate Decision] - DO - Low on 2025-07-31 19:00
+2025-07-18 06:11:25,770 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - KE - Low on 2025-07-31 18:40
+2025-07-18 06:11:26,161 - __main__ - INFO - CREATED: [Interest Rate Decision (Aug)] - CO - Low on 2025-07-31 18:00
+2025-07-18 06:11:26,610 - __main__ - INFO - CREATED: [Interest Rate Decision] - CO - Low on 2025-07-31 18:00
+2025-07-18 06:11:26,940 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q1)] - JM - Low on 2025-07-31 17:00
+2025-07-18 06:11:27,405 - __main__ - INFO - CREATED: [Current Account (Jun)] - UA - Low on 2025-07-31 15:00
+2025-07-18 06:11:27,798 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - CO - Low on 2025-07-31 15:00
+2025-07-18 06:11:28,174 - __main__ - INFO - CREATED: [EIA Natural Gas Stocks Change (Jul/25)] - US - Low on 2025-07-31 14:30
+2025-07-18 06:11:28,504 - __main__ - INFO - CREATED: [Chicago PMI (Jul)] - US - Medium on 2025-07-31 13:45
+2025-07-18 06:11:28,895 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - KZ - Low on 2025-07-31 13:30
+2025-07-18 06:11:29,273 - __main__ - INFO - CREATED: [Manufacturing Production YoY (Jun)] - CL - Low on 2025-07-31 13:00
+2025-07-18 06:11:29,606 - __main__ - INFO - CREATED: [CPI (Jul)] - UG - Low on 2025-07-31 13:00
+2025-07-18 06:11:30,035 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - CL - Low on 2025-07-31 13:00
+2025-07-18 06:11:30,357 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - CL - Low on 2025-07-31 13:00
+2025-07-18 06:11:30,768 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - CL - Low on 2025-07-31 13:00
+2025-07-18 06:11:31,213 - __main__ - INFO - CREATED: [Interest Rate Decision] - ZA - Low on 2025-07-31 13:00
+2025-07-18 06:11:31,690 - __main__ - INFO - CREATED: [Interest Rate Decision (Jul)] - ZA - Medium on 2025-07-31 13:00
+2025-07-18 06:11:32,084 - __main__ - INFO - CREATED: [PCE Price Index YoY (Jun)] - US - Medium on 2025-07-31 12:30
+2025-07-18 06:11:32,533 - __main__ - INFO - CREATED: [Personal Income MoM (Jun)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:32,970 - __main__ - INFO - CREATED: [Employment Wages QoQ (Q2)] - US - Low on 2025-07-31 12:30
+2025-07-18 06:11:33,303 - __main__ - INFO - CREATED: [PCE Price Index MoM (Jun)] - US - Medium on 2025-07-31 12:30
+2025-07-18 06:11:33,703 - __main__ - INFO - CREATED: [Core PCE Price Index MoM (Jun)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:34,043 - __main__ - INFO - CREATED: [Personal Spending MoM (Jun)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:34,418 - __main__ - INFO - CREATED: [Employment Cost Index QoQ (Q2)] - US - Medium on 2025-07-31 12:30
+2025-07-18 06:11:34,807 - __main__ - INFO - CREATED: [Continuing Jobless Claims (Jul/19)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:35,195 - __main__ - INFO - CREATED: [Core PCE Price Index YoY (Jun)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:35,544 - __main__ - INFO - CREATED: [Employment Cost - Benefits QoQ (Q2)] - US - Medium on 2025-07-31 12:30
+2025-07-18 06:11:35,909 - __main__ - INFO - CREATED: [Employment Cost - Wages QoQ (Q2)] - US - Medium on 2025-07-31 12:30
+2025-07-18 06:11:36,398 - __main__ - INFO - CREATED: [Employment Benefits QoQ (Q2)] - US - Low on 2025-07-31 12:30
+2025-07-18 06:11:36,766 - __main__ - INFO - CREATED: [Jobless Claims 4-Week Average (Jul/26)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:37,255 - __main__ - INFO - CREATED: [Initial Jobless Claims (Jul/26)] - US - High on 2025-07-31 12:30
+2025-07-18 06:11:37,590 - __main__ - INFO - CREATED: [CPI (Jul)] - DE - Medium on 2025-07-31 12:00
+2025-07-18 06:11:37,942 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - DE - Low on 2025-07-31 12:00
+2025-07-18 06:11:38,328 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - ZA - Low on 2025-07-31 12:00
+2025-07-18 06:11:38,726 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - BR - Medium on 2025-07-31 12:00
+2025-07-18 06:11:39,096 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - DE - High on 2025-07-31 12:00
+2025-07-18 06:11:39,433 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - DE - Medium on 2025-07-31 12:00
+2025-07-18 06:11:39,860 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - DE - Low on 2025-07-31 12:00
+2025-07-18 06:11:40,314 - __main__ - INFO - CREATED: [Net Debt-to-GDP ratio (Jun)] - BR - Low on 2025-07-31 11:30
+2025-07-18 06:11:40,719 - __main__ - INFO - CREATED: [Gross Debt to GDP (Jun)] - BR - Low on 2025-07-31 11:30
+2025-07-18 06:11:41,151 - __main__ - INFO - CREATED: [Unemployment Rate (Q1)] - LK - Low on 2025-07-31 11:00
+2025-07-18 06:11:41,545 - __main__ - INFO - CREATED: [CPI (Jul)] - PT - Low on 2025-07-31 10:00
+2025-07-18 06:11:41,938 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - RS - Low on 2025-07-31 10:00
+2025-07-18 06:11:42,282 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - RS - Low on 2025-07-31 10:00
+2025-07-18 06:11:42,625 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - MK - Low on 2025-07-31 10:00
+2025-07-18 06:11:43,018 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - ET - Low on 2025-07-31 10:00
+2025-07-18 06:11:43,350 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - IE - Low on 2025-07-31 10:00
+2025-07-18 06:11:43,730 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - IE - Low on 2025-07-31 10:00
+2025-07-18 06:11:44,041 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - PT - Low on 2025-07-31 10:00
+2025-07-18 06:11:44,418 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - RS - Low on 2025-07-31 10:00
+2025-07-18 06:11:44,788 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - PT - Low on 2025-07-31 10:00
+2025-07-18 06:11:45,295 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - PT - Low on 2025-07-31 10:00
+2025-07-18 06:11:45,869 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - LK - Low on 2025-07-31 09:30
+2025-07-18 06:11:46,284 - __main__ - INFO - CREATED: [Retail Sales YoY (May)] - GR - High on 2025-07-31 09:00
+2025-07-18 06:11:46,716 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - CY - Low on 2025-07-31 09:00
+2025-07-18 06:11:47,068 - __main__ - INFO - CREATED: [CPI (Jul)] - IT - Low on 2025-07-31 09:00
+2025-07-18 06:11:47,493 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - GR - High on 2025-07-31 09:00
+2025-07-18 06:11:47,833 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - EU - High on 2025-07-31 09:00
+2025-07-18 06:11:48,180 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - HR - Low on 2025-07-31 09:00
+2025-07-18 06:11:48,579 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - IT - Low on 2025-07-31 08:30
+2025-07-18 06:11:49,003 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - SI - Low on 2025-07-31 08:30
+2025-07-18 06:11:49,371 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - PT - Low on 2025-07-31 08:30
+2025-07-18 06:11:49,786 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - HK - Low on 2025-07-31 08:30
+2025-07-18 06:11:50,302 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - SI - Low on 2025-07-31 08:30
+2025-07-18 06:11:50,681 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - PT - Low on 2025-07-31 08:30
+2025-07-18 06:11:51,094 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - HK - Low on 2025-07-31 08:30
+2025-07-18 06:11:51,454 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - SI - Low on 2025-07-31 08:30
+2025-07-18 06:11:51,828 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - IT - Medium on 2025-07-31 08:30
+2025-07-18 06:11:52,197 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - IT - High on 2025-07-31 08:30
+2025-07-18 06:11:52,679 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - HK - Low on 2025-07-31 08:30
+2025-07-18 06:11:52,990 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - IT - Low on 2025-07-31 08:30
+2025-07-18 06:11:53,400 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - UG - Low on 2025-07-31 08:30
+2025-07-18 06:11:53,818 - __main__ - INFO - CREATED: [Bavaria CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:54,260 - __main__ - INFO - CREATED: [Baden Wuerttemberg CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:54,740 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - PL - Medium on 2025-07-31 08:00
+2025-07-18 06:11:55,172 - __main__ - INFO - CREATED: [CPI (Jul)] - ZM - Low on 2025-07-31 08:00
+2025-07-18 06:11:55,561 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - ZM - Low on 2025-07-31 08:00
+2025-07-18 06:11:55,943 - __main__ - INFO - CREATED: [Hesse CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:56,368 - __main__ - INFO - CREATED: [Hesse CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:56,761 - __main__ - INFO - CREATED: [North Rhine Westphalia CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:57,091 - __main__ - INFO - CREATED: [Saxony CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:57,464 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - ZM - Low on 2025-07-31 08:00
+2025-07-18 06:11:57,808 - __main__ - INFO - CREATED: [North Rhine Westphalia CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:58,191 - __main__ - INFO - CREATED: [Saxony CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:58,609 - __main__ - INFO - CREATED: [Current Account (May)] - ES - Low on 2025-07-31 08:00
+2025-07-18 06:11:59,056 - __main__ - INFO - CREATED: [Brandenburg CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:11:59,503 - __main__ - INFO - CREATED: [CPI (Jul)] - PL - Low on 2025-07-31 08:00
+2025-07-18 06:11:59,896 - __main__ - INFO - CREATED: [Brandenburg CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:12:00,332 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - PL - Medium on 2025-07-31 08:00
+2025-07-18 06:12:00,705 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - IT - High on 2025-07-31 08:00
+2025-07-18 06:12:01,040 - __main__ - INFO - CREATED: [Baden Wuerttemberg CPI MoM (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:12:01,429 - __main__ - INFO - CREATED: [Bavaria CPI YoY (Jul)] - DE - High on 2025-07-31 08:00
+2025-07-18 06:12:01,824 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - TW - Low on 2025-07-31 08:00
+2025-07-18 06:12:02,251 - __main__ - INFO - CREATED: [Unemployment Rate (Jul)] - DE - High on 2025-07-31 07:55
+2025-07-18 06:12:02,653 - __main__ - INFO - CREATED: [Employment Change (Jul)] - DE - High on 2025-07-31 07:55
+2025-07-18 06:12:03,035 - __main__ - INFO - CREATED: [Unemployed Persons (Jul)] - DE - Medium on 2025-07-31 07:55
+2025-07-18 06:12:03,342 - __main__ - INFO - CREATED: [Retail Sales YoY (May)] - TH - Low on 2025-07-31 07:30
+2025-07-18 06:12:03,777 - __main__ - INFO - CREATED: [Current Account (Jun)] - TH - Low on 2025-07-31 07:00
+2025-07-18 06:12:04,083 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - TR - Low on 2025-07-31 07:00
+2025-07-18 06:12:04,436 - __main__ - INFO - CREATED: [CPI (Jul)] - FR - Medium on 2025-07-31 06:45
+2025-07-18 06:12:04,769 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - FR - Low on 2025-07-31 06:45
+2025-07-18 06:12:05,116 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - FR - Low on 2025-07-31 06:45
+2025-07-18 06:12:05,765 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - FR - High on 2025-07-31 06:45
+2025-07-18 06:12:06,342 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - FR - Medium on 2025-07-31 06:45
+2025-07-18 06:12:06,724 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - CH - Medium on 2025-07-31 06:30
+2025-07-18 06:12:07,316 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - CH - Low on 2025-07-31 06:30
+2025-07-18 06:12:07,696 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - SA - Medium on 2025-07-31 06:10
+2025-07-18 06:12:07,979 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - DK - Low on 2025-07-31 06:00
+2025-07-18 06:12:08,421 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - EE - Low on 2025-07-31 05:00
+2025-07-18 06:12:08,757 - __main__ - INFO - CREATED: [Housing Starts YoY (Jun)] - JP - Medium on 2025-07-31 05:00
+2025-07-18 06:12:09,149 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - JP - High on 2025-07-31 05:00
+2025-07-18 06:12:09,572 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - EE - Low on 2025-07-31 05:00
+2025-07-18 06:12:10,044 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - TH - Low on 2025-07-31 04:00
+2025-07-18 06:12:10,451 - __main__ - INFO - CREATED: [BoJ Quarterly Outlook Report] - JP - Medium on 2025-07-31 03:00
+2025-07-18 06:12:10,892 - __main__ - INFO - CREATED: [BoJ Interest Rate Decision] - JP - High on 2025-07-31 03:00
+2025-07-18 06:12:11,280 - __main__ - INFO - CREATED: [Unemployment Rate (Q2)] - SG - Low on 2025-07-31 02:30
+2025-07-18 06:12:11,577 - __main__ - INFO - CREATED: [Retail Sales QoQ (Q2)] - AU - Low on 2025-07-31 01:30
+2025-07-18 06:12:11,959 - __main__ - INFO - CREATED: [NBS Manufacturing PMI (Jul)] - CN - High on 2025-07-31 01:30
+2025-07-18 06:12:12,337 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - AU - High on 2025-07-31 01:30
+2025-07-18 06:12:12,775 - __main__ - INFO - CREATED: [NBS General PMI (Jul)] - CN - Low on 2025-07-31 01:30
+2025-07-18 06:12:13,197 - __main__ - INFO - CREATED: [PMI (Jul)] - CN - Medium on 2025-07-31 01:30
+2025-07-18 06:12:13,584 - __main__ - INFO - CREATED: [Housing Credit MoM (Jun)] - AU - Low on 2025-07-31 01:30
+2025-07-18 06:12:13,967 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - CN - Medium on 2025-07-31 01:30
+2025-07-18 06:12:14,363 - __main__ - INFO - CREATED: [NBS Non Manufacturing PMI (Jul)] - CN - High on 2025-07-31 01:30
+2025-07-18 06:12:14,764 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - JP - Medium on 2025-07-30 23:50
+2025-07-18 06:12:15,145 - __main__ - INFO - CREATED: [Industrial Production MoM (Jul)] - JP - Low on 2025-07-30 23:50
+2025-07-18 06:12:15,585 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - JP - Low on 2025-07-30 23:50
+2025-07-18 06:12:15,901 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - JP - Medium on 2025-07-30 23:50
+2025-07-18 06:12:16,341 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - JP - Low on 2025-07-30 23:50
+2025-07-18 06:12:16,708 - __main__ - INFO - CREATED: [Industrial Production MoM (Aug)] - JP - Low on 2025-07-30 23:50
+2025-07-18 06:12:17,091 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - KR - Low on 2025-07-30 23:00
+2025-07-18 06:12:17,500 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - KR - Low on 2025-07-30 23:00
+2025-07-18 06:12:17,890 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - KR - Low on 2025-07-30 23:00
+2025-07-18 06:12:18,237 - __main__ - INFO - CREATED: [Interest Rate Decision] - BR - Medium on 2025-07-30 21:30
+2025-07-18 06:12:18,641 - __main__ - INFO - CREATED: [Fed Press Conference] - US - High on 2025-07-30 18:30
+2025-07-18 06:12:19,032 - __main__ - INFO - CREATED: [Fed Interest Rate Decision] - US - High on 2025-07-30 18:00
+2025-07-18 06:12:19,513 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - UY - Low on 2025-07-30 17:30
+2025-07-18 06:12:19,897 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - RU - Medium on 2025-07-30 16:00
+2025-07-18 06:12:20,240 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - RU - Low on 2025-07-30 16:00
+2025-07-18 06:12:20,591 - __main__ - INFO - CREATED: [Interest Rate] - GH - Low on 2025-07-30 16:00
+2025-07-18 06:12:20,968 - __main__ - INFO - CREATED: [EIA Cushing Crude Oil Stocks Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:21,326 - __main__ - INFO - CREATED: [EIA Distillate Fuel Production Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:21,685 - __main__ - INFO - CREATED: [EIA Refinery Crude Runs Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:22,118 - __main__ - INFO - CREATED: [EIA Heating Oil Stocks Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:22,561 - __main__ - INFO - CREATED: [EIA Crude Oil Imports Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:22,956 - __main__ - INFO - CREATED: [EIA Distillate Stocks Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:23,381 - __main__ - INFO - CREATED: [EIA Crude Oil Stocks Change (Jul/25)] - US - Medium on 2025-07-30 14:30
+2025-07-18 06:12:23,806 - __main__ - INFO - CREATED: [EIA Gasoline Stocks Change (Jul/25)] - US - Medium on 2025-07-30 14:30
+2025-07-18 06:12:24,148 - __main__ - INFO - CREATED: [EIA Gasoline Production Change (Jul/25)] - US - Low on 2025-07-30 14:30
+2025-07-18 06:12:24,466 - __main__ - INFO - CREATED: [Pending Home Sales YoY (Jun)] - US - Medium on 2025-07-30 14:00
+2025-07-18 06:12:24,940 - __main__ - INFO - CREATED: [Pending Home Sales MoM (Jun)] - US - Medium on 2025-07-30 14:00
+2025-07-18 06:12:25,362 - __main__ - INFO - CREATED: [Interest Rate Decision] - MZ - Low on 2025-07-30 14:00
+2025-07-18 06:12:25,761 - __main__ - INFO - CREATED: [BoC Interest Rate Decision] - CA - High on 2025-07-30 13:45
+2025-07-18 06:12:26,167 - __main__ - INFO - CREATED: [BoC Monetary Policy Report] - CA - High on 2025-07-30 13:45
+2025-07-18 06:12:26,617 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - CL - Low on 2025-07-30 13:00
+2025-07-18 06:12:27,022 - __main__ - INFO - CREATED: [Gross Domestic Product QoQ (Q2)] - US - High on 2025-07-30 12:30
+2025-07-18 06:12:27,466 - __main__ - INFO - CREATED: [GDP Sales QoQ (Q2)] - US - Low on 2025-07-30 12:30
+2025-07-18 06:12:27,801 - __main__ - INFO - CREATED: [GDP Price Index QoQ (Q2)] - US - Medium on 2025-07-30 12:30
+2025-07-18 06:12:28,190 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - US - High on 2025-07-30 12:30
+2025-07-18 06:12:28,487 - __main__ - INFO - CREATED: [ADP Employment Change (Jul)] - US - High on 2025-07-30 12:15
+2025-07-18 06:12:29,029 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - MX - Medium on 2025-07-30 12:00
+2025-07-18 06:12:29,566 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - MX - Medium on 2025-07-30 12:00
+2025-07-18 06:12:30,135 - __main__ - INFO - CREATED: [MBA 30-Year Mortgage Rate (Jul/25)] - US - Medium on 2025-07-30 11:00
+2025-07-18 06:12:30,835 - __main__ - INFO - CREATED: [IGP-M Inflation MoM (Jul)] - BR - Low on 2025-07-30 11:00
+2025-07-18 06:12:31,227 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - IE - Low on 2025-07-30 10:00
+2025-07-18 06:12:31,668 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - MK - Low on 2025-07-30 10:00
+2025-07-18 06:12:32,038 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - IE - Low on 2025-07-30 10:00
+2025-07-18 06:12:32,433 - __main__ - INFO - CREATED: [CPI (Jul)] - BE - Low on 2025-07-30 09:30
+2025-07-18 06:12:32,873 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - BE - Low on 2025-07-30 09:30
+2025-07-18 06:12:33,263 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - BE - Low on 2025-07-30 09:30
+2025-07-18 06:12:33,663 - __main__ - INFO - CREATED: [Industrial Production YoY (May)] - CY - Low on 2025-07-30 09:00
+2025-07-18 06:12:34,010 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - HR - Low on 2025-07-30 09:00
+2025-07-18 06:12:34,362 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - BA - Low on 2025-07-30 09:00
+2025-07-18 06:12:34,725 - __main__ - INFO - CREATED: [Consumer Inflation Expectation (Jul)] - EU - Low on 2025-07-30 09:00
+2025-07-18 06:12:35,433 - __main__ - INFO - CREATED: [Gross Domestic Product QoQ (Q2)] - EU - Medium on 2025-07-30 09:00
+2025-07-18 06:12:35,882 - __main__ - INFO - CREATED: [Interest Rate Decision] - MK - Low on 2025-07-30 09:00
+2025-07-18 06:12:36,306 - __main__ - INFO - CREATED: [Gross Domestic Product YoY (Q2)] - EU - Medium on 2025-07-30 09:00
+2025-07-18 06:12:36,678 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - HR - Low on 2025-07-30 09:00
+2025-07-18 06:12:37,053 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - EU - High on 2025-07-30 09:00
+2025-07-18 06:12:37,561 - __main__ - INFO - CREATED: [Economic Sentiment (Jul)] - EU - Medium on 2025-07-30 09:00
+2025-07-18 06:12:37,920 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - EU - High on 2025-07-30 09:00
+2025-07-18 06:12:38,303 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - PT - Low on 2025-07-30 08:30
+2025-07-18 06:12:38,684 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - PT - Low on 2025-07-30 08:30
+2025-07-18 06:12:39,032 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - PT - Low on 2025-07-30 08:30
+2025-07-18 06:12:39,495 - __main__ - INFO - CREATED: [Gross Domestic Product QoQ (Q2)] - DE - High on 2025-07-30 08:00
+2025-07-18 06:12:39,880 - __main__ - INFO - CREATED: [Interest Rate Decision] - GE - Low on 2025-07-30 08:00
+2025-07-18 06:12:40,315 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - DE - High on 2025-07-30 08:00
+2025-07-18 06:12:40,680 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - IT - High on 2025-07-30 08:00
+2025-07-18 06:12:41,023 - __main__ - INFO - CREATED: [Gross Domestic Product YoY (Q2)] - DE - Medium on 2025-07-30 08:00
+2025-07-18 06:12:41,393 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - IT - High on 2025-07-30 08:00
+2025-07-18 06:12:41,781 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - DE - High on 2025-07-30 08:00
+2025-07-18 06:12:42,192 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - ES - Medium on 2025-07-30 07:00
+2025-07-18 06:12:42,544 - __main__ - INFO - CREATED: [Harmonised Inflation Rate MoM (Jul)] - ES - Low on 2025-07-30 07:00
+2025-07-18 06:12:42,929 - __main__ - INFO - CREATED: [FDI (YTD) YoY (Jun)] - CN - Medium on 2025-07-30 07:00
+2025-07-18 06:12:43,415 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - ES - Medium on 2025-07-30 07:00
+2025-07-18 06:12:43,854 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - AT - Low on 2025-07-30 07:00
+2025-07-18 06:12:44,246 - __main__ - INFO - CREATED: [Manufacturing Confidence (Jul)] - SE - Low on 2025-07-30 07:00
+2025-07-18 06:12:44,622 - __main__ - INFO - CREATED: [Harmonised Inflation Rate YoY (Jul)] - ES - Low on 2025-07-30 07:00
+2025-07-18 06:12:44,980 - __main__ - INFO - CREATED: [CPI (Jul)] - ES - Medium on 2025-07-30 07:00
+2025-07-18 06:12:45,376 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - CZ - Low on 2025-07-30 07:00
+2025-07-18 06:12:46,119 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - SE - Low on 2025-07-30 07:00
+2025-07-18 06:12:46,480 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - SK - Low on 2025-07-30 07:00
+2025-07-18 06:12:46,907 - __main__ - INFO - CREATED: [Consumer Inflation Expectation (Jul)] - SE - Low on 2025-07-30 07:00
+2025-07-18 06:12:47,248 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - CZ - Low on 2025-07-30 07:00
+2025-07-18 06:12:47,776 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - AT - Low on 2025-07-30 07:00
+2025-07-18 06:12:48,145 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - TR - Medium on 2025-07-30 07:00
+2025-07-18 06:12:48,561 - __main__ - INFO - CREATED: [Core Inflation Rate YoY (Jul)] - ES - Low on 2025-07-30 07:00
+2025-07-18 06:12:49,016 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - HU - Low on 2025-07-30 06:30
+2025-07-18 06:12:49,448 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - HU - Low on 2025-07-30 06:30
+2025-07-18 06:12:49,829 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - HU - Low on 2025-07-30 06:30
+2025-07-18 06:12:50,399 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - LT - Low on 2025-07-30 06:00
+2025-07-18 06:12:50,810 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - DE - High on 2025-07-30 06:00
+2025-07-18 06:12:51,167 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q1)] - BH - Low on 2025-07-30 06:00
+2025-07-18 06:12:51,597 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - SE - Low on 2025-07-30 06:00
+2025-07-18 06:12:51,932 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q1)] - BH - Low on 2025-07-30 06:00
+2025-07-18 06:12:52,341 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - DE - High on 2025-07-30 06:00
+2025-07-18 06:12:52,721 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - SE - Low on 2025-07-30 06:00
+2025-07-18 06:12:53,138 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - LT - Low on 2025-07-30 06:00
+2025-07-18 06:12:53,560 - __main__ - INFO - CREATED: [Consumer Spending MoM (Jun)] - FR - Medium on 2025-07-30 05:30
+2025-07-18 06:12:53,875 - __main__ - INFO - CREATED: [Gross Domestic Product YoY (Q2)] - FR - Medium on 2025-07-30 05:30
+2025-07-18 06:12:54,201 - __main__ - INFO - CREATED: [Gross Domestic Product QoQ (Q2)] - FR - Medium on 2025-07-30 05:30
+2025-07-18 06:12:54,605 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - FR - High on 2025-07-30 05:30
+2025-07-18 06:12:55,034 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - FR - High on 2025-07-30 05:30
+2025-07-18 06:12:55,439 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - FI - Low on 2025-07-30 05:00
+2025-07-18 06:12:55,915 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - FI - Low on 2025-07-30 05:00
+2025-07-18 06:12:56,257 - __main__ - INFO - CREATED: [BoJ Interest Rate Decision] - JP - High on 2025-07-30 03:00
+2025-07-18 06:12:56,653 - __main__ - INFO - CREATED: [RBA Weighted Median CPI QoQ (Q2)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:57,050 - __main__ - INFO - CREATED: [Monthly CPI Indicator (Jun)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:57,499 - __main__ - INFO - CREATED: [RBA Weighted Median CPI YoY (Q2)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:57,884 - __main__ - INFO - CREATED: [RBA Trimmed Mean CPI QoQ (Q2)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:58,231 - __main__ - INFO - CREATED: [Consumer Price Index (Q2)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:58,595 - __main__ - INFO - CREATED: [Inflation Rate YoY (Q2)] - AU - Medium on 2025-07-30 01:30
+2025-07-18 06:12:58,927 - __main__ - INFO - CREATED: [RBA Trimmed Mean CPI YoY (Q2)] - AU - High on 2025-07-30 01:30
+2025-07-18 06:12:59,387 - __main__ - INFO - CREATED: [Inflation Rate QoQ (Q2)] - AU - Medium on 2025-07-30 01:30
+2025-07-18 06:12:59,732 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - PH - Low on 2025-07-30 01:00
+2025-07-18 06:13:00,168 - __main__ - INFO - CREATED: [Interest Rate Decision (Jul)] - CL - Low on 2025-07-29 22:00
+2025-07-18 06:13:00,636 - __main__ - INFO - CREATED: [Interest Rate Decision] - CL - Low on 2025-07-29 22:00
+2025-07-18 06:13:01,065 - __main__ - INFO - CREATED: [API Crude Oil Stock Change (Jul/25)] - US - Medium on 2025-07-29 20:30
+2025-07-18 06:13:01,494 - __main__ - INFO - CREATED: [Atlanta Fed GDPNow (Q2)] - US - Medium on 2025-07-29 15:30
+2025-07-18 06:13:01,876 - __main__ - INFO - CREATED: [Dallas Fed Services Index (Jul)] - US - Low on 2025-07-29 14:30
+2025-07-18 06:13:02,219 - __main__ - INFO - CREATED: [Dallas Fed Services Revenues Index (Jul)] - US - Low on 2025-07-29 14:30
+2025-07-18 06:13:02,655 - __main__ - INFO - CREATED: [CB Consumer Confidence (Jul)] - US - Medium on 2025-07-29 14:00
+2025-07-18 06:13:03,024 - __main__ - INFO - CREATED: [JOLTs Job Openings (Jun)] - US - High on 2025-07-29 14:00
+2025-07-18 06:13:03,418 - __main__ - INFO - CREATED: [S&P/Case-Shiller Home Price YoY (May)] - US - Medium on 2025-07-29 13:00
+2025-07-18 06:13:03,814 - __main__ - INFO - CREATED: [Retail Inventories Ex Autos MoM (Jun)] - US - Medium on 2025-07-29 12:30
+2025-07-18 06:13:04,112 - __main__ - INFO - CREATED: [Goods Trade Balance Adv (Jun)] - US - Medium on 2025-07-29 12:30
+2025-07-18 06:13:04,461 - __main__ - INFO - CREATED: [Wholesale Inventories MoM (Jun)] - US - Medium on 2025-07-29 12:30
+2025-07-18 06:13:04,846 - __main__ - INFO - CREATED: [Goods Trade Balance (Jun)] - US - High on 2025-07-29 12:30
+2025-07-18 06:13:05,200 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q1)] - CV - Low on 2025-07-29 10:15
+2025-07-18 06:13:05,521 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - LV - Low on 2025-07-29 10:00
+2025-07-18 06:13:05,924 - __main__ - INFO - CREATED: [CBI Distributive Trades (Jul)] - UK - Medium on 2025-07-29 10:00
+2025-07-18 06:13:06,302 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - LV - Low on 2025-07-29 10:00
+2025-07-18 06:13:06,632 - __main__ - INFO - CREATED: [Unemployment Benefit Claims (Jun)] - FR - Medium on 2025-07-29 10:00
+2025-07-18 06:13:07,012 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - PT - Low on 2025-07-29 10:00
+2025-07-18 06:13:07,396 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - PT - Low on 2025-07-29 10:00
+2025-07-18 06:13:07,745 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - BE - Low on 2025-07-29 09:00
+2025-07-18 06:13:08,115 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - BE - Low on 2025-07-29 09:00
+2025-07-18 06:13:08,523 - __main__ - INFO - CREATED: [Mortgage Approvals (Jun)] - UK - Medium on 2025-07-29 08:30
+2025-07-18 06:13:08,915 - __main__ - INFO - CREATED: [Mortgage Lending (Jun)] - UK - Medium on 2025-07-29 08:30
+2025-07-18 06:13:09,313 - __main__ - INFO - CREATED: [BoE Consumer Credit (Jun)] - UK - Medium on 2025-07-29 08:30
+2025-07-18 06:13:09,735 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - AT - Low on 2025-07-29 08:00
+2025-07-18 06:13:10,098 - __main__ - INFO - CREATED: [Bank Austria Manufacturing PMI (Jul)] - AT - High on 2025-07-29 08:00
+2025-07-18 06:13:10,401 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - IT - Low on 2025-07-29 08:00
+2025-07-18 06:13:10,742 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - ES - High on 2025-07-29 07:00
+2025-07-18 06:13:11,088 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - ES - High on 2025-07-29 07:00
+2025-07-18 06:13:11,504 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - ES - High on 2025-07-29 07:00
+2025-07-18 06:13:11,938 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - ES - High on 2025-07-29 07:00
+2025-07-18 06:13:12,303 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - SE - Low on 2025-07-29 06:00
+2025-07-18 06:13:12,717 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - SE - Low on 2025-07-29 06:00
+2025-07-18 06:13:13,064 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - NO - Low on 2025-07-29 06:00
+2025-07-18 06:13:13,520 - __main__ - INFO - CREATED: [Dallas Fed Manufacturing Index (Jul)] - US - Medium on 2025-07-28 14:30
+2025-07-18 06:13:13,880 - __main__ - INFO - CREATED: [Interest Rate Decision] - GH - Low on 2025-07-28 13:30
+2025-07-18 06:13:14,350 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - MX - Medium on 2025-07-28 12:00
+2025-07-18 06:13:14,748 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - MX - Low on 2025-07-28 12:00
+2025-07-18 06:13:15,114 - __main__ - INFO - CREATED: [Industrial Production (Jun)] - IN - Low on 2025-07-28 10:30
+2025-07-18 06:13:15,429 - __main__ - INFO - CREATED: [Manufacturing Production YoY (Jun)] - IN - Medium on 2025-07-28 10:30
+2025-07-18 06:13:15,819 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - IN - Medium on 2025-07-28 10:30
+2025-07-18 06:13:16,293 - __main__ - INFO - CREATED: [Manufacturing Output MoM (Jun)] - IN - Low on 2025-07-28 10:30
+2025-07-18 06:13:16,674 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - IE - Low on 2025-07-28 10:00
+2025-07-18 06:13:17,054 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - IE - Low on 2025-07-28 10:00
+2025-07-18 06:13:17,682 - __main__ - INFO - CREATED: [CBI Distributive Trades (Jul)] - UK - Medium on 2025-07-28 10:00
+2025-07-18 06:13:18,120 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - SI - Low on 2025-07-28 08:30
+2025-07-18 06:13:18,465 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - SI - Low on 2025-07-28 08:30
+2025-07-18 06:13:18,826 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - BH - Low on 2025-07-28 07:30
+2025-07-18 06:13:19,278 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - DK - Low on 2025-07-28 06:00
+2025-07-18 06:13:19,741 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - DK - Low on 2025-07-28 06:00
+2025-07-18 06:13:20,096 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - LT - Low on 2025-07-28 06:00
+2025-07-18 06:13:20,524 - __main__ - INFO - CREATED: [Trade Balance (Jun)] - SE - Low on 2025-07-28 06:00
+2025-07-18 06:13:20,886 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - FI - Low on 2025-07-28 05:00
+2025-07-18 06:13:21,172 - __main__ - INFO - CREATED: [Interest Rate Decision] - KG - Low on 2025-07-28 04:00
+2025-07-18 06:13:21,587 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - TW - Low on 2025-07-28 02:00
+2025-07-18 06:13:21,943 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - IE - Low on 2025-07-27 23:01
+2025-07-18 06:13:22,283 - __main__ - INFO - CREATED: [Manufacturing Production MoM (May)] - IL - Low on 2025-07-27 10:00
+2025-07-18 06:13:22,788 - __main__ - INFO - CREATED: [Manufacturing PMI (Jun)] - IL - Low on 2025-07-26 10:00
+2025-07-18 06:13:23,131 - __main__ - INFO - CREATED: [Atlanta Fed GDPNow (Q2)] - US - Medium on 2025-07-25 15:30
+2025-07-18 06:13:23,589 - __main__ - INFO - CREATED: [Durable Goods Orders MoM (Jun)] - US - High on 2025-07-25 12:30
+2025-07-18 06:13:23,902 - __main__ - INFO - CREATED: [Durable Goods Orders Ex Transp MoM (Jun)] - US - Medium on 2025-07-25 12:30
+2025-07-18 06:13:24,274 - __main__ - INFO - CREATED: [CPI (Jul)] - BR - Low on 2025-07-25 12:00
+2025-07-18 06:13:24,652 - __main__ - INFO - CREATED: [IPCA mid-month CPI YoY (Jul)] - BR - Low on 2025-07-25 12:00
+2025-07-18 06:13:25,076 - __main__ - INFO - CREATED: [IPCA mid-month CPI MoM (Jul)] - BR - Low on 2025-07-25 12:00
+2025-07-18 06:13:25,505 - __main__ - INFO - CREATED: [Current Account (Jun)] - BR - Low on 2025-07-25 11:30
+2025-07-18 06:13:25,937 - __main__ - INFO - CREATED: [FGV Consumer Confidence (Jul)] - BR - Low on 2025-07-25 11:00
+2025-07-18 06:13:26,346 - __main__ - INFO - CREATED: [Interest Rate Decision] - RU - Low on 2025-07-25 10:30
+2025-07-18 06:13:26,721 - __main__ - INFO - CREATED: [Interest Rate Decision (Jul)] - RU - Medium on 2025-07-25 10:30
+2025-07-18 06:13:27,237 - __main__ - INFO - CREATED: [CBI Business Optimism Index (Q3)] - UK - Medium on 2025-07-25 10:00
+2025-07-18 06:13:27,615 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - MO - Low on 2025-07-25 10:00
+2025-07-18 06:13:28,165 - __main__ - INFO - CREATED: [CBI Industrial Trends Orders (Jul)] - UK - Medium on 2025-07-25 10:00
+2025-07-18 06:13:28,563 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - MO - Low on 2025-07-25 10:00
+2025-07-18 06:13:29,006 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - BA - Low on 2025-07-25 09:00
+2025-07-18 06:13:29,470 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - BA - Low on 2025-07-25 09:00
+2025-07-18 06:13:29,848 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - BA - Low on 2025-07-25 09:00
+2025-07-18 06:13:30,218 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - AM - Low on 2025-07-25 08:00
+2025-07-18 06:13:30,684 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - AM - Low on 2025-07-25 08:00
+2025-07-18 06:13:31,075 - __main__ - INFO - CREATED: [Consumer Inflation Expectation (Jun)] - EU - Low on 2025-07-25 08:00
+2025-07-18 06:13:31,480 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - ZW - Low on 2025-07-25 08:00
+2025-07-18 06:13:31,904 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - IT - Medium on 2025-07-25 08:00
+2025-07-18 06:13:32,242 - __main__ - INFO - CREATED: [Ifo Business Climate (Jul)] - DE - High on 2025-07-25 08:00
+2025-07-18 06:13:32,706 - __main__ - INFO - CREATED: [Manufacturing Confidence (Jul)] - TR - Low on 2025-07-25 07:00
+2025-07-18 06:13:33,130 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - FR - Medium on 2025-07-25 06:45
+2025-07-18 06:13:33,427 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - HU - Low on 2025-07-25 06:30
+2025-07-18 06:13:33,833 - __main__ - INFO - CREATED: [Retail Sales Ex Fuel YoY (Jun)] - UK - High on 2025-07-25 06:00
+2025-07-18 06:13:34,240 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - UK - High on 2025-07-25 06:00
+2025-07-18 06:13:34,599 - __main__ - INFO - CREATED: [Retail Sales Ex Fuel MoM (Jun)] - UK - High on 2025-07-25 06:00
+2025-07-18 06:13:35,101 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - SE - Low on 2025-07-25 06:00
+2025-07-18 06:13:35,523 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - UK - High on 2025-07-25 06:00
+2025-07-18 06:13:35,933 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - SG - Low on 2025-07-25 05:00
+2025-07-18 06:13:36,326 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - SG - Low on 2025-07-25 05:00
+2025-07-18 06:13:36,688 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - MO - Low on 2025-07-25 00:30
+2025-07-18 06:13:37,061 - __main__ - INFO - CREATED: [CPI (Jul)] - JP - Low on 2025-07-24 23:30
+2025-07-18 06:13:37,414 - __main__ - INFO - CREATED: [Core CPI YoY (Jul)] - JP - Low on 2025-07-24 23:30
+2025-07-18 06:13:37,840 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - UK - Medium on 2025-07-24 23:01
+2025-07-18 06:13:38,285 - __main__ - INFO - CREATED: [Fed Balance Sheet (Jul/23)] - US - Low on 2025-07-24 20:30
+2025-07-18 06:13:38,666 - __main__ - INFO - CREATED: [Kansas Fed Composite Index (Jul)] - US - Low on 2025-07-24 15:00
+2025-07-18 06:13:39,099 - __main__ - INFO - CREATED: [Kansas Fed Manufacturing Index (Jul)] - US - Low on 2025-07-24 15:00
+2025-07-18 06:13:39,508 - __main__ - INFO - CREATED: [EIA Natural Gas Stocks Change (Jul/18)] - US - Low on 2025-07-24 14:30
+2025-07-18 06:13:39,896 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - AR - Low on 2025-07-24 14:00
+2025-07-18 06:13:40,225 - __main__ - INFO - CREATED: [New Home Sales (Jun)] - US - High on 2025-07-24 14:00
+2025-07-18 06:13:40,672 - __main__ - INFO - CREATED: [S&P Global Services PMI (Jul)] - US - High on 2025-07-24 13:45
+2025-07-18 06:13:41,126 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - US - High on 2025-07-24 13:45
+2025-07-18 06:13:41,520 - __main__ - INFO - CREATED: [S&P Global Composite PMI (Jul)] - US - Medium on 2025-07-24 13:45
+2025-07-18 06:13:41,935 - __main__ - INFO - CREATED: [ECB Press Conference] - EU - High on 2025-07-24 12:45
+2025-07-18 06:13:42,509 - __main__ - INFO - CREATED: [Retail Sales MoM] - CA - Medium on 2025-07-24 12:35
+2025-07-18 06:13:43,034 - __main__ - INFO - CREATED: [Manufacturing Sales MoM (Jun)] - CA - Low on 2025-07-24 12:30
+2025-07-18 06:13:43,476 - __main__ - INFO - CREATED: [Jobless Claims 4-Week Average (Jul/19)] - US - High on 2025-07-24 12:30
+2025-07-18 06:13:43,899 - __main__ - INFO - CREATED: [New Housing Price Index YoY (Jun)] - CA - Medium on 2025-07-24 12:30
+2025-07-18 06:13:44,389 - __main__ - INFO - CREATED: [Continuing Jobless Claims (Jul/12)] - US - High on 2025-07-24 12:30
+2025-07-18 06:13:44,844 - __main__ - INFO - CREATED: [Chicago Fed National Activity Index (Jun)] - US - Medium on 2025-07-24 12:30
+2025-07-18 06:13:45,307 - __main__ - INFO - CREATED: [Retail Sales MoM (Jun)] - CA - High on 2025-07-24 12:30
+2025-07-18 06:13:45,661 - __main__ - INFO - CREATED: [Retail Sales YoY (May)] - CA - High on 2025-07-24 12:30
+2025-07-18 06:13:46,005 - __main__ - INFO - CREATED: [Retail Sales MoM (May)] - CA - High on 2025-07-24 12:30
+2025-07-18 06:13:46,496 - __main__ - INFO - CREATED: [Retail Sales Ex Autos MoM (May)] - CA - High on 2025-07-24 12:30
+2025-07-18 06:13:46,834 - __main__ - INFO - CREATED: [Initial Jobless Claims (Jul/19)] - US - High on 2025-07-24 12:30
+2025-07-18 06:13:47,311 - __main__ - INFO - CREATED: [ECB Interest Rate Decision] - EU - High on 2025-07-24 12:15
+2025-07-18 06:13:47,709 - __main__ - INFO - CREATED: [Deposit Facility Rate (Jul)] - EU - High on 2025-07-24 12:15
+2025-07-18 06:13:48,104 - __main__ - INFO - CREATED: [Interest Rate Decision (Jul)] - EU - High on 2025-07-24 12:15
+2025-07-18 06:13:48,583 - __main__ - INFO - CREATED: [Deposit Facility Rate] - EU - High on 2025-07-24 12:15
+2025-07-18 06:13:49,004 - __main__ - INFO - CREATED: [ECB Monetary Policy Statement and Press Conference] - EU - Medium on 2025-07-24 12:15
+2025-07-18 06:13:49,389 - __main__ - INFO - CREATED: [CPI (Jul)] - MX - Low on 2025-07-24 12:00
+2025-07-18 06:13:49,767 - __main__ - INFO - CREATED: [Mid-month Core Inflation Rate MoM (Jul)] - MX - Low on 2025-07-24 12:00
+2025-07-18 06:13:50,126 - __main__ - INFO - CREATED: [Mid-month Inflation Rate YoY (Jul)] - MX - Low on 2025-07-24 12:00
+2025-07-18 06:13:50,544 - __main__ - INFO - CREATED: [Interest Rate Decision] - UA - Low on 2025-07-24 12:00
+2025-07-18 06:13:50,965 - __main__ - INFO - CREATED: [Mid-month Core Inflation Rate YoY (Jul)] - MX - Low on 2025-07-24 12:00
+2025-07-18 06:13:51,359 - __main__ - INFO - CREATED: [Mid-month Inflation Rate MoM (Jul)] - MX - Low on 2025-07-24 12:00
+2025-07-18 06:13:51,782 - __main__ - INFO - CREATED: [TCMB Interest Rate Decision] - TR - Medium on 2025-07-24 11:00
+2025-07-18 06:13:52,084 - __main__ - INFO - CREATED: [Consumer Confidence] - ES - Low on 2025-07-24 10:00
+2025-07-18 06:13:52,516 - __main__ - INFO - CREATED: [Consumer Confidence (Jun)] - ES - Medium on 2025-07-24 10:00
+2025-07-18 06:13:52,862 - __main__ - INFO - CREATED: [CBI Industrial Trends Orders (Jul)] - UK - Medium on 2025-07-24 10:00
+2025-07-18 06:13:53,275 - __main__ - INFO - CREATED: [CBI Business Optimism Index (Q3)] - UK - Medium on 2025-07-24 10:00
+2025-07-18 06:13:53,730 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jul)] - IS - Low on 2025-07-24 09:00
+2025-07-18 06:13:54,152 - __main__ - INFO - CREATED: [CPI (Jul)] - IS - Low on 2025-07-24 09:00
+2025-07-18 06:13:54,530 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jul)] - IS - Low on 2025-07-24 09:00
+2025-07-18 06:13:54,971 - __main__ - INFO - CREATED: [S&P Global Services PMI (Jul)] - UK - High on 2025-07-24 08:30
+2025-07-18 06:13:55,423 - __main__ - INFO - CREATED: [S&P Global Composite PMI (Jul)] - UK - Low on 2025-07-24 08:30
+2025-07-18 06:13:55,880 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - UK - High on 2025-07-24 08:30
+2025-07-18 06:13:56,242 - __main__ - INFO - CREATED: [HCOB Services PMI (Jul)] - EU - High on 2025-07-24 08:00
+2025-07-18 06:13:56,712 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - EU - High on 2025-07-24 08:00
+2025-07-18 06:13:57,212 - __main__ - INFO - CREATED: [HCOB Composite PMI (Jul)] - EU - Medium on 2025-07-24 08:00
+2025-07-18 06:13:57,562 - __main__ - INFO - CREATED: [Interest Rate Decision] - UZ - Low on 2025-07-24 08:00
+2025-07-18 06:13:57,852 - __main__ - INFO - CREATED: [PMI (Jul)] - EU - Medium on 2025-07-24 08:00
+2025-07-18 06:13:58,276 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - EU - Medium on 2025-07-24 08:00
+2025-07-18 06:13:58,658 - __main__ - INFO - CREATED: [Services PMI (Jul)] - EU - Medium on 2025-07-24 08:00
+2025-07-18 06:13:59,022 - __main__ - INFO - CREATED: [PMI (Jul)] - DE - Low on 2025-07-24 07:30
+2025-07-18 06:13:59,416 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - DE - Medium on 2025-07-24 07:30
+2025-07-18 06:13:59,806 - __main__ - INFO - CREATED: [Services PMI (Jul)] - DE - Medium on 2025-07-24 07:30
+2025-07-18 06:14:00,229 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - DE - High on 2025-07-24 07:30
+2025-07-18 06:14:00,562 - __main__ - INFO - CREATED: [HCOB Services PMI (Jul)] - DE - High on 2025-07-24 07:30
+2025-07-18 06:14:01,000 - __main__ - INFO - CREATED: [HCOB Composite PMI (Jul)] - DE - Medium on 2025-07-24 07:30
+2025-07-18 06:14:01,437 - __main__ - INFO - CREATED: [Manufacturing PMI (Jul)] - FR - Medium on 2025-07-24 07:15
+2025-07-18 06:14:01,771 - __main__ - INFO - CREATED: [Services PMI (Jul)] - FR - Medium on 2025-07-24 07:15
+2025-07-18 06:14:02,188 - __main__ - INFO - CREATED: [HCOB Composite PMI (Jul)] - FR - Medium on 2025-07-24 07:15
+2025-07-18 06:14:02,617 - __main__ - INFO - CREATED: [HCOB Services PMI (Jul)] - FR - High on 2025-07-24 07:15
+2025-07-18 06:14:03,150 - __main__ - INFO - CREATED: [PMI (Jul)] - FR - Low on 2025-07-24 07:15
+2025-07-18 06:14:03,492 - __main__ - INFO - CREATED: [HCOB Manufacturing PMI (Jul)] - FR - High on 2025-07-24 07:15
+2025-07-18 06:14:03,847 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - CZ - Low on 2025-07-24 07:00
+2025-07-18 06:14:04,271 - __main__ - INFO - CREATED: [Unemployment Rate (Q2)] - ES - High on 2025-07-24 07:00
+2025-07-18 06:14:04,591 - __main__ - INFO - CREATED: [Business Confidence (Jul)] - FR - Medium on 2025-07-24 06:45
+2025-07-18 06:14:04,928 - __main__ - INFO - CREATED: [Consumer Confidence (Aug)] - DE - High on 2025-07-24 06:00
+2025-07-18 06:14:05,395 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - NO - Low on 2025-07-24 06:00
+2025-07-18 06:14:05,789 - __main__ - INFO - CREATED: [HSBC Manufacturing PMI (Jul)] - IN - Medium on 2025-07-24 05:00
+2025-07-18 06:14:06,140 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - IN - Low on 2025-07-24 05:00
+2025-07-18 06:14:06,681 - __main__ - INFO - CREATED: [HSBC Composite PMI (Jul)] - IN - Medium on 2025-07-24 05:00
+2025-07-18 06:14:07,053 - __main__ - INFO - CREATED: [HSBC Services PMI (Jul)] - IN - Medium on 2025-07-24 05:00
+2025-07-18 06:14:07,462 - __main__ - INFO - CREATED: [S&P Global Services PMI (Jul)] - IN - Low on 2025-07-24 05:00
+2025-07-18 06:14:07,882 - __main__ - INFO - CREATED: [New Car Registrations YoY (Jun)] - EU - Medium on 2025-07-24 04:00
+2025-07-18 06:14:08,242 - __main__ - INFO - CREATED: [Jibun Bank Composite PMI (Jul)] - JP - Low on 2025-07-24 00:30
+2025-07-18 06:14:08,589 - __main__ - INFO - CREATED: [Jibun Bank Manufacturing PMI (Jul)] - JP - Medium on 2025-07-24 00:30
+2025-07-18 06:14:08,946 - __main__ - INFO - CREATED: [Jibun Bank Services PMI (Jul)] - JP - Medium on 2025-07-24 00:30
+2025-07-18 06:14:09,464 - __main__ - INFO - CREATED: [Judo Bank Services PMI (Jul)] - AU - Low on 2025-07-23 23:00
+2025-07-18 06:14:09,921 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q2)] - KR - Medium on 2025-07-23 23:00
+2025-07-18 06:14:10,409 - __main__ - INFO - CREATED: [S&P Global Services PMI (Jul)] - AU - High on 2025-07-23 23:00
+2025-07-18 06:14:10,800 - __main__ - INFO - CREATED: [S&P Global Composite PMI (Jul)] - AU - Low on 2025-07-23 23:00
+2025-07-18 06:14:11,218 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q2)] - KR - Medium on 2025-07-23 23:00
+2025-07-18 06:14:11,631 - __main__ - INFO - CREATED: [Judo Bank Manufacturing PMI (Jul)] - AU - Low on 2025-07-23 23:00
+2025-07-18 06:14:12,070 - __main__ - INFO - CREATED: [S&P Global Manufacturing PMI (Jul)] - AU - High on 2025-07-23 23:00
+2025-07-18 06:14:12,491 - __main__ - INFO - CREATED: [Retail Sales YoY (May)] - AR - Low on 2025-07-23 19:00
+2025-07-18 06:14:12,949 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - RU - Low on 2025-07-23 16:00
+2025-07-18 06:14:13,356 - __main__ - INFO - CREATED: [Interest Rate] - GH - Low on 2025-07-23 16:00
+2025-07-18 06:14:13,772 - __main__ - INFO - CREATED: [EIA Distillate Stocks Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:14,167 - __main__ - INFO - CREATED: [EIA Cushing Crude Oil Stocks Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:14,587 - __main__ - INFO - CREATED: [EIA Crude Oil Imports Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:14,978 - __main__ - INFO - CREATED: [EIA Refinery Crude Runs Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:15,309 - __main__ - INFO - CREATED: [EIA Crude Oil Stocks Change (Jul/18)] - US - Medium on 2025-07-23 14:30
+2025-07-18 06:14:15,730 - __main__ - INFO - CREATED: [EIA Heating Oil Stocks Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:16,107 - __main__ - INFO - CREATED: [EIA Distillate Fuel Production Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:16,469 - __main__ - INFO - CREATED: [EIA Weekly Refinery Utilization Rates WoW] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:16,817 - __main__ - INFO - CREATED: [EIA Gasoline Stocks Change (Jul/18)] - US - Medium on 2025-07-23 14:30
+2025-07-18 06:14:17,264 - __main__ - INFO - CREATED: [EIA Gasoline Production Change (Jul/18)] - US - Low on 2025-07-23 14:30
+2025-07-18 06:14:17,814 - __main__ - INFO - CREATED: [Interest Rate Decision] - GH - Low on 2025-07-23 14:00
+2025-07-18 06:14:18,196 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - EU - Medium on 2025-07-23 14:00
+2025-07-18 06:14:18,589 - __main__ - INFO - CREATED: [Existing Home Sales MoM] - US - High on 2025-07-23 14:00
+2025-07-18 06:14:19,725 - __main__ - INFO - CREATED: [Existing Home Sales (Jun)] - US - High on 2025-07-23 14:00
+2025-07-18 06:14:20,060 - __main__ - INFO - CREATED: [New Housing Price Index MoM (Jun)] - CA - Medium on 2025-07-23 12:30
+2025-07-18 06:14:20,418 - __main__ - INFO - CREATED: [GDP Growth Rate QoQ (Q1)] - NG - Low on 2025-07-23 11:30
+2025-07-18 06:14:20,739 - __main__ - INFO - CREATED: [GDP Growth Rate YoY (Q1)] - NG - Low on 2025-07-23 11:30
+2025-07-18 06:14:21,107 - __main__ - INFO - CREATED: [MBA 30-Year Mortgage Rate (Jul/18)] - US - Medium on 2025-07-23 11:00
+2025-07-18 06:14:21,435 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - IS - Low on 2025-07-23 09:00
+2025-07-18 06:14:21,859 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - SI - Low on 2025-07-23 08:30
+2025-07-18 06:14:22,331 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - PL - Medium on 2025-07-23 08:00
+2025-07-18 06:14:22,739 - __main__ - INFO - CREATED: [CPI (Jun)] - ZA - Low on 2025-07-23 08:00
+2025-07-18 06:14:23,165 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - TW - Low on 2025-07-23 08:00
+2025-07-18 06:14:23,490 - __main__ - INFO - CREATED: [Core Inflation Rate MoM (Jun)] - ZA - Low on 2025-07-23 08:00
+2025-07-18 06:14:23,889 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - ZA - Medium on 2025-07-23 08:00
+2025-07-18 06:14:24,264 - __main__ - INFO - CREATED: [Core Inflation Rate YoY (Jun)] - ZA - Low on 2025-07-23 08:00
+2025-07-18 06:14:24,731 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - ZA - Medium on 2025-07-23 08:00
+2025-07-18 06:14:25,177 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - TW - Low on 2025-07-23 08:00
+2025-07-18 06:14:25,537 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - TR - Medium on 2025-07-23 07:00
+2025-07-18 06:14:26,031 - __main__ - INFO - CREATED: [Industrial Production MoM (Jun)] - LT - Low on 2025-07-23 06:00
+2025-07-18 06:14:26,421 - __main__ - INFO - CREATED: [Industrial Production YoY (Jun)] - LT - Low on 2025-07-23 06:00
+2025-07-18 06:14:26,876 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - DK - Low on 2025-07-23 06:00
+2025-07-18 06:14:27,256 - __main__ - INFO - CREATED: [Interest Rate Decision] - AZ - Low on 2025-07-23 06:00
+2025-07-18 06:14:27,583 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - SG - Low on 2025-07-23 05:00
+2025-07-18 06:14:28,106 - __main__ - INFO - CREATED: [CPI (Jun)] - SG - Medium on 2025-07-23 05:00
+2025-07-18 06:14:28,452 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - SG - Low on 2025-07-23 05:00
+2025-07-18 06:14:28,771 - __main__ - INFO - CREATED: [Core Inflation Rate YoY (Jun)] - SG - Low on 2025-07-23 05:00
+2025-07-18 06:14:29,177 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - NL - Medium on 2025-07-23 04:30
+2025-07-18 06:14:29,577 - __main__ - INFO - CREATED: [Interest Rate Decision] - LK - Low on 2025-07-23 02:00
+2025-07-18 06:14:30,131 - __main__ - INFO - CREATED: [BOJ Uchida Speech] - JP - Medium on 2025-07-23 01:30
+2025-07-18 06:14:30,539 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - KR - Medium on 2025-07-22 21:00
+2025-07-18 06:14:30,955 - __main__ - INFO - CREATED: [API Crude Oil Stock Change (Jul/18)] - US - Medium on 2025-07-22 20:30
+2025-07-18 06:14:31,346 - __main__ - INFO - CREATED: [Interest Rate Decision] - PY - Low on 2025-07-22 18:00
+2025-07-18 06:14:31,795 - __main__ - INFO - CREATED: [Fed Bowman Speech] - US - Medium on 2025-07-22 17:00
+2025-07-18 06:14:32,221 - __main__ - INFO - CREATED: [Richmond Fed Manufacturing Index (Jul)] - US - Low on 2025-07-22 14:00
+2025-07-18 06:14:32,651 - __main__ - INFO - CREATED: [Richmond Fed Manufacturing Shipments Index (Jul)] - US - Low on 2025-07-22 14:00
+2025-07-18 06:14:33,070 - __main__ - INFO - CREATED: [Richmond Fed Services Revenues Index (Jul)] - US - Low on 2025-07-22 14:00
+2025-07-18 06:14:33,609 - __main__ - INFO - CREATED: [Interest Rate Decision] - NG - Low on 2025-07-22 13:00
+2025-07-18 06:14:34,276 - __main__ - INFO - CREATED: [Fed Chair Powell Speech] - US - High on 2025-07-22 12:30
+2025-07-18 06:14:34,643 - __main__ - INFO - CREATED: [Deposit Interest Rate (Jul)] - HU - Low on 2025-07-22 12:00
+2025-07-18 06:14:35,052 - __main__ - INFO - CREATED: [Interest Rate Decision (Jul)] - HU - Low on 2025-07-22 12:00
+2025-07-18 06:14:35,374 - __main__ - INFO - CREATED: [Interest Rate Decision] - HU - Low on 2025-07-22 12:00
+2025-07-18 06:14:35,749 - __main__ - INFO - CREATED: [Retail Sales YoY (May)] - MX - Low on 2025-07-22 12:00
+2025-07-18 06:14:36,177 - __main__ - INFO - CREATED: [Retail Sales MoM (May)] - MX - Low on 2025-07-22 12:00
+2025-07-18 06:14:36,499 - __main__ - INFO - CREATED: [Consumer Confidence (Jul)] - BE - Low on 2025-07-22 09:00
+2025-07-18 06:14:36,898 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - TW - Low on 2025-07-22 08:00
+2025-07-18 06:14:37,292 - __main__ - INFO - CREATED: [Retail Sales YoY (Jun)] - PL - Low on 2025-07-22 08:00
+2025-07-18 06:14:37,694 - __main__ - INFO - CREATED: [Current Account (May)] - GR - Low on 2025-07-22 08:00
+2025-07-18 06:14:38,103 - __main__ - INFO - CREATED: [Inflation Rate YoY (Jun)] - KW - Low on 2025-07-22 07:00
+2025-07-18 06:14:38,521 - __main__ - INFO - CREATED: [Inflation Rate MoM (Jun)] - KW - Low on 2025-07-22 07:00
+2025-07-18 06:14:38,909 - __main__ - INFO - CREATED: [CPI (Jun)] - KW - Low on 2025-07-22 06:00
+2025-07-18 06:14:39,333 - __main__ - INFO - CREATED: [Unemployment Rate (Jun)] - FI - Low on 2025-07-22 05:00
+2025-07-18 06:14:39,361 - __main__ - INFO - LOG: Saved 595 events to logs\calendar_events_log.json
+2025-07-18 06:14:39,361 - __main__ - INFO - SUMMARY: Calendar sync completed
+2025-07-18 06:14:39,362 - __main__ - INFO -   Total FMP events: 1177
+2025-07-18 06:14:39,362 - __main__ - INFO -   Important events: 656
+2025-07-18 06:14:39,362 - __main__ - INFO -   Events synced: 595
+2025-07-18 06:14:39,362 - __main__ - INFO -   Events skipped: 61
+2025-07-18 06:14:39,362 - __main__ - INFO - SUCCESS: Calendar sync completed successfully

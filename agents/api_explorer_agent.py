@@ -8,7 +8,8 @@ import os
 import argparse
 import logging
 from typing import Optional
-from openai import OpenAI
+# OpenAI support disabled
+OpenAI = None
 
 # Import the modular components
 import sys
@@ -30,17 +31,9 @@ class APIExplorerAgent:
     """Main API Explorer Agent that coordinates all components"""
     
     def __init__(self, schemas_dir: str = "data/api_schemas", openai_api_key: Optional[str] = None):
-        # Initialize OpenAI client if API key provided
+        # OpenAI support disabled
         self.client: Optional[OpenAI] = None
-        if openai_api_key:
-            self.client = OpenAI(api_key=openai_api_key)
-        else:
-            # Try to get from environment
-            api_key = os.getenv('OPENAI_API_KEY')
-            if api_key:
-                self.client = OpenAI(api_key=api_key)
-            else:
-                logger.warning("No OpenAI API key provided. Some features may be limited.")
+        logger.info("✅ OpenAI support disabled (API key removed from environment)")
         
         # Initialize components
         self.engine = APIExplorerEngine(schemas_dir)
@@ -56,23 +49,8 @@ class APIExplorerAgent:
     
     def search_endpoints(self, query: str, max_results: int = 5) -> list:
         """Search endpoints using natural language query"""
-        # Use AI enhancement if available
-        if self.client:
-            try:
-                # Get sample endpoints for context
-                sample_endpoints = []
-                for endpoint in self.engine.endpoint_index[:10]:
-                    sample_endpoints.append({
-                        'method': endpoint['method'],
-                        'path': endpoint['endpoint'],
-                        'description': endpoint['description'][:100]
-                    })
-                
-                enhanced_query = self.prompt.interpret_query_with_openai(query, sample_endpoints)
-                logger.info(f"OpenAI interpreted query: {enhanced_query}")
-                query = enhanced_query
-            except Exception as e:
-                logger.warning(f"OpenAI interpretation failed: {str(e)}")
+        # OpenAI enhancement disabled
+        logger.info("🔄 Using fallback query processing (OpenAI disabled)")
         
         return self.engine.search_endpoints(query, max_results)
     

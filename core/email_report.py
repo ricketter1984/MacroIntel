@@ -3,6 +3,7 @@ import smtplib
 import requests
 import json
 import glob
+import re
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
@@ -44,6 +45,133 @@ try:
 except ImportError:
     print("⚠️ Agent pipeline not available - agent results will be skipped")
     AGENT_PIPELINE_AVAILABLE = False
+
+def sanitize_email_text(text: str) -> str:
+    """
+    Sanitize email text content by converting emojis, replacing line breaks,
+    and stripping illegal Unicode characters that break SMTP clients.
+    
+    Args:
+        text: Input text to sanitize
+        
+    Returns:
+        Sanitized text safe for email transmission
+    """
+    if not text:
+        return text
+    
+    # Convert to string if needed
+    text = str(text)
+    
+    # Convert emojis to text equivalents
+    emoji_mappings = {
+        '📈': 'UP',
+        '📉': 'DOWN', 
+        '➡️': 'FLAT',
+        '✅': 'SUCCESS',
+        '❌': 'ERROR',
+        '⚠️': 'WARNING',
+        '🔄': 'RETRY',
+        '📊': 'CHART',
+        '📰': 'NEWS',
+        '🏦': 'BANK',
+        '🤖': 'AI',
+        '📅': 'CALENDAR',
+        '🎯': 'TARGET',
+        '💡': 'IDEA',
+        '🚀': 'LAUNCH',
+        '🔥': 'HOT',
+        '💎': 'DIAMOND',
+        '🎪': 'CIRCUS',
+        '🎭': 'THEATER',
+        '🎨': 'ART',
+        '🎬': 'MOVIE',
+        '🎵': 'MUSIC',
+        '🎮': 'GAME',
+        '🎲': 'DICE',
+        '📋': 'LIST',
+        '🔗': 'LINK',
+        '📱': 'MOBILE',
+        '💻': 'COMPUTER',
+        '🌐': 'WEB',
+        '📞': 'PHONE',
+        '📧': 'EMAIL',
+        '📨': 'MAIL',
+        '📩': 'INBOX',
+        '📤': 'SEND',
+        '📥': 'RECEIVE',
+        '🔍': 'SEARCH',
+        '🔎': 'FIND',
+        '📝': 'NOTE',
+        '✏️': 'EDIT',
+        '🗑️': 'DELETE',
+        '🔄': 'REFRESH',
+        '⚙️': 'SETTINGS',
+        '🔧': 'TOOLS',
+        '🛠️': 'REPAIR',
+        '🔨': 'HAMMER',
+        '🔩': 'NUT',
+        '⚡': 'FAST',
+        '🚫': 'BLOCKED',
+        '⏸️': 'PAUSE',
+        '▶️': 'PLAY',
+        '⏹️': 'STOP',
+        '⏭️': 'NEXT',
+        '⏮️': 'PREVIOUS',
+        '🔀': 'SHUFFLE',
+        '🔁': 'REPEAT',
+        '🔂': 'REPEAT_ONE',
+        '🔊': 'VOLUME_UP',
+        '🔉': 'VOLUME_DOWN',
+        '🔇': 'MUTE',
+        '🔈': 'VOLUME_LOW',
+        '🔉': 'VOLUME_MEDIUM',
+        '🔊': 'VOLUME_HIGH',
+        '📢': 'ANNOUNCEMENT',
+        '📣': 'MEGAPHONE',
+        '🔔': 'BELL',
+        '🔕': 'BELL_OFF',
+        '⏰': 'ALARM',
+        '⏱️': 'STOPWATCH',
+        '⏲️': 'TIMER',
+        '🕐': 'TIME',
+        '🕑': 'TIME_2',
+        '🕒': 'TIME_3',
+        '🕓': 'TIME_4',
+        '🕔': 'TIME_5',
+        '🕕': 'TIME_6',
+        '🕖': 'TIME_7',
+        '🕗': 'TIME_8',
+        '🕘': 'TIME_9',
+        '🕙': 'TIME_10',
+        '🕚': 'TIME_11',
+        '🕛': 'TIME_12'
+    }
+    
+    # Replace emojis with text equivalents
+    for emoji, replacement in emoji_mappings.items():
+        text = text.replace(emoji, replacement)
+    
+    # Strip non-ASCII characters that might cause encoding issues
+    text = re.sub(r'[^\x00-\x7F]+', '', text)
+    
+    # Replace line breaks with HTML <br/> tags as requested
+    text = text.replace("\\n", "<br/>").replace("\n", "<br/>").replace("\\r", "<br/>")
+    
+    # Normalize whitespace and strip illegal Unicode characters
+    text = re.sub(r'\s+', ' ', text)  # Replace multiple spaces with single space
+    text = text.strip()
+    
+    # Strip illegal Unicode characters that break SMTP clients
+    text = re.sub(r'[^\x00-\x7F]+', '', text)
+    
+    # Ensure proper UTF-8 encoding
+    try:
+        text = text.encode('utf-8').decode('utf-8')
+    except UnicodeError:
+        text = text.encode('utf-8', errors='ignore').decode('utf-8')
+    
+    return text
 
 
 def load_regime_score_data():
@@ -1132,11 +1260,8 @@ def generate_email_content(articles, limit=25):
             chart_path = generate_extreme_fear_chart()
             if chart_path and os.path.exists(chart_path):
                 extreme_fear_chart_html = f"""
-                <div style="margin: 20px 0; padding: 15px; background: #2c3e50; border-radius: 5px;">
-                    <h3>😱 Extreme Fear Alert - Asset Performance Analysis</h3>
-                    <p>Market fear detected! Here's how key assets are performing during this period:</p>
-                    <img src="cid:fear_chart" style="width: 100%; max-width: 600px; height: auto; border-radius: 5px;">
-                    <p><small>Chart shows 1-year performance comparison of BTC, Gold, and QQQ</small></p>
+                <div style="padding: 12px;">
+                    <img src="cid:fear_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
         except Exception as e:
@@ -1157,13 +1282,8 @@ def generate_email_content(articles, limit=25):
         fear_greed_chart_path = generate_fear_greed_trend_chart()
         if fear_greed_chart_path and os.path.exists(fear_greed_chart_path):
             fear_greed_trend_chart_html = f"""
-            <div style="margin: 20px 0; padding: 15px; background: #2c3e50; border-radius: 5px; color: white;">
-                <h3>📊 Fear & Greed Index Trend (14 Days)</h3>
-                <p>Real-time Fear & Greed Index trend showing market sentiment evolution:</p>
-                <div style="text-align: center; margin: 15px 0;">
-                    <img src="cid:fear_greed_trend_chart" style="width: 100%; max-width: 800px; height: auto; border-radius: 5px;">
-                </div>
-                <p><small>Chart shows 14-day historical Fear & Greed Index scores, sentiment labels, and daily variations.</small></p>
+            <div style="padding: 12px;">
+                <img src="cid:fear_greed_trend_chart" style="width: 100%; border-radius: 10px;" />
             </div>
             """
             print(f"✅ Fear & Greed trend chart generated and HTML created")
@@ -1271,14 +1391,8 @@ def generate_email_content(articles, limit=25):
             
             if macro_volatility_chart_path and os.path.exists(macro_volatility_chart_path):
                 macro_volatility_chart_html = """
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">📊 5-Day Macro Volatility Stack</h3>
-                    <p style="margin-bottom: 15px;">Comparative performance tracking key macro indicators for directional movement and correlation analysis:</p>
-                    <div style="text-align: center; margin: 15px 0;">
-                        <img src="cid:macro_volatility_chart" style="width: 100%; max-width: 900px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
-                    </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Key Assets:</strong> DXY (Dollar Index) • Gold Futures • Bitcoin • VIX (Volatility Index)</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Chart shows 5-day percent changes with directional indicators and volatility environment assessment.</p>
+                <div style="padding: 12px;">
+                    <img src="cid:macro_volatility_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
                 print(f"✅ Macro volatility chart generated and HTML created")
@@ -1300,14 +1414,8 @@ def generate_email_content(articles, limit=25):
             
             if equity_futures_chart_path and os.path.exists(equity_futures_chart_path):
                 equity_futures_chart_html = """
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">🎯 Equity Futures Overview</h3>
-                    <p style="margin-bottom: 15px;">3-day performance matrix for major equity index futures with implied volatility rankings and risk-return analysis:</p>
-                    <div style="text-align: center; margin: 15px 0;">
-                        <img src="cid:equity_futures_chart" style="width: 100%; max-width: 1000px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
-                    </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Contracts:</strong> MES (S&P 500) • MYM (Dow Jones) • MNQ (NASDAQ-100) • M2K (Russell 2000)</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Matrix shows 3-day percent changes, volatility rankings, risk-return profiles, and performance heatmap for strategic positioning.</p>
+                <div style="padding: 12px;">
+                    <img src="cid:equity_futures_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
                 print(f"✅ Equity futures chart generated and HTML created")
@@ -1335,10 +1443,7 @@ def generate_email_content(articles, limit=25):
             
             if timeline_panel_paths:
                 timeline_panels_html = f"""
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">📊 Multi-Timeframe Analysis Panels</h3>
-                    <p style="margin-bottom: 15px;">Comprehensive 4-panel timeline analysis across key timeframes (24h, 7d, 30d, 1yr) for strategic positioning:</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; margin: 15px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; margin: 15px 0;">
                 """
                 
                 # Add each timeline panel chart
@@ -1349,18 +1454,13 @@ def generate_email_content(articles, limit=25):
                         cid = f"timeline_{symbol.lower()}"
                         
                         timeline_panels_html += f"""
-                        <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px;">
-                            <h4 style="margin-top: 0; color: white;">{symbol} Timeline Analysis</h4>
-                            <img src="cid:{cid}" style="width: 100%; max-width: 500px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
+                        <div style="text-align: center; padding: 12px;">
+                            <img src="cid:{cid}" style="width: 100%; border-radius: 10px;" />
                         </div>
                         """
                 
-                assets_text = " • ".join(timeline_asset_list)
-                timeline_panels_html += f"""
+                timeline_panels_html += """
                     </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Assets:</strong> {assets_text}</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Each panel shows OHLCV data, percent changes, trend direction, and volatility metrics across multiple timeframes for comprehensive market analysis.</p>
-                </div>
                 """
                 print(f"✅ Generated {len(timeline_panel_paths)} timeline panel charts and HTML created")
             else:
@@ -1387,14 +1487,8 @@ def generate_email_content(articles, limit=25):
             
             if cme_forex_chart_path and os.path.exists(cme_forex_chart_path):
                 cme_forex_chart_html = """
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">🏦 CME Forex Watchlist</h3>
-                    <p style="margin-bottom: 15px;">5-day performance tracking for major CME forex futures contracts with volatility rankings and detailed metrics:</p>
-                    <div style="text-align: center; margin: 15px 0;">
-                        <img src="cid:cme_forex_chart" style="width: 100%; max-width: 1200px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
-                    </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Contracts:</strong> EUR/USD (6E) • JPY/USD (6J) • GBP/USD (6B) • AUD/USD (6A) • CAD/USD (6C) • CHF/USD (6S)</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Heatmap shows 5-day percent changes, volatility rankings, current prices, and performance-based color coding for strategic currency positioning.</p>
+                <div style="padding: 12px;">
+                    <img src="cid:cme_forex_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
                 print(f"✅ CME forex heatmap generated and HTML created")
@@ -1419,15 +1513,8 @@ def generate_email_content(articles, limit=25):
             
             if macro_vs_futures_chart_path and os.path.exists(macro_vs_futures_chart_path):
                 macro_vs_futures_chart_html = """
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">⚖️ Macro vs Equity Futures Analysis</h3>
-                    <p style="margin-bottom: 15px;">5-day performance comparison between macro assets and equity futures showing lead-lag relationships and convergence patterns:</p>
-                    <div style="text-align: center; margin: 15px 0;">
-                        <img src="cid:macro_vs_futures_chart" style="width: 100%; max-width: 1200px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
-                    </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Macro Assets:</strong> Bitcoin • Gold Futures • Oil Futures • Dollar Index</p>
-                    <p style="margin: 5px 0; font-size: 14px;"><strong>Equity Futures:</strong> S&P 500 Mini • NASDAQ Mini • Dow Mini • Russell Mini</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Multi-panel analysis including grouped performance bars, correlation matrix, risk-return scatter plot, and lead-lag relationship assessment for strategic positioning insights.</p>
+                <div style="padding: 12px;">
+                    <img src="cid:macro_vs_futures_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
                 print(f"✅ Macro vs futures chart generated and HTML created")
@@ -1455,14 +1542,8 @@ def generate_email_content(articles, limit=25):
             
             if economic_calendar_chart_path and os.path.exists(economic_calendar_chart_path):
                 economic_calendar_html = """
-                <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); border-radius: 8px; color: white;">
-                    <h3 style="margin-top: 0; color: white;">📅 This Week in Macro - Economic Calendar</h3>
-                    <p style="margin-bottom: 15px;">Comprehensive timeline showing upcoming macroeconomic events for the next 7 days, recent events from the past 3 days, and trade overlays:</p>
-                    <div style="text-align: center; margin: 15px 0;">
-                        <img src="cid:economic_calendar_chart" style="width: 100%; max-width: 1400px; height: auto; border-radius: 5px; border: 2px solid rgba(255,255,255,0.3);">
-                    </div>
-                    <p style="margin: 10px 0; font-size: 14px;"><strong>Coverage:</strong> FMP Economic Calendar API • Trade Log Overlay • Impact Classification</p>
-                    <p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">Timeline displays economic events by importance level (High/Medium/Low impact) with trade entries overlaid for strategic context and timing analysis.</p>
+                <div style="padding: 12px;">
+                    <img src="cid:economic_calendar_chart" style="width: 100%; border-radius: 10px;" />
                 </div>
                 """
                 print(f"✅ Economic calendar timeline generated and HTML created")
@@ -1473,64 +1554,102 @@ def generate_email_content(articles, limit=25):
     except Exception as e:
         print(f"❌ Error generating economic calendar timeline: {str(e)}")
 
-    # Start HTML content
+    # Start HTML content with proper structure
     html_content = f"""
-    <!DOCTYPE html>
     <html>
-    <head>
-        <style>
-            body {{ font-family: Arial, sans-serif; margin: 20px; }}
-            .header {{ background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }}
-            .article {{ border-left: 4px solid #3498db; margin: 15px 0; padding: 10px; background: #f8f9fa; }}
-            .title {{ font-weight: bold; color: #2c3e50; margin-bottom: 5px; }}
-            .summary {{ color: #555; margin: 5px 0; }}
-            .tickers {{ color: #e74c3c; font-weight: bold; }}
-            .tone {{ display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; }}
-            .tone-bullish {{ background: #d4edda; color: #155724; }}
-            .tone-bearish {{ background: #f8d7da; color: #721c24; }}
-            .tone-neutral {{ background: #d1ecf1; color: #0c5460; }}
-            .tone-volatile {{ background: #fff3cd; color: #856404; }}
-            .visuals {{ background: #ecf0f1; padding: 15px; border-radius: 5px; margin: 20px 0; }}
-            .footer {{ margin-top: 30px; padding: 15px; background: #95a5a6; color: white; border-radius: 5px; }}
-            .source-header {{ background: #34495e; color: white; padding: 8px 15px; margin: 20px 0 10px 0; border-radius: 5px; font-weight: bold; }}
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <h1>📰 MacroIntel Daily News Report</h1>
+    <body style="font-family: Arial, sans-serif;">
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📰 MacroIntel Daily News Report</h2>
             <p>Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</p>
             <p>📊 {len(articles_to_include)} relevant articles from your watchlist</p>
             <p>📈 Sources: {', '.join([f'{source} ({count})' for source, count in source_counts.items()])}</p>
         </div>
         
-        {regime_summary_html}
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📊 Market Regime Summary</h2>
+            {regime_summary_html}
+        </div>
         
-        {agent_results_html}
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">🤖 AI Agent Analysis</h2>
+            {agent_results_html}
+        </div>
         
-        {geopolitical_section_html}
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">🌍 Geopolitical Analysis</h2>
+            {geopolitical_section_html}
+        </div>
         
-        {economic_calendar_html}
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📅 Economic Calendar</h2>
+            {economic_calendar_html}
+        </div>
         
-        <div class="visuals">
-            <h2>📈 Market Overview</h2>
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📈 Market Overview</h2>
             <p><strong>{fear_greed}</strong></p>
             {sector_heatmap}
             {sentiment_gauge}
         </div>
         
-        {ticker_cards_html}
-        {macro_volatility_chart_html}
-        {equity_futures_chart_html}
-        {cme_forex_chart_html}
-        {macro_vs_futures_chart_html}
-        {timeline_panels_html}
-        {yahoo_futures_html}
-        {top_movers_html}
-        {extreme_fear_chart_html}
-        {fear_greed_trend_chart_html}
-        {enhanced_charts_html}
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📊 Ticker Cards</h2>
+            {ticker_cards_html}
+        </div>
         
-        <h2>📰 Relevant Headlines</h2>
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📊 Macro Volatility Chart</h2>
+            {macro_volatility_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">🎯 Equity Futures Overview</h2>
+            {equity_futures_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">🏦 CME Forex Watchlist</h2>
+            {cme_forex_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">⚖️ Macro vs Equity Futures Analysis</h2>
+            {macro_vs_futures_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📊 Multi-Timeframe Analysis Panels</h2>
+            {timeline_panels_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📈 Yahoo Futures Screener</h2>
+            {yahoo_futures_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📈 Yahoo Top Movers</h2>
+            {top_movers_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">😱 Extreme Fear Alert</h2>
+            {extreme_fear_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📊 Fear & Greed Index Trend</h2>
+            {fear_greed_trend_chart_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">🤖 AI-Enhanced Market Analysis</h2>
+            {enhanced_charts_html}
+        </div>
+        
+        <div style="padding:12px; margin-bottom:20px;">
+            <h2 style="color:#333;">📰 Relevant Headlines</h2>
+        </div>
     """
     
     # Group articles by source for better organization
@@ -1554,8 +1673,8 @@ def generate_email_content(articles, limit=25):
         }.get(source, source.title())
         
         html_content += f"""
-        <div class="source-header">
-            📈 Source: {source_display_name} ({len(source_articles)} articles)
+        <div style="padding:12px; margin-bottom:20px;">
+            <h3 style="color:#333;">📈 Source: {source_display_name} ({len(source_articles)} articles)</h3>
         </div>
         """
         
@@ -1567,18 +1686,27 @@ def generate_email_content(articles, limit=25):
             tickers = article.get("affected_tickers", "")
             tone = article.get("tone", "Neutral")
             
-            # Determine tone class
-            tone_class = f"tone-{tone.lower()}"
+            # Sanitize all dynamic content for email compatibility
+            title = sanitize_email_text(title)
+            summary = sanitize_email_text(summary)
+            tickers = sanitize_email_text(tickers)
+            tone = sanitize_email_text(tone)
+            
+            # Determine tone style
+            tone_style = "background: #d4edda; color: #155724;" if tone.lower() == "bullish" else \
+                        "background: #f8d7da; color: #721c24;" if tone.lower() == "bearish" else \
+                        "background: #fff3cd; color: #856404;" if tone.lower() == "volatile" else \
+                        "background: #d1ecf1; color: #0c5460;"
             
             html_content += f"""
-            <div class="article">
-                <div class="title">
+            <div style="border-left: 4px solid #3498db; margin: 15px 0; padding: 10px; background: #f8f9fa;">
+                <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">
                     <a href="{url}" style="color: #2c3e50; text-decoration: none;">{article_counter}. {title}</a>
                 </div>
-                <div class="summary">{summary}</div>
+                <div style="color: #555; margin: 5px 0;">{summary}</div>
                 <div style="margin-top: 5px;">
-                    <span class="tickers">📈 {tickers}</span> | 
-                    <span class="tone {tone_class}">{tone}</span> | 
+                    <span style="color: #e74c3c; font-weight: bold;">📈 {tickers}</span> | 
+                    <span style="display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; {tone_style}">{tone}</span> | 
                     <small>Source: {source_display_name}</small>
                 </div>
             </div>
@@ -1587,7 +1715,7 @@ def generate_email_content(articles, limit=25):
     
     # Add footer
     html_content += f"""
-        <div class="footer">
+        <div style="margin-top: 30px; padding: 15px; background: #95a5a6; color: white; border-radius: 5px;">
             <p><strong>MacroIntel News Scanner</strong></p>
             <p>This report contains {len(articles_to_include)} articles relevant to your watchlist.</p>
             <p>Generated automatically - click article titles to read full stories.</p>
@@ -1603,6 +1731,8 @@ def generate_email_content(articles, limit=25):
             "cid": "fear_greed_trend_chart"
         })
         print(f"✅ Added Fear & Greed chart to email attachments")
+    else:
+        print(f"⚠️ Fear & Greed chart file missing: {fear_greed_chart_path}")
     
     # Include Macro Volatility chart in attachments if it was generated
     if macro_volatility_chart_path and os.path.exists(macro_volatility_chart_path):
@@ -1611,6 +1741,8 @@ def generate_email_content(articles, limit=25):
             "cid": "macro_volatility_chart"
         })
         print(f"✅ Added Macro Volatility chart to email attachments")
+    else:
+        print(f"⚠️ Macro Volatility chart file missing: {macro_volatility_chart_path}")
     
     # Include Equity Futures chart in attachments if it was generated
     if equity_futures_chart_path and os.path.exists(equity_futures_chart_path):
@@ -1619,9 +1751,12 @@ def generate_email_content(articles, limit=25):
             "cid": "equity_futures_chart"
         })
         print(f"✅ Added Equity Futures chart to email attachments")
+    else:
+        print(f"⚠️ Equity Futures chart file missing: {equity_futures_chart_path}")
     
     # Include Timeline Panel charts in attachments if they were generated
     if timeline_panel_paths:
+        added_timeline_charts = 0
         for chart_path in timeline_panel_paths:
             if os.path.exists(chart_path):
                 # Extract symbol from filename (e.g., "SPY_multi_timeframe.png" -> "SPY")
@@ -1632,7 +1767,10 @@ def generate_email_content(articles, limit=25):
                     "path": chart_path,
                     "cid": cid
                 })
-        print(f"✅ Added {len(timeline_panel_paths)} Timeline Panel charts to email attachments")
+                added_timeline_charts += 1
+            else:
+                print(f"⚠️ Timeline Panel chart file missing: {chart_path}")
+        print(f"✅ Added {added_timeline_charts}/{len(timeline_panel_paths)} Timeline Panel charts to email attachments")
     
     # Include CME Forex chart in attachments if it was generated
     if cme_forex_chart_path and os.path.exists(cme_forex_chart_path):
@@ -1641,6 +1779,8 @@ def generate_email_content(articles, limit=25):
             "cid": "cme_forex_chart"
         })
         print(f"✅ Added CME Forex chart to email attachments")
+    else:
+        print(f"⚠️ CME Forex chart file missing: {cme_forex_chart_path}")
     
     # Include Macro vs Futures chart in attachments if it was generated
     if macro_vs_futures_chart_path and os.path.exists(macro_vs_futures_chart_path):
@@ -1649,6 +1789,8 @@ def generate_email_content(articles, limit=25):
             "cid": "macro_vs_futures_chart"
         })
         print(f"✅ Added Macro vs Futures chart to email attachments")
+    else:
+        print(f"⚠️ Macro vs Futures chart file missing: {macro_vs_futures_chart_path}")
     
     # Include Economic Calendar chart in attachments if it was generated
     if economic_calendar_chart_path and os.path.exists(economic_calendar_chart_path):
@@ -1657,6 +1799,8 @@ def generate_email_content(articles, limit=25):
             "cid": "economic_calendar_chart"
         })
         print(f"✅ Added Economic Calendar timeline to email attachments")
+    else:
+        print(f"⚠️ Economic Calendar chart file missing: {economic_calendar_chart_path}")
     
     print(f"📧 Email generation complete: {len(chart_attachments)} total chart attachments")
     
@@ -1672,6 +1816,108 @@ def send_daily_report(html_content, attachments=None, inline_charts=None):
     Returns:
         True if sent successfully, False otherwise.
     """
+    import base64
+    import re
+    import logging
+    
+    # Setup logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    
+    # Use the global sanitize_email_text function
+    
+    def clean_text_content(text):
+        """Clean problematic characters and emojis from text content."""
+        if not text:
+            return text
+        
+        # Convert to string if needed
+        text = str(text)
+        
+        # Remove or replace problematic emojis and characters
+        problematic_chars = {
+            '📈': 'UP',
+            '📉': 'DOWN', 
+            '➡️': 'FLAT',
+            '✅': 'SUCCESS',
+            '❌': 'ERROR',
+            '⚠️': 'WARNING',
+            '🔄': 'RETRY',
+            '📊': 'CHART',
+            '📰': 'NEWS',
+            '🏦': 'BANK',
+            '🤖': 'AI',
+            '📅': 'CALENDAR',
+            '🎯': 'TARGET',
+            '💡': 'IDEA',
+            '🚀': 'LAUNCH',
+            '🔥': 'HOT',
+            '💎': 'DIAMOND',
+            '🎪': 'CIRCUS',
+            '🎭': 'THEATER',
+            '🎨': 'ART',
+            '🎬': 'MOVIE',
+            '🎵': 'MUSIC',
+            '🎮': 'GAME',
+            '🎲': 'DICE',
+            '🎯': 'TARGET',
+            '🎪': 'CIRCUS',
+            '🎭': 'THEATER',
+            '🎨': 'ART',
+            '🎬': 'MOVIE',
+            '🎵': 'MUSIC',
+            '🎮': 'GAME',
+            '🎲': 'DICE'
+        }
+        
+        # Replace problematic characters
+        for emoji, replacement in problematic_chars.items():
+            text = text.replace(emoji, replacement)
+        
+        # Remove other non-ASCII characters that might cause issues
+        text = re.sub(r'[^\x00-\x7F]+', '', text)
+        
+        # Ensure proper UTF-8 encoding
+        try:
+            text = text.encode('utf-8').decode('utf-8')
+        except UnicodeError:
+            text = text.encode('utf-8', errors='ignore').decode('utf-8')
+        
+        return text
+    
+    def save_report_locally(html_content, error_note=""):
+        """Save report locally as fallback when email fails."""
+        try:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_dir = Path("output")
+            output_dir.mkdir(exist_ok=True)
+            
+            filename = f"email_report_fallback_{timestamp}.html"
+            filepath = output_dir / filename
+            
+            # Add error note to the HTML content
+            error_html = f"""
+            <div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; margin: 20px 0; border-radius: 5px;">
+                <h3>⚠️ Email Delivery Failed</h3>
+                <p><strong>Error:</strong> {error_note}</p>
+                <p><strong>Time:</strong> {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
+                <p>This report was saved locally because email delivery failed.</p>
+            </div>
+            """
+            
+            # Insert error note at the beginning of the HTML content
+            full_html = error_html + html_content
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(full_html)
+            
+            logger.info(f"✅ Report saved locally: {filepath}")
+            return str(filepath)
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to save report locally: {e}")
+            return None
+    
     # Load credentials using standardized environment variables
     smtp_user = os.getenv("SMTP_USER")
     smtp_password = os.getenv("SMTP_PASSWORD")
@@ -1686,6 +1932,8 @@ def send_daily_report(html_content, attachments=None, inline_charts=None):
 
     # Validate required credentials
     if not all([smtp_user, smtp_password, email_recipient, sender_email, sender_name, smtp_server]):
+        error_msg = "Missing required email credentials"
+        logger.error(f"❌ {error_msg}")
         print("[ERROR] Missing required email credentials. Please check your .env file for:")
         print("  - SMTP_USER")
         print("  - SMTP_PASSWORD") 
@@ -1693,25 +1941,51 @@ def send_daily_report(html_content, attachments=None, inline_charts=None):
         print("  - EMAIL_SENDER")
         print("  - EMAIL_SENDER_NAME")
         print("  - SMTP_SERVER")
+        
+        # Save report locally as fallback
+        save_report_locally(html_content, error_msg)
         return False
 
-    # Ensure all required fields are strings
-    smtp_user = str(smtp_user)
-    smtp_password = str(smtp_password)
-    email_recipient = str(email_recipient)
-    sender_email = str(sender_email)
-    sender_name = str(sender_name)
-    smtp_server = str(smtp_server)
+    # Ensure all required fields are strings and clean them
+    smtp_user = clean_text_content(str(smtp_user))
+    smtp_password = str(smtp_password)  # Don't clean passwords
+    email_recipient = clean_text_content(str(email_recipient))
+    sender_email = clean_text_content(str(sender_email))
+    sender_name = clean_text_content(str(sender_name))
+    smtp_server = clean_text_content(str(smtp_server))
+    subject = clean_text_content(subject)
 
-    print(f"[INFO] Sending email to {email_recipient}")
+    logger.info(f"📧 Sending email to {email_recipient}")
+
+    # Clean the HTML content with enhanced sanitization
+    html_content = sanitize_email_text(html_content)
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
     msg['From'] = formataddr((sender_name, sender_email))
     msg['To'] = email_recipient
 
-    # Attach the HTML content
-    msg.attach(MIMEText(html_content, 'html'))
+    # Attach the HTML content with UTF-8 encoding
+    try:
+        html_part = MIMEText(html_content, 'html', 'utf-8')
+        msg.attach(html_part)
+        logger.info("✅ HTML content attached successfully with UTF-8 encoding")
+    except UnicodeEncodeError as e:
+        logger.warning(f"⚠️ UnicodeEncodeError in HTML content, cleaning and retrying: {e}")
+        try:
+            # Clean the HTML content more aggressively
+            cleaned_html = clean_text_content(html_content)
+            html_part = MIMEText(cleaned_html, 'html', 'utf-8')
+            msg.attach(html_part)
+            logger.info("✅ HTML content attached successfully after cleaning")
+        except Exception as retry_e:
+            logger.error(f"❌ Failed to attach HTML content after UnicodeEncodeError: {retry_e}")
+            save_report_locally(html_content, f"HTML encoding error after UnicodeEncodeError: {retry_e}")
+            return False
+    except Exception as e:
+        logger.error(f"❌ Failed to attach HTML content: {e}")
+        save_report_locally(html_content, f"HTML encoding error: {e}")
+        return False
 
     # Add inline charts if provided
     if inline_charts:
@@ -1721,42 +1995,137 @@ def send_daily_report(html_content, attachments=None, inline_charts=None):
                 chart_cid = chart.get("cid")
                 
                 if chart_path and chart_cid and os.path.exists(chart_path):
+                    # Open image in binary mode and encode as base64
                     with open(chart_path, 'rb') as f:
-                        chart_img = MIMEImage(f.read())
+                        image_data = f.read()
+                        chart_img = MIMEImage(image_data)
                         chart_img.add_header('Content-ID', f'<{chart_cid}>')
+                        
+                        # Clean filename to prevent UnicodeEncodeError
+                        safe_filename = clean_text_content(os.path.basename(chart_path))
                         chart_img.add_header('Content-Disposition', 'inline', 
-                                           filename=os.path.basename(chart_path))
+                                           filename=safe_filename)
                         msg.attach(chart_img)
-                    print(f"[INFO] Embedded inline chart: {os.path.basename(chart_path)} (CID: {chart_cid})")
+                    logger.info(f"✅ Embedded inline chart: {safe_filename} (CID: {chart_cid})")
                 else:
-                    print(f"[WARNING] Invalid chart data: {chart}")
+                    logger.warning(f"⚠️ Invalid chart data: {chart}")
+            except UnicodeEncodeError as e:
+                logger.warning(f"⚠️ UnicodeEncodeError in chart filename, using cleaned name: {e}")
+                try:
+                    # Retry with cleaned filename
+                    chart_path = chart.get("path")
+                    chart_cid = chart.get("cid")
+                    
+                    if chart_path and chart_cid and os.path.exists(chart_path):
+                        with open(chart_path, 'rb') as f:
+                            image_data = f.read()
+                            chart_img = MIMEImage(image_data)
+                            chart_img.add_header('Content-ID', f'<{chart_cid}>')
+                            
+                            # Use a safe fallback filename
+                            safe_filename = f"chart_{chart_cid}.png"
+                            chart_img.add_header('Content-Disposition', 'inline', 
+                                               filename=safe_filename)
+                            msg.attach(chart_img)
+                        logger.info(f"✅ Embedded inline chart with safe filename: {safe_filename} (CID: {chart_cid})")
+                except Exception as retry_e:
+                    logger.error(f"❌ Failed to embed chart after UnicodeEncodeError: {retry_e}")
             except Exception as e:
-                print(f"[WARNING] Failed to embed chart {chart.get('path', 'unknown')}: {e}")
+                logger.error(f"❌ Failed to embed chart {chart.get('path', 'unknown')}: {e}")
 
     # Add attachments if provided
     if attachments:
         for attachment_path in attachments:
             try:
+                # Open attachment in binary mode
                 with open(attachment_path, 'rb') as f:
-                    attachment = MIMEImage(f.read())
+                    attachment_data = f.read()
+                    attachment = MIMEImage(attachment_data)
+                    
+                    # Clean filename to prevent UnicodeEncodeError
+                    safe_filename = clean_text_content(os.path.basename(attachment_path))
                     attachment.add_header('Content-Disposition', 'attachment', 
-                                        filename=os.path.basename(attachment_path))
+                                        filename=safe_filename)
                     msg.attach(attachment)
-                print(f"[INFO] Attached: {os.path.basename(attachment_path)}")
+                logger.info(f"✅ Attached: {safe_filename}")
+            except UnicodeEncodeError as e:
+                logger.warning(f"⚠️ UnicodeEncodeError in attachment filename, using cleaned name: {e}")
+                try:
+                    # Retry with cleaned filename
+                    with open(attachment_path, 'rb') as f:
+                        attachment_data = f.read()
+                        attachment = MIMEImage(attachment_data)
+                        
+                        # Use a safe fallback filename
+                        safe_filename = f"attachment_{os.path.splitext(os.path.basename(attachment_path))[0]}.png"
+                        attachment.add_header('Content-Disposition', 'attachment', 
+                                            filename=safe_filename)
+                        msg.attach(attachment)
+                    logger.info(f"✅ Attached with safe filename: {safe_filename}")
+                except Exception as retry_e:
+                    logger.error(f"❌ Failed to attach after UnicodeEncodeError: {retry_e}")
             except Exception as e:
-                print(f"[WARNING] Failed to attach {attachment_path}: {e}")
+                logger.error(f"❌ Failed to attach {attachment_path}: {e}")
 
+    # Send email with detailed error handling
     try:
+        logger.info(f"🔗 Connecting to SMTP server: {smtp_server}:{smtp_port}")
         with smtplib.SMTP(smtp_server, smtp_port) as server:
+            logger.info("🔐 Starting TLS encryption...")
             server.starttls()
+            
+            logger.info(f"👤 Logging in as: {smtp_user}")
             server.login(smtp_user, smtp_password)
+            
+            logger.info("📤 Sending email...")
             server.sendmail(sender_email, email_recipient, msg.as_string())
-        print("[SUCCESS] Email sent successfully")
+            
+        logger.info("✅ Email sent successfully")
         return True
+        
+    except smtplib.SMTPAuthenticationError as e:
+        error_msg = f"SMTP authentication failed: {e}"
+        logger.error(f"❌ {error_msg}")
+        save_report_locally(html_content, error_msg)
+        return False
+        
+    except smtplib.SMTPConnectError as e:
+        error_msg = f"SMTP connection failed: {e}"
+        logger.error(f"❌ {error_msg}")
+        save_report_locally(html_content, error_msg)
+        return False
+        
+    except smtplib.SMTPRecipientsRefused as e:
+        error_msg = f"SMTP recipient refused: {e}"
+        logger.error(f"❌ {error_msg}")
+        save_report_locally(html_content, error_msg)
+        return False
+        
+    except smtplib.SMTPServerDisconnected as e:
+        error_msg = f"SMTP server disconnected: {e}"
+        logger.error(f"❌ {error_msg}")
+        save_report_locally(html_content, error_msg)
+        return False
+        
+    except smtplib.SMTPException as e:
+        error_msg = f"SMTP error: {e}"
+        logger.error(f"❌ {error_msg}")
+        save_report_locally(html_content, error_msg)
+        return False
+        
     except Exception as e:
-        print(f"[ERROR] Failed to send email: {e}")
+        error_msg = f"Unexpected error: {e}"
+        logger.error(f"❌ {error_msg}")
         import traceback
-        traceback.print_exc()
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        
+        # Enhanced fallback with detailed logging
+        fallback_path = save_report_locally(html_content, error_msg)
+        if fallback_path:
+            logger.info(f"✅ Fallback HTML report saved to: {fallback_path}")
+        else:
+            logger.error("❌ Failed to save fallback report")
+        
         return False
 
 def generate_fear_greed_trend_chart():

@@ -7,7 +7,8 @@ Handles prompt preparation for AI-enhanced reasoning.
 import json
 import logging
 from typing import Dict, List, Any, Optional
-from openai import OpenAI
+# OpenAI support disabled
+OpenAI = None
 
 logger = logging.getLogger(__name__)
 
@@ -15,10 +16,8 @@ class APIExplorerPrompt:
     """Handles prompt preparation and AI-enhanced reasoning"""
     
     def __init__(self, client: Optional[OpenAI] = None):
-        self.client = client
-        
-        if not self.client:
-            logger.warning("No OpenAI client provided. AI enhancement will be disabled.")
+        self.client = None  # OpenAI support disabled
+        logger.info("✅ OpenAI support disabled (API key removed from environment)")
     
     def interpret_query_with_openai(self, query: str, sample_endpoints: List[Dict[str, Any]]) -> str:
         """Use OpenAI to interpret and enhance the natural language query"""

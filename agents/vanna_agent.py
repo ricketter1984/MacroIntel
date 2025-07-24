@@ -47,11 +47,12 @@ class VannaAgent:
         Initialize the Vanna Agent.
         
         Args:
-            openai_api_key: OpenAI API key for Vanna (optional, will try environment)
+            openai_api_key: OpenAI API key for Vanna (disabled)
             use_test_db: Whether to use the test database with ETF data
         """
-        self.openai_api_key = openai_api_key or os.getenv("OPENAI_API_KEY")
-        self.vanna_available = VANNA_AVAILABLE and self.openai_api_key
+        self.openai_api_key = None  # OpenAI support disabled
+        self.vanna_available = False  # Vanna requires OpenAI
+        logger.info("✅ OpenAI support disabled (API key removed from environment)")
         self.use_test_db = use_test_db
         
         # Initialize database connection - use test DB for ETF queries if available

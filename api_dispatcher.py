@@ -6,18 +6,22 @@ This module provides a unified interface for dispatching API tasks to different
 virtual environments to handle conflicting library versions (e.g., urllib3).
 
 Supports:
-- Benzinga API (urllib3==1.25.10)
 - Polygon API (urllib3==2.5.0)
-- Future API integrations
+- FMP API
+- Messari API  
+- Twelve Data API
+- Fear & Greed API
+- CME API
+- Quiver API
 
 Usage:
     from api_dispatcher import dispatch_api_task
     
-    # Dispatch a Benzinga task
-    result = dispatch_api_task("benzinga", "test/test_benzinga.py")
-    
     # Dispatch a Polygon task
     result = dispatch_api_task("polygon", "test/test_polygon.py --symbol AAPL --type news")
+    
+    # Dispatch an FMP task
+    result = dispatch_api_task("fmp", "scripts/fetch_fmp_data.py")
 """
 
 import os
@@ -47,14 +51,6 @@ class APIDispatcher:
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration for different API sources."""
         return {
-            "benzinga": {
-                "venv_path": self.project_root / "venv_benzinga",
-                "python_path": self.project_root / "venv_benzinga" / "Scripts" / "python.exe",
-                "requirements": ["urllib3==1.25.10", "requests", "python-dotenv"],
-                "env_vars": ["BENZINGA_API_KEY"],
-                "timeout": 300,  # 5 minutes
-                "max_retries": 3
-            },
             "polygon": {
                 "venv_path": self.project_root / "venv_polygon", 
                 "python_path": self.project_root / "venv_polygon" / "Scripts" / "python.exe",
@@ -259,7 +255,7 @@ print(f"Python executable: {{sys.executable}}")
         Dispatch an API task to the appropriate virtual environment.
         
         Args:
-            source (str): API source ("benzinga", "polygon", "fmp", "messari", or "twelve_data")
+            source (str): API source ("polygon", "fmp", "messari", "twelve_data", "fear_greed", "cme", or "quiver")
             script (str): Path to the script to execute
             **kwargs: Additional arguments to pass to the script
             
@@ -331,7 +327,7 @@ def dispatch_api_task(source: str, script: str, **kwargs) -> Dict[str, Any]:
     Convenience function to dispatch API tasks.
     
     Args:
-        source (str): API source ("benzinga", "polygon", "fmp", "messari", or "twelve_data")
+        source (str): API source ("polygon", "fmp", "messari", "twelve_data", "fear_greed", "cme", or "quiver")
         script (str): Path to the script to execute
         **kwargs: Additional arguments to pass to the script
         
@@ -353,7 +349,7 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(description="API Dispatcher CLI")
-    parser.add_argument("--source", required=True, choices=["benzinga", "polygon", "fmp", "messari", "twelve_data"], 
+    parser.add_argument("--source", required=True, choices=["polygon", "fmp", "messari", "twelve_data", "fear_greed", "cme", "quiver"], 
                        help="API source to use")
     parser.add_argument("--script", required=True, help="Script to execute")
     parser.add_argument("--status", action="store_true", help="Show API status")

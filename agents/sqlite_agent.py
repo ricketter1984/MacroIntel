@@ -63,7 +63,7 @@ class MacroIntelSQLiteAgent:
         Args:
             db_path: Path to SQLite database file
             enable_vanna: Whether to enable Vanna AI features
-            openai_api_key: OpenAI API key for Vanna (optional)
+            openai_api_key: OpenAI API key for Vanna (disabled)
         """
         self.db_path = db_path
         self.enable_vanna = enable_vanna and VANNA_AVAILABLE
@@ -188,26 +188,9 @@ class MacroIntelSQLiteAgent:
     
     def _init_vanna(self, openai_api_key: str = None):
         """Initialize Vanna AI for natural language queries."""
-        try:
-            if not openai_api_key:
-                openai_api_key = os.getenv("OPENAI_API_KEY")
-            
-            if not openai_api_key:
-                logger.warning("⚠️ No OpenAI API key found - Vanna features limited")
-                self.vn = None
-                return
-            
-            # Initialize Vanna with local context
-            self.vn = LocalContext_OpenAI(api_key=openai_api_key)
-            
-            # Train Vanna with our schema
-            self._train_vanna()
-            
-            logger.info("✅ Vanna AI initialized for natural language queries")
-            
-        except Exception as e:
-            logger.error(f"❌ Error initializing Vanna: {str(e)}")
-            self.vn = None
+        logger.info("✅ OpenAI support disabled (API key removed from environment)")
+        logger.warning("⚠️ Vanna features limited - OpenAI API key required")
+        self.vn = None
     
     def _train_vanna(self):
         """Train Vanna with MacroIntel-specific schema and examples."""

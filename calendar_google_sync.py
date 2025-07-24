@@ -13,6 +13,13 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Set, Any
 from pathlib import Path
 import requests
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Validate FMP_API_KEY is loaded
+assert os.getenv("FMP_API_KEY"), "FMP_API_KEY is not set in environment!"
 
 # Configure stdout encoding for Unicode support
 try:
@@ -281,36 +288,72 @@ class GoogleCalendarSync:
             if not date_str:
                 return None
             
-            # Parse date
+            # Parse different date formats from FMP API
+            event_datetime = None
+            
+            # Try different parsing strategies
             try:
-                event_date = datetime.strptime(date_str.split('T')[0], '%Y-%m-%d')
-            except ValueError:
+                # Strategy 1: Full datetime string "2025-07-22 04:00:00"
+                if ' ' in date_str and ':' in date_str:
+                    event_datetime = datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
+                
+                # Strategy 2: ISO format "2025-07-22T04:00:00"
+                elif 'T' in date_str:
+                    # Remove timezone info if present
+                    clean_date = date_str.split('T')[0] + 'T' + date_str.split('T')[1].split('+')[0].split('-')[0]
+                    if clean_date.count(':') == 2:
+                        event_datetime = datetime.strptime(clean_date, '%Y-%m-%dT%H:%M:%S')
+                    else:
+                        event_datetime = datetime.strptime(date_str.split('T')[0], '%Y-%m-%d')
+                        event_datetime = event_datetime.replace(hour=14, minute=30)
+                
+                # Strategy 3: Date only "2025-07-22"
+                elif '-' in date_str and len(date_str) == 10:
+                    event_datetime = datetime.strptime(date_str, '%Y-%m-%d')
+                    event_datetime = event_datetime.replace(hour=14, minute=30)
+                
+                # Strategy 4: Try to extract date part from any string
+                else:
+                    # Try to find date pattern in string
+                    import re
+                    date_pattern = r'(\d{4}-\d{2}-\d{2})'
+                    match = re.search(date_pattern, date_str)
+                    if match:
+                        event_datetime = datetime.strptime(match.group(1), '%Y-%m-%d')
+                        event_datetime = event_datetime.replace(hour=14, minute=30)
+                        
+            except ValueError as e:
+                self.logger.debug(f"Date parsing failed for '{date_str}': {e}")
                 return None
             
-            # Parse time if available
-            if time_str:
+            # If we still don't have a datetime, try fallback parsing
+            if not event_datetime:
+                try:
+                    # Last resort: try to parse just the date part
+                    date_part = date_str.split(' ')[0].split('T')[0]
+                    event_datetime = datetime.strptime(date_part, '%Y-%m-%d')
+                    event_datetime = event_datetime.replace(hour=14, minute=30)
+                except ValueError:
+                    return None
+            
+            # Override with separate time field if available and valid
+            if time_str and time_str != 'N/A' and time_str.strip():
                 try:
                     # Handle different time formats
                     if ':' in time_str:
                         time_parts = time_str.split(':')
                         hour = int(time_parts[0])
                         minute = int(time_parts[1]) if len(time_parts) > 1 else 0
-                        
-                        event_datetime = event_date.replace(hour=hour, minute=minute)
-                    else:
-                        # Default time if parsing fails
-                        event_datetime = event_date.replace(hour=14, minute=30)
+                        # Replace the time portion
+                        event_datetime = event_datetime.replace(hour=hour, minute=minute)
                 except (ValueError, IndexError):
-                    # Default time if parsing fails
-                    event_datetime = event_date.replace(hour=14, minute=30)
-            else:
-                # Default time for all-day events
-                event_datetime = event_date.replace(hour=14, minute=30)
+                    # Keep the datetime from date parsing if time parsing fails
+                    pass
             
             return event_datetime
             
         except Exception as e:
-            self.logger.warning(f"WARNING: Error parsing event datetime: {e}")
+            self.logger.warning(f"WARNING: Error parsing event datetime for '{date_str}': {e}")
             return None
 
     def create_google_calendar_event(self, event: Dict) -> bool:
