@@ -330,54 +330,10 @@ def fetch_vix_history(source='fmp', days=365):
 
 def generate_simulated_vix_data(days=365):
     """
-    Generate realistic simulated VIX data when all external sources fail.
-    Creates data that mimics typical VIX behavior patterns.
+    DEPRECATED: No longer generating simulated VIX data - real API data required.
     """
-    try:
-        import numpy as np
-        
-        # Generate date range
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days)
-        dates = pd.date_range(start=start_date, end=end_date, freq='D')
-        
-        # Generate realistic VIX data with typical patterns
-        np.random.seed(42)  # For reproducible results
-        
-        # Base VIX level (typical range 15-35)
-        base_vix = 22.0
-        
-        # Add market volatility cycles
-        volatility_cycles = np.sin(np.linspace(0, 4*np.pi, len(dates))) * 8
-        
-        # Add random daily movements
-        daily_moves = np.random.normal(0, 2, len(dates))
-        
-        # Add occasional volatility spikes
-        spike_probability = 0.05  # 5% chance of spike per day
-        spikes = np.random.choice([0, 1], size=len(dates), p=[1-spike_probability, spike_probability])
-        spike_values = spikes * np.random.uniform(5, 15, len(dates))
-        
-        # Combine all components
-        vix_values = base_vix + volatility_cycles + daily_moves + spike_values
-        
-        # Ensure VIX stays in realistic range (10-50)
-        vix_values = np.clip(vix_values, 10, 50)
-        
-        # Create DataFrame
-        df = pd.DataFrame({
-            'VIX': vix_values
-        }, index=dates)
-        
-        logging.info(f"✅ Generated simulated VIX data: {len(df)} records (range: {df['VIX'].min():.1f}-{df['VIX'].max():.1f})")
-        return df
-        
-    except Exception as e:
-        logging.error(f"❌ Error generating simulated VIX data: {e}")
-        # Return minimal fallback data
-        return pd.DataFrame({
-            'VIX': [20.0]  # Default VIX value
-        }, index=[datetime.now()])
+    logging.warning("⚠️ Simulated VIX data generation disabled - real API data required")
+    return None
 
 def fetch_asset_history(symbol, source='fmp', days=365):
     """Fetch asset history data, with special handling for VIX using Twelve Data."""

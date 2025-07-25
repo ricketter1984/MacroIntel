@@ -300,13 +300,6 @@ def get_events_by_date(date: str) -> List[Dict[str, Any]]:
     return data_store.get_events_by_date(date)
 
 def insert_mock_headline_for_testing():
-    """Insert a mock headline for testing purposes."""
-    mock_headline = {
-        'timestamp': datetime.now().isoformat(),
-        'source': 'Test Source',
-        'symbol': 'DIA',
-        'headline': 'Test headline for DIA',
-        'summary': 'This is a test summary for testing purposes',
-        'sentiment': 'Neutral'
-    }
-    return insert_news_headline(mock_headline)
+    """DEPRECATED: No longer inserting mock headlines - real data required."""
+    logger.warning("⚠️ Mock headline insertion disabled - real data required")
+    return None

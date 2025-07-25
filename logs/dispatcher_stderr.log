@@ -12333,3 +12333,15 @@
 
 [TWELVE_DATA STDERR @ 2025-07-18 22:45:46.917687]
 
+
+[POLYGON STDERR @ 2025-07-24 20:00:01.047125]
+2025-07-24 20:00:00,821 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-24 20:00:00,915 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-24 20:00:01,025 - ERROR - [Polygon] Error fetching RUT: 'v'
+
+
+[POLYGON STDERR @ 2025-07-24 21:00:00.975499]
+2025-07-24 21:00:00,679 - ERROR - [Polygon] Error fetching SPX: 'v'
+2025-07-24 21:00:00,832 - ERROR - [Polygon] Error fetching NDX: 'v'
+2025-07-24 21:00:00,943 - ERROR - [Polygon] Error fetching RUT: 'v'
+

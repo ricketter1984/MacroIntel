@@ -36,7 +36,7 @@ class CMEQuotesScraper:
             'Upgrade-Insecure-Requests': '1'
         })
         
-        # Hardcoded CME Group URLs for each symbol
+        # Hardcoded CME URLs for each symbol
         self.cme_urls = {
             'MGC': 'https://www.cmegroup.com/markets/metals/precious/gold.html',
             'MCL': 'https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.html', 
@@ -98,9 +98,9 @@ class CMEQuotesScraper:
                 logger.debug(f"Full traceback: {traceback.format_exc()}")
                 continue
         
-        # If all URLs fail, create mock data
-        logger.warning(f"⚠️ All URLs failed for {symbol}, creating mock data")
-        return self._create_mock_data(symbol)
+        # If all URLs fail, return None instead of creating mock data
+        logger.warning(f"⚠️ All URLs failed for {symbol} - data unavailable")
+        return None
     
     def _parse_cme_page(self, symbol, html_content, url):
         """Parse CME Group page for settlement data."""
@@ -365,24 +365,6 @@ class CMEQuotesScraper:
                 
         except Exception:
             return None
-    
-    def _create_mock_data(self, symbol):
-        """Create realistic mock data when scraping fails."""
-        mock_prices = {
-            'MGC': {'last_price': 2050.0, 'change': -12.5, 'volume': 15420, 'open_interest': 28350},
-            'MCL': {'last_price': 85.32, 'change': 1.25, 'volume': 285400, 'open_interest': 425600},
-            'MYM': {'last_price': 34500.0, 'change': 125.0, 'volume': 95300, 'open_interest': 185200}
-        }
-        
-        data = mock_prices.get(symbol, {
-            'last_price': 100.0,
-            'change': 0.0,
-            'volume': 10000,
-            'open_interest': 20000
-        })
-        
-        data['symbol'] = symbol
-        return data
 
 def fetch_cme_data():
     """

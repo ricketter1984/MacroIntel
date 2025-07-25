@@ -313,13 +313,13 @@ def generate_regime_summary_html(regime_data):
         """
 
 def generate_fear_greed_placeholder():
-    """Generate Fear & Greed index using real API or fallback to placeholder"""
+    """Generate Fear & Greed index using real API or return data unavailable message"""
     fear_greed_api_key = os.getenv("FEAR_GREED_API_KEY")
     fear_greed_api_host = "cnn-fear-and-greed-index.p.rapidapi.com"  # Fixed host
     
     if not fear_greed_api_key:
         print("⚠️ FEAR_GREED_API_KEY not found in environment variables")
-        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Key Missing]"
+        return "Fear & Greed Index: Data Unavailable [API Key Missing]"
     
     try:
         url = "https://cnn-fear-and-greed-index.p.rapidapi.com/cnn/v1/fear_and_greed/index"
@@ -349,48 +349,28 @@ def generate_fear_greed_placeholder():
             return f"Fear & Greed Index: {score} ({classification.title()}) {emoji} - Market showing {classification} sentiment"
         else:
             print(f"⚠️ Fear & Greed API error: {response.status_code}")
-            return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Error]"
+            return "Fear & Greed Index: Data Unavailable [API Error]"
             
     except requests.exceptions.RequestException as e:
         print(f"⚠️ Fear & Greed API request failed: {str(e)}")
-        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Unavailable]"
+        return "Fear & Greed Index: Data Unavailable [API Unavailable]"
     except Exception as e:
         print(f"⚠️ Fear & Greed API error: {str(e)}")
-        return "Fear & Greed Index: 65 (Greed) - Market showing moderate optimism [API Error]"
+        return "Fear & Greed Index: Data Unavailable [API Error]"
 
 def generate_sector_heatmap_placeholder():
     """Generate a placeholder for sector heatmap"""
-    sectors = {
-        "Technology": "🔥 Hot",
-        "Financial": "📈 Bullish", 
-        "Energy": "⚡ Volatile",
-        "Healthcare": "🩺 Stable",
-        "Consumer": "🛒 Mixed"
-    }
-    
-    heatmap_html = "<h3>📊 Sector Heatmap</h3><ul>"
-    for sector, status in sectors.items():
-        heatmap_html += f"<li><strong>{sector}:</strong> {status}</li>"
-    heatmap_html += "</ul>"
+    heatmap_html = "<h3>📊 Sector Heatmap</h3><p>Data Unavailable - Sector performance data could not be fetched</p>"
     
     return heatmap_html
 
 def generate_sentiment_gauge_placeholder():
     """Generate a placeholder for sentiment gauge"""
-    # Placeholder sentiment analysis
-    sentiment_score = 65  # 0-100 scale
-    sentiment_label = "Moderately Bullish"
-    
-    gauge_html = f"""
+    gauge_html = """
     <h3>📊 Market Sentiment</h3>
     <div style="background: #f0f0f0; padding: 10px; border-radius: 5px;">
-        <strong>Sentiment Score:</strong> {sentiment_score}/100 ({sentiment_label})<br>
-        <div style="background: linear-gradient(to right, #ff4444, #ffff44, #44ff44); 
-                    height: 20px; border-radius: 10px; position: relative;">
-            <div style="background: #333; width: 4px; height: 20px; 
-                        position: absolute; left: {sentiment_score}%; border-radius: 2px;"></div>
-        </div>
-        <small>Bearish ← → Bullish</small>
+        <strong>Sentiment Score:</strong> Data Unavailable<br>
+        <p>Market sentiment data could not be fetched</p>
     </div>
     """
     

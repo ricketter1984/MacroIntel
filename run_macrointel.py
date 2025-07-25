@@ -47,6 +47,10 @@ from core.enhanced_visualizations import EnhancedVisualizations
 from agents.quiver_agent import run_quiver_pipeline, QuiverAgent
 from utils.cme_scraper import fetch_cme_data
 
+# Import agents when needed to avoid circular import issues
+# from agents.ticker_news_agent import TickerNewsAgent (imported at runtime)
+# from agents.chart_generator_agent import ChartGeneratorAgent (imported at runtime)
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -431,16 +435,16 @@ class EnhancedMacroIntel:
             logger.error(f"❌ Market analysis error: {str(e)}")
             return None
     
-    def run_swarm_pipeline(self):
+    def run_swarm_pipeline(self, model="claude"):
         """Run the complete MacroIntel swarm pipeline."""
-        logger.info("🤖 Starting MacroIntel Swarm Pipeline...")
+        logger.info(f"🤖 Starting MacroIntel Swarm Pipeline with {model} model...")
         
         try:
             # Import the swarm orchestrator
             from agents.swarm_orchestrator import MacroIntelSwarm
             
-            # Create swarm instance and execute
-            swarm = MacroIntelSwarm()
+            # Create swarm instance with specified model and execute
+            swarm = MacroIntelSwarm(model=model)
             results = swarm.execute_swarm()
             
             if results.get("status") == "success":
@@ -599,140 +603,65 @@ def test_system():
 def main():
     """Main entry point."""
     import argparse
-    
-    parser = argparse.ArgumentParser(description="Enhanced MacroIntel System")
-    parser.add_argument("--test", action="store_true", help="Run system tests")
-    parser.add_argument("--report", action="store_true", help="Generate single comprehensive report")
-    parser.add_argument("--scheduler", action="store_true", help="Run the APScheduler")
-    parser.add_argument("--analysis", action="store_true", help="Run market analysis")
-    parser.add_argument("--swarm", action="store_true", help="Run single swarm pipeline execution")
-    parser.add_argument("--quiver", action="store_true", help="Run Quiver data pipeline for congressional trades and alternative data")
-    parser.add_argument("--summary", action="store_true", help="When used with --quiver, display summary of 5 most recent congressional trades")
-    parser.add_argument("--cme", action="store_true", help="Fetch CME settlement data and show top 3 highest volume contracts")
-    
+
+    parser = argparse.ArgumentParser(description="Run MacroIntel CLI Pipeline")
+
+    parser.add_argument('--watchlist-news', type=str, help="Comma-separated list of tickers to fetch news for")
+    parser.add_argument('--send', action='store_true', help="Send email after report generation")
+    parser.add_argument('--include-quiver', action='store_true', help="Include Quiver API data in the report")
+    parser.add_argument('--schedule', action='store_true', help="Run scheduled jobs using APScheduler")
+    parser.add_argument('--cme', action='store_true', help="Run CME forex futures module only (for standalone testing)")
+    parser.add_argument('--test', action='store_true', help="Run a minimal email test with mock content")
+    parser.add_argument('--vanna', action='store_true', help="Run VannaAgent to generate insights")
+    parser.add_argument('--swarm', action='store_true', help="Run the MacroIntel swarm pipeline")
+    parser.add_argument('--model', type=str, default="claude", choices=["claude", "perplexity", "mistral"], 
+                       help="AI model to use for summarization (default: claude)")
+
     args = parser.parse_args()
-    
-    if args.test:
-        test_system()
-    elif args.report:
-        macrointel = EnhancedMacroIntel()
-        macrointel.generate_comprehensive_report()
-    elif args.analysis:
-        macrointel = EnhancedMacroIntel()
-        macrointel.run_market_analysis()
-    elif args.swarm:
-        macrointel = EnhancedMacroIntel()
-        macrointel.run_swarm_pipeline()
-    elif args.quiver:
-        # Run Quiver data pipeline
-        logger.info("🏛️ Running Quiver data pipeline...")
-        result = run_quiver_pipeline()
-        
-        if result['success']:
-            logger.info("✅ Quiver pipeline completed successfully")
-            
-            # Display statistics
-            if result['stats']:
-                print("\n📊 Database Statistics:")
-                for key, value in result['stats'].items():
-                    print(f"  {key}: {value:,}")
+
+    # Add the control logic to route commands
+    if args.watchlist_news:
+        from agents.ticker_news_agent import TickerNewsAgent
+        tickers = [ticker.strip() for ticker in args.watchlist_news.split(",")]
+        agent = TickerNewsAgent(include_quiver=args.include_quiver)
+        result = agent.run(tickers=tickers, model=args.model)
+        if result.get('status') == 'success':
+            print(f"📄 Report saved to: {result.get('markdown_file')}")
+            print(f"✅ Processed {result.get('tickers_processed')} tickers, found {result.get('total_articles')} articles")
         else:
-            logger.error("❌ Quiver pipeline failed")
-            for error in result['errors']:
-                logger.error(f"  - {error}")
-            
-            # Still show stats even if there were some errors
-            if result['stats']:
-                print("\n📊 Database Statistics:")
-                for key, value in result['stats'].items():
-                    print(f"  {key}: {value:,}")
-        
-        # If summary flag is also provided, show recent congressional trades
-        if args.summary:
-            try:
-                agent = QuiverAgent()
-                recent_trades = agent.get_recent_congress_trades(5)
-                
-                if recent_trades:
-                    print("\n🏛️ 5 Most Recent Congressional Trades:")
-                    print("-" * 80)
-                    for i, trade in enumerate(recent_trades, 1):
-                        ticker = trade.get('ticker', 'N/A')
-                        transaction = trade.get('transaction_type', 'N/A')
-                        representative = trade.get('politician', 'N/A')
-                        date = trade.get('transaction_date', 'N/A')
-                        
-                        print(f"{i}. Ticker: {ticker}")
-                        print(f"   Transaction: {transaction}")
-                        print(f"   Representative: {representative}")
-                        print(f"   Date: {date}")
-                        print()
-                else:
-                    print("\n⚠️ No recent congressional trades found in database")
-                    
-            except Exception as e:
-                logger.error(f"❌ Failed to retrieve congressional trades summary: {str(e)}")
-    elif args.cme:
-        # Run CME data scraping with summary
-        logger.info("🏦 Running CME data scraping...")
-        try:
-            df = fetch_cme_data()
-            
-            if df.empty:
-                logger.error("❌ No CME data available")
-                print("❌ Failed to fetch CME data - check logs for details")
+            print(f"❌ Error: {result.get('error', 'Unknown error')}")
+        if args.send:
+            from core.email_report import send_daily_report
+            # Extract markdown file path from result
+            markdown_path = result.get('markdown_file')
+            if markdown_path:
+                # Read markdown file and convert to HTML for email
+                with open(markdown_path, 'r', encoding='utf-8') as f:
+                    markdown_content = f.read()
+                # Simple HTML conversion (basic)
+                html_content = f"<html><body><pre>{markdown_content}</pre></body></html>"
+                send_daily_report(html_content)
             else:
-                # Print summary of top 3 highest volume contracts
-                print("📊 CME Data Summary")
-                print("=" * 50)
-                
-                # Sort by volume (descending) and get top 3
-                if 'volume' in df.columns:
-                    top_volume = df.nlargest(3, 'volume')
-                    print("🔥 Top 3 Highest Volume Contracts:")
-                    print()
-                    
-                    for i, (_, row) in enumerate(top_volume.iterrows(), 1):
-                        symbol = row.get('symbol', 'N/A')
-                        volume = row.get('volume', 0)
-                        last_price = row.get('last_price', 0)
-                        change = row.get('change', 0)
-                        open_interest = row.get('open_interest', 0)
-                        
-                        # Handle None values in change comparison
-                        change_val = change if change is not None else 0
-                        change_symbol = "📈" if change_val > 0 else "📉" if change_val < 0 else "➡️"
-                        
-                        print(f"#{i} {symbol}")
-                        print(f"   💰 Last Price: ${last_price:,.2f}")
-                        print(f"   {change_symbol} Change: {change_val:+.2f}")
-                        print(f"   📊 Volume: {volume:,}")
-                        print(f"   🏗️ Open Interest: {open_interest:,}")
-                        print()
-                else:
-                    print("⚠️ Volume data not available for ranking")
-                    print("📋 All Contracts:")
-                    for _, row in df.iterrows():
-                        symbol = row.get('symbol', 'N/A')
-                        last_price = row.get('last_price', 0)
-                        change = row.get('change', 0)
-                        # Handle None values in change comparison
-                        change_val = change if change is not None else 0
-                        change_symbol = "📈" if change_val > 0 else "📉" if change_val < 0 else "➡️"
-                        print(f"   {symbol}: ${last_price:,.2f} ({change_symbol}{change_val:+.2f})")
-                
-                print("=" * 50)
-                print(f"✅ CME data saved to output/cme_data_today.csv")
-                logger.info("✅ CME data scraping completed successfully")
-                
-        except Exception as e:
-            logger.error(f"❌ Failed to run CME data scraping: {str(e)}")
-            print(f"❌ Error: {str(e)}")
-    elif args.scheduler:
+                logger.error("❌ No markdown file found in result")
+    elif args.schedule:
+        from macrointel_automation.scheduler_jobs import run_scheduler
         run_scheduler()
+    elif args.cme:
+        from fetch_forex_cme import run_cme_forex_pipeline
+        run_cme_forex_pipeline()
+    elif args.swarm:
+        print(f"🤖 Running MacroIntel Swarm Pipeline with {args.model} model...")
+        macrointel = EnhancedMacroIntel()
+        success = macrointel.run_swarm_pipeline(model=args.model)
+        if success:
+            print("✅ Swarm pipeline completed successfully")
+        else:
+            print("❌ Swarm pipeline failed")
+    elif args.test:
+        from core.email_report import send_test_email
+        send_test_email()
     else:
-        # Default: run scheduler
-        run_scheduler()
+        print("❗ No valid arguments provided. Use --help to see available options.")
 
 if __name__ == "__main__":
     main() 

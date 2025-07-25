@@ -60,14 +60,14 @@ def test_individual_agents():
         print("\n📧 Testing Email Dispatcher Agent...")
         from email_dispatcher_agent import EmailDispatcherAgent
         dispatcher = EmailDispatcherAgent()
-        # Test with mock data
-        mock_input = {
+        # Test with empty data (no mock data)
+        test_input = {
             "news_summary": {"articles": []},
             "charts": {"charts_generated": []},
             "strategy_analysis": {"market_regime": "NEUTRAL", "selected_strategies": []},
             "market_data": {}
         }
-        result = dispatcher.run(mock_input)
+        result = dispatcher.run(test_input)
         print(f"✅ Email Dispatcher: {'Success' if result.get('email_sent', False) else 'Failed'}")
     except Exception as e:
         print(f"❌ Email Dispatcher failed: {str(e)}")

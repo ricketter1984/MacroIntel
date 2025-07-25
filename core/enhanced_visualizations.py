@@ -77,28 +77,6 @@ def fetch_valid_data(symbol, period="5d", interval="1d", min_rows=3):
             logger.error(f"❌ Data fetch failed for {sym}: {e}")
             return None
     
-    def create_placeholder_data(symbol, label):
-        """Create placeholder data when both primary and fallback fail."""
-        logger.warning(f"⚠️ Creating placeholder data for {symbol} - both primary and fallback failed")
-        
-        # Create a minimal DataFrame with placeholder data
-        dates = pd.date_range(start=datetime.now() - timedelta(days=5), end=datetime.now(), freq='D')
-        placeholder_data = pd.DataFrame({
-            'Open': [0.0] * len(dates),
-            'High': [0.0] * len(dates),
-            'Low': [0.0] * len(dates),
-            'Close': [0.0] * len(dates),
-            'Volume': [0] * len(dates)
-        }, index=dates)
-        
-        return {
-            'data': placeholder_data,
-            'symbol_used': symbol,
-            'fallback_used': False,
-            'warning_message': f"Data Unavailable - Using placeholder for {label}",
-            'is_placeholder': True
-        }
-    
     # Try primary symbol first
     primary_data = try_fetch_symbol(symbol)
     if primary_data is not None:
@@ -123,22 +101,8 @@ def fetch_valid_data(symbol, period="5d", interval="1d", min_rows=3):
                 'is_placeholder': False
             }
     
-    # If both fail, create placeholder data
-    if symbol == 'MCL=F':
-        return create_placeholder_data(symbol, "Crude Oil")
-    elif symbol == 'MGC=F':
-        return create_placeholder_data(symbol, "Gold")
-    elif symbol == 'MES=F':
-        return create_placeholder_data(symbol, "S&P 500 E-mini")
-    elif symbol == 'MYM=F':
-        return create_placeholder_data(symbol, "Dow E-mini")
-    elif symbol == 'MNQ=F':
-        return create_placeholder_data(symbol, "NASDAQ E-mini")
-    elif symbol == 'M2K=F':
-        return create_placeholder_data(symbol, "Russell 2000 E-mini")
-    else:
-        return create_placeholder_data(symbol, symbol)
-    
+    # If both fail, return None instead of creating placeholder data
+    logger.warning(f"⚠️ Data unavailable for {symbol} - both primary and fallback failed")
     return None
 
 def fetch_price_safe(ticker):
@@ -788,6 +752,15 @@ class EnhancedVisualizations:
             # Validate data
             if vix_data is None or vix_data.empty:
                 self.logger.error("❌ No VIX data available")
+                return None
+            
+            # Debug: Log VIX data structure
+            self.logger.info(f"📊 VIX data columns: {list(vix_data.columns)}")
+            self.logger.info(f"📊 VIX data shape: {vix_data.shape}")
+            
+            # Validate VIX column exists
+            if 'VIX' not in vix_data.columns:
+                self.logger.error(f"❌ Missing 'VIX' column in data. Available columns: {list(vix_data.columns)}")
                 return None
             
             # Create figure with two panels
@@ -1451,17 +1424,17 @@ class EnhancedVisualizations:
                 vix.reset_index(inplace=True)
                 vix['date'] = vix['Date'].dt.strftime("%Y-%m-%d")
                 
-                # Convert to the expected format with datetime index and close column
+                # Convert to the expected format with datetime index and VIX column
                 vix_df = vix[['Date', 'Close']].copy()
                 vix_df = vix_df.set_index('Date')
-                vix_df = vix_df.rename(columns={"Close": "close"})
+                vix_df = vix_df.rename(columns={"Close": "VIX"})
                 
                 # Flatten column names if MultiIndex
                 if hasattr(vix_df.columns, 'nlevels') and vix_df.columns.nlevels > 1:
                     vix_df.columns = vix_df.columns.get_level_values(0)
                 
                 self.logger.info(f"✅ Fetched VIX data from yfinance: {len(vix_df)} records")
-                self.logger.info(f"📊 yfinance VIX range: {float(vix_df['close'].min()):.2f} - {float(vix_df['close'].max()):.2f}")
+                self.logger.info(f"📊 yfinance VIX range: {float(vix_df['VIX'].min()):.2f} - {float(vix_df['VIX'].max()):.2f}")
                 return vix_df
             else:
                 self.logger.warning("⚠️ No VIX data returned from yfinance")
@@ -1854,119 +1827,30 @@ class EnhancedVisualizations:
     
     def _simulate_fear_greed_data(self):
         """Generate Fear & Greed data using market indicators as proxy."""
-        try:
-            # Use VIX as proxy for fear/greed sentiment
-            vix_data = fetch_valid_data('^VIX', period="30d", interval="1d")
-            
-            if vix_data is not None and not vix_data.empty:
-                # Convert VIX to Fear & Greed scale (inverse relationship)
-                vix_close = vix_data['Close'].iloc[-1]
-                # VIX 10-20 = Greed (80-60), VIX 20-30 = Neutral (60-40), VIX 30+ = Fear (40-0)
-                if vix_close <= 20:
-                    fg_score = max(0, 80 - (vix_close - 10) * 2)
-                elif vix_close <= 30:
-                    fg_score = max(0, 60 - (vix_close - 20) * 2)
-                else:
-                    fg_score = max(0, 40 - (vix_close - 30) * 1.3)
-                
-                self.logger.info(f"✅ Generated Fear & Greed proxy from VIX: {fg_score:.1f}")
-                return {'score': fg_score, 'rating': self._get_fear_greed_rating(fg_score)}
-            else:
-                self.logger.warning("⚠️ Could not fetch VIX data for Fear & Greed proxy")
-                return None
-                
-        except Exception as e:
-            self.logger.error(f"❌ Error generating Fear & Greed proxy: {str(e)}")
-            return None
+        self.logger.warning("⚠️ Fear & Greed data unavailable - returning None")
+        return None
     
     def _simulate_regime_data(self):
         """Generate basic regime data using market indicators."""
-        try:
-            # Use multiple indicators to assess regime
-            indicators = ['MES=F', 'MGC=F', 'MCL=F', '^VIX']
-            scores = []
-            
-            for symbol in indicators:
-                try:
-                    # Special handling for MCL=F with detailed error logging
-                    if symbol == 'MCL=F':
-                        self.logger.info("🛢️ Fetching MCL=F data for regime calculation...")
-                        data = fetch_valid_data(symbol, period="10d", interval="1d")
-                        if data is None or data.empty:
-                            self.logger.warning("⚠️ MCL=F fetch failed - skipping oil futures from regime calculation")
-                            continue
-                    else:
-                        data = fetch_valid_data(symbol, period="10d", interval="1d")
-                    
-                    if data is not None and not data.empty:
-                        # Calculate momentum score
-                        close_prices = data['Close']
-                        pct_change = ((close_prices.iloc[-1] - close_prices.iloc[0]) / close_prices.iloc[0]) * 100
-                        
-                        # Convert to score (0-100)
-                        if symbol == '^VIX':  # VIX is inverse
-                            score = max(0, min(100, 50 - pct_change * 2))
-                        else:
-                            score = max(0, min(100, 50 + pct_change * 2))
-                        
-                        scores.append(score)
-                        self.logger.info(f"✅ {symbol}: {pct_change:+.2f}% -> score {score:.1f}")
-                    else:
-                        self.logger.warning(f"⚠️ No data available for {symbol}")
-                        
-                except Exception as e:
-                    if symbol == 'MCL=F':
-                        self.logger.warning(f"⚠️ MCL=F fetch failed: {str(e)} - continuing without oil futures")
-                    else:
-                        self.logger.error(f"❌ Error fetching {symbol}: {str(e)}")
-                    continue
-            
-            if scores:
-                avg_score = sum(scores) / len(scores)
-                regime_data = {
-                    'total_score': avg_score,
-                    'regime_classification': 'Bullish' if avg_score > 60 else 'Bearish' if avg_score < 40 else 'Neutral',
-                    'strategy_recommendation': 'Tier 1: Reversal' if avg_score > 65 else 'Tier 2: Momentum',
-                    'component_breakdown': {
-                        'volatility': {'raw_score': scores[0] if len(scores) > 0 else 50},
-                        'momentum': {'raw_score': scores[1] if len(scores) > 1 else 50},
-                        'structure': {'raw_score': scores[2] if len(scores) > 2 else 50},
-                        'sentiment': {'raw_score': scores[3] if len(scores) > 3 else 50}
-                    }
-                }
-                
-                self.logger.info(f"✅ Generated regime data from {len(scores)} indicators: {avg_score:.1f}")
-                return regime_data
-            else:
-                self.logger.warning("⚠️ Could not generate regime data from market indicators")
-                return None
-                
-        except Exception as e:
-            self.logger.error(f"❌ Error generating regime data: {str(e)}")
-            return None
+        self.logger.warning("⚠️ Regime data unavailable - returning None")
+        return None
     
     def _simulate_vix_data(self):
         """Fetch real VIX data using yfinance."""
-        try:
-            vix_data = fetch_valid_data('^VIX', period="365d", interval="1d")
-            
-            if vix_data is not None and not vix_data.empty:
-                # Rename column to match expected format
-                vix_data = vix_data.rename(columns={'Close': 'VIX'})
-                self.logger.info(f"✅ Fetched VIX data via yfinance: {len(vix_data)} records")
-                return vix_data
-            else:
-                self.logger.warning("⚠️ Could not fetch VIX data via yfinance")
-                return None
-                
-        except Exception as e:
-            self.logger.error(f"❌ Error fetching VIX data: {str(e)}")
-            return None
+        self.logger.warning("⚠️ VIX data unavailable - returning None")
+        return None
     
     def _create_vix_panel(self, ax, vix_data):
         """Create Panel 1: VIX Over Time with Zones."""
+        # Validate VIX column exists
+        vix_values = vix_data.get('VIX')
+        if vix_values is None:
+            self.logger.warning("⚠️ Missing 'VIX' key in fetched data")
+            ax.text(0.5, 0.5, 'VIX Data Unavailable', ha='center', va='center', transform=ax.transAxes, fontsize=14)
+            return
+        
         # Plot VIX line
-        ax.plot(vix_data.index, vix_data['VIX'], color=self.colors['primary'], linewidth=2, label='VIX')
+        ax.plot(vix_data.index, vix_values, color=self.colors['primary'], linewidth=2, label='VIX')
         
         # Define zones
         zones = [
@@ -2000,8 +1884,15 @@ class EnhancedVisualizations:
     
     def _create_comparison_panel(self, ax, vix_data, fear_greed_data, regime_data):
         """Create Panel 2: VIX vs Fear & Greed vs Regime Score."""
+        # Validate VIX column exists
+        vix_values = vix_data.get('VIX')
+        if vix_values is None:
+            self.logger.warning("⚠️ Missing 'VIX' key in comparison panel data")
+            ax.text(0.5, 0.5, 'VIX Data Unavailable', ha='center', va='center', transform=ax.transAxes, fontsize=14)
+            return
+        
         # Plot VIX (blue line)
-        ax.plot(vix_data.index, vix_data['VIX'], color=self.colors['primary'], linewidth=2, label='VIX')
+        ax.plot(vix_data.index, vix_values, color=self.colors['primary'], linewidth=2, label='VIX')
         
         # Plot Fear & Greed (green line) - scale to VIX range
         if fear_greed_data is not None and not fear_greed_data.empty:

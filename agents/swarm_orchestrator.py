@@ -13,7 +13,7 @@ import logging
 import schedule
 import time
 from datetime import datetime
-from typing import Dict, Any
+from typing import Dict, Any, List
 from dotenv import load_dotenv
 
 # Load environment variables from config/.env
@@ -27,6 +27,7 @@ from chart_generator_agent import ChartGeneratorAgent
 from playbook_strategist_agent import PlaybookStrategistAgent
 from email_dispatcher_agent import EmailDispatcherAgent
 from perplexity_macro_agent import PerplexityMacroAgent
+from core.ai_clients import MistralClient
 
 # Create logs directory first
 os.makedirs("logs", exist_ok=True)
@@ -45,9 +46,14 @@ logger = logging.getLogger(__name__)
 class MacroIntelSwarm:
     """Main orchestrator for the MacroIntel agent swarm - replaces daily_intel_engine.py."""
     
-    def __init__(self, debug_mode: bool = False):
+    def __init__(self, debug_mode: bool = False, model: str = "claude"):
         """Initialize the swarm with all agents."""
         self.debug_mode = debug_mode
+        self.model = model
+        
+        # Initialize AI clients based on model selection
+        self.ai_clients = self._initialize_ai_clients()
+        
         self.agents = {
             "summarizer": SummarizerAgent(),
             "chart_generator": ChartGeneratorAgent(),
@@ -57,9 +63,64 @@ class MacroIntelSwarm:
         }
         os.makedirs("logs", exist_ok=True)
         os.makedirs("output", exist_ok=True)
-        logger.info("🤖 MacroIntel Swarm initialized - New Default Execution Engine")
+        logger.info(f"🤖 MacroIntel Swarm initialized with {self.model} model - New Default Execution Engine")
         if self.debug_mode:
-            print("🔍 DEBUG MODE ENABLED - Enhanced diagnostic output active")
+            print(f"🔍 DEBUG MODE ENABLED - Enhanced diagnostic output active")
+            print(f"🔍 AI Model selected: {self.model}")
+    
+    def _initialize_ai_clients(self):
+        """Initialize AI clients based on model selection."""
+        clients = {}
+        
+        if self.model == "mistral":
+            clients["summarizer"] = MistralClient()
+            logger.info("🤖 Initialized MistralClient for summarization")
+        elif self.model == "claude":
+            # TODO: Add ClaudeClient when available
+            logger.info("🤖 Claude model selected (not yet implemented)")
+        elif self.model == "perplexity":
+            # TODO: Add PerplexityClient when available
+            logger.info("🤖 Perplexity model selected (not yet implemented)")
+        else:
+            logger.warning(f"⚠️ Unknown model '{self.model}', defaulting to Claude")
+            self.model = "claude"
+        
+        return clients
+    
+    def use_ai_client_for_summarization(self, articles: List[Dict[str, Any]]) -> str:
+        """
+        Use the selected AI client to summarize articles.
+        
+        Args:
+            articles: List of articles to summarize
+            
+        Returns:
+            Summarized content from the AI client
+        """
+        if "summarizer" not in self.ai_clients:
+            logger.warning("⚠️ No AI client available for summarization, using default")
+            return "Default summarization (no AI client available)"
+        
+        try:
+            # Prepare messages for the AI client
+            messages = [
+                {"role": "system", "content": "You are a financial news summarizer. Provide concise, insightful summaries of market-relevant news articles."},
+                {"role": "user", "content": f"Please summarize these {len(articles)} financial news articles:\n\n" + "\n\n".join([f"Title: {a.get('title', 'No title')}\nSummary: {a.get('summary', 'No summary')}" for a in articles[:10]])}
+            ]
+            
+            # Use the selected AI client
+            ai_client = self.ai_clients["summarizer"]
+            if hasattr(ai_client, 'summarize'):
+                summary = ai_client.summarize(messages)
+                logger.info(f"🤖 Generated summary using {self.model} model")
+                return summary
+            else:
+                logger.warning(f"⚠️ AI client {self.model} doesn't have summarize method")
+                return "AI summarization not available"
+                
+        except Exception as e:
+            logger.error(f"❌ Error using AI client for summarization: {str(e)}")
+            return f"Error in AI summarization: {str(e)}"
     
     def extract_dominant_keywords(self, summarizer_result: Dict[str, Any]) -> list:
         """Extract dominant keywords from Perplexity summaries and tags."""
@@ -149,7 +210,6 @@ class MacroIntelSwarm:
         try:
             # Step 1: Summarizer Agent - News Collection & Summarization (includes Perplexity)
             logger.info("📰 Executing Summarizer Agent...")
-            summarizer_input = {"debug_mode": self.debug_mode} if self.debug_mode else None
             summarizer_result = self.agents["summarizer"].run()
             logger.info(f"✅ Summarizer completed: {summarizer_result.get('total_count', 0)} articles from {summarizer_result.get('sources_processed', [])}")
             
@@ -165,6 +225,20 @@ class MacroIntelSwarm:
             # 🔍 Extract dominant keywords from Perplexity summaries
             logger.info("🔍 Extracting dominant keywords from Perplexity summaries...")
             dominant_keywords = self.extract_dominant_keywords(summarizer_result)
+            
+            # Use AI client for additional summarization if available
+            if "summarizer" in self.ai_clients:
+                logger.info(f"🤖 Using {self.model} AI client for enhanced summarization...")
+                articles = summarizer_result.get('articles', [])
+                ai_summary = self.use_ai_client_for_summarization(articles)
+                
+                # Add AI summary to the result
+                summarizer_result['ai_summary'] = ai_summary
+                summarizer_result['ai_model_used'] = self.model
+                
+                if self.debug_mode:
+                    print(f"🔍 DEBUG: AI summary generated using {self.model}")
+                    print(f"🔍 DEBUG: AI summary length: {len(ai_summary)} characters")
             
             # Step 2: Playbook Strategist Agent - Market Analysis & Strategy Selection
             logger.info("📘 Executing Playbook Strategist Agent...")
@@ -284,13 +358,17 @@ class MacroIntelSwarm:
             if self.debug_mode:
                 print(f"🔍 DEBUG: Total execution time: {execution_duration}")
                 print(f"🔍 DEBUG: Final summary:")
-                print(f"   - Articles processed: {results['summary']['articles_processed']}")
-                print(f"   - Charts generated: {results['summary']['charts_generated']}")
-                print(f"   - Market regime: {results['summary']['market_regime']}")
-                print(f"   - Strategies selected: {results['summary']['strategies_selected']}")
-                print(f"   - Email sent: {results['summary']['email_sent']}")
-                print(f"   - Recipients: {results['summary']['recipients_count']}")
-                print(f"   - Dominant keywords: {results['summary']['dominant_keywords']}")
+                summary = results.get('summary', {})
+                if isinstance(summary, dict):
+                    print(f"   - Articles processed: {summary.get('articles_processed', 0)}")
+                    print(f"   - Charts generated: {summary.get('charts_generated', 0)}")
+                    print(f"   - Market regime: {summary.get('market_regime', 'Unknown')}")
+                    print(f"   - Strategies selected: {summary.get('strategies_selected', 0)}")
+                    print(f"   - Email sent: {summary.get('email_sent', False)}")
+                    print(f"   - Recipients: {summary.get('recipients_count', 0)}")
+                    print(f"   - Dominant keywords: {summary.get('dominant_keywords', [])}")
+                else:
+                    print(f"   - Summary data: {summary}")
             
             # Save execution log
             self._save_execution_log(results)
@@ -353,6 +431,8 @@ def main():
     parser.add_argument('--schedule', action='store_true', help='Run in scheduled mode (daily at 7:15 AM)')
     parser.add_argument('--now', action='store_true', help='Execute immediately')
     parser.add_argument('--debug', action='store_true', help='Enable debug mode with enhanced diagnostic output')
+    parser.add_argument('--model', choices=['mistral', 'claude', 'perplexity'], default='claude', 
+                       help='AI model to use for summarization (default: claude)')
     args = parser.parse_args()
     
     if args.schedule:
@@ -360,7 +440,7 @@ def main():
         schedule_daily_run()
     elif args.now:
         logger.info("⚡ Executing MacroIntel Swarm immediately...")
-        swarm = MacroIntelSwarm(debug_mode=args.debug)
+        swarm = MacroIntelSwarm(debug_mode=args.debug, model=args.model)
         results = swarm.execute_swarm()
         
         # Print summary
@@ -369,6 +449,7 @@ def main():
             print("\n" + "="*60)
             print("🤖 MACROINTEL SWARM EXECUTION SUMMARY")
             print("="*60)
+            print(f"🤖 AI Model Used: {args.model.upper()}")
             print(f"📊 Articles Processed: {summary.get('articles_processed', 0)}")
             print(f"📈 Charts Generated: {summary.get('charts_generated', 0)}")
             print(f"📘 Market Regime: {summary.get('market_regime', 'Unknown')}")
@@ -386,7 +467,7 @@ def main():
     else:
         # Default: execute immediately
         logger.info("⚡ Executing MacroIntel Swarm immediately...")
-        swarm = MacroIntelSwarm(debug_mode=args.debug)
+        swarm = MacroIntelSwarm(debug_mode=args.debug, model=args.model)
         results = swarm.execute_swarm()
         return results
 

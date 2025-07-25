@@ -21,6 +21,7 @@ load_dotenv(dotenv_path="config/.env")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from utils.api_clients import strip_emojis
+from core.ai_clients import MistralClient
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -49,6 +50,12 @@ class TickerNewsAgent:
         
         self.perplexity_base_url = "https://api.perplexity.ai"
         self.perplexity_chat_endpoint = "https://api.perplexity.ai/chat/completions"
+        
+        # Initialize AI client as None (will be set when needed)
+        self.ai_client: Any = None
+        
+        # Initialize AI client based on model selection
+        self._initialize_ai_client()
         
         # Sector mapping for common tickers
         self.sector_mapping = {
@@ -122,6 +129,27 @@ class TickerNewsAgent:
             logger.warning("⚠️ Quiver requested but module not available")
         else:
             logger.info("🏛️ Quiver congressional trading data disabled")
+    
+    def _initialize_ai_client(self, model: str = "claude"):
+        """Initialize AI client based on model selection."""
+        try:
+            if model == "mistral":
+                self.ai_client = MistralClient()
+                logger.info("🤖 Initialized MistralClient for analysis")
+            elif model == "claude":
+                # TODO: Add ClaudeClient when available
+                logger.info("🤖 Claude model selected (not yet implemented)")
+                self.ai_client = None
+            elif model == "perplexity":
+                # Use existing Perplexity API integration
+                logger.info("🤖 Using existing Perplexity API integration")
+                self.ai_client = None  # Perplexity is handled separately
+            else:
+                logger.warning(f"⚠️ Unknown model '{model}', defaulting to Claude")
+                self.ai_client = None
+        except Exception as e:
+            logger.error(f"❌ Error initializing AI client for {model}: {str(e)}")
+            self.ai_client = None
     
     def _make_perplexity_api_request(self, query: str) -> Optional[Dict[str, Any]]:
         """
@@ -354,7 +382,7 @@ class TickerNewsAgent:
         
         return f"{chamber_prefix} {politician} {action} {amount_str}"
     
-    def _analyze_article(self, title: str, url: str, summary: str = "") -> Dict[str, Any]:
+    def _analyze_article(self, title: str, url: str, summary: str = "", summarizer=None) -> Dict[str, Any]:
         """
         Analyze a single article for summary, sector, and impact.
         
@@ -362,24 +390,53 @@ class TickerNewsAgent:
             title: Article title
             url: Article URL
             summary: Article summary (if available)
+            summarizer: AI summarizer client to use for analysis
             
         Returns:
             Dictionary with analysis results
         """
         content = f"Title: {title}\nURL: {url}\nSummary: {summary}"
         
-        # Get summary using fallback analysis
-        article_summary = self._make_fallback_analysis(content, "summarize")
+        # Use AI summarizer if available
+        if summarizer and hasattr(summarizer, 'summarize'):
+            try:
+                messages = [
+                    {"role": "system", "content": "You are a financial news analyst. Analyze the given article and provide: 1) A concise summary, 2) The sector/industry, 3) Market impact (Bullish/Bearish/Neutral). Return as JSON: {\"summary\": \"...\", \"sector\": \"...\", \"impact\": \"...\"}"},
+                    {"role": "user", "content": f"Analyze this article: {content}"}
+                ]
+                ai_response = summarizer.summarize(messages)
+                
+                # Try to parse JSON response
+                try:
+                    import json
+                    analysis = json.loads(ai_response)
+                    article_summary = analysis.get('summary', summary if summary else "Summary not available")
+                    sector = analysis.get('sector', 'Unknown')
+                    impact = analysis.get('impact', 'Neutral')
+                except json.JSONDecodeError:
+                    # Fallback if JSON parsing fails
+                    article_summary = ai_response[:200] + "..." if len(ai_response) > 200 else ai_response
+                    sector = "Unknown"
+                    impact = "Neutral"
+                    
+            except Exception as e:
+                logger.warning(f"⚠️ AI summarizer failed: {str(e)}, using fallback")
+                article_summary = self._make_fallback_analysis(content, "summarize")
+                sector = self._make_fallback_analysis(content, "sector")
+                impact = self._make_fallback_analysis(content, "impact")
+        else:
+            # Use fallback analysis
+            article_summary = self._make_fallback_analysis(content, "summarize")
+            sector = self._make_fallback_analysis(content, "sector")
+            impact = self._make_fallback_analysis(content, "impact")
+        
+        # Ensure we have valid values
         if not article_summary:
             article_summary = summary if summary else "Summary not available"
         
-        # Get sector using fallback analysis
-        sector = self._make_fallback_analysis(content, "sector")
         if not sector or sector.lower() == "unknown":
             sector = "Unknown"
         
-        # Get impact using fallback analysis
-        impact = self._make_fallback_analysis(content, "impact")
         if not impact or impact not in ["Bullish", "Bearish", "Neutral"]:
             impact = "Neutral"
         
@@ -391,12 +448,13 @@ class TickerNewsAgent:
             "impact": impact
         }
     
-    def fetch_ticker_news(self, ticker: str) -> List[Dict[str, Any]]:
+    def fetch_ticker_news(self, ticker: str, summarizer=None) -> List[Dict[str, Any]]:
         """
         Fetch news for a specific ticker.
         
         Args:
             ticker: Stock ticker symbol
+            summarizer: AI summarizer client to use for analysis
             
         Returns:
             List of news articles with analysis
@@ -433,7 +491,7 @@ class TickerNewsAgent:
                     summary = article.get('summary', '')
                     
                     if title and url:
-                        analyzed = self._analyze_article(title, url, summary)
+                        analyzed = self._analyze_article(title, url, summary, summarizer)
                         
                         # Add congressional trading data to the article
                         if congressional_trades:
@@ -464,12 +522,13 @@ class TickerNewsAgent:
             logger.error(f"❌ Error fetching news for {ticker}: {str(e)}")
             return []
     
-    def process_tickers(self, tickers: List[str]) -> Dict[str, Any]:
+    def process_tickers(self, tickers: List[str], summarizer=None) -> Dict[str, Any]:
         """
         Process multiple tickers and generate comprehensive results.
         
         Args:
             tickers: List of ticker symbols
+            summarizer: AI summarizer client to use for analysis
             
         Returns:
             Dictionary with results for all tickers
@@ -481,7 +540,7 @@ class TickerNewsAgent:
         
         for ticker in tickers:
             ticker_upper = ticker.upper()
-            articles = self.fetch_ticker_news(ticker_upper)
+            articles = self.fetch_ticker_news(ticker_upper, summarizer)
             
             if articles:
                 all_results[ticker_upper] = {
@@ -557,13 +616,14 @@ class TickerNewsAgent:
             logger.error(f"❌ Error saving markdown report: {str(e)}")
             return ""
     
-    def run(self, tickers: List[str] = None, include_quiver: bool = None) -> Dict[str, Any]:
+    def run(self, tickers: List[str] = None, include_quiver: bool = None, model: str = "claude") -> Dict[str, Any]:
         """
         Main execution method for the TickerNewsAgent.
         
         Args:
             tickers: List of ticker symbols to process
             include_quiver: Whether to include congressional trading data (overrides instance setting)
+            model: AI model to use for analysis (claude, perplexity, mistral)
             
         Returns:
             Dictionary with execution results
@@ -581,11 +641,28 @@ class TickerNewsAgent:
             elif self.include_quiver and not QUIVER_AVAILABLE:
                 logger.warning("⚠️ Quiver requested but module not available")
         
+        # Initialize summarizer based on model selection
+        if model == "mistral":
+            from core.ai_clients import MistralClient
+            summarizer = MistralClient()
+            logger.info("🤖 Using MistralClient for summarization")
+        elif model == "perplexity":
+            # Use existing Perplexity API integration
+            summarizer = None  # Will use existing _make_perplexity_api_request method
+            logger.info("🤖 Using existing Perplexity API integration")
+        elif model == "claude":
+            # TODO: Add ClaudeClient when available
+            summarizer = None
+            logger.info("🤖 ClaudeClient not yet implemented, using fallback")
+        else:
+            logger.warning(f"⚠️ Unknown model '{model}', falling back to Perplexity.")
+            summarizer = None  # Will use existing Perplexity API integration
+        
         try:
             logger.info("🚀 Starting TickerNewsAgent...")
             
             # Process tickers
-            results = self.process_tickers(tickers)
+            results = self.process_tickers(tickers, summarizer)
             
             # Save markdown report
             markdown_file = self.save_markdown_report(results)

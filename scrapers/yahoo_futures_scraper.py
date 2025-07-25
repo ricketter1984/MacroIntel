@@ -81,15 +81,8 @@ class YahooFuturesFetcher:
                 
             except Exception as e:
                 logger.error(f"❌ Error fetching {ticker_symbol}: {str(e)}")
-                # Add placeholder data for failed ticker
-                futures_data.append({
-                    "symbol": ticker_symbol,
-                    "name": f"Error fetching {ticker_symbol}",
-                    "last_price": "",
-                    "change": "",
-                    "percent_change": "",
-                    "volume": ""
-                })
+                # Skip failed ticker instead of adding placeholder data
+                logger.warning(f"⚠️ Skipping {ticker_symbol} - data unavailable")
         
         logger.info(f"✅ Successfully fetched data for {len(futures_data)} futures contracts")
         return futures_data
